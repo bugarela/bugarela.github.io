@@ -148,7 +148,13 @@ Os estudantes terão, igualmente, a oportunidade de fazer uma avaliação do des
 #+print_bibliography: :notkeyword main
 
 * Recursos
+*** Recursos
 1. Aulas em HTML no meu site: [[https://bugarela.com/mfo/][bugarela.com/mfo]]
    - Todo o conteúdo dos slides
 2. Toda a bibliografia tem disponível online gratuitamente
-3. Pesquisa de opinão: querem usar o moodle?
+3. Páginas web relevantes
+   - TLA+: [[https://lamport.azurewebsites.net/tla/tla.html]]
+   - Quint: [[https://github.com/informalsystems/quint]]
+4. Pesquisa de opinão: querem usar o moodle?
+
+#+beamer: \end{frame} \maketitle
