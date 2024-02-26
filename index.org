@@ -1,0 +1,38 @@
+#+title: About me
+#+date: <2024-02-24 Sat>
+#+image: images/me.jpg
+
+I'm Gabriela, and I work with *programming languages* and *formal
+methods*.
+
+My *main project* right now is [[https://github.com/informalsystems/quint/][Quint]] ✨, a specification
+language based on TLA+, on which I get to work full-time as a research
+engineer at [[https://github.com/informalsystems/][Informal Systems]] 👩‍💻.
+
+I hold a *master's degree* 🎓, and both my [[https://github.com/bugarela/bachelor-thesis][bachelor's thesis]] (Portuguese) and my
+[[https://github.com/bugarela/masters-dissertation][master's thesis]] (English) are about TLA+ tools, compiled in a project called [[https://github.com/bugarela/tla-transmutation][TLA
+Transmutation]], with prototypes that generate Elixir code and tests from TLA+
+specifications.
+
+#+begin_quote
+PS: I have no intention of continuing this development since
+Quint has a great execution environment that meets most of the criteria I had
+for this project, and it's much more viable with a team working on it.
+#+end_quote
+
+Aside from TLA+, I have a background in *static analysis*, which
+constitutes most of my daily work right now. My very first paper was in
+*type systems*: [[https://dl.acm.org/doi/10.1145/3264637.3264644][Type inference for GADTs, OutsideIn and anti-unification]]. You can check my
+Haskell implementation of some type inference algorithms:
+- [[https://github.com/bugarela/tipos][Hindley-Milner]]
+- [[https://github.com/bugarela/OutsideIn][OutsideIn]]
+- [[https://github.com/bugarela/GADTInference][OutsideIn with anti-unification]]
+
+All of these are things that I'm very interested in and I continually get to
+share them with my friends at the *[[https://github.com/funcao][Função]] Research Group* 💜. For the first
+semester of 2024, I'll be teaching formal methods as a temporary lecturer at
+UDESC.
+
+I'm Brazillian 🇧🇷, I love it here, and you can find me on our beaches
+from December to February (yes, that's summer ☀️). I'm also a
+competitive dancer 💃, cat owner 🐈, and casual gamer 🎮.
