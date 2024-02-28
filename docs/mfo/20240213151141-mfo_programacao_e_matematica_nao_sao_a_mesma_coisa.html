@@ -11,6 +11,10 @@
   <meta property="og:type" content="article" />
   <meta property="og:description" content="Personal homepage exported with org-thtml" />
   
+    <meta property="og:image" content="http://nowhere.org/mfo/figures/pioneer-plaque.png" />
+    <meta property="og:image:width" content="3995" />
+    <meta property="og:image:height" content="3166" />
+  
   
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@bugarela">
@@ -52,7 +56,8 @@
 
       <div class="content pure-u-1 pure-u-md-2-3">
         <h2>Programação e matemática não são a mesma coisa</h2>
-        <div id="table-of-contents" role="doc-toc">
+        <a href="https://bugarela.com/mfo/slides/20240213151141-mfo_programacao_e_matematica_nao_sao_a_mesma_coisa.pdf">Slides</a>
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
@@ -65,12 +70,11 @@
 <li><a href="#org4aceb4a">2. Correspondências interessantes</a>
 <ul>
 <li><a href="#org3890987">2.1. Correspondências interessantes - está tudo interligado!</a></li>
-<li><a href="#orge5785af">2.2. Isomorfismo de Curry-Howard</a></li>
-<li><a href="#org571aafa">2.3. Isomorfismo de Curry-Howard (Continuação)</a></li>
+<li><a href="#orga37c2f5">2.2. Linguagem universal</a></li>
+<li><a href="#orge5785af">2.3. Isomorfismo de Curry-Howard</a></li>
 <li><a href="#orgfe5d0d1">2.4. Interpretação algébrica para tipos</a></li>
-<li><a href="#org05cc5a3">2.5. Exponenciação como tipos de funções</a></li>
-<li><a href="#orgc5bfc6a">2.6. Exponenciação como tipos de funções (Continuação)</a></li>
-<li><a href="#orgaf6d90d">2.7. Funções parciais</a></li>
+<li><a href="#org06792fe">2.5. Exponenciação como tipos de funções I</a></li>
+<li><a href="#orgaf6d90d">2.6. Funções parciais</a></li>
 </ul>
 </li>
 <li><a href="#orgc606696">3. Diferenças importantes</a>
@@ -149,14 +153,26 @@ Para isso, primeiro precisamos entender as semelhanças e diferenças<br />
 <li>Turing criando as máquinas de Turing<br /></li>
 <li>São equivalentes!<br /></li>
 </ul></li>
-
-<li>[citar wadler] E se mandássemos cálculo lambda para os aliens? Seriam eles capazes de compreender?<br /></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge5785af" class="outline-3">
-<h3 id="orge5785af"><span class="section-number-3">2.2.</span> Isomorfismo de Curry-Howard</h3>
+<div id="outline-container-orga37c2f5" class="outline-3">
+<h3 id="orga37c2f5"><span class="section-number-3">2.2.</span> Linguagem universal</h3>
 <div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>(<a href="#citeproc_bib_item_3">WADLER, 2015</a>) E se mandássemos cálculo lambda para os alienígenas? Seriam eles capazes de compreender?<br /></li>
+</ul>
+
+
+<div id="orgbfd64de" class="figure">
+<p><img src="./figures/pioneer-plaque.png" alt="pioneer-plaque.png" width="600px" /><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge5785af" class="outline-3">
+<h3 id="orge5785af"><span class="section-number-3">2.3.</span> Isomorfismo de Curry-Howard</h3>
+<div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>Proposições como tipos<br /></li>
 <li>Provas como programas<br /></li>
@@ -204,11 +220,8 @@ Para isso, primeiro precisamos entender as semelhanças e diferenças<br />
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div id="outline-container-org571aafa" class="outline-3">
-<h3 id="org571aafa"><span class="section-number-3">2.3.</span> Isomorfismo de Curry-Howard (Continuação)</h3>
-<div class="outline-text-3" id="text-2-3">
+
+
 <p>
 Exemplo: implicação e abstração + aplicação<br />
 </p>
@@ -249,7 +262,7 @@ Exemplo: implicação e abstração + aplicação<br />
 <h3 id="orgfe5d0d1"><span class="section-number-3">2.4.</span> Interpretação algébrica para tipos</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
-<li>A teoria das categorias define um nível ainda mais alto de abstração para enxergar algumas coisas. Um dos exemplos mais simples de uma categoria é a categoria dos conjuntos (e das funções entre eles).<br /></li>
+<li>A teoria das categorias define um nível ainda mais alto de abstração para enxergar algumas coisas. Um dos exemplos mais simples de uma categoria é a categoria dos conjuntos (e das funções entre eles) (<a href="#citeproc_bib_item_1">DE FRANÇA, 2019</a>).<br /></li>
 <li>As chamadas categorias cartesianas fechadas podem ser relacionadas a nossa álgebra de ensino médio<br />
 <ul class="org-ul">
 <li>A categoria dos tipos é uma delas!<br /></li>
@@ -307,8 +320,8 @@ Exemplo: implicação e abstração + aplicação<br />
 </table>
 </div>
 </div>
-<div id="outline-container-org05cc5a3" class="outline-3">
-<h3 id="org05cc5a3"><span class="section-number-3">2.5.</span> Exponenciação como tipos de funções</h3>
+<div id="outline-container-org06792fe" class="outline-3">
+<h3 id="org06792fe"><span class="section-number-3">2.5.</span> Exponenciação como tipos de funções I</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 Vamos escrever tipos função (<code>a -&gt; b</code>) como operações de exponenciação da álgebra:<br />
@@ -323,14 +336,9 @@ Vamos escrever tipos função (<code>a -&gt; b</code>) como operações de expon
 <ul class="org-ul">
 <li>Por exemplo, pra <code>a</code> sendo <code>bool</code>, temos <code>f x = false</code> e <code>f x = true</code><br /></li>
 </ul></li>
-<li>\(1^a = 1\) tem assinatura <code>a -&gt; ()</code>. Apenas uma função tem essa assinatura (<code>f x = ()</code>)<br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgc5bfc6a" class="outline-3">
-<h3 id="orgc5bfc6a"><span class="section-number-3">2.6.</span> Exponenciação como tipos de funções (Continuação)</h3>
-<div class="outline-text-3" id="text-2-6">
-<ul class="org-ul">
+<li><p>
+\(1^a = 1\) tem assinatura <code>a -&gt; ()</code>. Apenas uma função tem essa assinatura (<code>f x = ()</code>)<br />
+</p></li>
 <li><p>
 \(a^{b+c}\) tem assinatura <code>Either b c -&gt; a</code><br />
 </p>
@@ -354,10 +362,10 @@ Vamos escrever tipos função (<code>a -&gt; b</code>) como operações de expon
 </div>
 </div>
 <div id="outline-container-orgaf6d90d" class="outline-3">
-<h3 id="orgaf6d90d"><span class="section-number-3">2.7.</span> Funções parciais</h3>
-<div class="outline-text-3" id="text-2-7">
+<h3 id="orgaf6d90d"><span class="section-number-3">2.6.</span> Funções parciais</h3>
+<div class="outline-text-3" id="text-2-6">
 <p>
-Agora, um caso mais tangível pra voltarmos um pouco pra nossa realidade.<br />
+Agora, um caso mais tangível para voltarmos um pouco para a nossa realidade.<br />
 </p>
 <ul class="org-ul">
 <li>Na matemática, funções podem ser totais ou parciais<br />
@@ -402,7 +410,7 @@ Agora, um caso mais tangível pra voltarmos um pouco pra nossa realidade.<br />
 <h3 id="org04bd0ee"><span class="section-number-3">3.2.</span> Funções vs <code>Maps</code></h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
-Funções matemáticas podem ser programadas atráves de funções ou <code>Maps</code>. Pense nos exemplos<br />
+Funções matemáticas podem ser programadas através de funções ou <code>Maps</code> (<a href="#citeproc_bib_item_2">KONNOV, 2024</a>). Pense nos exemplos<br />
 </p>
 <ol class="org-ol">
 <li>Função de um número para seu dobro.<br /></li>
@@ -458,7 +466,7 @@ Numa especificação formal, se não há relevância no algoritmo de ordenação
 <li>Contudo, há diferenças nos níveis de abstração entre o que costumamos descrever em definições matemáticas e em programas.<br />
 <ul class="org-ul">
 <li>Em programas, nos importamos com memória e velocidade, o que normalmente não é representado na matemática.<br /></li>
-<li>Em programas, precisamos detalhar <b>como</b> cada função é implementatada, enquanto na matemática podemos somente definir funções pelas suas propriedades.<br />
+<li>Em programas, precisamos detalhar <b>como</b> cada função é implementada, enquanto na matemática podemos somente definir funções pelas suas propriedades.<br />
 <ul class="org-ul">
 <li>Inclusive, precisamos detalhar o que acontece em casos indefinidos pela matemática, como divisão por 0.<br /></li>
 </ul></li>
@@ -468,6 +476,13 @@ Numa especificação formal, se não há relevância no algoritmo de ordenação
 </div>
 <div id="outline-container-org57f6c4a" class="outline-3">
 <h3 id="org57f6c4a"><span class="section-number-3">3.5.</span> Referências</h3>
+<div class="outline-text-3" id="text-3-5">
+<div class="csl-bib-body">
+  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>DE FRANÇA, F. O. <b>Tipo função</b>. Disponível em: &#60;<a href="https://haskell.pesquisa.ufabc.edu.br/teoria-das-categorias/09-tipofuncao/">https://haskell.pesquisa.ufabc.edu.br/teoria-das-categorias/09-tipofuncao/</a>&#62;. </div>
+  <div class="csl-entry"><a id="citeproc_bib_item_2"></a>KONNOV, I. <b>You should not care about memory in protocol specifications</b>. Disponível em: &#60;<a href="https://konnov.github.io/protocols-made-fun/quint/2024/01/14/maps.html">https://konnov.github.io/protocols-made-fun/quint/2024/01/14/maps.html</a>&#62;. </div>
+  <div class="csl-entry"><a id="citeproc_bib_item_3"></a>WADLER, P. <a href="https://doi.org/10.1145/2699407">Propositions as types</a>. <b>Commun. acm</b>, v. 58, n. 12, p. 75–84, Nov. 2015. </div>
+</div>
+</div>
 </div>
 </div>
 

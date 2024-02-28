@@ -7,22 +7,26 @@
 #+DATE:      28 de fevereiro de 2024
 #+KEYWORDS:
 #+LANGUAGE:  en
-#+OPTIONS:   H:2 num:t toc:t \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+BEAMER_FRAME_LEVEL: 2
 #+startup: beamer
 #+LaTeX_CLASS: beamer
 #+LaTeX_CLASS_OPTIONS: [smaller]
 #+BEAMER_THEME: udesc
-#+BEAMER_HEADER: \input{header.tex}
+#+BEAMER_HEADER: \input{header.tex} \subtitle{Aula para disciplina de Métodos Formais} \institute{Departamento de Ciência da Computação - DCC\\Universidade do Estado de Santa Catarina - UDESC}
 #+LATEX_COMPILER: pdflatex
+#+bibliography: references.bib
+#+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
 
 #+begin_src elisp :exports none
 (setq org-ref-default-citation-link "citeauthor")
 #+end_src
 
-# https://www.math.ias.edu/avi/book - interações
-# https://www.dropbox.com/s/tefupavpa9ebbxb/Filosofia_da_Computa__o.pdf?e=1&dl=0 - slide 20
+#+HTML: <a href="https://bugarela.com/mfo/slides/20240213151141-mfo_programacao_e_matematica_nao_sao_a_mesma_coisa.pdf">Slides</a>
+#+beamer: \begin{frame}{Conteúdo}
+#+TOC: headlines 3
+#+beamer: \end{frame}
 
 * Introdução
 ** Essa aula não é sobre
@@ -60,9 +64,18 @@ Para isso, primeiro precisamos entender as semelhanças e diferenças
   - Turing criando as máquinas de Turing
   - São equivalentes!
 
-- [citar wadler] E se mandássemos cálculo lambda para os aliens? Seriam eles capazes de compreender?
+** Linguagem universal
+- [cite:@propositions-as-types] E se mandássemos cálculo lambda para os alienígenas? Seriam eles capazes de compreender?
+
+#+ATTR_HTML: :width 600px :center nil
+#+ATTR_LATEX: :width 0.6\textwidth
+ [[./figures/pioneer-plaque.png]]
+
 
 ** Isomorfismo de Curry-Howard
+:PROPERTIES:
+:BEAMER_opt: allowframebreaks=0.7,label=
+:END:
 - Proposições como tipos
 - Provas como programas
 - Simplificação de provas como avaliação de programas
@@ -76,8 +89,6 @@ Para isso, primeiro precisamos entender as semelhanças e diferenças
 | $a \implies b$ | =a -> b=     |
 
 
-** Isomorfismo de Curry-Howard (Continuação)
-
 Exemplo: implicação e abstração + aplicação
 #+ATTR_LATEX: :environment longtable :align c|c
 | Lógica                                                                                                                                             | Tipos                                                                                                                          |
@@ -87,7 +98,7 @@ Exemplo: implicação e abstração + aplicação
 | ${\displaystyle {\frac {\Gamma \vdash \alpha \rightarrow \beta \qquad \Gamma \vdash \alpha }{\Gamma \vdash \beta }}\rightarrow E} \rule{0pt}{8ex}$ | ${\displaystyle {\frac {\Gamma \vdash t:\alpha \rightarrow \beta \qquad \Gamma \vdash u:\alpha }{\Gamma \vdash t\;u:\beta }}}$ |
 
 ** Interpretação algébrica para tipos
-- A teoria das categorias define um nível ainda mais alto de abstração para enxergar algumas coisas. Um dos exemplos mais simples de uma categoria é a categoria dos conjuntos (e das funções entre eles).
+- A teoria das categorias define um nível ainda mais alto de abstração para enxergar algumas coisas. Um dos exemplos mais simples de uma categoria é a categoria dos conjuntos (e das funções entre eles) [cite:@ufabc-tipo-funcao].
 - As chamadas categorias cartesianas fechadas podem ser relacionadas a nossa álgebra de ensino médio
   - A categoria dos tipos é uma delas!
 
@@ -99,7 +110,7 @@ Exemplo: implicação e abstração + aplicação
 | $a \land b$    | =(a,b)=      | $a * b$ |
 | $a \implies b$ | =a -> b=     | $b^a$   |
 
-** Exponenciação como tipos de funções
+** Exponenciação como tipos de funções I
 # https://haskell.pesquisa.ufabc.edu.br/teoria-das-categorias/09-tipofuncao/
 Vamos escrever tipos função (=a -> b=) como operações de exponenciação da álgebra:
   #+BEAMER: \pause
@@ -109,8 +120,10 @@ Vamos escrever tipos função (=a -> b=) como operações de exponenciação da 
   - Por exemplo, pra =a= sendo =bool=, temos =f x = false= e =f x = true=
   #+BEAMER: \pause
 - $1^a = 1$ tem assinatura =a -> ()=. Apenas uma função tem essa assinatura (=f x = ()=)
-
-** Exponenciação como tipos de funções (Continuação)
+  #+BEAMER: \end{itemize}
+  #+BEAMER: \end{frame}
+  #+BEAMER: \begin{frame}{Exponenciação como tipos de funções II}
+  #+BEAMER: \begin{itemize}
 - $a^{b+c}$ tem assinatura =Either b c -> a=
   - Para isso, temos que definir os casos =Left= com tipo =b -> a= e =Right= com tipo =c -> a=
   - Ou seja, $a^{b + c} = a^b * a^c$
@@ -125,7 +138,7 @@ Vamos escrever tipos função (=a -> b=) como operações de exponenciação da 
 
 ** Funções parciais
 
-Agora, um caso mais tangível pra voltarmos um pouco pra nossa realidade.
+Agora, um caso mais tangível para voltarmos um pouco para a nossa realidade.
 - Na matemática, funções podem ser totais ou parciais
   - Para transformar funções parciais em totais, adicionamos o valor bottom ($\bot$) ao co-domínio e mapeamos todos os valores anteriormente indefinidos ao bottom.
 - Na computação, funções parciais precisam retornar o tipo soma. Dependendo da linguagem, pode ser algo como:
@@ -144,7 +157,7 @@ Agora, um caso mais tangível pra voltarmos um pouco pra nossa realidade.
     - "Opa, você tentou dividir por 0 na linha X coluna Y" - pode salvar alguém de horas de debugging
 
 ** Funções vs =Maps=
-Funções matemáticas podem ser programadas atráves de funções ou =Maps=. Pense nos exemplos
+Funções matemáticas podem ser programadas através de funções ou =Maps= [cite:@igor-memory]. Pense nos exemplos
 1. Função de um número para seu dobro.
 2. Função do nome da pessoa para sua idade.
 
@@ -181,7 +194,10 @@ Numa especificação formal, se não há relevância no algoritmo de ordenação
 - Matemática e programação estão muito interligados
 - Contudo, há diferenças nos níveis de abstração entre o que costumamos descrever em definições matemáticas e em programas.
   - Em programas, nos importamos com memória e velocidade, o que normalmente não é representado na matemática.
-  - Em programas, precisamos detalhar *como* cada função é implementatada, enquanto na matemática podemos somente definir funções pelas suas propriedades.
+  - Em programas, precisamos detalhar *como* cada função é implementada, enquanto na matemática podemos somente definir funções pelas suas propriedades.
     - Inclusive, precisamos detalhar o que acontece em casos indefinidos pela matemática, como divisão por 0.
 
 ** Referências
+#+print_bibliography:
+
+#+beamer: \end{frame} \maketitle

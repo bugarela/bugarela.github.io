@@ -99,6 +99,7 @@ h3 {
 }
 .content {
     padding: 2em 1em 0;
+    margin-bottom: 5%;
 }
 .post {
     padding-bottom: 2em;
@@ -157,9 +158,6 @@ h3 {
     bottom: 3%;
 }
 @media (max-width: 48em) {
-    .content {
-        margin-bottom: 3%;
-    }
     .footer {
         width: 100%;
         position: relative;
