@@ -53,7 +53,7 @@
          :sitemap-style list
          :sitemap-title ""
          :sitemap-filename "sitemap.inc"
-         :sitemap-sort-files alphabetically
+         :sitemap-sort-files chronologically
          )
         ("homepage-mfo"
          :base-directory ,(expand-file-name "./mfo")
