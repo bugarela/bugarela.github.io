@@ -209,7 +209,9 @@ code, pre, kbd, samp {
 .figure img {
     border: 1px solid #ddd;
     padding: 0.5em;
-    max-width: 100%;
+    max-width: 70%;
+    margin-left: 0;
+    display: block;
 }
 th, td {
     padding: 0.5em;

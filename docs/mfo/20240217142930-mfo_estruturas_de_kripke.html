@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Estruturas de Kripke</title>
+  <meta property="og:url" content="http://nowhere.org/mfo/20240217142930-mfo_estruturas_de_kripke.html" />
+  <meta property="og:title" content="Estruturas de Kripke" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+    <meta property="og:image" content="http://nowhere.org/mfo/semaforo.png" />
+    <meta property="og:image:width" content="1696" />
+    <meta property="og:image:height" content="439" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Estruturas de Kripke">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../css/layouts/style.css">
+
+  </head>
+  <body>
+    <div id="layout" class="pure-g">
+      <div class="sidebar pure-u-1 pure-u-md-1-3">
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-lg-1-2">
+    </div>
+    <div class="pure-u-1 pure-u-lg-1-2">
+      <div class="header">
+        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
+      </div>
+      <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+      </div>
+      <div class="footer">
+  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-2-3">
+        <h2>Estruturas de Kripke</h2>
+        <a href="https://bugarela.com/mfo/slides/20240217142930-mfo_estruturas_de_kripke.pdf">Slides</a>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgbd614f3">1. Sistemas de transições</a>
+<ul>
+<li><a href="#orgd851654">1.1. Sistema de transições: Definição</a></li>
+<li><a href="#org7edfbd7">1.2. Sistema de transições: Definição formal</a></li>
+<li><a href="#orge340c23">1.3. Sistemas de transições finito</a></li>
+<li><a href="#org0f16071">1.4. Determinismo e Não-Determinismo</a></li>
+</ul>
+</li>
+<li><a href="#org37310eb">2. Estruturas de Kripke</a>
+<ul>
+<li><a href="#org8244c9a">2.1. Estruturas de Kripke</a></li>
+<li><a href="#org95d2cfd">2.2. Exemplo: <i class="fa fa-traffic-light"></i> Semáforo</a></li>
+<li><a href="#org9d24de8">2.3. Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Dois semáforos</a></li>
+<li><a href="#orge27cf89">2.4. Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Três semáforos</a></li>
+<li><a href="#org53dcc0a">2.5. N semáforos em TLA+</a></li>
+<li><a href="#org96c5495">2.6. N semáforos em Quint</a></li>
+<li><a href="#org9cd9a00">2.7. Perguntas</a></li>
+</ul>
+</li>
+<li><a href="#orga24ecbd">3. Não determinismo</a>
+<ul>
+<li><a href="#orgb5b3953">3.1. Não determinismo nos semáforos</a></li>
+<li><a href="#org6ae8d49">3.2. Não determinismo na realidade</a></li>
+<li><a href="#orgd5229e4">3.3. Definindo a fronteira</a></li>
+<li><a href="#org543c368">3.4. Exemplo: Notas de alunos</a></li>
+<li><a href="#orgc424142">3.5. Exemplo: Notas de alunos - input professor</a></li>
+<li><a href="#orgf18d036">3.6. Exemplo: Notas de alunos - escolhas dos alunos</a></li>
+<li><a href="#org33517b7">3.7. Exemplo: Vôo com conexões</a></li>
+<li><a href="#org5db021f">3.8. Exemplo: Vôo com conexões - Não determinismo</a></li>
+<li><a href="#org07d7181">3.9. Exemplo: Vôo com conexões - Perdendo a conexão</a></li>
+<li><a href="#org5f95728">3.10. Referências</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbd614f3" class="outline-2">
+<h2 id="orgbd614f3"><span class="section-number-2">1.</span> Sistemas de transições</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgd851654" class="outline-3">
+<h3 id="orgd851654"><span class="section-number-3">1.1.</span> Sistema de transições: Definição</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Abstrações que descrevem o comportamento de sistemas com precisão matemática e sem ambiguidade (<a href="#citeproc_bib_item_1">BAIER; KATOEN, 2008</a>) .<br /></li>
+<li>Podem ser vistos como grafos dirigidos onde<br />
+<ul class="org-ul">
+<li>Os nós são <b>estados</b><br /></li>
+<li>As arestas são <b>transições</b><br /></li>
+</ul></li>
+</ul>
+
+<p>
+Um <b>estado</b> descreve as informações de um sistema em um momento específico.<br />
+</p>
+
+<p>
+Uma <b>transição</b> descreve como um sistema pode mudar de um estado para outro.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org7edfbd7" class="outline-3">
+<h3 id="org7edfbd7"><span class="section-number-3">1.2.</span> Sistema de transições: Definição formal</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Um sistema de transições é definido pela tripla \((S, \to, I)\) onde<br />
+</p>
+<ul class="org-ul">
+<li>\(S\) é um conjunto de estados,<br /></li>
+<li>\(\to\ \subseteq S \times S\) é uma relação de transições, e<br /></li>
+<li>\(I \subseteq S\) é um conjunto de estados iniciais.<br /></li>
+</ul>
+<p>
+Um <b>comportamento</b> ou <b>execução</b> \(\rho\) de um sistema de transições é uma sequência de estados tal que<br />
+\[\rho = s_0, s_1, \dots\ tal\ que\ s_i \to s_{i+1}\ para\ todo\ i \geq 0\]<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orge340c23" class="outline-3">
+<h3 id="orge340c23"><span class="section-number-3">1.3.</span> Sistemas de transições finito</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Um sistema de transições é dito <b>finito</b> se e somente se \(S\) é finito.<br />
+</p>
+
+<p>
+<b>Pergunta</b>: Comportamentos de sistemas de transições finitos são sempre finitos?<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org0f16071" class="outline-3">
+<h3 id="org0f16071"><span class="section-number-3">1.4.</span> Determinismo e Não-Determinismo</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+O conjunto de <b>sucessores</b> de um estado \(s\) é definido por \(Post(s) = \{ s' \in S\ |\ s \to s' \}\).<br />
+</p>
+
+<p>
+Um sistema de transições é dito <b>determinístico</b> se e somente se \(|I| \leq 1 \land \forall s \in S : |Post(s)| \leq 1\). Ou seja:<br />
+</p>
+<ul class="org-ul">
+<li>Tem apenas um estado inicial, e<br /></li>
+<li>Todo estado tem, no máximo, um sucessor.<br /></li>
+</ul>
+
+<p>
+Não-Determinismo acontece quando há múltiplos estados iniciais \(|I| > 1\) ou múltiplos sucessores para o mesmo estado (\(|Post(s)| > 1\)).<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org37310eb" class="outline-2">
+<h2 id="org37310eb"><span class="section-number-2">2.</span> Estruturas de Kripke</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org8244c9a" class="outline-3">
+<h3 id="org8244c9a"><span class="section-number-3">2.1.</span> Estruturas de Kripke</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Estruturas de Kripke são um tipo de sistema de transições com uma restrição adicional:<br />
+</p>
+<blockquote>
+<p>
+A relação \(\to\) deve ser total<br />
+</p>
+</blockquote>
+
+<p>
+ou seja<br />
+</p>
+
+<blockquote>
+<p>
+\(\forall s \in S, \exists s' \in S : s \to s'\)<br />
+</p>
+</blockquote>
+</div>
+<ol class="org-ol">
+<li><a id="org525e7a5"></a>Estados terminais<br />
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Em sistemas de transições, um estado é dito terminal se \(Post(s) = \emptyset\).<br />
+</p>
+
+<p>
+Isso não é possível em estruturas de Kripke, devido a restrição acima. Em<br />
+estruturas de Kripke, estados terminais são aqueles que possuem apenas<br />
+transições para si mesmo, ou seja \(Post(s) = \{s\}\)<br />
+</p>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org95d2cfd" class="outline-3">
+<h3 id="org95d2cfd"><span class="section-number-3">2.2.</span> Exemplo: <i class="fa fa-traffic-light"></i> Semáforo</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Um semáforo pode ser representado por uma estrutura de Kripke \((S, \to, I)\) onde<br />
+</p>
+<ul class="org-ul">
+<li>\(S = \{ verde, amarelo, vermelho \}\)<br /></li>
+<li>\(\to = \{ verde \to amarelo, amarelo \to vermelho, vermelho \to verde \}\)<br /></li>
+<li>\(I = \{ vermelho \}\)<br /></li>
+</ul>
+
+
+<div id="org26f2e6a" class="figure">
+<p><img src="semaforo.png" alt="semaforo.png" /><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org9d24de8" class="outline-3">
+<h3 id="org9d24de8"><span class="section-number-3">2.3.</span> Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Dois semáforos</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Um sistema com <b>dois</b> semáforos pode ser representado por uma estrutura de Kripke \((S, \to, I)\) onde &#x2026;<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orge27cf89" class="outline-3">
+<h3 id="orge27cf89"><span class="section-number-3">2.4.</span> Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Três semáforos</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>Vish!<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Muita coisa pra escrever, certo?<br /></li>
+<li>Um jeito melhor: linguagens de especificação<br /></li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="orgd3fdaf9"></a>Vamos perceber algumas generalizações<br />
+<div class="outline-text-4" id="text-2-4-1">
+<ol class="org-ol">
+<li>Cada semáforo deve iniciar vermelho, e fazer o caminho vermelho \(\to\) verde \(\to\) amarelo enquanto os outros permanecem vermelhos.<br /></li>
+<li>Quando um semáforo fecha, queremos que <b>outro</b> semáforo abra<br />
+<ul class="org-ul">
+<li>Com três semáforos, deve haver um revezamento que garanta que cada um vai abrir de vez em quando.<br /></li>
+</ul></li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org53dcc0a" class="outline-3">
+<h3 id="org53dcc0a"><span class="section-number-3">2.5.</span> N semáforos em TLA+</h3>
+<div class="outline-text-3" id="text-2-5">
+
+<div id="orgc57403c" class="figure">
+<p><img src="./specs/Semaforos.png" alt="Semaforos.png" /><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org96c5495" class="outline-3">
+<h3 id="org96c5495"><span class="section-number-3">2.6.</span> N semáforos em Quint</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+Especificação completa no GitHub.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">module</span> semaforos {
+  <span style="color: #e35b15;">type</span> Cor = Vermelho | Verde | Amarelo
+  <span style="color: #e35b15;">type</span> Semaforo = <span style="color: #d79921;">int</span>
+
+  <span style="color: #e35b15;">var</span> cores: Semaforo -&gt; Cor
+  <span style="color: #e35b15;">var</span> proximo: Semaforo
+
+  <span style="color: #e35b15;">const</span> SEMAFOROS: <span style="color: #d79921;">Set</span>[Semaforo]
+
+  <span style="color: #e35b15;">action</span> fica_verde(s: Semaforo): <span style="color: #d79921;">bool</span> = <span style="color: #66a4a4;">all</span> {
+    proximo == s,
+    SEMAFOROS.forall(s2 =&gt; cores.get(s2) == Vermelho),
+
+    cores' = cores.set(s, Verde),
+    proximo' = (s + 1) % SEMAFOROS.size(),
+  }
+
+  ...
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9cd9a00" class="outline-3">
+<h3 id="org9cd9a00"><span class="section-number-3">2.7.</span> Perguntas</h3>
+<div class="outline-text-3" id="text-2-7">
+<ol class="org-ol">
+<li><p>
+Todos os exemplos de semáforos (1, 2, 3 e N) são sistemas de transições. Quais deles são Estruturas de Kripke?<br />
+</p>
+<ul class="org-ul">
+<li><i class="fa-regular fa-lightbulb"></i>  Para um sistema de transições ser uma estrutura de Kripke, \(\to\) deve ser total:<br />
+<ul class="org-ul">
+<li>\(\forall s \in S, \exists s' \in S : s \to s'\)<br /></li>
+</ul></li>
+</ul></li>
+<li><p>
+Os sistemas de semáforos são finitos?<br />
+</p>
+<ul class="org-ul">
+<li><i class="fa-regular fa-lightbulb"></i> Um sistema de transições é dito <b>finito</b> se e somente se \(S\) é finito.<br /></li>
+</ul></li>
+<li><p>
+Nossas definições de semáforo são determinísticas?<br />
+</p>
+<ul class="org-ul">
+<li><i class="fa-regular fa-lightbulb"></i> O conjunto de <b>sucessores</b> de um estado \(s\) é definido por \(Post(s) = \{ s' \in S\ |\ s \to s' \}\).<br /></li>
+<li><i class="fa-regular fa-lightbulb"></i> Sistema é deterministico sse \(|I| \leq 1 \land \forall s \in S : |Post(s)| \leq 1\)<br /></li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orga24ecbd" class="outline-2">
+<h2 id="orga24ecbd"><span class="section-number-2">3.</span> Não determinismo</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgb5b3953" class="outline-3">
+<h3 id="orgb5b3953"><span class="section-number-3">3.1.</span> Não determinismo nos semáforos</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Como seriam semáforos com não determinismo?<br />
+</p>
+<ul class="org-ul">
+<li>\(Post(s) = \{ s' \in S\ |\ s \to s' \}\).<br /></li>
+<li>Sistema é deterministico sse \(|I| \leq 1 \land \forall s \in S : |Post(s)| \leq 1\)<br /></li>
+</ul>
+<ol class="org-ol">
+<li><p>
+Qualquer estado pode ser um estado inicial. Se definirmos isso (\(I = S\)), temos não determinismo<br />
+</p>
+<ul class="org-ul">
+<li>\(|I| \leq 1\) não é satisfeito<br /></li>
+</ul></li>
+<li><p>
+Caso o primeiro semáforo a abrir não esteja definido<br />
+</p>
+<ul class="org-ul">
+<li>\(|Post(1: vermelho\ e\ ...\ e\ N: vermelho\ e\ próximo: indefinido)| \leq 1\) não é satisfeito<br /></li>
+</ul></li>
+<li><p>
+Caso a definição de próximo seja removida<br />
+</p>
+<ul class="org-ul">
+<li>\(|Post(1: vermelho\ e\ ...\ e\ N: vermelho)| \leq 1\) não é satisfeito<br /></li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org6ae8d49" class="outline-3">
+<h3 id="org6ae8d49"><span class="section-number-3">3.2.</span> Não determinismo na realidade</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Onde podemos encontrar não determinismo em sistemas de software?<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgd5229e4" class="outline-3">
+<h3 id="orgd5229e4"><span class="section-number-3">3.3.</span> Definindo a fronteira</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Ao especificar um sistema, especialmente quando há não determinismo, é preciso definir uma fronteira.<br />
+</p>
+<ul class="org-ul">
+<li>Até aquela fronteira, fatores externos não especificados determinam o que acontece.<br /></li>
+<li>O não determinismo é uma forma de abstrair esses fatores externos<br />
+<ul class="org-ul">
+<li>i.e. De A, vou pra B ou C. Isso depende de algum fator externo. Se é a jogada de um dado ou o input de um usuário, não me importa.<br /></li>
+<li>Se isso me importa, então vou modelar a jogada de dado.<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org543c368" class="outline-3">
+<h3 id="org543c368"><span class="section-number-3">3.4.</span> Exemplo: Notas de alunos</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Vamos considerar duas fronteiras diferentes:<br />
+</p>
+<ol class="org-ol">
+<li><p>
+O professor coloca uma nota no SIGA. Se a nota for \(\geq 7\), o aluno passa.<br />
+</p>
+<ul class="org-ul">
+<li>Não determinismo no input do professor<br /></li>
+</ul></li>
+<li>O aluno pode ou não prestar atenção nas aulas. Se prestar atenção, vai se dar bem na prova, sua nota será maior que 7, e portanto vai passar.<br />
+<ul class="org-ul">
+<li>Não determinismo nas escolhas do aluno<br /></li>
+<li>A nota que o professor dá é <b>determinada</b> pelas escolhas do aluno<br /></li>
+</ul></li>
+</ol>
+
+<p>
+No caso (2) estamos detalhando mais o mundo externo fora do SIGA, enquanto no (1) a fronteira é na interface do SIGA.<br />
+</p>
+
+<p>
+O caso (1) é uma especificação do SIGA, enquanto o (2) fala mais sobre um sistema universitário.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgc424142" class="outline-3">
+<h3 id="orgc424142"><span class="section-number-3">3.5.</span> Exemplo: Notas de alunos - input professor</h3>
+<div class="outline-text-3" id="text-3-5">
+
+<div id="orgcb1abf5" class="figure">
+<p><img src="siga-prof.png" alt="siga-prof.png" /><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf18d036" class="outline-3">
+<h3 id="orgf18d036"><span class="section-number-3">3.6.</span> Exemplo: Notas de alunos - escolhas dos alunos</h3>
+<div class="outline-text-3" id="text-3-6">
+
+<div id="org121bc23" class="figure">
+<p><img src="siga-aluno.png" alt="siga-aluno.png" /><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org33517b7" class="outline-3">
+<h3 id="org33517b7"><span class="section-number-3">3.7.</span> Exemplo: Vôo com conexões</h3>
+<div class="outline-text-3" id="text-3-7">
+<p>
+<b>Versão 1</b>:<br />
+</p>
+<blockquote>
+<p>
+Joinville &rarr; São Paulo &rarr; Paris<br />
+</p>
+</blockquote>
+
+<p>
+<b>Versão 2</b>:<br />
+</p>
+<blockquote>
+<p>
+Check-in em Joinville &rarr; Despacho de Bagagem em Joinville &rarr; Check de Segurança em Joinville &rarr; Embarque em Joinville &rarr; Pouso em São Paulo &rarr; Check de Segurança em São Paulo &rarr; Embarque em São Paulo &rarr; Pouso em Paris &rarr; Retirada de bagagem em Paris<br />
+</p>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-org5db021f" class="outline-3">
+<h3 id="org5db021f"><span class="section-number-3">3.8.</span> Exemplo: Vôo com conexões - Não determinismo</h3>
+<div class="outline-text-3" id="text-3-8">
+<p>
+Onde poderia ter <b>não determinismo</b>?<br />
+</p>
+<ul class="org-ul">
+<li>Chegar atrasado e perder o check-in<br /></li>
+<li>Acharem uma bomba na bagagem<br /></li>
+<li>Problemas técnicos no vôo<br /></li>
+<li>Perder a conexão<br /></li>
+</ul>
+
+<p>
+Podemos ter não determinismo em cada estado. Nos casos listados, podemos ou não determinar o que acontece. Cabe ao nível de detalhe, ou a <b>fronteira</b> da nossa modelagem.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org07d7181" class="outline-3">
+<h3 id="org07d7181"><span class="section-number-3">3.9.</span> Exemplo: Vôo com conexões - Perdendo a conexão</h3>
+<div class="outline-text-3" id="text-3-9">
+
+<div id="org751ff9a" class="figure">
+<p><img src="voos-det.png" alt="voos-det.png" /><br />
+</p>
+</div>
+
+
+<div id="org431e2b5" class="figure">
+<p><img src="voos-det-zoom.png" alt="voos-det-zoom.png" /><br />
+</p>
+</div>
+
+
+<div id="org6643167" class="figure">
+<p><img src="voos-nondet-zoom.png" alt="voos-nondet-zoom.png" /><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5f95728" class="outline-3">
+<h3 id="org5f95728"><span class="section-number-3">3.10.</span> Referências</h3>
+<div class="outline-text-3" id="text-3-10">
+<div class="csl-bib-body">
+  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>BAIER, C.; KATOEN, J.-P. <b><a href="https://www.academia.edu/2744138/Principles_of_model_checking">Principles of model checking</a></b>. Cambridge, MA: The MIT Press, 2008. </div>
+</div>
+</div>
+</div>
+</div>
+
+      </div>
+    </div>
+  </body>
+</html>
