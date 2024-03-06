@@ -1,0 +1,98 @@
+{
+  "elements": {
+    "edges": [
+      {
+        "data": {
+          "source": "s0",
+          "target": "s1",
+          "id": "ele0"
+        }
+      },
+      {
+        "data": {
+          "source": "s1",
+          "target": "s2",
+          "id": "ele2"
+        }
+      },
+      {
+        "data": {
+          "source": "s2",
+          "target": "s3",
+          "id": "ele3"
+        }
+      },
+      {
+        "data": {
+          "source": "s3",
+          "target": "s0",
+          "id": "ele4"
+        }
+      },
+      {
+        "data": {
+          "source": "s1",
+          "target": "s3",
+          "id": "ele5"
+        }
+      },
+      {
+        "data": {
+          "source": "s3",
+          "target": "s1",
+          "id": "ele6"
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "data": {
+          "id": "s0",
+          "labels": [
+            "temperatura_ambiente"
+          ]
+        },
+        "position": {
+          "x": 416.57615513889766,
+          "y": 230.21271889279325
+        }
+      },
+      {
+        "data": {
+          "id": "s1",
+          "labels": [
+            "esquentando"
+          ]
+        },
+        "position": {
+          "x": 640.0493525294967,
+          "y": 162.25005755438232
+        }
+      },
+      {
+        "data": {
+          "id": "s2",
+          "labels": [
+            "cem_graus"
+          ]
+        },
+        "position": {
+          "x": 865.7031406230112,
+          "y": 230.7653991537333
+        }
+      },
+      {
+        "data": {
+          "id": "s3",
+          "labels": [
+            "esfriando"
+          ]
+        },
+        "position": {
+          "x": 640.7940845034026,
+          "y": 304.4938645704263
+        }
+      }
+    ]
+  }
+}
