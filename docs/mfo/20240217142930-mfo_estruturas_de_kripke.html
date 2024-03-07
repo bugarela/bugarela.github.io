@@ -12,8 +12,8 @@
   <meta property="og:description" content="Personal homepage exported with org-thtml" />
   
     <meta property="og:image" content="http://nowhere.org/mfo/semaforo.png" />
-    <meta property="og:image:width" content="1696" />
-    <meta property="og:image:height" content="439" />
+    <meta property="og:image:width" content="1700" />
+    <meta property="og:image:height" content="440" />
   
   
     <meta name="twitter:card" content="summary_large_image">
@@ -69,9 +69,9 @@
 <li><a href="#org0f16071">1.4. Determinismo e Não-Determinismo</a></li>
 </ul>
 </li>
-<li><a href="#org5592487">2. Estruturas de Kripke</a>
+<li><a href="#org129ae3c">2. Estruturas de Kripke</a>
 <ul>
-<li><a href="#org14bd38a">2.1. Estruturas de Kripke</a></li>
+<li><a href="#org2963f48">2.1. Estruturas de Kripke</a></li>
 <li><a href="#org95d2cfd">2.2. Exemplo: <i class="fa fa-traffic-light"></i> Semáforo</a></li>
 <li><a href="#org9d24de8">2.3. Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Dois semáforos</a></li>
 <li><a href="#orge27cf89">2.4. Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Três semáforos</a></li>
@@ -149,6 +149,10 @@ Um sistema de transições é dito <b>finito</b> se e somente se \(S\) é finito
 <p>
 <b>Pergunta</b>: Comportamentos de sistemas de transições finitos são sempre finitos?<br />
 </p>
+
+<p>
+Não! Comportamentos sobre uma sequência de estados ainda podem ser infinitos, mesmo que os estados sejam finitos.<br />
+</p>
 </div>
 </div>
 <div id="outline-container-org0f16071" class="outline-3">
@@ -172,12 +176,12 @@ Não-Determinismo acontece quando há múltiplos estados iniciais \(|I| > 1\) ou
 </div>
 </div>
 </div>
-<div id="outline-container-org5592487" class="outline-2">
-<h2 id="org5592487"><span class="section-number-2">2.</span> Estruturas de Kripke</h2>
+<div id="outline-container-org129ae3c" class="outline-2">
+<h2 id="org129ae3c"><span class="section-number-2">2.</span> Estruturas de Kripke</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org14bd38a" class="outline-3">
-<h3 id="org14bd38a"><span class="section-number-3">2.1.</span> Estruturas de Kripke</h3>
+<div id="outline-container-org2963f48" class="outline-3">
+<h3 id="org2963f48"><span class="section-number-3">2.1.</span> Estruturas de Kripke</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Estruturas de Kripke são um tipo de sistema de transições com uma restrição adicional:<br />
@@ -227,7 +231,7 @@ Um semáforo pode ser representado por uma estrutura de Kripke \((S, \to, I)\) o
 </ul>
 
 
-<div id="org78eed7b" class="figure">
+<div id="org5b115f9" class="figure">
 <p><img src="semaforo.png" alt="semaforo.png" /><br />
 </p>
 </div>
@@ -237,8 +241,44 @@ Um semáforo pode ser representado por uma estrutura de Kripke \((S, \to, I)\) o
 <h3 id="org9d24de8"><span class="section-number-3">2.3.</span> Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Dois semáforos</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-Um sistema com <b>dois</b> semáforos pode ser representado por uma estrutura de Kripke \((S, \to, I)\) onde &#x2026;<br />
+Um sistema com <b>dois</b> semáforos pode ser representado por uma estrutura de Kripke \((S, \to, I)\) onde<br />
 </p>
+<ul class="org-ul">
+<li>\(S = \{ (1: vermelho\ e\ 2: vermelho), (1: amarelo\ e\ 2: vermelho), (1: verde\ e\ 2: vermelho),
+  (1: vermelho\ e \2: amarelo), (1: vermelho\ e\ 2: verde) \}\)<br /></li>
+</ul>
+<ul class="org-ul">
+<li>\(\begin{aligned}
+   \to\ = \{ &\\
+      & (1: vermelho\ e\ 2: vermelho) \to (1: verde\ e\ 2: vermelho),\\
+      & (1: verde\ e\ 2: vermelho) \to (1: amarelo\ e\ 2: vermelho),\\
+      & (1: amarelo\ e\ 2: vermelho) \to (1: vermelho\ e\ 2: vermelho),\\
+      & (1: vermelho\ e\ 2: vermelho) \to (1: vermelho\ e\ 2: verde),\\
+      & (1: vermelho\ e\ 2: verde) \to (1: vermelho\ e\ 2: amarelo),\\
+      & (1: vermelho\ e\ 2: amarelo) \to (1: vermelho\ e\ 2: vermelho),\\
+    \} &
+    \end{aligned}\)<br /></li>
+</ul>
+<ul class="org-ul">
+<li><p>
+\(I = \{ (1: vermelho\ e\ 2: vermelho ) \}\)<br />
+</p></li>
+</ul>
+
+
+<div id="orgbf3be62" class="figure">
+<p><img src="2semaforos.png" alt="2semaforos.png" /><br />
+</p>
+</div>
+
+<p>
+<a href="https://forsyte.at/kripke/">https://forsyte.at/kripke/</a><br />
+</p>
+
+<ul class="org-ul">
+<li><code>AF(B_verde)</code><br /></li>
+<li><code>AF(A_vermelho &amp; B_vermelho)</code><br /></li>
+</ul>
 </div>
 </div>
 <div id="outline-container-orge27cf89" class="outline-3">
@@ -270,7 +310,7 @@ Um sistema com <b>dois</b> semáforos pode ser representado por uma estrutura de
 <h3 id="org53dcc0a"><span class="section-number-3">2.5.</span> N semáforos em TLA+</h3>
 <div class="outline-text-3" id="text-2-5">
 
-<div id="orgdf20fe4" class="figure">
+<div id="org84198a0" class="figure">
 <p><img src="./specs/Semaforos.png" alt="Semaforos.png" /><br />
 </p>
 </div>
@@ -319,12 +359,18 @@ Todos os exemplos de semáforos (1, 2, 3 e N) são sistemas de transições. Qua
 <ul class="org-ul">
 <li>\(\forall s \in S, \exists s' \in S : s \to s'\)<br /></li>
 </ul></li>
+</ul>
+<ul class="org-ul">
+<li><b>Resposta</b>: Sim! Sempre há um passo para um próximo estado<br /></li>
 </ul></li>
 <li><p>
 Os sistemas de semáforos são finitos?<br />
 </p>
 <ul class="org-ul">
 <li><i class="fa-regular fa-lightbulb"></i> Um sistema de transições é dito <b>finito</b> se e somente se \(S\) é finito.<br /></li>
+</ul>
+<ul class="org-ul">
+<li><b>Resposta</b>: Sim! Os estados são um conjunto finito.<br /></li>
 </ul></li>
 <li><p>
 Nossas definições de semáforo são determinísticas?<br />
@@ -332,6 +378,9 @@ Nossas definições de semáforo são determinísticas?<br />
 <ul class="org-ul">
 <li><i class="fa-regular fa-lightbulb"></i> O conjunto de <b>sucessores</b> de um estado \(s\) é definido por \(Post(s) = \{ s' \in S\ |\ s \to s' \}\).<br /></li>
 <li><i class="fa-regular fa-lightbulb"></i> Sistema é deterministico sse \(|I| \leq 1 \land \forall s \in S : |Post(s)| \leq 1\)<br /></li>
+</ul>
+<ul class="org-ul">
+<li><b>Resposta</b>: Nem todas. A definição que demos para 2 semáforos contém não determinismo. As definições para 1 semáforo e N semáforos são determinísticas.<br /></li>
 </ul></li>
 </ol>
 </div>
@@ -379,6 +428,33 @@ Caso a definição de próximo seja removida<br />
 <p>
 Onde podemos encontrar não determinismo em sistemas de software?<br />
 </p>
+<ol class="org-ol">
+<li><p>
+Escolhas de usuário<br />
+</p>
+<ul class="org-ul">
+<li>Depósitos e saques<br /></li>
+<li>Qualquer input em geral<br /></li>
+</ul></li>
+<li><p>
+Fatores aleatórios<br />
+</p>
+<ul class="org-ul">
+<li>Se rolar 20 no dado, o dano é dobrado<br /></li>
+</ul></li>
+<li><p>
+Influências do ambiente<br />
+</p>
+<ul class="org-ul">
+<li>Falha de hardware<br /></li>
+<li>Falha na rede<br /></li>
+</ul></li>
+<li>Ordem de execução quando há concorrência<br />
+<ul class="org-ul">
+<li>Processo A executa antes do processo B<br /></li>
+<li>Requisição A é recebida antes da requisição B<br /></li>
+</ul></li>
+</ol>
 </div>
 </div>
 <div id="outline-container-orgd5229e4" class="outline-3">
@@ -430,7 +506,7 @@ O caso (1) é uma especificação do SIGA, enquanto o (2) fala mais sobre um sis
 <h3 id="orgc424142"><span class="section-number-3">3.5.</span> Exemplo: Notas de alunos - input professor</h3>
 <div class="outline-text-3" id="text-3-5">
 
-<div id="org787683d" class="figure">
+<div id="org2941ab2" class="figure">
 <p><img src="siga-prof.png" alt="siga-prof.png" /><br />
 </p>
 </div>
@@ -440,7 +516,7 @@ O caso (1) é uma especificação do SIGA, enquanto o (2) fala mais sobre um sis
 <h3 id="orgf18d036"><span class="section-number-3">3.6.</span> Exemplo: Notas de alunos - escolhas dos alunos</h3>
 <div class="outline-text-3" id="text-3-6">
 
-<div id="org3763d9a" class="figure">
+<div id="org3ec38d4" class="figure">
 <p><img src="siga-aluno.png" alt="siga-aluno.png" /><br />
 </p>
 </div>
@@ -490,19 +566,19 @@ Podemos ter não determinismo em cada estado. Nos casos listados, podemos ou nã
 <h3 id="org07d7181"><span class="section-number-3">3.9.</span> Exemplo: Vôo com conexões - Perdendo a conexão</h3>
 <div class="outline-text-3" id="text-3-9">
 
-<div id="orga06e1a3" class="figure">
+<div id="orgc4ca028" class="figure">
 <p><img src="voos-det.png" alt="voos-det.png" /><br />
 </p>
 </div>
 
 
-<div id="orgc163b2d" class="figure">
+<div id="org2770537" class="figure">
 <p><img src="voos-det-zoom.png" alt="voos-det-zoom.png" /><br />
 </p>
 </div>
 
 
-<div id="orge434acc" class="figure">
+<div id="org27e0a8f" class="figure">
 <p><img src="voos-nondet-zoom.png" alt="voos-nondet-zoom.png" /><br />
 </p>
 </div>

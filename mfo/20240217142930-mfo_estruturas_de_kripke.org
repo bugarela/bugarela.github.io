@@ -14,11 +14,10 @@
 #+LaTeX_CLASS_OPTIONS: [smaller]
 #+BEAMER_THEME: udesc
 #+BEAMER_HEADER: \input{header.tex} \subtitle{Aula para disciplina de Métodos Formais} \institute{Departamento de Ciência da Computação - DCC\\Universidade do Estado de Santa Catarina - UDESC}
-#+HTML_HEAD_EXTRA: <style> img { width: 50%; } </style>
 #+LATEX_COMPILER: pdflatex
 #+bibliography: references.bib
 #+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
-#+EXCLUDE_TAGS: com_resposta
+#+EXCLUDE_TAGS: sem_resposta
 
 
 #+begin_src elisp :exports none
