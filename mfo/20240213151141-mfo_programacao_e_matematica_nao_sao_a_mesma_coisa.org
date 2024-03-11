@@ -188,7 +188,7 @@ Na matemática, não importa *como* a ordenação é feita. A função em quest�
 
 #+BEAMER: \pause
 #+BEAMER: \medskip
-Numa especificação formal, se não há relevância no algoritmo de ordenação (contanto que ele, de fato, ordene), e podemos economizar recursos na verificação ao especificar somente a propriedade de ordenação.
+Numa especificação formal, se não há relevância no algoritmo de ordenação (contanto que ele, de fato, ordene), podemos economizar recursos na verificação ao especificar somente a propriedade de ordenação.
 
 ** Em resumo
 - Matemática e programação estão muito interligados
