@@ -165,7 +165,9 @@ h3 {
         height: 3em;
         background: #C55530;
     }
-
+    .figure img {
+        max-width: 95%;
+    }
 }
 @media (min-width: 48em) {
     .content {
@@ -184,6 +186,9 @@ h3 {
         position: fixed;
         top: 0;
         bottom: 0;
+    }
+    .figure img {
+        max-width: 70%;
     }
 }
 .big-icon {
@@ -209,7 +214,6 @@ code, pre, kbd, samp {
 .figure img {
     border: 1px solid #ddd;
     padding: 0.5em;
-    max-width: 70%;
     margin-left: 0;
     display: block;
 }
