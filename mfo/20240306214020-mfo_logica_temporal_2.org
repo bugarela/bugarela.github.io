@@ -59,7 +59,7 @@ Exemplo: Eventualmente, terei fome.
 ** $\bigcirc$ ou *X*: /Ne(*x*)t/, próximo
 *X* $\phi$: $\phi$ deve ser verdadeiro no próximo estado.
 
-*F* $\phi$ é verdadeiro num momento $t$ se...
+*X* $\phi$ é verdadeiro num momento $t$ se...
 #+LATEX:\hspace*{1cm}
 ...$\phi$ é verdadeiro no momento $t + 1$.
 
