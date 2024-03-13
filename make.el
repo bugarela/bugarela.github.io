@@ -91,7 +91,7 @@
          :recursive t
          :language "pt_BR"
          :exclude "^\\(docs\\|templates\\).*"
-         :base-extension "\\(jpg\\|gif\\|png\\|css\\|js\\|el\\|nb\\|ipynb\\|pdf\\|xml\\)"
+         :base-extension "\\(ico\\|jpg\\|gif\\|png\\|css\\|js\\|el\\|nb\\|ipynb\\|pdf\\|xml\\)"
          :publishing-function org-publish-attachment)
         ("homepage" :components ("lectures-mfo" "homepage-mfo" "homepage-pages"
                                  "homepage-assets"))
