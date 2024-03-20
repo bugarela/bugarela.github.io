@@ -30,6 +30,10 @@
  <priority>0.5</priority>
 </url>
 <url>
+ <loc>http://nowhere.org/mfo/20240319195624-mfo_logica_temporal_das_acoes.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
  <loc>http://nowhere.org/mfo/index.html</loc>
  <priority>0.5</priority>
 </url>

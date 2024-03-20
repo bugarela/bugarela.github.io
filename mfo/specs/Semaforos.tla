@@ -20,5 +20,9 @@ Init == cores = [s \in SEMAFOROS |-> "vermelho"] /\proximo = 0
 
 Next == \E s \in SEMAFOROS : FicaVerde(s) \/ FicaAmarelo(s) \/ FicaVermelho(s)
 
+Inv == cores[2] /= "amarelo"
+
+SemColisao == Cardinality({s \in SEMAFOROS : cores[s] = "verde"}) <= 1
+
 Spec == Init /\[][Next]_<<cores, proximo>>
 ============================================================
