@@ -69,9 +69,9 @@
 <li><a href="#orgd62861f">1.6. Forma dos operadores em Quint</a></li>
 </ul>
 </li>
-<li><a href="#orgaf68fc1">2. Conjuntos!</a>
+<li><a href="#org13d35e3">2. Conjuntos!</a>
 <ul>
-<li><a href="#org13d35e3">2.1. Conjuntos!</a></li>
+<li><a href="#orgad795e9">2.1. Conjuntos!</a></li>
 <li><a href="#orgc6916f7">2.2. <code>map</code>, seu novo melhor amigo</a></li>
 <li><a href="#org839570b">2.3. <code>map</code> com operadores de múltiplos argumentos</a></li>
 <li><a href="#orgc2872bb">2.4. <code>map</code> com operadores que esperam uma dupla</a></li>
@@ -89,27 +89,27 @@
 <ul>
 <li><a href="#org9778d07">3.1. Maps</a></li>
 <li><a href="#org9fa444f">3.2. Chaves e valores</a></li>
-<li><a href="#orgca00e6b">3.3. Acessando e atualizando</a></li>
+<li><a href="#orgd98733d">3.3. Acessando e atualizando</a></li>
 <li><a href="#org1641b38">3.4. Atualizando com <code>setBy</code></a></li>
 <li><a href="#org56f02f2">3.5. Criando todos os <code>Maps</code> possíveis</a></li>
 </ul>
 </li>
-<li><a href="#org63e19de">4. Tuplas</a>
+<li><a href="#org311a933">4. Tuplas</a>
 <ul>
-<li><a href="#org311a933">4.1. Tuplas</a></li>
+<li><a href="#orgcb71e80">4.1. Tuplas</a></li>
 <li><a href="#org30ae0c8">4.2. Acessando itens</a></li>
 <li><a href="#org2ee85cb">4.3. Criando todas as tuplas possíveis</a></li>
 </ul>
 </li>
-<li><a href="#orgf7fefbc">5. <code>Records</code></a>
+<li><a href="#org9902467">5. <code>Records</code></a>
 <ul>
-<li><a href="#org9902467">5.1. <code>Records</code></a></li>
-<li><a href="#orgd98733d">5.2. Acessando e atualizando</a></li>
+<li><a href="#orgfee203e">5.1. <code>Records</code></a></li>
+<li><a href="#orgc4045a5">5.2. Acessando e atualizando</a></li>
 </ul>
 </li>
-<li><a href="#org69e0e7a">6. Listas</a>
+<li><a href="#orgd807d2e">6. Listas</a>
 <ul>
-<li><a href="#orgd807d2e">6.1. Listas</a></li>
+<li><a href="#org992590b">6.1. Listas</a></li>
 <li><a href="#orgda36972">6.2. Acessando</a></li>
 <li><a href="#orgdfa0123">6.3. Atualizando</a></li>
 <li><a href="#orge3e65c5">6.4. Filtrando listas</a></li>
@@ -219,12 +219,12 @@ Escolha a forma que você acha mais fácil de ler!<br />
 </div>
 </div>
 </div>
-<div id="outline-container-orgaf68fc1" class="outline-2">
-<h2 id="orgaf68fc1"><span class="section-number-2">2.</span> Conjuntos!</h2>
+<div id="outline-container-org13d35e3" class="outline-2">
+<h2 id="org13d35e3"><span class="section-number-2">2.</span> Conjuntos!</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org13d35e3" class="outline-3">
-<h3 id="org13d35e3"><span class="section-number-3">2.1.</span> Conjuntos!</h3>
+<div id="outline-container-orgad795e9" class="outline-3">
+<h3 id="orgad795e9"><span class="section-number-3">2.1.</span> Conjuntos!</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Conjuntos, ou <i>Sets</i>, são a principal estrutura de dados em Quint em TLA+.<br />
@@ -482,8 +482,8 @@ m.keys().map(k =&gt; m.get(k))
 </div>
 </div>
 </div>
-<div id="outline-container-orgca00e6b" class="outline-3">
-<h3 id="orgca00e6b"><span class="section-number-3">3.3.</span> Acessando e atualizando</h3>
+<div id="outline-container-orgd98733d" class="outline-3">
+<h3 id="orgd98733d"><span class="section-number-3">3.3.</span> Acessando e atualizando</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 <code>set</code> atualiza um elemento existente, e <code>put</code> pode criar um novo par chave-valor.<br />
@@ -540,12 +540,12 @@ Para criar todos os <code>Maps</code> possíveis dado um domínio e um co-domín
 </div>
 </div>
 </div>
-<div id="outline-container-org63e19de" class="outline-2">
-<h2 id="org63e19de"><span class="section-number-2">4.</span> Tuplas</h2>
+<div id="outline-container-org311a933" class="outline-2">
+<h2 id="org311a933"><span class="section-number-2">4.</span> Tuplas</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org311a933" class="outline-3">
-<h3 id="org311a933"><span class="section-number-3">4.1.</span> Tuplas</h3>
+<div id="outline-container-orgcb71e80" class="outline-3">
+<h3 id="orgcb71e80"><span class="section-number-3">4.1.</span> Tuplas</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Tuplas são combinações de tipos diferentes em um mesmo valor, onde a ordem dos elementos é o que define o tipo esperado.<br />
@@ -602,12 +602,12 @@ tuples(<span style="color: #d79921;">Set</span>(1), <span style="color: #d79921;
 </div>
 </div>
 </div>
-<div id="outline-container-orgf7fefbc" class="outline-2">
-<h2 id="orgf7fefbc"><span class="section-number-2">5.</span> <code>Records</code></h2>
+<div id="outline-container-org9902467" class="outline-2">
+<h2 id="org9902467"><span class="section-number-2">5.</span> <code>Records</code></h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org9902467" class="outline-3">
-<h3 id="org9902467"><span class="section-number-3">5.1.</span> <code>Records</code></h3>
+<div id="outline-container-orgfee203e" class="outline-3">
+<h3 id="orgfee203e"><span class="section-number-3">5.1.</span> <code>Records</code></h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 <code>Records</code> são combinações de tipos diferentes em um mesmo valor, onde os elementos são nomeados.<br />
@@ -618,8 +618,8 @@ O tipo de um <i>record</i> é dado por <code>{ field0: t0, ..., fieldn: tn }</co
 </p>
 </div>
 </div>
-<div id="outline-container-orgd98733d" class="outline-3">
-<h3 id="orgd98733d"><span class="section-number-3">5.2.</span> Acessando e atualizando</h3>
+<div id="outline-container-orgc4045a5" class="outline-3">
+<h3 id="orgc4045a5"><span class="section-number-3">5.2.</span> Acessando e atualizando</h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
 <pre class="src src-quint"><span style="color: #e35b15;">val</span> r = { nome: <span style="color: #98971a;">"Gabriela"</span>, idade: 25 }
@@ -640,12 +640,12 @@ r
 </div>
 </div>
 </div>
-<div id="outline-container-org69e0e7a" class="outline-2">
-<h2 id="org69e0e7a"><span class="section-number-2">6.</span> Listas</h2>
+<div id="outline-container-orgd807d2e" class="outline-2">
+<h2 id="orgd807d2e"><span class="section-number-2">6.</span> Listas</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-orgd807d2e" class="outline-3">
-<h3 id="orgd807d2e"><span class="section-number-3">6.1.</span> Listas</h3>
+<div id="outline-container-org992590b" class="outline-3">
+<h3 id="org992590b"><span class="section-number-3">6.1.</span> Listas</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Listas são como conjuntos, porém com uma ordem definida e, possivelmente, com elementos repetidos. Em TLA+, essa mesma estrutura tem nome de sequência.<br />
@@ -831,6 +831,31 @@ Nomes de tipos devem sempre iniciar com letra maiúscula.<br />
 <li>Escreva um operador que calcule o fatorial de um número. Lembre-se que recursão não é permitida.<br /></li>
 <li>Escreva um operador que recebe uma lista e retorna um mapa onde as chaves são os elementos da lista, e os valores são inteiros representando a quantidade de ocorrências daquele elemento na lista.<br /></li>
 </ol>
+
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f1(s) = {
+  s.fold(0, (acc, i) =&gt; acc + i) / size(s)
+}
+
+<span style="color: #e35b15;">val</span> s2 = <span style="color: #d79921;">Set</span>({ nome: <span style="color: #98971a;">"Gabriela"</span>, idade: 25 }, { nome: <span style="color: #98971a;">"Marvin"</span>, idade: 42 }, { nome: <span style="color: #98971a;">"Eduardo"</span>, idade: 21 })
+<span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f2(s) = {
+  <span style="color: #e35b15;">val</span> mais_novo = s.fold(99, (acc, r) =&gt; <span style="color: #66a4a4;">if</span> (r.idade &lt; acc) r.idade <span style="color: #66a4a4;">else</span> acc)
+  <span style="color: #e35b15;">val</span> mais_velho = s.fold(0, (acc, r) =&gt; <span style="color: #66a4a4;">if</span> (r.idade &gt; acc) r.idade <span style="color: #66a4a4;">else</span> acc)
+  mais_velho - mais_novo
+}
+
+<span style="color: #e35b15;">val</span> s3 = 1.to(10).powerset().filter(s =&gt; size(s) &gt; 2 <span style="color: #66a4a4;">and</span> size(s) &lt; 5)
+
+<span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f4(n) = {
+  1.to(n).fold(1, (acc, i) =&gt; acc * i)
+}
+
+<span style="color: #e35b15;">val</span> l5 = [1, 1, 2, 3, 3, 3]
+<span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f5(l) = {
+  l.foldl(Map(), (acc, i) =&gt; <span style="color: #66a4a4;">if</span> (acc.keys().contains(i)) acc.setBy(i, x =&gt; x + 1) <span style="color: #66a4a4;">else</span> acc.put(i, 1))
+}
+</pre>
+</div>
 </div>
 </div>
 </div>
