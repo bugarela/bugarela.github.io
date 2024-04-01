@@ -456,27 +456,3 @@ type Opcional[a] = Algum(a) | Nenhum
 3. Defina um valor que contenha todos os conjuntos possíveis com valores inteiros de 1 a 10, com tamanho maior que 2 e menor que 5.
 4. Escreva um operador que calcule o fatorial de um número. Lembre-se que recursão não é permitida.
 5. Escreva um operador que recebe uma lista e retorna um mapa onde as chaves são os elementos da lista, e os valores são inteiros representando a quantidade de ocorrências daquele elemento na lista.
-
-#+begin_src quint
-pure def f1(s) = {
-  s.fold(0, (acc, i) => acc + i) / size(s)
-}
-
-val s2 = Set({ nome: "Gabriela", idade: 25 }, { nome: "Marvin", idade: 42 }, { nome: "Eduardo", idade: 21 })
-pure def f2(s) = {
-  val mais_novo = s.fold(99, (acc, r) => if (r.idade < acc) r.idade else acc)
-  val mais_velho = s.fold(0, (acc, r) => if (r.idade > acc) r.idade else acc)
-  mais_velho - mais_novo
-}
-
-val s3 = 1.to(10).powerset().filter(s => size(s) > 2 and size(s) < 5)
-
-pure def f4(n) = {
-  1.to(n).fold(1, (acc, i) => acc * i)
-}
-
-val l5 = [1, 1, 2, 3, 3, 3]
-pure def f5(l) = {
-  l.foldl(Map(), (acc, i) => if (acc.keys().contains(i)) acc.setBy(i, x => x + 1) else acc.put(i, 1))
-}
-#+end_src
