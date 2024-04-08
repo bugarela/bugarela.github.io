@@ -46,6 +46,10 @@
  <priority>0.5</priority>
 </url>
 <url>
+ <loc>http://nowhere.org/mfo/20240331223036-mfo_introducao_ao_tla.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
  <loc>http://nowhere.org/mfo/index.html</loc>
  <priority>0.5</priority>
 </url>
