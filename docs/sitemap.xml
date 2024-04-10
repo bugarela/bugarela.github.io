@@ -50,6 +50,10 @@
  <priority>0.5</priority>
 </url>
 <url>
+ <loc>http://nowhere.org/mfo/20240408201756-mfo_primeiras_especificacoes_em_tla.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
  <loc>http://nowhere.org/mfo/index.html</loc>
  <priority>0.5</priority>
 </url>
