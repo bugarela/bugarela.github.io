@@ -17,7 +17,7 @@
 #+bibliography: references.bib
 #+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
 #+PROPERTY: header-args :tangle tictactoe.tla
-#+HTML: <a href="https://bugarela.com/mfo/slides/20240408201756-mfo_primeiras_especificacoes_em_tla..pdf">Slides</a><br />
+#+HTML: <a href="https://bugarela.com/mfo/slides/20240408201756-mfo_primeiras_especificacoes_em_tla.pdf">Slides</a><br />
 #+beamer: \begin{frame}{Conteúdo}
 #+TOC: headlines 3
 #+beamer: \end{frame}

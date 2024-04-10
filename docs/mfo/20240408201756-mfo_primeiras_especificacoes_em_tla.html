@@ -54,7 +54,7 @@
 
       <div class="content pure-u-1 pure-u-md-2-3">
         <h2>Primeiras Especificações em TLA+</h2>
-        <a href="https://bugarela.com/mfo/slides/20240408201756-mfo_primeiras_especificacoes_em_tla..pdf">Slides</a><br />
+        <a href="https://bugarela.com/mfo/slides/20240408201756-mfo_primeiras_especificacoes_em_tla.pdf">Slides</a><br />
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
@@ -64,18 +64,18 @@
 <li><a href="#org1fe2802">1.1. Correção dos exercícios</a></li>
 </ul>
 </li>
-<li><a href="#orgaeb87f6">2. Modelos em TLA+</a>
+<li><a href="#org2964d39">2. Modelos em TLA+</a>
 <ul>
-<li><a href="#org2964d39">2.1. Modelos em TLA+</a></li>
+<li><a href="#org55113db">2.1. Modelos em TLA+</a></li>
 </ul>
 </li>
 <li><a href="#orgc14c427">3. Semáforos</a>
 <ul>
 <li><a href="#org886683e">3.1. Especificação para os semáforos</a></li>
-<li><a href="#orgdb6c9c8">3.2. Estado inicial</a></li>
+<li><a href="#orgcf1c57e">3.2. Estado inicial</a></li>
 <li><a href="#orge859abb">3.3. Próximo semáforo fica verde</a></li>
-<li><a href="#orga1c2767">3.4. Próximo semáforo fica verde: Exercício</a></li>
-<li><a href="#orgad225f4">3.5. Próximo semáforo fica verde: Exercício</a></li>
+<li><a href="#orgad225f4">3.4. Próximo semáforo fica verde: Exercício</a></li>
+<li><a href="#org4b7fe6d">3.5. Próximo semáforo fica verde: Exercício</a></li>
 <li><a href="#org08a7cd4">3.6. Um semáforo que está verde fica amarelo</a></li>
 <li><a href="#orgd616af2">3.7. Um semáforo que está amarelo fica vermelho</a></li>
 <li><a href="#org40ef75e">3.8. Função de próximo estado</a></li>
@@ -100,7 +100,7 @@
 <li><a href="#org1e57bba">4.14. Ações - BlockWin</a></li>
 <li><a href="#orga4adbff">4.15. Ações - TakeCenter e SetupWin</a></li>
 <li><a href="#orgbe18eec">4.16. Ações - MoveX</a></li>
-<li><a href="#orgcf1c57e">4.17. Estado inicial</a></li>
+<li><a href="#orgc1dbbf2">4.17. Estado inicial</a></li>
 <li><a href="#orgf17bd70">4.18. Transições</a></li>
 <li><a href="#orgee97a1d">4.19. Invariantes</a></li>
 <li><a href="#orga1c6539">4.20. Referências</a></li>
@@ -126,12 +126,12 @@ Vamos corrigir juntos no VSCode.<br />
 </div>
 </div>
 </div>
-<div id="outline-container-orgaeb87f6" class="outline-2">
-<h2 id="orgaeb87f6"><span class="section-number-2">2.</span> Modelos em TLA+</h2>
+<div id="outline-container-org2964d39" class="outline-2">
+<h2 id="org2964d39"><span class="section-number-2">2.</span> Modelos em TLA+</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org2964d39" class="outline-3">
-<h3 id="org2964d39"><span class="section-number-3">2.1.</span> Modelos em TLA+</h3>
+<div id="outline-container-org55113db" class="outline-3">
+<h3 id="org55113db"><span class="section-number-3">2.1.</span> Modelos em TLA+</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Até agora, vimos principalmente a parte funcional da linguagem.<br />
@@ -186,8 +186,8 @@ PS: Consultei a <a href="https://github.com/tlaplus/tlaplus-standard/blob/main/g
 </div>
 </div>
 </div>
-<div id="outline-container-orgdb6c9c8" class="outline-3">
-<h3 id="orgdb6c9c8"><span class="section-number-3">3.2.</span> Estado inicial</h3>
+<div id="outline-container-orgcf1c57e" class="outline-3">
+<h3 id="orgcf1c57e"><span class="section-number-3">3.2.</span> Estado inicial</h3>
 <div class="outline-text-3" id="text-3-2">
 <div class="org-src-container">
 <pre class="src src-tla">Init ==
@@ -219,8 +219,8 @@ Qual a pré-condição dessa ação?<br />
 </div>
 </div>
 </div>
-<div id="outline-container-orga1c2767" class="outline-3">
-<h3 id="orga1c2767"><span class="section-number-3">3.4.</span> Próximo semáforo fica verde: Exercício</h3>
+<div id="outline-container-orgad225f4" class="outline-3">
+<h3 id="orgad225f4"><span class="section-number-3">3.4.</span> Próximo semáforo fica verde: Exercício</h3>
 <div class="outline-text-3" id="text-3-4">
 <div class="org-src-container">
 <pre class="src src-tla">FicaVerde(s) ==
@@ -237,8 +237,8 @@ Qual a pré-condição dessa ação?<br />
 </p>
 </div>
 </div>
-<div id="outline-container-orgad225f4" class="outline-3">
-<h3 id="orgad225f4"><span class="section-number-3">3.5.</span> Próximo semáforo fica verde: Exercício</h3>
+<div id="outline-container-org4b7fe6d" class="outline-3">
+<h3 id="org4b7fe6d"><span class="section-number-3">3.5.</span> Próximo semáforo fica verde: Exercício</h3>
 <div class="outline-text-3" id="text-3-5">
 <div class="org-src-container">
 <pre class="src src-tla">FicaVerde(s) ==
@@ -699,8 +699,8 @@ SetupWin == \E winningPostion \in WinningPositions, partialWin \in PartialWins:
 </div>
 </div>
 </div>
-<div id="outline-container-orgcf1c57e" class="outline-3">
-<h3 id="orgcf1c57e"><span class="section-number-3">4.17.</span> Estado inicial</h3>
+<div id="outline-container-orgc1dbbf2" class="outline-3">
+<h3 id="orgc1dbbf2"><span class="section-number-3">4.17.</span> Estado inicial</h3>
 <div class="outline-text-3" id="text-4-17">
 <div class="org-src-container">
 <pre class="src src-tla">Init ==

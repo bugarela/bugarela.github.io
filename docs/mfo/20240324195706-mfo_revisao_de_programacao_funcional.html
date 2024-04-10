@@ -69,9 +69,9 @@
 <li><a href="#orgd62861f">1.6. Forma dos operadores em Quint</a></li>
 </ul>
 </li>
-<li><a href="#org8ee6956">2. Conjuntos!</a>
+<li><a href="#org7190cef">2. Conjuntos!</a>
 <ul>
-<li><a href="#org7190cef">2.1. Conjuntos!</a></li>
+<li><a href="#orgdf16b45">2.1. Conjuntos!</a></li>
 <li><a href="#orgc6916f7">2.2. <code>map</code>, seu novo melhor amigo</a></li>
 <li><a href="#org839570b">2.3. <code>map</code> com operadores de múltiplos argumentos</a></li>
 <li><a href="#orgc2872bb">2.4. <code>map</code> com operadores que esperam uma dupla</a></li>
@@ -89,27 +89,27 @@
 <ul>
 <li><a href="#org9778d07">3.1. Maps</a></li>
 <li><a href="#org9fa444f">3.2. Chaves e valores</a></li>
-<li><a href="#org6e37c19">3.3. Acessando e atualizando</a></li>
+<li><a href="#org74c360a">3.3. Acessando e atualizando</a></li>
 <li><a href="#org1641b38">3.4. Atualizando com <code>setBy</code></a></li>
 <li><a href="#org56f02f2">3.5. Criando todos os <code>Maps</code> possíveis</a></li>
 </ul>
 </li>
-<li><a href="#org48cff68">4. Tuplas</a>
+<li><a href="#orgd289bb9">4. Tuplas</a>
 <ul>
-<li><a href="#orgd289bb9">4.1. Tuplas</a></li>
+<li><a href="#org8d7a6fa">4.1. Tuplas</a></li>
 <li><a href="#org30ae0c8">4.2. Acessando itens</a></li>
 <li><a href="#org2ee85cb">4.3. Criando todas as tuplas possíveis</a></li>
 </ul>
 </li>
-<li><a href="#orga096d55">5. <code>Records</code></a>
+<li><a href="#orge393a20">5. <code>Records</code></a>
 <ul>
-<li><a href="#orge393a20">5.1. <code>Records</code></a></li>
-<li><a href="#org74c360a">5.2. Acessando e atualizando</a></li>
+<li><a href="#org2076726">5.1. <code>Records</code></a></li>
+<li><a href="#org26d3acb">5.2. Acessando e atualizando</a></li>
 </ul>
 </li>
-<li><a href="#orgb61bce3">6. Listas</a>
+<li><a href="#org70a3f8a">6. Listas</a>
 <ul>
-<li><a href="#org70a3f8a">6.1. Listas</a></li>
+<li><a href="#org8dbe0f6">6.1. Listas</a></li>
 <li><a href="#orgda36972">6.2. Acessando</a></li>
 <li><a href="#orgdfa0123">6.3. Atualizando</a></li>
 <li><a href="#orge3e65c5">6.4. Filtrando listas</a></li>
@@ -219,12 +219,12 @@ Escolha a forma que você acha mais fácil de ler!<br />
 </div>
 </div>
 </div>
-<div id="outline-container-org8ee6956" class="outline-2">
-<h2 id="org8ee6956"><span class="section-number-2">2.</span> Conjuntos!</h2>
+<div id="outline-container-org7190cef" class="outline-2">
+<h2 id="org7190cef"><span class="section-number-2">2.</span> Conjuntos!</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org7190cef" class="outline-3">
-<h3 id="org7190cef"><span class="section-number-3">2.1.</span> Conjuntos!</h3>
+<div id="outline-container-orgdf16b45" class="outline-3">
+<h3 id="orgdf16b45"><span class="section-number-3">2.1.</span> Conjuntos!</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Conjuntos, ou <i>Sets</i>, são a principal estrutura de dados em Quint em TLA+.<br />
@@ -482,8 +482,8 @@ m.keys().map(k =&gt; m.get(k))
 </div>
 </div>
 </div>
-<div id="outline-container-org6e37c19" class="outline-3">
-<h3 id="org6e37c19"><span class="section-number-3">3.3.</span> Acessando e atualizando</h3>
+<div id="outline-container-org74c360a" class="outline-3">
+<h3 id="org74c360a"><span class="section-number-3">3.3.</span> Acessando e atualizando</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 <code>set</code> atualiza um elemento existente, e <code>put</code> pode criar um novo par chave-valor.<br />
@@ -540,12 +540,12 @@ Para criar todos os <code>Maps</code> possíveis dado um domínio e um co-domín
 </div>
 </div>
 </div>
-<div id="outline-container-org48cff68" class="outline-2">
-<h2 id="org48cff68"><span class="section-number-2">4.</span> Tuplas</h2>
+<div id="outline-container-orgd289bb9" class="outline-2">
+<h2 id="orgd289bb9"><span class="section-number-2">4.</span> Tuplas</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgd289bb9" class="outline-3">
-<h3 id="orgd289bb9"><span class="section-number-3">4.1.</span> Tuplas</h3>
+<div id="outline-container-org8d7a6fa" class="outline-3">
+<h3 id="org8d7a6fa"><span class="section-number-3">4.1.</span> Tuplas</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Tuplas são combinações de tipos diferentes em um mesmo valor, onde a ordem dos elementos é o que define o tipo esperado.<br />
@@ -602,12 +602,12 @@ tuples(<span style="color: #d79921;">Set</span>(1), <span style="color: #d79921;
 </div>
 </div>
 </div>
-<div id="outline-container-orga096d55" class="outline-2">
-<h2 id="orga096d55"><span class="section-number-2">5.</span> <code>Records</code></h2>
+<div id="outline-container-orge393a20" class="outline-2">
+<h2 id="orge393a20"><span class="section-number-2">5.</span> <code>Records</code></h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orge393a20" class="outline-3">
-<h3 id="orge393a20"><span class="section-number-3">5.1.</span> <code>Records</code></h3>
+<div id="outline-container-org2076726" class="outline-3">
+<h3 id="org2076726"><span class="section-number-3">5.1.</span> <code>Records</code></h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 <code>Records</code> são combinações de tipos diferentes em um mesmo valor, onde os elementos são nomeados.<br />
@@ -618,8 +618,8 @@ O tipo de um <i>record</i> é dado por <code>{ field0: t0, ..., fieldn: tn }</co
 </p>
 </div>
 </div>
-<div id="outline-container-org74c360a" class="outline-3">
-<h3 id="org74c360a"><span class="section-number-3">5.2.</span> Acessando e atualizando</h3>
+<div id="outline-container-org26d3acb" class="outline-3">
+<h3 id="org26d3acb"><span class="section-number-3">5.2.</span> Acessando e atualizando</h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
 <pre class="src src-quint"><span style="color: #e35b15;">val</span> r = { nome: <span style="color: #98971a;">"Gabriela"</span>, idade: 25 }
@@ -640,12 +640,12 @@ r
 </div>
 </div>
 </div>
-<div id="outline-container-orgb61bce3" class="outline-2">
-<h2 id="orgb61bce3"><span class="section-number-2">6.</span> Listas</h2>
+<div id="outline-container-org70a3f8a" class="outline-2">
+<h2 id="org70a3f8a"><span class="section-number-2">6.</span> Listas</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org70a3f8a" class="outline-3">
-<h3 id="org70a3f8a"><span class="section-number-3">6.1.</span> Listas</h3>
+<div id="outline-container-org8dbe0f6" class="outline-3">
+<h3 id="org8dbe0f6"><span class="section-number-3">6.1.</span> Listas</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Listas são como conjuntos, porém com uma ordem definida e, possivelmente, com elementos repetidos. Em TLA+, essa mesma estrutura tem nome de sequência.<br />
