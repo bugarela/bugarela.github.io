@@ -60,33 +60,33 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf5979dc">1. Lógica Temporal das Ações (TLA)</a>
+<li><a href="#orgcf0075a">1. Lógica Temporal das Ações (TLA)</a>
 <ul>
-<li><a href="#orgcd5dc62">1.1. Introdução</a></li>
-<li><a href="#org767b1fa">1.2. Operador <i>primed</i></a></li>
-<li><a href="#org0951382">1.3. Exemplos: operador <i>primed</i></a></li>
-<li><a href="#org6d28694">1.4. Ações definem Transições</a></li>
-<li><a href="#org42b6e18">1.5. Uma fórmula temporal define o modelo!</a></li>
+<li><a href="#org73d67ff">1.1. Introdução</a></li>
+<li><a href="#org44a2c84">1.2. Operador <i>primed</i></a></li>
+<li><a href="#orgf8e79b8">1.3. Exemplos: operador <i>primed</i></a></li>
+<li><a href="#org852edd5">1.4. Ações definem Transições</a></li>
+<li><a href="#org47e6328">1.5. Uma fórmula temporal define o modelo!</a></li>
 </ul>
 </li>
-<li><a href="#org39afa03">2. TLA+ e Quint</a>
+<li><a href="#orgc1b3abd">2. TLA+ e Quint</a>
 <ul>
-<li><a href="#org07cdada">2.1. TLA+ e Quint</a></li>
-<li><a href="#org1d3371c">2.2. TLC e Apalache</a></li>
-<li><a href="#orga60449e">2.3. <i>Model checking</i> TLA+</a></li>
-<li><a href="#org5085910">2.4. <i>Model checking</i> Quint</a></li>
-<li><a href="#org09d1696">2.5. Referências</a></li>
+<li><a href="#org5e0030e">2.1. TLA+ e Quint</a></li>
+<li><a href="#orge56860c">2.2. TLC e Apalache</a></li>
+<li><a href="#orgee4ebea">2.3. <i>Model checking</i> TLA+</a></li>
+<li><a href="#orgc8b7276">2.4. <i>Model checking</i> Quint</a></li>
+<li><a href="#org14fd4e0">2.5. Referências</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf5979dc" class="outline-2">
-<h2 id="orgf5979dc"><span class="section-number-2">1.</span> Lógica Temporal das Ações (TLA)</h2>
+<div id="outline-container-orgcf0075a" class="outline-2">
+<h2 id="orgcf0075a"><span class="section-number-2">1.</span> Lógica Temporal das Ações (TLA)</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgcd5dc62" class="outline-3">
-<h3 id="orgcd5dc62"><span class="section-number-3">1.1.</span> Introdução</h3>
+<div id="outline-container-org73d67ff" class="outline-3">
+<h3 id="org73d67ff"><span class="section-number-3">1.1.</span> Introdução</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 A Lógica Temporal das Ações (<i>Temporal Logic of Actions</i> - TLA) foi proposta em (<a href="#citeproc_bib_item_1">LAMPORT, 1994</a>).<br />
@@ -101,8 +101,8 @@ Nessa aula, vamos focar em como usar ações, com o operador <i>primed</i> (<cod
 </p>
 </div>
 </div>
-<div id="outline-container-org767b1fa" class="outline-3">
-<h3 id="org767b1fa"><span class="section-number-3">1.2.</span> Operador <i>primed</i></h3>
+<div id="outline-container-org44a2c84" class="outline-3">
+<h3 id="org44a2c84"><span class="section-number-3">1.2.</span> Operador <i>primed</i></h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 \(f'\) (f <i>primed</i>) para uma função de estado \(f\) é o valor de \(f\) no <b>final de um passo</b>.<br />
@@ -117,8 +117,8 @@ De forma semelhante, \(P'\) para um predicado \(P\) é o valor de \(P\) para o e
 </p>
 </div>
 </div>
-<div id="outline-container-org0951382" class="outline-3">
-<h3 id="org0951382"><span class="section-number-3">1.3.</span> Exemplos: operador <i>primed</i></h3>
+<div id="outline-container-orgf8e79b8" class="outline-3">
+<h3 id="orgf8e79b8"><span class="section-number-3">1.3.</span> Exemplos: operador <i>primed</i></h3>
 <div class="outline-text-3" id="text-1-3">
 <ol class="org-ol">
 <li>\(x' = x + 1\)<br /></li>
@@ -139,8 +139,8 @@ PS: É necessário muito cuidado ao usar formas diferentes de (1).<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org6d28694" class="outline-3">
-<h3 id="org6d28694"><span class="section-number-3">1.4.</span> Ações definem Transições</h3>
+<div id="outline-container-org852edd5" class="outline-3">
+<h3 id="org852edd5"><span class="section-number-3">1.4.</span> Ações definem Transições</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Combinando operações <i>primed</i> e predicados comuns, podemos definir as transições do modelo.<br />
@@ -162,8 +162,8 @@ Note que <b>1</b> ação define <b>N</b> transições. Assim, uma única ação 
 </p>
 </div>
 </div>
-<div id="outline-container-org42b6e18" class="outline-3">
-<h3 id="org42b6e18"><span class="section-number-3">1.5.</span> Uma fórmula temporal define o modelo!</h3>
+<div id="outline-container-org47e6328" class="outline-3">
+<h3 id="org47e6328"><span class="section-number-3">1.5.</span> Uma fórmula temporal define o modelo!</h3>
 <div class="outline-text-3" id="text-1-5">
 <ol class="org-ol">
 <li>Um predicado comum define o(s) estado(s) inicial(is).<br />
@@ -188,12 +188,12 @@ Note que <b>1</b> ação define <b>N</b> transições. Assim, uma única ação 
 </div>
 </div>
 </div>
-<div id="outline-container-org39afa03" class="outline-2">
-<h2 id="org39afa03"><span class="section-number-2">2.</span> TLA+ e Quint</h2>
+<div id="outline-container-orgc1b3abd" class="outline-2">
+<h2 id="orgc1b3abd"><span class="section-number-2">2.</span> TLA+ e Quint</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org07cdada" class="outline-3">
-<h3 id="org07cdada"><span class="section-number-3">2.1.</span> TLA+ e Quint</h3>
+<div id="outline-container-org5e0030e" class="outline-3">
+<h3 id="org5e0030e"><span class="section-number-3">2.1.</span> TLA+ e Quint</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>TLA+ (<i>Temporal Logic of Actions+</i>) combina a lógica de TLA com teoria de conjuntos, definindo uma linguagem de especificação formal.<br /></li>
@@ -208,8 +208,8 @@ Note que <b>1</b> ação define <b>N</b> transições. Assim, uma única ação 
 </ul>
 </div>
 </div>
-<div id="outline-container-org1d3371c" class="outline-3">
-<h3 id="org1d3371c"><span class="section-number-3">2.2.</span> TLC e Apalache</h3>
+<div id="outline-container-orge56860c" class="outline-3">
+<h3 id="orge56860c"><span class="section-number-3">2.2.</span> TLC e Apalache</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Temos dois <i>model checkers</i> disponíveis para TLA+ e Quint.<br />
@@ -233,8 +233,8 @@ Temos dois <i>model checkers</i> disponíveis para TLA+ e Quint.<br />
 </ul>
 </div>
 </div>
-<div id="outline-container-orga60449e" class="outline-3">
-<h3 id="orga60449e"><span class="section-number-3">2.3.</span> <i>Model checking</i> TLA+</h3>
+<div id="outline-container-orgee4ebea" class="outline-3">
+<h3 id="orgee4ebea"><span class="section-number-3">2.3.</span> <i>Model checking</i> TLA+</h3>
 <div class="outline-text-3" id="text-2-3">
 <ol class="org-ol">
 <li>Apalache<br />
@@ -258,8 +258,8 @@ Temos dois <i>model checkers</i> disponíveis para TLA+ e Quint.<br />
 </ol>
 </div>
 </div>
-<div id="outline-container-org5085910" class="outline-3">
-<h3 id="org5085910"><span class="section-number-3">2.4.</span> <i>Model checking</i> Quint</h3>
+<div id="outline-container-orgc8b7276" class="outline-3">
+<h3 id="orgc8b7276"><span class="section-number-3">2.4.</span> <i>Model checking</i> Quint</h3>
 <div class="outline-text-3" id="text-2-4">
 <ol class="org-ol">
 <li>Linha de comando: <code>quint verify spec.qnt</code><br />
@@ -272,8 +272,8 @@ Temos dois <i>model checkers</i> disponíveis para TLA+ e Quint.<br />
 </ol>
 </div>
 </div>
-<div id="outline-container-org09d1696" class="outline-3">
-<h3 id="org09d1696"><span class="section-number-3">2.5.</span> Referências</h3>
+<div id="outline-container-org14fd4e0" class="outline-3">
+<h3 id="org14fd4e0"><span class="section-number-3">2.5.</span> Referências</h3>
 <div class="outline-text-3" id="text-2-5">
 <div class="csl-bib-body">
   <div class="csl-entry"><a id="citeproc_bib_item_1"></a>LAMPORT, L. The temporal logic of actions. <b>ACM trans. program. lang. syst.</b>, v. 16, n. 3, p. 872–923, 1994. </div>

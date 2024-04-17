@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Exercícios Pokemon</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="http://nowhere.org/mfo/20240415205323-mfo_exercicios_pokemon.html" />
+  <meta property="og:title" content="Exercícios Pokemon" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+    <meta property="og:image" content="http://nowhere.org/mfo/figures/pokemon.jpg" />
+    <meta property="og:image:width" content="840" />
+    <meta property="og:image:height" content="900" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Exercícios Pokemon">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../css/layouts/style.css">
+
+  </head>
+  <body>
+    <div id="layout" class="pure-g">
+      <div class="sidebar pure-u-1 pure-u-md-1-3">
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-lg-1-2">
+    </div>
+    <div class="pure-u-1 pure-u-lg-1-2">
+      <div class="header">
+        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
+      </div>
+      <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+      </div>
+      <div class="footer">
+  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-2-3">
+        <h2>Exercícios Pokemon</h2>
+        <a href="https://bugarela.com/mfo/slides/20240415205323-mfo_exercicios_pokemon.pdf">PDF</a><br />
+<a href="https://bugarela.com/mfo/specs/pokemon.zip">Especificações base</a>
+
+<p>
+Os exercícios a seguir podem ser feitos em TLA+ ou em Quint. Faça download (moodle) da especificação base que deseja usar (TLA+ ou Quint) e modifique-a conforme os exercícios pedem.<br />
+</p>
+
+<ol class="org-ol">
+<li>Na especificação base, ao examinar uma execução, é um pouco difícil entender o que aconteceu de um estado pra outro. Introduza uma variável que, a cada estado, grave qual foi o último ataque feitos, de forma a facilitar a compreensão de uma execução.<br />
+<ol class="org-ol">
+<li>em Quint, sem tipo soma: <code>{ attacker: Pokemon, receiver: Pokemon, attack: str, damage: int }</code><br />
+<ul class="org-ul">
+<li>Neste caso, você vai precisar inventar valores arbitrários para essa variável no estado inicial<br /></li>
+</ul></li>
+<li>em Quint, com tipo soma: <code>Option[{ attacker: Pokemon, receiver: Pokemon, attack: str, damage: int }]</code><br />
+<ul class="org-ul">
+<li>O tipo <code>Option</code> é definido por <code>Option[a] = Some(a) | None</code><br /></li>
+<li>Neste caso, o valor da variável pode ser <code>None</code> no estado inicial, e <code>Some(...)</code> nos demais estados.<br /></li>
+</ul></li>
+<li>em TLA+, sem tipo. Pode ter valor <code>""</code> no estado inicial.<br /></li>
+</ol></li>
+
+<li>Pokemons com uma vantagem elemental tem mais changes de ganhar. Contudo, TLA+ e Quint não trabalham com estatísticas, e só conseguimos tirar conclusões do tipo &ldquo;A sempre ganha de B&rdquo; ou &ldquo;A nunca ganha de B&rdquo;. Para ajudar com isso, não estamos especificando a chance de um ataque acertar. Mesmo assim, na especificação base, a vantagem elemental não garante que o pokemon vença a batalha.<br />
+<ol class="org-ol">
+<li>Escreva uma invariante dizendo que um pokemon do tipo fogo sempre ganha de um pokemon do tipo grama.<br />
+<ul class="org-ul">
+<li>Ao verificar/simular essa invariante, você deve encontrar um contraexemplo. Examine esse contraexemplo e responda: Em que cenário é possível que um pokemon do tipo grama vença um pokemon do tipo fogo?<br /></li>
+</ul></li>
+<li>Agora, implemente uma estratégia (semelhante ao que fizemos no jogo da velha) para que essa invariante seja satisfeita.<br />
+<ul class="org-ul">
+<li>A estratégia é bem simples: quando o pokemon tiver vantagem elemental, ele deve usar o ataque elemental.<br /></li>
+</ul></li>
+</ol></li>
+
+<li>Adicione um novo pokemon do tipo elétrico conforme a tabela de modificadores de dano a seguir<br /></li>
+</ol>
+
+<div id="orgae6942c" class="figure">
+<p><img src="./figures/pokemon.jpg" alt="pokemon.jpg" /><br />
+</p>
+</div>
+
+      </div>
+    </div>
+  </body>
+</html>
