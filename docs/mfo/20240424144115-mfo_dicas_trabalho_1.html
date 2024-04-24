@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Dicas Trabalho 1</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="http://nowhere.org/mfo/20240424144115-mfo_dicas_trabalho_1.html" />
+  <meta property="og:title" content="Dicas Trabalho 1" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Dicas Trabalho 1">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../css/layouts/style.css">
+
+  </head>
+  <body>
+    <div id="layout" class="pure-g">
+      <div class="sidebar pure-u-1 pure-u-md-1-3">
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-lg-1-2">
+    </div>
+    <div class="pure-u-1 pure-u-lg-1-2">
+      <div class="header">
+        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
+      </div>
+      <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+      </div>
+      <div class="footer">
+  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-2-3">
+        <h2>Dicas Trabalho 1</h2>
+        <a href="https://bugarela.com/mfo/slides/20240424144115-mfo_dicas_trabalho_1.pdf">Slides</a><br />
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org313b112">1. Dicas</a>
+<ul>
+<li><a href="#org5a44abd">1.1. [Quint] q::debug</a></li>
+<li><a href="#orgdfb2310">1.2. [TLA+] Print</a></li>
+<li><a href="#orgaf8908d">1.3. Composição</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org313b112" class="outline-2">
+<h2 id="org313b112"><span class="section-number-2">1.</span> Dicas</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org5a44abd" class="outline-3">
+<h3 id="org5a44abd"><span class="section-number-3">1.1.</span> [Quint] q::debug</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Se você está conseguindo executar (simular) sua especificação, mas não entende <b>porque</b> algo está se comportando de determinada maneira, pode ser útil usar o operador auxiliar <code>q::debug</code>. Por exemplo, considere a função:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f(x) = (x + 1) * 2
+</pre>
+</div>
+
+<p>
+Se tivermos dúvida se nossa soma está correta, podemos envolve-la em uma chamada de <code>q::debug</code>, onde o primeiro argumento é uma string qualquer e o segundo a expressão a ser avaliada. O resultado de <code>q::debug</code> é exatamente igual à expressão em si, mas ele tem um efeito colateral que resulta na impressão daquele valor precedido pela string fornecida:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">&gt;&gt;&gt; <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f(x) = q::debug(<span style="color: #98971a;">"resultado soma: "</span>, x + 1) * 2
+&gt;&gt;&gt; f(1)
+&gt; resultado soma:  2
+4
+</pre>
+</div>
+
+<p>
+Isso é o mais próximo que temos de <code>printf</code> para debugar :)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgdfb2310" class="outline-3">
+<h3 id="orgdfb2310"><span class="section-number-3">1.2.</span> [TLA+] Print</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+De forma semelhante, temos o operator <code>Print</code> em TLA+, definido no módulo TLC<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span style="color: #66a4a4;">EXTENDS</span> TLC
+</pre>
+</div>
+
+<p>
+Usado da mesma forma:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">otherTeam(team) == Print(<span style="color: #98971a;">"otherTeam: "</span>, <span style="color: #66a4a4;">IF</span> team = <span style="color: #98971a;">"A"</span> <span style="color: #66a4a4;">THEN</span> <span style="color: #98971a;">"B"</span> <span style="color: #66a4a4;">ELSE</span> <span style="color: #98971a;">"A"</span>)
+</pre>
+</div>
+
+<p>
+No VSCode, no painel do TLC teremos uma seção &ldquo;Output&rdquo; mostrando:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">"otherTeam: " "A" (6)
+"otherTeam: " "B" (2)
+"otherTeam: " "A" (4)
+"otherTeam: " "B" (4)
+"otherTeam: " "A" (2)
+...
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgaf8908d" class="outline-3">
+<h3 id="orgaf8908d"><span class="section-number-3">1.3.</span> Composição</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+E se, no mesmo turno, um pokemon puder dar dois ataques em vez de somente um?<br />
+</p>
+<p>
+Lembrem-se que não podemos atualizar uma variável duas vezes na mesma ação (transição).<br />
+</p>
+<p>
+Temos duas opções:<br />
+</p>
+<ol class="org-ol">
+<li>Usar duas ações e só atualizar <code>next_team</code> na segunda<br /></li>
+<li>Usar uma unica ação, onde só atualizamos <code>pokemons</code> com o resultado do segundo ataque.<br /></li>
+</ol>
+
+<p>
+A opção (2) é geralmente mais interessante, já que ela funciona melhor se, por exemplo, quisermos adicionar um terceiro ataque.<br />
+</p>
+
+<p>
+[Exemplo completo no moodle]<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">type</span> AttackDescription = { attacker: Pokemon, receiver: Pokemon, attack: <span style="color: #d79921;">str</span>, damage: <span style="color: #d79921;">int</span> }
+<span style="color: #e35b15;">var</span> last_attack: Option[<span style="color: #d79921;">List</span>[AttackDescription]]
+
+<span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> tackle(attacker: Pokemon, receiver: Pokemon): (Pokemon, AttackDescription) = {
+  (receiver.damage(10), { attacker: attacker, receiver: receiver, attack: <span style="color: #98971a;">"Tackle"</span>, damage: 10 })
+}
+
+<span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> elemental_attack(attacker: Pokemon, receiver: Pokemon): (Pokemon, AttackDescription) = {
+  <span style="color: #e35b15;">val</span> base_damage = 10
+  <span style="color: #e35b15;">val</span> actual_damage = match damage_modifier(attacker, receiver) {
+    | SuperEffective =&gt; base_damage * 2
+    | NotVeryEffective =&gt; base_damage / 2
+    | Normal =&gt; base_damage
+  }
+  (receiver.damage(actual_damage), { attacker: attacker, receiver: receiver, attack: <span style="color: #98971a;">"Elemental"</span>, damage: actual_damage })
+}
+
+<span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> attack(attacker: Pokemon, receiver: Pokemon): (Pokemon, AttackDescription) = {
+  <span style="color: #66a4a4;">if</span> (damage_modifier(attacker, receiver) == SuperEffective) {
+    attacker.elemental_attack(receiver)
+  } <span style="color: #66a4a4;">else</span> {
+    attacker.tackle(receiver)
+  }
+}
+
+<span style="color: #e35b15;">action</span> double_attack(attacker: Pokemon, receiver: Pokemon): <span style="color: #d79921;">bool</span> = {
+  <span style="color: #66a4a4;">all</span> {
+    attacker != receiver,
+    attacker.hp &gt; 0,
+    receiver.hp &gt; 0,
+    <span style="color: #e35b15;">val</span> first_attack_result = attacker.attack(receiver)
+    <span style="color: #e35b15;">val</span> second_attack_result = attacker.attack(first_attack_result._1)
+    <span style="color: #e35b15;">val</span> double_attack_description = [first_attack_result._2, second_attack_result._2]
+    <span style="color: #66a4a4;">all</span> {
+      pokemons' = pokemons.set(receiver.team, second_attack_result._1),
+      last_attack' = Some(double_attack_description)
+    }
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+      </div>
+    </div>
+  </body>
+</html>

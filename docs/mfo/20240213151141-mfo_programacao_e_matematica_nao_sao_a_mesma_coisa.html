@@ -14,8 +14,8 @@
   <meta property="og:description" content="Personal homepage exported with org-thtml" />
   
     <meta property="og:image" content="http://nowhere.org/mfo/figures/pioneer-plaque.png" />
-    <meta property="og:image:width" content="3063" />
-    <meta property="og:image:height" content="2427" />
+    <meta property="og:image:width" content="3995" />
+    <meta property="og:image:height" content="3166" />
   
   
     <meta name="twitter:card" content="summary_large_image">
@@ -63,40 +63,40 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgcc96dae">1. Introdução</a>
+<li><a href="#org09c54d2">1. Introdução</a>
 <ul>
-<li><a href="#orgbba541c">1.1. Essa aula não é sobre</a></li>
-<li><a href="#org19a9ccb">1.2. Essa aula é sobre</a></li>
+<li><a href="#orgd98aba3">1.1. Essa aula não é sobre</a></li>
+<li><a href="#org395a0bf">1.2. Essa aula é sobre</a></li>
 </ul>
 </li>
-<li><a href="#org2a394b1">2. Correspondências interessantes</a>
+<li><a href="#org4aceb4a">2. Correspondências interessantes</a>
 <ul>
-<li><a href="#orge744f74">2.1. Correspondências interessantes - está tudo interligado!</a></li>
-<li><a href="#org25c8e37">2.2. Linguagem universal</a></li>
-<li><a href="#org57c70ac">2.3. Isomorfismo de Curry-Howard</a></li>
-<li><a href="#orge735649">2.4. Interpretação algébrica para tipos</a></li>
-<li><a href="#org87dbdc9">2.5. Exponenciação como tipos de funções I</a></li>
-<li><a href="#org966fc25">2.6. Funções parciais</a></li>
+<li><a href="#org3890987">2.1. Correspondências interessantes - está tudo interligado!</a></li>
+<li><a href="#orga37c2f5">2.2. Linguagem universal</a></li>
+<li><a href="#orge5785af">2.3. Isomorfismo de Curry-Howard</a></li>
+<li><a href="#orgfe5d0d1">2.4. Interpretação algébrica para tipos</a></li>
+<li><a href="#org06792fe">2.5. Exponenciação como tipos de funções I</a></li>
+<li><a href="#orgaf6d90d">2.6. Funções parciais</a></li>
 </ul>
 </li>
-<li><a href="#org038c061">3. Diferenças importantes</a>
+<li><a href="#orgc606696">3. Diferenças importantes</a>
 <ul>
-<li><a href="#org3986d69">3.1. Erros vs indefinições</a></li>
-<li><a href="#org6942f28">3.2. Funções vs <code>Maps</code></a></li>
-<li><a href="#orga8cdd07">3.3. Implementação vs definição</a></li>
-<li><a href="#org016b241">3.4. Em resumo</a></li>
-<li><a href="#org934ce9b">3.5. Referências</a></li>
+<li><a href="#org1b60db4">3.1. Erros vs indefinições</a></li>
+<li><a href="#org04bd0ee">3.2. Funções vs <code>Maps</code></a></li>
+<li><a href="#orgacba0a6">3.3. Implementação vs definição</a></li>
+<li><a href="#orga6aa9b6">3.4. Em resumo</a></li>
+<li><a href="#org57f6c4a">3.5. Referências</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcc96dae" class="outline-2">
-<h2 id="orgcc96dae"><span class="section-number-2">1.</span> Introdução</h2>
+<div id="outline-container-org09c54d2" class="outline-2">
+<h2 id="org09c54d2"><span class="section-number-2">1.</span> Introdução</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgbba541c" class="outline-3">
-<h3 id="orgbba541c"><span class="section-number-3">1.1.</span> Essa aula não é sobre</h3>
+<div id="outline-container-orgd98aba3" class="outline-3">
+<h3 id="orgd98aba3"><span class="section-number-3">1.1.</span> Essa aula não é sobre</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Essa aula não é sobre:<br />
@@ -115,15 +115,15 @@ Vocês estão cursando Ciência da Computação, então independente disso tudo,
 </p>
 </div>
 </div>
-<div id="outline-container-org19a9ccb" class="outline-3">
-<h3 id="org19a9ccb"><span class="section-number-3">1.2.</span> Essa aula é sobre</h3>
+<div id="outline-container-org395a0bf" class="outline-3">
+<h3 id="org395a0bf"><span class="section-number-3">1.2.</span> Essa aula é sobre</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Como matemática e programação se relacionam, e a importância de entender as diferenças.<br />
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org2a87060"></a>Métodos Formais são sobre matemática ou sobre programação?<br />
+<li><a id="orgbe6a135"></a>Métodos Formais são sobre matemática ou sobre programação?<br />
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 Vamos trabalhar com ambos no mesmo ambiente, e o domínio sobre quando usar uma perspectiva ou outra é a principal habilidade para se escrever uma boa <b>especificação formal</b>.<br />
@@ -141,12 +141,12 @@ Para isso, primeiro precisamos entender as semelhanças e diferenças<br />
 </ol>
 </div>
 </div>
-<div id="outline-container-org2a394b1" class="outline-2">
-<h2 id="org2a394b1"><span class="section-number-2">2.</span> Correspondências interessantes</h2>
+<div id="outline-container-org4aceb4a" class="outline-2">
+<h2 id="org4aceb4a"><span class="section-number-2">2.</span> Correspondências interessantes</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orge744f74" class="outline-3">
-<h3 id="orge744f74"><span class="section-number-3">2.1.</span> Correspondências interessantes - está tudo interligado!</h3>
+<div id="outline-container-org3890987" class="outline-3">
+<h3 id="org3890987"><span class="section-number-3">2.1.</span> Correspondências interessantes - está tudo interligado!</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Em 1930, Church e Turing provam, de forma independente, que o problema Entscheidungsproblem não pode ser resolvido<br />
@@ -158,22 +158,22 @@ Para isso, primeiro precisamos entender as semelhanças e diferenças<br />
 </ul>
 </div>
 </div>
-<div id="outline-container-org25c8e37" class="outline-3">
-<h3 id="org25c8e37"><span class="section-number-3">2.2.</span> Linguagem universal</h3>
+<div id="outline-container-orga37c2f5" class="outline-3">
+<h3 id="orga37c2f5"><span class="section-number-3">2.2.</span> Linguagem universal</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>(<a href="#citeproc_bib_item_3">WADLER, 2015</a>) E se mandássemos cálculo lambda para os alienígenas? Seriam eles capazes de compreender?<br /></li>
 </ul>
 
 
-<div id="org20063a9" class="figure">
+<div id="orgdd8db29" class="figure">
 <p><img src="./figures/pioneer-plaque.png" alt="pioneer-plaque.png" width="600px" /><br />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org57c70ac" class="outline-3">
-<h3 id="org57c70ac"><span class="section-number-3">2.3.</span> Isomorfismo de Curry-Howard</h3>
+<div id="outline-container-orge5785af" class="outline-3">
+<h3 id="orge5785af"><span class="section-number-3">2.3.</span> Isomorfismo de Curry-Howard</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>Proposições como tipos<br /></li>
@@ -260,8 +260,8 @@ Exemplo: implicação e abstração + aplicação<br />
 </table>
 </div>
 </div>
-<div id="outline-container-orge735649" class="outline-3">
-<h3 id="orge735649"><span class="section-number-3">2.4.</span> Interpretação algébrica para tipos</h3>
+<div id="outline-container-orgfe5d0d1" class="outline-3">
+<h3 id="orgfe5d0d1"><span class="section-number-3">2.4.</span> Interpretação algébrica para tipos</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>A teoria das categorias define um nível ainda mais alto de abstração para enxergar algumas coisas. Um dos exemplos mais simples de uma categoria é a categoria dos conjuntos (e das funções entre eles) (<a href="#citeproc_bib_item_1">DE FRANÇA, 2019</a>).<br /></li>
@@ -322,8 +322,8 @@ Exemplo: implicação e abstração + aplicação<br />
 </table>
 </div>
 </div>
-<div id="outline-container-org87dbdc9" class="outline-3">
-<h3 id="org87dbdc9"><span class="section-number-3">2.5.</span> Exponenciação como tipos de funções I</h3>
+<div id="outline-container-org06792fe" class="outline-3">
+<h3 id="org06792fe"><span class="section-number-3">2.5.</span> Exponenciação como tipos de funções I</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 Vamos escrever tipos função (<code>a -&gt; b</code>) como operações de exponenciação da álgebra:<br />
@@ -363,8 +363,8 @@ Vamos escrever tipos função (<code>a -&gt; b</code>) como operações de expon
 </ul>
 </div>
 </div>
-<div id="outline-container-org966fc25" class="outline-3">
-<h3 id="org966fc25"><span class="section-number-3">2.6.</span> Funções parciais</h3>
+<div id="outline-container-orgaf6d90d" class="outline-3">
+<h3 id="orgaf6d90d"><span class="section-number-3">2.6.</span> Funções parciais</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 Agora, um caso mais tangível para voltarmos um pouco para a nossa realidade.<br />
@@ -383,12 +383,12 @@ Agora, um caso mais tangível para voltarmos um pouco para a nossa realidade.<br
 </div>
 </div>
 </div>
-<div id="outline-container-org038c061" class="outline-2">
-<h2 id="org038c061"><span class="section-number-2">3.</span> Diferenças importantes</h2>
+<div id="outline-container-orgc606696" class="outline-2">
+<h2 id="orgc606696"><span class="section-number-2">3.</span> Diferenças importantes</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org3986d69" class="outline-3">
-<h3 id="org3986d69"><span class="section-number-3">3.1.</span> Erros vs indefinições</h3>
+<div id="outline-container-org1b60db4" class="outline-3">
+<h3 id="org1b60db4"><span class="section-number-3">3.1.</span> Erros vs indefinições</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Na matemática, algumas fórmulas são indefinidas.<br />
@@ -408,8 +408,8 @@ Agora, um caso mais tangível para voltarmos um pouco para a nossa realidade.<br
 </ul>
 </div>
 </div>
-<div id="outline-container-org6942f28" class="outline-3">
-<h3 id="org6942f28"><span class="section-number-3">3.2.</span> Funções vs <code>Maps</code></h3>
+<div id="outline-container-org04bd0ee" class="outline-3">
+<h3 id="org04bd0ee"><span class="section-number-3">3.2.</span> Funções vs <code>Maps</code></h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Funções matemáticas podem ser programadas através de funções ou <code>Maps</code> (<a href="#citeproc_bib_item_2">KONNOV, 2024</a>). Pense nos exemplos<br />
@@ -432,8 +432,8 @@ Numa especificação formal, memória e velocidade não importam da mesma forma<
 </p>
 </div>
 </div>
-<div id="outline-container-orga8cdd07" class="outline-3">
-<h3 id="orga8cdd07"><span class="section-number-3">3.3.</span> Implementação vs definição</h3>
+<div id="outline-container-orgacba0a6" class="outline-3">
+<h3 id="orgacba0a6"><span class="section-number-3">3.3.</span> Implementação vs definição</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Imagine a seguinte definição:<br />
@@ -460,8 +460,8 @@ Numa especificação formal, se não há relevância no algoritmo de ordenação
 </p>
 </div>
 </div>
-<div id="outline-container-org016b241" class="outline-3">
-<h3 id="org016b241"><span class="section-number-3">3.4.</span> Em resumo</h3>
+<div id="outline-container-orga6aa9b6" class="outline-3">
+<h3 id="orga6aa9b6"><span class="section-number-3">3.4.</span> Em resumo</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>Matemática e programação estão muito interligados<br /></li>
@@ -476,8 +476,8 @@ Numa especificação formal, se não há relevância no algoritmo de ordenação
 </ul>
 </div>
 </div>
-<div id="outline-container-org934ce9b" class="outline-3">
-<h3 id="org934ce9b"><span class="section-number-3">3.5.</span> Referências</h3>
+<div id="outline-container-org57f6c4a" class="outline-3">
+<h3 id="org57f6c4a"><span class="section-number-3">3.5.</span> Referências</h3>
 <div class="outline-text-3" id="text-3-5">
 <div class="csl-bib-body">
   <div class="csl-entry"><a id="citeproc_bib_item_1"></a>DE FRANÇA, F. O. <b>Tipo função</b>. Disponível em: &#60;<a href="https://haskell.pesquisa.ufabc.edu.br/teoria-das-categorias/09-tipofuncao/">https://haskell.pesquisa.ufabc.edu.br/teoria-das-categorias/09-tipofuncao/</a>&#62;. </div>

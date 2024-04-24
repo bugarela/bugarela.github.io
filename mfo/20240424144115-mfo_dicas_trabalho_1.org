@@ -1,0 +1,121 @@
+:PROPERTIES:
+:ID:       c617ae02-f58f-4885-8180-991c4d728a8c
+:END:
+#+title:  Dicas Trabalho 1
+#+EMAIL:     gabrielamoreira05@gmail.com
+#+DATE:      24 de abril de 2024
+#+LANGUAGE:  en
+#+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
+#+BEAMER_FRAME_LEVEL: 2
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [smaller]
+#+BEAMER_THEME: udesc
+#+BEAMER_HEADER: \input{header.tex} \subtitle{Aula para disciplina de Métodos Formais} \institute{Departamento de Ciência da Computação - DCC\\Universidade do Estado de Santa Catarina - UDESC}
+#+LATEX_COMPILER: pdflatex
+#+bibliography: references.bib
+#+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
+#+PROPERTY: header-args :tangle tictactoe.tla
+#+HTML: <a href="https://bugarela.com/mfo/slides/20240424144115-mfo_dicas_trabalho_1.pdf">Slides</a><br />
+#+beamer: \begin{frame}{Conteúdo}
+#+TOC: headlines 3
+#+beamer: \end{frame}
+
+* Dicas
+** [Quint] q::debug
+Se você está conseguindo executar (simular) sua especificação, mas não entende *porque* algo está se comportando de determinada maneira, pode ser útil usar o operador auxiliar =q::debug=. Por exemplo, considere a função:
+#+begin_src quint
+pure def f(x) = (x + 1) * 2
+#+end_src
+
+Se tivermos dúvida se nossa soma está correta, podemos envolve-la em uma chamada de =q::debug=, onde o primeiro argumento é uma string qualquer e o segundo a expressão a ser avaliada. O resultado de =q::debug= é exatamente igual à expressão em si, mas ele tem um efeito colateral que resulta na impressão daquele valor precedido pela string fornecida:
+#+begin_src quint
+>>> pure def f(x) = q::debug("resultado soma: ", x + 1) * 2
+>>> f(1)
+> resultado soma:  2
+4
+#+end_src
+
+Isso é o mais próximo que temos de =printf= para debugar :)
+
+** [TLA+] Print
+De forma semelhante, temos o operator =Print= em TLA+, definido no módulo TLC
+#+begin_src tla
+EXTENDS TLC
+#+end_src
+
+Usado da mesma forma:
+#+begin_src tla
+otherTeam(team) == Print("otherTeam: ", IF team = "A" THEN "B" ELSE "A")
+#+end_src
+
+No VSCode, no painel do TLC teremos uma seção "Output" mostrando:
+#+begin_src
+"otherTeam: " "A" (6)
+"otherTeam: " "B" (2)
+"otherTeam: " "A" (4)
+"otherTeam: " "B" (4)
+"otherTeam: " "A" (2)
+...
+#+end_src
+
+** Composição
+E se, no mesmo turno, um pokemon puder dar dois ataques em vez de somente um?
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Lembrem-se que não podemos atualizar uma variável duas vezes na mesma ação (transição).
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Temos duas opções:
+1. Usar duas ações e só atualizar =next_team= na segunda
+2. Usar uma unica ação, onde só atualizamos =pokemons= com o resultado do segundo ataque.
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+A opção (2) é geralmente mais interessante, já que ela funciona melhor se, por exemplo, quisermos adicionar um terceiro ataque.
+
+#+BEAMER: \medskip
+[Exemplo completo no moodle]
+
+#+begin_src quint
+type AttackDescription = { attacker: Pokemon, receiver: Pokemon, attack: str, damage: int }
+var last_attack: Option[List[AttackDescription]]
+
+pure def tackle(attacker: Pokemon, receiver: Pokemon): (Pokemon, AttackDescription) = {
+  (receiver.damage(10), { attacker: attacker, receiver: receiver, attack: "Tackle", damage: 10 })
+}
+
+pure def elemental_attack(attacker: Pokemon, receiver: Pokemon): (Pokemon, AttackDescription) = {
+  val base_damage = 10
+  val actual_damage = match damage_modifier(attacker, receiver) {
+    | SuperEffective => base_damage * 2
+    | NotVeryEffective => base_damage / 2
+    | Normal => base_damage
+  }
+  (receiver.damage(actual_damage), { attacker: attacker, receiver: receiver, attack: "Elemental", damage: actual_damage })
+}
+
+pure def attack(attacker: Pokemon, receiver: Pokemon): (Pokemon, AttackDescription) = {
+  if (damage_modifier(attacker, receiver) == SuperEffective) {
+    attacker.elemental_attack(receiver)
+  } else {
+    attacker.tackle(receiver)
+  }
+}
+
+action double_attack(attacker: Pokemon, receiver: Pokemon): bool = {
+  all {
+    attacker != receiver,
+    attacker.hp > 0,
+    receiver.hp > 0,
+    val first_attack_result = attacker.attack(receiver)
+    val second_attack_result = attacker.attack(first_attack_result._1)
+    val double_attack_description = [first_attack_result._2, second_attack_result._2]
+    all {
+      pokemons' = pokemons.set(receiver.team, second_attack_result._1),
+      last_attack' = Some(double_attack_description)
+    }
+  }
+}
+#+end_src

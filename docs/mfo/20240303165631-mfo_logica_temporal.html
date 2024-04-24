@@ -14,8 +14,8 @@
   <meta property="og:description" content="Personal homepage exported with org-thtml" />
   
     <meta property="og:image" content="http://nowhere.org/mfo/figures/execucao_arvore_computacional.png" />
-    <meta property="og:image:width" content="2039" />
-    <meta property="og:image:height" content="1030" />
+    <meta property="og:image:width" content="2660" />
+    <meta property="og:image:height" content="1344" />
   
   
     <meta name="twitter:card" content="summary_large_image">
@@ -63,60 +63,60 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org14364c1">1. <i>Model checking</i></a>
+<li><a href="#org730b181">1. <i>Model checking</i></a>
 <ul>
-<li><a href="#orgd37ba60">1.1. Contexto</a></li>
-<li><a href="#orgfeeebe4">1.2. Interface de um <i>model checker</i></a></li>
-<li><a href="#orgd848641">1.3. Vantagens e Desvantagens</a></li>
-<li><a href="#org67aff16">1.4. <i class="fa fa-project-diagram"></i> Modelos</a></li>
-<li><a href="#orgaa99270">1.5. <i class="fa fa-not-equal"></i> Propriedades - <i class="fa-regular fa-clock"></i> Lógica temporal</a></li>
-<li><a href="#org6963037">1.6. <i class="fa fa-not-equal"></i> Propriedades - <i class="fa-regular fa-circle"></i> Invariantes</a></li>
-<li><a href="#org344b10c">1.7. <i class="fa fa-route"></i> Contra-exemplo</a></li>
-<li><a href="#org14e8f1e">1.8. <i class="fa fa-user-graduate"></i> Exercício: Qual dessas fórmulas pode ser um invariante?</a></li>
+<li><a href="#orgbf22616">1.1. Contexto</a></li>
+<li><a href="#org5e129a3">1.2. Interface de um <i>model checker</i></a></li>
+<li><a href="#orgd180d36">1.3. Vantagens e Desvantagens</a></li>
+<li><a href="#orgecbaa18">1.4. <i class="fa fa-project-diagram"></i> Modelos</a></li>
+<li><a href="#org8312a39">1.5. <i class="fa fa-not-equal"></i> Propriedades - <i class="fa-regular fa-clock"></i> Lógica temporal</a></li>
+<li><a href="#orgdd86ad1">1.6. <i class="fa fa-not-equal"></i> Propriedades - <i class="fa-regular fa-circle"></i> Invariantes</a></li>
+<li><a href="#org0afc296">1.7. <i class="fa fa-route"></i> Contra-exemplo</a></li>
+<li><a href="#orgf96a241">1.8. <i class="fa fa-user-graduate"></i> Exercício: Qual dessas fórmulas pode ser um invariante?</a></li>
 </ul>
 </li>
-<li><a href="#org327aa60">2. Lógica Temporal</a>
+<li><a href="#orgb747a83">2. Lógica Temporal</a>
 <ul>
-<li><a href="#orgf30eb3c">2.1. Operadores Temporais - Unários</a></li>
-<li><a href="#orgb8c0254">2.2. Operadores Temporais - Binários</a></li>
-<li><a href="#org008cebb">2.3. LTL e CTL</a></li>
-<li><a href="#orgd920bcd">2.4. LTL e CTL - Visualização</a></li>
+<li><a href="#orgff71a0a">2.1. Operadores Temporais - Unários</a></li>
+<li><a href="#orgf1e67b7">2.2. Operadores Temporais - Binários</a></li>
+<li><a href="#org5b85dd5">2.3. LTL e CTL</a></li>
+<li><a href="#orgafe2e64">2.4. LTL e CTL - Visualização</a></li>
 </ul>
 </li>
-<li><a href="#org4abfe4f">3. LTL</a>
+<li><a href="#orgd06dc1f">3. LTL</a>
 <ul>
-<li><a href="#org2259a69">3.1. LTL - <i>Linear Temporal Logic</i></a></li>
-<li><a href="#org529eb95">3.2. Equivalências</a></li>
-<li><a href="#org4928899">3.3. Negações de fórmulas</a></li>
-<li><a href="#org6085b8b">3.4. Exercícios</a></li>
-<li><a href="#org3337688">3.5. LTL em Estruturas de Kripke</a></li>
+<li><a href="#org53451c5">3.1. LTL - <i>Linear Temporal Logic</i></a></li>
+<li><a href="#orgf449cc2">3.2. Equivalências</a></li>
+<li><a href="#org37d21a7">3.3. Negações de fórmulas</a></li>
+<li><a href="#org4c2cfb8">3.4. Exercícios</a></li>
+<li><a href="#orge04b75d">3.5. LTL em Estruturas de Kripke</a></li>
 </ul>
 </li>
-<li><a href="#org15b031b">4. CTL</a>
+<li><a href="#org4a960b1">4. CTL</a>
 <ul>
-<li><a href="#org1ab23f5">4.1. CTL - <i>Computational Tree Logic</i></a></li>
-<li><a href="#org6c32c22">4.2. Visualização</a></li>
+<li><a href="#orga1aaa8c">4.1. CTL - <i>Computational Tree Logic</i></a></li>
+<li><a href="#orgf7fa479">4.2. Visualização</a></li>
 </ul>
 </li>
-<li><a href="#org363fd99">5. Verificando propriedades</a>
+<li><a href="#org64fb8cb">5. Verificando propriedades</a>
 <ul>
-<li><a href="#org30ddd15">5.1. LTL vs CTL</a></li>
-<li><a href="#org1723358">5.2. Exemplo chaleiras - modelo</a></li>
-<li><a href="#orgfe97d21">5.3. Exemplo chaleiras</a></li>
-<li><a href="#orgc5d92fa">5.4. Exemplo Adultos e Crianças - modelo</a></li>
-<li><a href="#org80a9039">5.5. Exemplo Adultos e Crianças</a></li>
-<li><a href="#orgdce7c4b">5.6. Referências</a></li>
+<li><a href="#org35d82f8">5.1. LTL vs CTL</a></li>
+<li><a href="#org7296711">5.2. Exemplo chaleiras - modelo</a></li>
+<li><a href="#org11de1a9">5.3. Exemplo chaleiras</a></li>
+<li><a href="#orgde78545">5.4. Exemplo Adultos e Crianças - modelo</a></li>
+<li><a href="#orgb31f638">5.5. Exemplo Adultos e Crianças</a></li>
+<li><a href="#org3d936a2">5.6. Referências</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org14364c1" class="outline-2">
-<h2 id="org14364c1"><span class="section-number-2">1.</span> <i>Model checking</i></h2>
+<div id="outline-container-org730b181" class="outline-2">
+<h2 id="org730b181"><span class="section-number-2">1.</span> <i>Model checking</i></h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgd37ba60" class="outline-3">
-<h3 id="orgd37ba60"><span class="section-number-3">1.1.</span> Contexto</h3>
+<div id="outline-container-orgbf22616" class="outline-3">
+<h3 id="orgbf22616"><span class="section-number-3">1.1.</span> Contexto</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li><b>Problema</b>: É difícil pensar em todos os cenários, principalmente em sistemas concorrentes/distribuídos<br /></li>
@@ -131,15 +131,15 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfeeebe4" class="outline-3">
-<h3 id="orgfeeebe4"><span class="section-number-3">1.2.</span> Interface de um <i>model checker</i></h3>
+<div id="outline-container-org5e129a3" class="outline-3">
+<h3 id="org5e129a3"><span class="section-number-3">1.2.</span> Interface de um <i>model checker</i></h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Como um <i>model checker</i> é usado?<br />
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org3274b26"></a>Duas entradas:<br />
+<li><a id="org562e57b"></a>Duas entradas:<br />
 <div class="outline-text-4" id="text-1-2-1">
 <ol class="org-ol">
 <li><i class="fa fa-project-diagram"></i> Um modelo - uma máquina de estado finita*<br /></li>
@@ -147,7 +147,7 @@ Como um <i>model checker</i> é usado?<br />
 </ol>
 </div>
 </li>
-<li><a id="org039119f"></a>Três possíveis saídas<br />
+<li><a id="org453b198"></a>Três possíveis saídas<br />
 <div class="outline-text-4" id="text-1-2-2">
 <ol class="org-ol">
 <li><i class="fa-regular fa-thumbs-up"></i> Sucesso<br /></li>
@@ -165,8 +165,8 @@ Opcionalmente, também pode detectar <i>deadlocks</i>.<br />
 </li>
 </ol>
 </div>
-<div id="outline-container-orgd848641" class="outline-3">
-<h3 id="orgd848641"><span class="section-number-3">1.3.</span> Vantagens e Desvantagens</h3>
+<div id="outline-container-orgd180d36" class="outline-3">
+<h3 id="orgd180d36"><span class="section-number-3">1.3.</span> Vantagens e Desvantagens</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 <b>Vantagens</b><br />
@@ -196,16 +196,16 @@ Comparado a testes e simulações aleatórias, pode ser mais eficiente em encont
 </p>
 </div>
 </div>
-<div id="outline-container-org67aff16" class="outline-3">
-<h3 id="org67aff16"><span class="section-number-3">1.4.</span> <i class="fa fa-project-diagram"></i> Modelos</h3>
+<div id="outline-container-orgecbaa18" class="outline-3">
+<h3 id="orgecbaa18"><span class="section-number-3">1.4.</span> <i class="fa fa-project-diagram"></i> Modelos</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Linguagens de especificação fornecem diferentes abstrações para como definir uma máquina de estados. Exemplos: Redes de Petri, TLA+ (<i>Temporal Logic of Actions+</i>), CSP (<i>Communicating Sequential Processes</i>), Alloy, entre outras.<br />
 </p>
 </div>
 </div>
-<div id="outline-container-orgaa99270" class="outline-3">
-<h3 id="orgaa99270"><span class="section-number-3">1.5.</span> <i class="fa fa-not-equal"></i> Propriedades - <i class="fa-regular fa-clock"></i> Lógica temporal</h3>
+<div id="outline-container-org8312a39" class="outline-3">
+<h3 id="org8312a39"><span class="section-number-3">1.5.</span> <i class="fa fa-not-equal"></i> Propriedades - <i class="fa-regular fa-clock"></i> Lógica temporal</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 Dois operadores temporais principais:<br />
@@ -220,8 +220,8 @@ Fórmulas de lógica temporal são sobre um comportamento (execução) do sistem
 </p>
 </div>
 </div>
-<div id="outline-container-org6963037" class="outline-3">
-<h3 id="org6963037"><span class="section-number-3">1.6.</span> <i class="fa fa-not-equal"></i> Propriedades - <i class="fa-regular fa-circle"></i> Invariantes</h3>
+<div id="outline-container-orgdd86ad1" class="outline-3">
+<h3 id="orgdd86ad1"><span class="section-number-3">1.6.</span> <i class="fa fa-not-equal"></i> Propriedades - <i class="fa-regular fa-circle"></i> Invariantes</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 Invariantes são predicados sobre estados individuais do sistema. Um invariante é satisfeito se e somente se ele é verdadeiro para todos os estados do sistema.<br />
@@ -235,8 +235,8 @@ Invariantes são predicados sobre estados individuais do sistema. Um invariante 
 </ul>
 </div>
 </div>
-<div id="outline-container-org344b10c" class="outline-3">
-<h3 id="org344b10c"><span class="section-number-3">1.7.</span> <i class="fa fa-route"></i> Contra-exemplo</h3>
+<div id="outline-container-org0afc296" class="outline-3">
+<h3 id="org0afc296"><span class="section-number-3">1.7.</span> <i class="fa fa-route"></i> Contra-exemplo</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 <b>Entradas:</b><br />
@@ -264,8 +264,8 @@ Execução do <i>model checker</i><br />
 </p>
 </div>
 </div>
-<div id="outline-container-org14e8f1e" class="outline-3">
-<h3 id="org14e8f1e"><span class="section-number-3">1.8.</span> <i class="fa fa-user-graduate"></i> Exercício: Qual dessas fórmulas pode ser um invariante?</h3>
+<div id="outline-container-orgf96a241" class="outline-3">
+<h3 id="orgf96a241"><span class="section-number-3">1.8.</span> <i class="fa fa-user-graduate"></i> Exercício: Qual dessas fórmulas pode ser um invariante?</h3>
 <div class="outline-text-3" id="text-1-8">
 <ol class="org-ol">
 <li>Ao fazer uma transferência bancária, eu acabo com menos dinheiro do que tinha antes<br /></li>
@@ -283,12 +283,12 @@ Resposta: 3<br />
 </div>
 </div>
 </div>
-<div id="outline-container-org327aa60" class="outline-2">
-<h2 id="org327aa60"><span class="section-number-2">2.</span> Lógica Temporal</h2>
+<div id="outline-container-orgb747a83" class="outline-2">
+<h2 id="orgb747a83"><span class="section-number-2">2.</span> Lógica Temporal</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgf30eb3c" class="outline-3">
-<h3 id="orgf30eb3c"><span class="section-number-3">2.1.</span> Operadores Temporais - Unários</h3>
+<div id="outline-container-orgff71a0a" class="outline-3">
+<h3 id="orgff71a0a"><span class="section-number-3">2.1.</span> Operadores Temporais - Unários</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>\(\square\) ou <b>G</b>: <i>Globally</i>, sempre.<br />
@@ -313,8 +313,8 @@ Resposta: 3<br />
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb8c0254" class="outline-3">
-<h3 id="orgb8c0254"><span class="section-number-3">2.2.</span> Operadores Temporais - Binários</h3>
+<div id="outline-container-orgf1e67b7" class="outline-3">
+<h3 id="orgf1e67b7"><span class="section-number-3">2.2.</span> Operadores Temporais - Binários</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li><b>U</b>: <i>Until</i>, até.<br />
@@ -332,8 +332,8 @@ Resposta: 3<br />
 </ul>
 </div>
 </div>
-<div id="outline-container-org008cebb" class="outline-3">
-<h3 id="org008cebb"><span class="section-number-3">2.3.</span> LTL e CTL</h3>
+<div id="outline-container-org5b85dd5" class="outline-3">
+<h3 id="org5b85dd5"><span class="section-number-3">2.3.</span> LTL e CTL</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li><b>LTL</b> - <i>Linear Temporal Logic</i> (Lógica Temporal Linear). Em LTL, as fórmulas são implicitamente universalmente quantificadas. Propriedades que falam sobre a existência de uma execução não podem ser expressadas.<br /></li>
@@ -341,11 +341,11 @@ Resposta: 3<br />
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd920bcd" class="outline-3">
-<h3 id="orgd920bcd"><span class="section-number-3">2.4.</span> LTL e CTL - Visualização</h3>
+<div id="outline-container-orgafe2e64" class="outline-3">
+<h3 id="orgafe2e64"><span class="section-number-3">2.4.</span> LTL e CTL - Visualização</h3>
 <div class="outline-text-3" id="text-2-4">
 
-<div id="org4d03c14" class="figure">
+<div id="org1a3c551" class="figure">
 <p><img src="./figures/execucao_arvore_computacional.png" alt="execucao_arvore_computacional.png" /><br />
 </p>
 <p><span class="figure-number">Figure 1: </span>Fonte (<a href="#citeproc_bib_item_1">BULTAN, 2023</a>)</p>
@@ -353,12 +353,12 @@ Resposta: 3<br />
 </div>
 </div>
 </div>
-<div id="outline-container-org4abfe4f" class="outline-2">
-<h2 id="org4abfe4f"><span class="section-number-2">3.</span> LTL</h2>
+<div id="outline-container-orgd06dc1f" class="outline-2">
+<h2 id="orgd06dc1f"><span class="section-number-2">3.</span> LTL</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org2259a69" class="outline-3">
-<h3 id="org2259a69"><span class="section-number-3">3.1.</span> LTL - <i>Linear Temporal Logic</i></h3>
+<div id="outline-container-org53451c5" class="outline-3">
+<h3 id="org53451c5"><span class="section-number-3">3.1.</span> LTL - <i>Linear Temporal Logic</i></h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Na lógica temporal linear (LTL), temos operadores para descrever eventos ao longo de uma única execução.<br />
@@ -376,8 +376,8 @@ Seja \(AP\) um conjunto finito de proposições atômicas (i.e. \(\{ p_0, p_1, .
 </p>
 </div>
 </div>
-<div id="outline-container-org529eb95" class="outline-3">
-<h3 id="org529eb95"><span class="section-number-3">3.2.</span> Equivalências</h3>
+<div id="outline-container-orgf449cc2" class="outline-3">
+<h3 id="orgf449cc2"><span class="section-number-3">3.2.</span> Equivalências</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Os operadores <b>G</b>, <b>F</b> e <b>R</b> podem ser definidos usando somente <b>X</b> e <b>U</b>.<br />
@@ -394,8 +394,8 @@ Os operadores <b>G</b>, <b>F</b> e <b>R</b> podem ser definidos usando somente <
 </ul>
 </div>
 </div>
-<div id="outline-container-org4928899" class="outline-3">
-<h3 id="org4928899"><span class="section-number-3">3.3.</span> Negações de fórmulas</h3>
+<div id="outline-container-org37d21a7" class="outline-3">
+<h3 id="org37d21a7"><span class="section-number-3">3.3.</span> Negações de fórmulas</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Uma formula ser falsa não significa que sua negação é verdadeira. Por exemplo, a fórmula a seguir não é necessariamente verdadeira:<br />
@@ -406,21 +406,21 @@ Uma formula ser falsa não significa que sua negação é verdadeira. Por exempl
 Exemplo:<br />
 </p>
 
-<div id="org7eddcb9" class="figure">
+<div id="orgb5c103e" class="figure">
 <p><img src="formula_negation.png" alt="formula_negation.png" /><br />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org6085b8b" class="outline-3">
-<h3 id="org6085b8b"><span class="section-number-3">3.4.</span> Exercícios</h3>
+<div id="outline-container-org4c2cfb8" class="outline-3">
+<h3 id="org4c2cfb8"><span class="section-number-3">3.4.</span> Exercícios</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next</i>), U (<i>Until</i>) e R (<i>Release</i>) pode ser representado pelo diagrama a seguir?<br />
 </p>
 
 
-<div id="org5d8413e" class="figure">
+<div id="orgbfbc3b4" class="figure">
 <p><img src="./figures/LTL_next.png" alt="LTL_next.png" /><br />
 </p>
 </div>
@@ -434,7 +434,7 @@ Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next
 </p>
 
 
-<div id="org1456814" class="figure">
+<div id="orgf7131ca" class="figure">
 <p><img src="./figures/LTL_globally.png" alt="LTL_globally.png" /><br />
 </p>
 </div>
@@ -448,7 +448,7 @@ Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next
 </p>
 
 
-<div id="orgac4edf0" class="figure">
+<div id="org939418f" class="figure">
 <p><img src="./figures/LTL_until.png" alt="LTL_until.png" /><br />
 </p>
 </div>
@@ -462,7 +462,7 @@ Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next
 </p>
 
 
-<div id="org4aecb3a" class="figure">
+<div id="orge9054ec" class="figure">
 <p><img src="./figures/LTL_finally.png" alt="LTL_finally.png" /><br />
 </p>
 </div>
@@ -476,7 +476,7 @@ Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next
 </p>
 
 
-<div id="org2a99201" class="figure">
+<div id="org78abe70" class="figure">
 <p><img src="./figures/LTL_release.png" alt="LTL_release.png" /><br />
 </p>
 </div>
@@ -486,8 +486,8 @@ Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next
 </p>
 </div>
 </div>
-<div id="outline-container-org3337688" class="outline-3">
-<h3 id="org3337688"><span class="section-number-3">3.5.</span> LTL em Estruturas de Kripke</h3>
+<div id="outline-container-orge04b75d" class="outline-3">
+<h3 id="orge04b75d"><span class="section-number-3">3.5.</span> LTL em Estruturas de Kripke</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 Uma fórmula LTL é verdadeira para uma <b>estrutura de Kripke</b> se ela é verdadeira no(s) <b>estado(s) inicial(is)</b>.<br />
@@ -503,12 +503,12 @@ Ou seja, a fórmula deve ser verdadeira para todos as execuções (comportamento
 </div>
 </div>
 </div>
-<div id="outline-container-org15b031b" class="outline-2">
-<h2 id="org15b031b"><span class="section-number-2">4.</span> CTL</h2>
+<div id="outline-container-org4a960b1" class="outline-2">
+<h2 id="org4a960b1"><span class="section-number-2">4.</span> CTL</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org1ab23f5" class="outline-3">
-<h3 id="org1ab23f5"><span class="section-number-3">4.1.</span> CTL - <i>Computational Tree Logic</i></h3>
+<div id="outline-container-orga1aaa8c" class="outline-3">
+<h3 id="orga1aaa8c"><span class="section-number-3">4.1.</span> CTL - <i>Computational Tree Logic</i></h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 A gramática a seguir define fórmulas em CTL (sendo \(p \in AP\)):<br />
@@ -524,11 +524,11 @@ Todos os operadores temporais devem ser precedidos de <b>A</b> (<i>All</i>, Todo
 </ul>
 </div>
 </div>
-<div id="outline-container-org6c32c22" class="outline-3">
-<h3 id="org6c32c22"><span class="section-number-3">4.2.</span> Visualização</h3>
+<div id="outline-container-orgf7fa479" class="outline-3">
+<h3 id="orgf7fa479"><span class="section-number-3">4.2.</span> Visualização</h3>
 <div class="outline-text-3" id="text-4-2">
 
-<div id="org400fdcf" class="figure">
+<div id="orgb829a27" class="figure">
 <p><img src="./figures/ctl_visualization.png" alt="ctl_visualization.png" /><br />
 </p>
 <p><span class="figure-number">Figure 2: </span>Fonte (<a href="#citeproc_bib_item_2">RAJU, 2014</a>)</p>
@@ -536,12 +536,12 @@ Todos os operadores temporais devem ser precedidos de <b>A</b> (<i>All</i>, Todo
 </div>
 </div>
 </div>
-<div id="outline-container-org363fd99" class="outline-2">
-<h2 id="org363fd99"><span class="section-number-2">5.</span> Verificando propriedades</h2>
+<div id="outline-container-org64fb8cb" class="outline-2">
+<h2 id="org64fb8cb"><span class="section-number-2">5.</span> Verificando propriedades</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org30ddd15" class="outline-3">
-<h3 id="org30ddd15"><span class="section-number-3">5.1.</span> LTL vs CTL</h3>
+<div id="outline-container-org35d82f8" class="outline-3">
+<h3 id="org35d82f8"><span class="section-number-3">5.1.</span> LTL vs CTL</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 <b>Atenção:</b> \(LTL \nsubseteq CTL\) and \(CTL \nsubseteq LTL\)<br />
@@ -553,18 +553,18 @@ Todos os operadores temporais devem ser precedidos de <b>A</b> (<i>All</i>, Todo
 </ul>
 </div>
 </div>
-<div id="outline-container-org1723358" class="outline-3">
-<h3 id="org1723358"><span class="section-number-3">5.2.</span> Exemplo chaleiras - modelo</h3>
+<div id="outline-container-org7296711" class="outline-3">
+<h3 id="org7296711"><span class="section-number-3">5.2.</span> Exemplo chaleiras - modelo</h3>
 <div class="outline-text-3" id="text-5-2">
 
-<div id="orgbfe997b" class="figure">
+<div id="orgda46763" class="figure">
 <p><img src="chaleiras.png" alt="chaleiras.png" /><br />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgfe97d21" class="outline-3">
-<h3 id="orgfe97d21"><span class="section-number-3">5.3.</span> Exemplo chaleiras</h3>
+<div id="outline-container-org11de1a9" class="outline-3">
+<h3 id="org11de1a9"><span class="section-number-3">5.3.</span> Exemplo chaleiras</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 PS: Release é <code>V</code> nesse sistema<br />
@@ -591,18 +591,18 @@ PS: Release é <code>V</code> nesse sistema<br />
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc5d92fa" class="outline-3">
-<h3 id="orgc5d92fa"><span class="section-number-3">5.4.</span> Exemplo Adultos e Crianças - modelo</h3>
+<div id="outline-container-orgde78545" class="outline-3">
+<h3 id="orgde78545"><span class="section-number-3">5.4.</span> Exemplo Adultos e Crianças - modelo</h3>
 <div class="outline-text-3" id="text-5-4">
 
-<div id="org79e676f" class="figure">
+<div id="org9ee5e1b" class="figure">
 <p><img src="adultos_e_criancas.png" alt="adultos_e_criancas.png" /><br />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org80a9039" class="outline-3">
-<h3 id="org80a9039"><span class="section-number-3">5.5.</span> Exemplo Adultos e Crianças</h3>
+<div id="outline-container-orgb31f638" class="outline-3">
+<h3 id="orgb31f638"><span class="section-number-3">5.5.</span> Exemplo Adultos e Crianças</h3>
 <div class="outline-text-3" id="text-5-5">
 <p>
 <b>CTL:</b><br />
@@ -626,8 +626,8 @@ PS: Release é <code>V</code> nesse sistema<br />
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdce7c4b" class="outline-3">
-<h3 id="orgdce7c4b"><span class="section-number-3">5.6.</span> Referências</h3>
+<div id="outline-container-org3d936a2" class="outline-3">
+<h3 id="org3d936a2"><span class="section-number-3">5.6.</span> Referências</h3>
 <div class="outline-text-3" id="text-5-6">
 <div class="csl-bib-body">
   <div class="csl-entry"><a id="citeproc_bib_item_1"></a>BULTAN, T. <b>Cs 267: Automated verification - lecture 2</b>. Disponível em: &#60;<a href="https://sites.cs.ucsb.edu/~bultan/courses/267/lectures/l2.pdf">https://sites.cs.ucsb.edu/~bultan/courses/267/lectures/l2.pdf</a>&#62;. </div>

@@ -14,8 +14,8 @@
   <meta property="og:description" content="Personal homepage exported with org-thtml" />
   
     <meta property="og:image" content="http://nowhere.org/mfo/semaforo.png" />
-    <meta property="og:image:width" content="325" />
-    <meta property="og:image:height" content="84" />
+    <meta property="og:image:width" content="1696" />
+    <meta property="og:image:height" content="439" />
   
   
     <meta name="twitter:card" content="summary_large_image">
@@ -63,48 +63,48 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8184a70">1. Sistemas de transições</a>
+<li><a href="#orgbd614f3">1. Sistemas de transições</a>
 <ul>
-<li><a href="#orge90d7d5">1.1. Sistema de transições: Definição</a></li>
-<li><a href="#org900ff8b">1.2. Sistema de transições: Definição formal</a></li>
-<li><a href="#org4ce77c1">1.3. Sistemas de transições finito</a></li>
-<li><a href="#org2db4b8c">1.4. Determinismo e Não-Determinismo</a></li>
+<li><a href="#orgd851654">1.1. Sistema de transições: Definição</a></li>
+<li><a href="#org7edfbd7">1.2. Sistema de transições: Definição formal</a></li>
+<li><a href="#orge340c23">1.3. Sistemas de transições finito</a></li>
+<li><a href="#org0f16071">1.4. Determinismo e Não-Determinismo</a></li>
 </ul>
 </li>
-<li><a href="#orge773ec2">2. Estruturas de Kripke</a>
+<li><a href="#org940967c">2. Estruturas de Kripke</a>
 <ul>
-<li><a href="#org5f00e4d">2.1. Estruturas de Kripke</a></li>
-<li><a href="#org6d8f7ce">2.2. Exemplo: <i class="fa fa-traffic-light"></i> Semáforo</a></li>
-<li><a href="#orgc593fed">2.3. Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Dois semáforos</a></li>
-<li><a href="#org3a97e7a">2.4. Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Três semáforos</a></li>
-<li><a href="#orgfb2ec69">2.5. N semáforos em TLA+</a></li>
-<li><a href="#orga369a68">2.6. N semáforos em Quint</a></li>
-<li><a href="#org25af3b3">2.7. Perguntas</a></li>
+<li><a href="#org0d6311c">2.1. Estruturas de Kripke</a></li>
+<li><a href="#org95d2cfd">2.2. Exemplo: <i class="fa fa-traffic-light"></i> Semáforo</a></li>
+<li><a href="#org9d24de8">2.3. Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Dois semáforos</a></li>
+<li><a href="#orge27cf89">2.4. Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Três semáforos</a></li>
+<li><a href="#org53dcc0a">2.5. N semáforos em TLA+</a></li>
+<li><a href="#org96c5495">2.6. N semáforos em Quint</a></li>
+<li><a href="#org9cd9a00">2.7. Perguntas</a></li>
 </ul>
 </li>
-<li><a href="#orgf2a6366">3. Não determinismo</a>
+<li><a href="#orga24ecbd">3. Não determinismo</a>
 <ul>
-<li><a href="#org7ee1f2f">3.1. Não determinismo nos semáforos</a></li>
-<li><a href="#orgc84c391">3.2. Não determinismo na realidade</a></li>
-<li><a href="#org0eb2235">3.3. Definindo a fronteira</a></li>
-<li><a href="#orgc17f0ea">3.4. Exemplo: Notas de alunos</a></li>
-<li><a href="#org4fce2fd">3.5. Exemplo: Notas de alunos - input professor</a></li>
-<li><a href="#org7833aa2">3.6. Exemplo: Notas de alunos - escolhas dos alunos</a></li>
-<li><a href="#org869eba4">3.7. Exemplo: Vôo com conexões</a></li>
-<li><a href="#org23546cc">3.8. Exemplo: Vôo com conexões - Não determinismo</a></li>
-<li><a href="#org567e855">3.9. Exemplo: Vôo com conexões - Perdendo a conexão</a></li>
-<li><a href="#org0e7e70a">3.10. Referências</a></li>
+<li><a href="#orgb5b3953">3.1. Não determinismo nos semáforos</a></li>
+<li><a href="#org6ae8d49">3.2. Não determinismo na realidade</a></li>
+<li><a href="#orgd5229e4">3.3. Definindo a fronteira</a></li>
+<li><a href="#org543c368">3.4. Exemplo: Notas de alunos</a></li>
+<li><a href="#orgc424142">3.5. Exemplo: Notas de alunos - input professor</a></li>
+<li><a href="#orgf18d036">3.6. Exemplo: Notas de alunos - escolhas dos alunos</a></li>
+<li><a href="#org33517b7">3.7. Exemplo: Vôo com conexões</a></li>
+<li><a href="#org5db021f">3.8. Exemplo: Vôo com conexões - Não determinismo</a></li>
+<li><a href="#org07d7181">3.9. Exemplo: Vôo com conexões - Perdendo a conexão</a></li>
+<li><a href="#org5f95728">3.10. Referências</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8184a70" class="outline-2">
-<h2 id="org8184a70"><span class="section-number-2">1.</span> Sistemas de transições</h2>
+<div id="outline-container-orgbd614f3" class="outline-2">
+<h2 id="orgbd614f3"><span class="section-number-2">1.</span> Sistemas de transições</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orge90d7d5" class="outline-3">
-<h3 id="orge90d7d5"><span class="section-number-3">1.1.</span> Sistema de transições: Definição</h3>
+<div id="outline-container-orgd851654" class="outline-3">
+<h3 id="orgd851654"><span class="section-number-3">1.1.</span> Sistema de transições: Definição</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Abstrações que descrevem o comportamento de sistemas com precisão matemática e sem ambiguidade (<a href="#citeproc_bib_item_1">BAIER; KATOEN, 2008</a>) .<br /></li>
@@ -124,8 +124,8 @@ Uma <b>transição</b> descreve como um sistema pode mudar de um estado para out
 </p>
 </div>
 </div>
-<div id="outline-container-org900ff8b" class="outline-3">
-<h3 id="org900ff8b"><span class="section-number-3">1.2.</span> Sistema de transições: Definição formal</h3>
+<div id="outline-container-org7edfbd7" class="outline-3">
+<h3 id="org7edfbd7"><span class="section-number-3">1.2.</span> Sistema de transições: Definição formal</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Um sistema de transições é definido pela tripla \((S, \to, I)\) onde<br />
@@ -141,8 +141,8 @@ Um <b>comportamento</b> ou <b>execução</b> \(\rho\) de um sistema de transiç�
 </p>
 </div>
 </div>
-<div id="outline-container-org4ce77c1" class="outline-3">
-<h3 id="org4ce77c1"><span class="section-number-3">1.3.</span> Sistemas de transições finito</h3>
+<div id="outline-container-orge340c23" class="outline-3">
+<h3 id="orge340c23"><span class="section-number-3">1.3.</span> Sistemas de transições finito</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Um sistema de transições é dito <b>finito</b> se e somente se \(S\) é finito.<br />
@@ -157,8 +157,8 @@ Não! Comportamentos sobre uma sequência de estados ainda podem ser infinitos, 
 </p>
 </div>
 </div>
-<div id="outline-container-org2db4b8c" class="outline-3">
-<h3 id="org2db4b8c"><span class="section-number-3">1.4.</span> Determinismo e Não-Determinismo</h3>
+<div id="outline-container-org0f16071" class="outline-3">
+<h3 id="org0f16071"><span class="section-number-3">1.4.</span> Determinismo e Não-Determinismo</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 O conjunto de <b>sucessores</b> de um estado \(s\) é definido por \(Post(s) = \{ s' \in S\ |\ s \to s' \}\).<br />
@@ -178,12 +178,12 @@ Não-Determinismo acontece quando há múltiplos estados iniciais \(|I| > 1\) ou
 </div>
 </div>
 </div>
-<div id="outline-container-orge773ec2" class="outline-2">
-<h2 id="orge773ec2"><span class="section-number-2">2.</span> Estruturas de Kripke</h2>
+<div id="outline-container-org940967c" class="outline-2">
+<h2 id="org940967c"><span class="section-number-2">2.</span> Estruturas de Kripke</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org5f00e4d" class="outline-3">
-<h3 id="org5f00e4d"><span class="section-number-3">2.1.</span> Estruturas de Kripke</h3>
+<div id="outline-container-org0d6311c" class="outline-3">
+<h3 id="org0d6311c"><span class="section-number-3">2.1.</span> Estruturas de Kripke</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Estruturas de Kripke são um tipo de sistema de transições com uma restrição adicional:<br />
@@ -205,7 +205,7 @@ ou seja<br />
 </blockquote>
 </div>
 <ol class="org-ol">
-<li><a id="orge0944f5"></a>Estados terminais<br />
+<li><a id="org525e7a5"></a>Estados terminais<br />
 <div class="outline-text-4" id="text-2-1-1">
 <p>
 Em sistemas de transições, um estado é dito terminal se \(Post(s) = \emptyset\).<br />
@@ -220,8 +220,8 @@ transições para si mesmo, ou seja \(Post(s) = \{s\}\)<br />
 </li>
 </ol>
 </div>
-<div id="outline-container-org6d8f7ce" class="outline-3">
-<h3 id="org6d8f7ce"><span class="section-number-3">2.2.</span> Exemplo: <i class="fa fa-traffic-light"></i> Semáforo</h3>
+<div id="outline-container-org95d2cfd" class="outline-3">
+<h3 id="org95d2cfd"><span class="section-number-3">2.2.</span> Exemplo: <i class="fa fa-traffic-light"></i> Semáforo</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Um semáforo pode ser representado por uma estrutura de Kripke \((S, \to, I)\) onde<br />
@@ -233,14 +233,14 @@ Um semáforo pode ser representado por uma estrutura de Kripke \((S, \to, I)\) o
 </ul>
 
 
-<div id="org2acee15" class="figure">
+<div id="org8bb86f3" class="figure">
 <p><img src="semaforo.png" alt="semaforo.png" /><br />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc593fed" class="outline-3">
-<h3 id="orgc593fed"><span class="section-number-3">2.3.</span> Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Dois semáforos</h3>
+<div id="outline-container-org9d24de8" class="outline-3">
+<h3 id="org9d24de8"><span class="section-number-3">2.3.</span> Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Dois semáforos</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Um sistema com <b>dois</b> semáforos pode ser representado por uma estrutura de Kripke \((S, \to, I)\) onde<br />
@@ -268,7 +268,7 @@ Um sistema com <b>dois</b> semáforos pode ser representado por uma estrutura de
 </ul>
 
 
-<div id="org3fb4a1e" class="figure">
+<div id="org1b4ad07" class="figure">
 <p><img src="2semaforos.png" alt="2semaforos.png" /><br />
 </p>
 </div>
@@ -283,8 +283,8 @@ Um sistema com <b>dois</b> semáforos pode ser representado por uma estrutura de
 </ul>
 </div>
 </div>
-<div id="outline-container-org3a97e7a" class="outline-3">
-<h3 id="org3a97e7a"><span class="section-number-3">2.4.</span> Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Três semáforos</h3>
+<div id="outline-container-orge27cf89" class="outline-3">
+<h3 id="orge27cf89"><span class="section-number-3">2.4.</span> Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Três semáforos</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>Vish!<br /></li>
@@ -295,7 +295,7 @@ Um sistema com <b>dois</b> semáforos pode ser representado por uma estrutura de
 </ul>
 </div>
 <ol class="org-ol">
-<li><a id="orge105f96"></a>Vamos perceber algumas generalizações<br />
+<li><a id="orgd3fdaf9"></a>Vamos perceber algumas generalizações<br />
 <div class="outline-text-4" id="text-2-4-1">
 <ol class="org-ol">
 <li>Cada semáforo deve iniciar vermelho, e fazer o caminho vermelho \(\to\) verde \(\to\) amarelo enquanto os outros permanecem vermelhos.<br /></li>
@@ -308,17 +308,18 @@ Um sistema com <b>dois</b> semáforos pode ser representado por uma estrutura de
 </li>
 </ol>
 </div>
-<div id="outline-container-orgfb2ec69" class="outline-3">
-<h3 id="orgfb2ec69"><span class="section-number-3">2.5.</span> N semáforos em TLA+</h3>
+<div id="outline-container-org53dcc0a" class="outline-3">
+<h3 id="org53dcc0a"><span class="section-number-3">2.5.</span> N semáforos em TLA+</h3>
 <div class="outline-text-3" id="text-2-5">
-<p width="600px">
-# ()convertfrompdf:t<br />
-<img src="./specs/Semaforos.png" alt="Semaforos.png" width="600px" /><br />
+
+<div id="org187f369" class="figure">
+<p><img src="./specs/Semaforos.png" alt="Semaforos.png" /><br />
 </p>
 </div>
 </div>
-<div id="outline-container-orga369a68" class="outline-3">
-<h3 id="orga369a68"><span class="section-number-3">2.6.</span> N semáforos em Quint</h3>
+</div>
+<div id="outline-container-org96c5495" class="outline-3">
+<h3 id="org96c5495"><span class="section-number-3">2.6.</span> N semáforos em Quint</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 Especificação completa no GitHub.<br />
@@ -348,8 +349,8 @@ Especificação completa no GitHub.<br />
 </div>
 </div>
 </div>
-<div id="outline-container-org25af3b3" class="outline-3">
-<h3 id="org25af3b3"><span class="section-number-3">2.7.</span> Perguntas</h3>
+<div id="outline-container-org9cd9a00" class="outline-3">
+<h3 id="org9cd9a00"><span class="section-number-3">2.7.</span> Perguntas</h3>
 <div class="outline-text-3" id="text-2-7">
 <ol class="org-ol">
 <li><p>
@@ -387,12 +388,12 @@ Nossas definições de semáforo são determinísticas?<br />
 </div>
 </div>
 </div>
-<div id="outline-container-orgf2a6366" class="outline-2">
-<h2 id="orgf2a6366"><span class="section-number-2">3.</span> Não determinismo</h2>
+<div id="outline-container-orga24ecbd" class="outline-2">
+<h2 id="orga24ecbd"><span class="section-number-2">3.</span> Não determinismo</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org7ee1f2f" class="outline-3">
-<h3 id="org7ee1f2f"><span class="section-number-3">3.1.</span> Não determinismo nos semáforos</h3>
+<div id="outline-container-orgb5b3953" class="outline-3">
+<h3 id="orgb5b3953"><span class="section-number-3">3.1.</span> Não determinismo nos semáforos</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Como seriam semáforos com não determinismo?<br />
@@ -423,8 +424,8 @@ Caso a definição de próximo seja removida<br />
 </ol>
 </div>
 </div>
-<div id="outline-container-orgc84c391" class="outline-3">
-<h3 id="orgc84c391"><span class="section-number-3">3.2.</span> Não determinismo na realidade</h3>
+<div id="outline-container-org6ae8d49" class="outline-3">
+<h3 id="org6ae8d49"><span class="section-number-3">3.2.</span> Não determinismo na realidade</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Onde podemos encontrar não determinismo em sistemas de software?<br />
@@ -458,8 +459,8 @@ Influências do ambiente<br />
 </ol>
 </div>
 </div>
-<div id="outline-container-org0eb2235" class="outline-3">
-<h3 id="org0eb2235"><span class="section-number-3">3.3.</span> Definindo a fronteira</h3>
+<div id="outline-container-orgd5229e4" class="outline-3">
+<h3 id="orgd5229e4"><span class="section-number-3">3.3.</span> Definindo a fronteira</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Ao especificar um sistema, especialmente quando há não determinismo, é preciso definir uma fronteira.<br />
@@ -474,8 +475,8 @@ Ao especificar um sistema, especialmente quando há não determinismo, é precis
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc17f0ea" class="outline-3">
-<h3 id="orgc17f0ea"><span class="section-number-3">3.4.</span> Exemplo: Notas de alunos</h3>
+<div id="outline-container-org543c368" class="outline-3">
+<h3 id="org543c368"><span class="section-number-3">3.4.</span> Exemplo: Notas de alunos</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 Vamos considerar duas fronteiras diferentes:<br />
@@ -503,28 +504,28 @@ O caso (1) é uma especificação do SIGA, enquanto o (2) fala mais sobre um sis
 </p>
 </div>
 </div>
-<div id="outline-container-org4fce2fd" class="outline-3">
-<h3 id="org4fce2fd"><span class="section-number-3">3.5.</span> Exemplo: Notas de alunos - input professor</h3>
+<div id="outline-container-orgc424142" class="outline-3">
+<h3 id="orgc424142"><span class="section-number-3">3.5.</span> Exemplo: Notas de alunos - input professor</h3>
 <div class="outline-text-3" id="text-3-5">
 
-<div id="org97a3785" class="figure">
+<div id="orgdc6f0d8" class="figure">
 <p><img src="siga-prof.png" alt="siga-prof.png" /><br />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org7833aa2" class="outline-3">
-<h3 id="org7833aa2"><span class="section-number-3">3.6.</span> Exemplo: Notas de alunos - escolhas dos alunos</h3>
+<div id="outline-container-orgf18d036" class="outline-3">
+<h3 id="orgf18d036"><span class="section-number-3">3.6.</span> Exemplo: Notas de alunos - escolhas dos alunos</h3>
 <div class="outline-text-3" id="text-3-6">
 
-<div id="orgad173e6" class="figure">
+<div id="orgfb80dde" class="figure">
 <p><img src="siga-aluno.png" alt="siga-aluno.png" /><br />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org869eba4" class="outline-3">
-<h3 id="org869eba4"><span class="section-number-3">3.7.</span> Exemplo: Vôo com conexões</h3>
+<div id="outline-container-org33517b7" class="outline-3">
+<h3 id="org33517b7"><span class="section-number-3">3.7.</span> Exemplo: Vôo com conexões</h3>
 <div class="outline-text-3" id="text-3-7">
 <p>
 <b>Versão 1</b>:<br />
@@ -545,8 +546,8 @@ Check-in em Joinville &rarr; Despacho de Bagagem em Joinville &rarr; Check de Se
 </blockquote>
 </div>
 </div>
-<div id="outline-container-org23546cc" class="outline-3">
-<h3 id="org23546cc"><span class="section-number-3">3.8.</span> Exemplo: Vôo com conexões - Não determinismo</h3>
+<div id="outline-container-org5db021f" class="outline-3">
+<h3 id="org5db021f"><span class="section-number-3">3.8.</span> Exemplo: Vôo com conexões - Não determinismo</h3>
 <div class="outline-text-3" id="text-3-8">
 <p>
 Onde poderia ter <b>não determinismo</b>?<br />
@@ -563,30 +564,30 @@ Podemos ter não determinismo em cada estado. Nos casos listados, podemos ou nã
 </p>
 </div>
 </div>
-<div id="outline-container-org567e855" class="outline-3">
-<h3 id="org567e855"><span class="section-number-3">3.9.</span> Exemplo: Vôo com conexões - Perdendo a conexão</h3>
+<div id="outline-container-org07d7181" class="outline-3">
+<h3 id="org07d7181"><span class="section-number-3">3.9.</span> Exemplo: Vôo com conexões - Perdendo a conexão</h3>
 <div class="outline-text-3" id="text-3-9">
 
-<div id="org951bd00" class="figure">
+<div id="org5420477" class="figure">
 <p><img src="voos-det.png" alt="voos-det.png" /><br />
 </p>
 </div>
 
 
-<div id="org6ecf224" class="figure">
+<div id="orge49aa57" class="figure">
 <p><img src="voos-det-zoom.png" alt="voos-det-zoom.png" /><br />
 </p>
 </div>
 
 
-<div id="orga531660" class="figure">
+<div id="org2d53d5a" class="figure">
 <p><img src="voos-nondet-zoom.png" alt="voos-nondet-zoom.png" /><br />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org0e7e70a" class="outline-3">
-<h3 id="org0e7e70a"><span class="section-number-3">3.10.</span> Referências</h3>
+<div id="outline-container-org5f95728" class="outline-3">
+<h3 id="org5f95728"><span class="section-number-3">3.10.</span> Referências</h3>
 <div class="outline-text-3" id="text-3-10">
 <div class="csl-bib-body">
   <div class="csl-entry"><a id="citeproc_bib_item_1"></a>BAIER, C.; KATOEN, J.-P. <b><a href="https://www.academia.edu/2744138/Principles_of_model_checking">Principles of model checking</a></b>. Cambridge, MA: The MIT Press, 2008. </div>
