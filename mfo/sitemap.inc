@@ -13,5 +13,6 @@
 - [[file:20240331223036-mfo_introducao_ao_tla.org][Introdução ao TLA+]]
 - [[file:20240408201756-mfo_primeiras_especificacoes_em_tla.org][Primeiras Especificações em TLA+]]
 - [[file:20240415205323-mfo_exercicios_pokemon.org][Exercícios Pokemon]]
-- [[file:20240422102646-mfo_especificar_vs_implementar.org][Especificar vs Implementar]]
+- [[file:20240422102646-mfo_especificar_vs_implementar.org][MFO Especificar vs Implementar]]
 - [[file:20240424144115-mfo_dicas_trabalho_1.org][Dicas Trabalho 1]]
+- [[file:20240423183852-mfo_trabalho_1.org][Trabalho 1]]
