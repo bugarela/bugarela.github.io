@@ -176,7 +176,7 @@ action MoveX = all {
 - Qual é a pré-condição pra essas ações?
   #+BEAMER: \pause
   - Para ambas, a pré-condição é que seja o turno do jogador a fazer a jogada
-    - Implicitamente, também temos a pré-condição de =MoveToEmpty= empregada nessa empregada nessa ação
+    - Implicitamente, também temos a pré-condição de =MoveToEmpty= empregada nessa ação
 
 ** Estado inicial
 #+begin_src quint

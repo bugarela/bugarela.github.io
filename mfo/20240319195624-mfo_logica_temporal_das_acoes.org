@@ -83,6 +83,9 @@ Note que *1* ação define *N* transições. Assim, uma única ação pode defin
 
 * TLA+ e Quint
 ** TLA+ e Quint
+:PROPERTIES:
+:CUSTOM_ID: tla-e-quint-2
+:END:
 - TLA+ (/Temporal Logic of Actions+/) combina a lógica de TLA com teoria de conjuntos, definindo uma linguagem de especificação formal.
 #+BEAMER: \pause
 #+BEAMER: \medskip

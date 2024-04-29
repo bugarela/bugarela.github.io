@@ -63,7 +63,7 @@ Todos os operadores (exceto os com símbolos, como =+=) podem ser aplicados de d
 
 Escolha a forma que você acha mais fácil de ler!
 
-* Conjuntos!
+* Conjuntos
 ** Conjuntos!
 Conjuntos, ou /Sets/, são a principal estrutura de dados em Quint em TLA+.
 - A não ser que a *ordem* dos elementos seja realmente importante, use conjuntos em vez de listas.
@@ -228,6 +228,9 @@ m.keys().map(k => m.get(k))
 #+end_src
 
 ** Acessando e atualizando
+  :PROPERTIES:
+  :CUSTOM_ID: acessando-e-atualizando-2-2
+  :END:
 =set= atualiza um elemento existente, e =put= pode criar um novo par chave-valor.
 
 #+begin_src quint

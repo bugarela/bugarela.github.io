@@ -59,47 +59,47 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8f6c0b1">1. Quint -&gt; TLA+</a>
+<li><a href="#quint-tla-1">1. Quint -&gt; TLA+</a>
 <ul>
-<li><a href="#orgfebd566">1.1. Quint -&gt; TLA+</a></li>
-<li><a href="#orgdbe03bf">1.2. Tipos</a></li>
-<li><a href="#org7a76487">1.3. TLA+ REPL</a></li>
-<li><a href="#org7ccf02e">1.4. TLA+ REPL em qualquer terminal</a></li>
-<li><a href="#org762581e">1.5. Constantes e variáveis</a></li>
-<li><a href="#orgc3e9532">1.6. Instanciando módulos</a></li>
-<li><a href="#org7ce462e">1.7. Imports</a></li>
-<li><a href="#org8b7d86e">1.8. Literais</a></li>
-<li><a href="#org9f839bf">1.9. Lambdas (Operadores Anônimos)</a></li>
-<li><a href="#org0011e02">1.10. LET &#x2026; IN &#x2026;</a></li>
-<li><a href="#orgb23c77e">1.11. Conjunção e Disjunção</a></li>
-<li><a href="#org4bd7b3e">1.12. Condicional</a></li>
-<li><a href="#org0fa608e">1.13. Sets!</a></li>
-<li><a href="#org3afa64b">1.14. Operadores sobre sets</a></li>
-<li><a href="#orga1843c7">1.15. Não-determinismo</a></li>
-<li><a href="#orgef558c2">1.16. Exercícios Sets</a></li>
-<li><a href="#org4b3d698">1.17. Maps</a></li>
-<li><a href="#org456aaf5">1.18. Maps - construtor</a></li>
-<li><a href="#orgbf2dbe3">1.19. Maps - construtor como em Quint</a></li>
-<li><a href="#orgafd7616">1.20. Maps - acesso</a></li>
-<li><a href="#org0f540e8">1.21. Operadores sobre Maps</a></li>
-<li><a href="#org0eddf9e">1.22. Records</a></li>
-<li><a href="#orgc3dfbcf">1.23. Listas (ou Sequências)</a></li>
-<li><a href="#org067bbe3">1.24. Tuplas</a></li>
-<li><a href="#orgc8e6c21">1.25. Unchanged</a></li>
-<li><a href="#org0fda4b2">1.26. Folds</a></li>
-<li><a href="#orgaccefc7">1.27. Exercícios Fold</a></li>
-<li><a href="#org6c398d6">1.28. Exercícios TLA+</a></li>
+<li><a href="#quint-tla-2">1.1. Quint -&gt; TLA+</a></li>
+<li><a href="#tipos-2">1.2. Tipos</a></li>
+<li><a href="#tla-repl-2">1.3. TLA+ REPL</a></li>
+<li><a href="#tla-repl-em-qualquer-terminal-2">1.4. TLA+ REPL em qualquer terminal</a></li>
+<li><a href="#constantes-e-vari-veis-2">1.5. Constantes e variáveis</a></li>
+<li><a href="#instanciando-m-dulos-2">1.6. Instanciando módulos</a></li>
+<li><a href="#imports-2">1.7. Imports</a></li>
+<li><a href="#literais-2">1.8. Literais</a></li>
+<li><a href="#lambdas-operadores-an-nimos-2">1.9. Lambdas (Operadores Anônimos)</a></li>
+<li><a href="#let-in-2">1.10. LET &#x2026; IN &#x2026;</a></li>
+<li><a href="#conjun-o-e-disjun-o-2">1.11. Conjunção e Disjunção</a></li>
+<li><a href="#condicional-2">1.12. Condicional</a></li>
+<li><a href="#sets-2">1.13. Sets!</a></li>
+<li><a href="#operadores-sobre-sets-2">1.14. Operadores sobre sets</a></li>
+<li><a href="#n-o-determinismo-2">1.15. Não-determinismo</a></li>
+<li><a href="#exerc-cios-sets-2">1.16. Exercícios Sets</a></li>
+<li><a href="#maps-2">1.17. Maps</a></li>
+<li><a href="#maps-construtor-2">1.18. Maps - construtor</a></li>
+<li><a href="#maps-construtor-como-em-quint-2">1.19. Maps - construtor como em Quint</a></li>
+<li><a href="#maps-acesso-2">1.20. Maps - acesso</a></li>
+<li><a href="#operadores-sobre-maps-2">1.21. Operadores sobre Maps</a></li>
+<li><a href="#records-2">1.22. Records</a></li>
+<li><a href="#listas-ou-sequ-ncias-2">1.23. Listas (ou Sequências)</a></li>
+<li><a href="#tuplas-2">1.24. Tuplas</a></li>
+<li><a href="#unchanged-2">1.25. Unchanged</a></li>
+<li><a href="#folds-2">1.26. Folds</a></li>
+<li><a href="#exerc-cios-fold-2">1.27. Exercícios Fold</a></li>
+<li><a href="#exerc-cios-tla-2">1.28. Exercícios TLA+</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8f6c0b1" class="outline-2">
-<h2 id="org8f6c0b1"><span class="section-number-2">1.</span> Quint -&gt; TLA+</h2>
+<div id="outline-container-quint-tla-1" class="outline-2">
+<h2 id="quint-tla-1"><span class="section-number-2">1.</span> Quint -&gt; TLA+</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgfebd566" class="outline-3">
-<h3 id="orgfebd566"><span class="section-number-3">1.1.</span> Quint -&gt; TLA+</h3>
+<div id="outline-container-quint-tla-2" class="outline-3">
+<h3 id="quint-tla-2"><span class="section-number-3">1.1.</span> Quint -&gt; TLA+</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Já aprendemos Quint, então vamos ver TLA+ pensando nas equivalencias com Quint.<br />
@@ -109,8 +109,8 @@ Já aprendemos Quint, então vamos ver TLA+ pensando nas equivalencias com Quint
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdbe03bf" class="outline-3">
-<h3 id="orgdbe03bf"><span class="section-number-3">1.2.</span> Tipos</h3>
+<div id="outline-container-tipos-2" class="outline-3">
+<h3 id="tipos-2"><span class="section-number-3">1.2.</span> Tipos</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 TLA+ não tem tipos!<br />
@@ -146,8 +146,8 @@ A linguagem em si não é tipada, mas o Apalache espera que os tipos sejam anota
 </ul>
 </div>
 </div>
-<div id="outline-container-org7a76487" class="outline-3">
-<h3 id="org7a76487"><span class="section-number-3">1.3.</span> TLA+ REPL</h3>
+<div id="outline-container-tla-repl-2" class="outline-3">
+<h3 id="tla-repl-2"><span class="section-number-3">1.3.</span> TLA+ REPL</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>O TLA+ tem uma REPL que só funciona para expressões constantes<br />
@@ -170,8 +170,8 @@ Atenção para como faremos pra rodar ela nos computadores da UDESC:<br />
 </ol>
 </div>
 </div>
-<div id="outline-container-org7ccf02e" class="outline-3">
-<h3 id="org7ccf02e"><span class="section-number-3">1.4.</span> TLA+ REPL em qualquer terminal</h3>
+<div id="outline-container-tla-repl-em-qualquer-terminal-2" class="outline-3">
+<h3 id="tla-repl-em-qualquer-terminal-2"><span class="section-number-3">1.4.</span> TLA+ REPL em qualquer terminal</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Opção 1 (com ou sem <code>sudo</code>, somente UNIX):<br />
@@ -221,17 +221,17 @@ Opção 3 (com <code>sudo</code>):<br />
 </ul>
 </div>
 </div>
-<div id="outline-container-org762581e" class="outline-3">
-<h3 id="org762581e"><span class="section-number-3">1.5.</span> Constantes e variáveis</h3>
+<div id="outline-container-constantes-e-vari-veis-2" class="outline-3">
+<h3 id="constantes-e-vari-veis-2"><span class="section-number-3">1.5.</span> Constantes e variáveis</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">const</span> MY_CONST: <span style="color: #d79921;">int</span>
+<pre class="src src-quint">const MY_CONST: int
 
-<span style="color: #e35b15;">var</span> x: <span style="color: #d79921;">str</span>
-<span style="color: #e35b15;">var</span> y: <span style="color: #d79921;">bool</span>
+var x: str
+var y: bool
 </pre>
 </div>
 
@@ -249,15 +249,15 @@ Temos as palavras-chave: <code>CONSTANT</code>, <code>CONSTANTS</code>, <code>VA
 </p>
 </div>
 </div>
-<div id="outline-container-orgc3e9532" class="outline-3">
-<h3 id="orgc3e9532"><span class="section-number-3">1.6.</span> Instanciando módulos</h3>
+<div id="outline-container-instanciando-m-dulos-2" class="outline-3">
+<h3 id="instanciando-m-dulos-2"><span class="section-number-3">1.6.</span> Instanciando módulos</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 Lembram nos semáforos, quando tínhamos a constante <code>SEMAFOROS</code>, e instanciávamos o módulo com:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">module</span> semaforos_3 {
-  <span style="color: #e35b15;">import</span> semaforos(SEMAFOROS=Set(0, 1, 2)).*
+<pre class="src src-quint">module semaforos_3 {
+  import semaforos(SEMAFOROS=Set(0, 1, 2)).*
 }
 </pre>
 </div>
@@ -279,16 +279,16 @@ PS: Constantes e Instâncias são um tanto complicadas. A utilização delas nos
 </p>
 </div>
 </div>
-<div id="outline-container-org7ce462e" class="outline-3">
-<h3 id="org7ce462e"><span class="section-number-3">1.7.</span> Imports</h3>
+<div id="outline-container-imports-2" class="outline-3">
+<h3 id="imports-2"><span class="section-number-3">1.7.</span> Imports</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 Em Quint, tempos os imports<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">import</span> meu_modulo.*
-<span style="color: #e35b15;">import</span> meu_modulo.minha_definicao
-<span style="color: #e35b15;">import</span> meu_modulo <span style="color: #e35b15;">as</span> M
+<pre class="src src-quint">import meu_modulo.*
+import meu_modulo.minha_definicao
+import meu_modulo as M
 </pre>
 </div>
 
@@ -309,8 +309,8 @@ Inclusive, os interios não são <i>built-in</i> em TLA+. Temos que importar o m
 </div>
 </div>
 </div>
-<div id="outline-container-org8b7d86e" class="outline-3">
-<h3 id="org8b7d86e"><span class="section-number-3">1.8.</span> Literais</h3>
+<div id="outline-container-literais-2" class="outline-3">
+<h3 id="literais-2"><span class="section-number-3">1.8.</span> Literais</h3>
 <div class="outline-text-3" id="text-1-8">
 <ul class="org-ul">
 <li><code>false</code> em Quint é <code>FALSE</code> em TLA+<br /></li>
@@ -322,8 +322,8 @@ Inclusive, os interios não são <i>built-in</i> em TLA+. Temos que importar o m
 </ul>
 </div>
 </div>
-<div id="outline-container-org9f839bf" class="outline-3">
-<h3 id="org9f839bf"><span class="section-number-3">1.9.</span> Lambdas (Operadores Anônimos)</h3>
+<div id="outline-container-lambdas-operadores-an-nimos-2" class="outline-3">
+<h3 id="lambdas-operadores-an-nimos-2"><span class="section-number-3">1.9.</span> Lambdas (Operadores Anônimos)</h3>
 <div class="outline-text-3" id="text-1-9">
 <p>
 Em Quint, temos lambdas como o a seguir. Contudo (por hora), lambdas só podem ser usados como argumentos pra outros operadores, como para o <code>map</code> e <code>fold</code>:<br />
@@ -344,16 +344,16 @@ Em TLA+, temos lambdas, de forma geral, como:<br />
 </div>
 </div>
 </div>
-<div id="outline-container-org0011e02" class="outline-3">
-<h3 id="org0011e02"><span class="section-number-3">1.10.</span> LET &#x2026; IN &#x2026;</h3>
+<div id="outline-container-let-in-2" class="outline-3">
+<h3 id="let-in-2"><span class="section-number-3">1.10.</span> LET &#x2026; IN &#x2026;</h3>
 <div class="outline-text-3" id="text-1-10">
 <p>
 Em Quint, podemos declarar varios operadores seguidos de uma expressão:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> a = {
-  <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> b = 1
-  <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> c = b + 1
+<pre class="src src-quint">pure val a = {
+  pure val b = 1
+  pure val c = b + 1
   c + 1
 }
 </pre>
@@ -374,19 +374,19 @@ Percebam que usamos duplo <code>=</code>  (<code>==</code>) para definições. P
 </p>
 </div>
 </div>
-<div id="outline-container-orgb23c77e" class="outline-3">
-<h3 id="orgb23c77e"><span class="section-number-3">1.11.</span> Conjunção e Disjunção</h3>
+<div id="outline-container-conjun-o-e-disjun-o-2" class="outline-3">
+<h3 id="conjun-o-e-disjun-o-2"><span class="section-number-3">1.11.</span> Conjunção e Disjunção</h3>
 <div class="outline-text-3" id="text-1-11">
 </div>
 <ol class="org-ol">
-<li><a id="org7d74256"></a>Conjunção<br />
+<li><a id="conjun-o-3"></a>Conjunção<br />
 <div class="outline-text-4" id="text-1-11-1">
 <p>
 Conjunção em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> pred = a <span style="color: #66a4a4;">and</span> b
-<span style="color: #e35b15;">action</span> conj = <span style="color: #66a4a4;">all</span> {
+<pre class="src src-quint">pure val pred = a and b
+action conj = all {
   A,
   B,
   C,
@@ -407,14 +407,14 @@ conj ==
 </div>
 </div>
 </li>
-<li><a id="org8fc56e0"></a>Disjunção<br />
+<li><a id="disjun-o-3"></a>Disjunção<br />
 <div class="outline-text-4" id="text-1-11-2">
 <p>
 Disjunção em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> pred = a <span style="color: #66a4a4;">or</span> b
-<span style="color: #e35b15;">action</span> disj = <span style="color: #66a4a4;">any</span> {
+<pre class="src src-quint">pure val pred = a or b
+action disj = any {
   A,
   B,
   C,
@@ -437,14 +437,14 @@ conj ==
 </li>
 </ol>
 </div>
-<div id="outline-container-org4bd7b3e" class="outline-3">
-<h3 id="org4bd7b3e"><span class="section-number-3">1.12.</span> Condicional</h3>
+<div id="outline-container-condicional-2" class="outline-3">
+<h3 id="condicional-2"><span class="section-number-3">1.12.</span> Condicional</h3>
 <div class="outline-text-3" id="text-1-12">
 <p>
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f(x) = <span style="color: #66a4a4;">if</span> (x == 0) 10 <span style="color: #66a4a4;">else</span> 20
+<pre class="src src-quint">pure def f(x) = if (x == 0) 10 else 20
 </pre>
 </div>
 
@@ -457,14 +457,14 @@ Em TLA+:<br />
 </div>
 </div>
 </div>
-<div id="outline-container-org0fa608e" class="outline-3">
-<h3 id="org0fa608e"><span class="section-number-3">1.13.</span> Sets!</h3>
+<div id="outline-container-sets-2" class="outline-3">
+<h3 id="sets-2"><span class="section-number-3">1.13.</span> Sets!</h3>
 <div class="outline-text-3" id="text-1-13">
 <p>
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #d79921;">Set</span>(1, 2, 3)
+<pre class="src src-quint">Set(1, 2, 3)
 </pre>
 </div>
 
@@ -477,8 +477,8 @@ Em TLA+:<br />
 </div>
 </div>
 </div>
-<div id="outline-container-org3afa64b" class="outline-3">
-<h3 id="org3afa64b"><span class="section-number-3">1.14.</span> Operadores sobre sets</h3>
+<div id="outline-container-operadores-sobre-sets-2" class="outline-3">
+<h3 id="operadores-sobre-sets-2"><span class="section-number-3">1.14.</span> Operadores sobre sets</h3>
 <div class="outline-text-3" id="text-1-14">
 <p>
 Existe e para todo:<br />
@@ -525,14 +525,14 @@ PS: Para usar <code>Cardinality</code>, precisamos fazer <code>EXTENDS FiniteSet
 </p>
 </div>
 </div>
-<div id="outline-container-orga1843c7" class="outline-3">
-<h3 id="orga1843c7"><span class="section-number-3">1.15.</span> Não-determinismo</h3>
+<div id="outline-container-n-o-determinismo-2" class="outline-3">
+<h3 id="n-o-determinismo-2"><span class="section-number-3">1.15.</span> Não-determinismo</h3>
 <div class="outline-text-3" id="text-1-15">
 <p>
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">nondet</span> name = my_set.oneOf()
+<pre class="src src-quint">nondet name = my_set.oneOf()
 x' = name
 </pre>
 </div>
@@ -550,8 +550,8 @@ Lembrando que o equivalente ao <i>exists</i> (<code>my_set.exists(name =&gt; x' 
 </p>
 </div>
 </div>
-<div id="outline-container-orgef558c2" class="outline-3">
-<h3 id="orgef558c2"><span class="section-number-3">1.16.</span> Exercícios Sets</h3>
+<div id="outline-container-exerc-cios-sets-2" class="outline-3">
+<h3 id="exerc-cios-sets-2"><span class="section-number-3">1.16.</span> Exercícios Sets</h3>
 <div class="outline-text-3" id="text-1-16">
 <p>
 Resolva usando os equivalentes a <code>map</code> e <code>filter</code> na REPL:<br />
@@ -574,8 +574,8 @@ Dado um conjunto de números, retorne um conjunto apenas com os números pares.<
 </ol>
 </div>
 </div>
-<div id="outline-container-org4b3d698" class="outline-3">
-<h3 id="org4b3d698"><span class="section-number-3">1.17.</span> Maps</h3>
+<div id="outline-container-maps-2" class="outline-3">
+<h3 id="maps-2"><span class="section-number-3">1.17.</span> Maps</h3>
 <div class="outline-text-3" id="text-1-17">
 <ul class="org-ul">
 <li>Chamados funções em TLA+, mas podemos continuar chamando de mapas para não confundir.<br /></li>
@@ -587,8 +587,8 @@ Dado um conjunto de números, retorne um conjunto apenas com os números pares.<
 </ul>
 </div>
 </div>
-<div id="outline-container-org456aaf5" class="outline-3">
-<h3 id="org456aaf5"><span class="section-number-3">1.18.</span> Maps - construtor</h3>
+<div id="outline-container-maps-construtor-2" class="outline-3">
+<h3 id="maps-construtor-2"><span class="section-number-3">1.18.</span> Maps - construtor</h3>
 <div class="outline-text-3" id="text-1-18">
 <p>
 Em Quint:<br />
@@ -623,8 +623,8 @@ Se eu ainda não souber quem são as pessoas, aí sim preciso criar um mapa vazi
 </div>
 </div>
 </div>
-<div id="outline-container-orgbf2dbe3" class="outline-3">
-<h3 id="orgbf2dbe3"><span class="section-number-3">1.19.</span> Maps - construtor como em Quint</h3>
+<div id="outline-container-maps-construtor-como-em-quint-2" class="outline-3">
+<h3 id="maps-construtor-como-em-quint-2"><span class="section-number-3">1.19.</span> Maps - construtor como em Quint</h3>
 <div class="outline-text-3" id="text-1-19">
 <p>
 O equivalente a:<br />
@@ -651,8 +651,8 @@ O <code>CHOOSE</code> é um operador um tanto complicado<br />
 </ul>
 </div>
 </div>
-<div id="outline-container-orgafd7616" class="outline-3">
-<h3 id="orgafd7616"><span class="section-number-3">1.20.</span> Maps - acesso</h3>
+<div id="outline-container-maps-acesso-2" class="outline-3">
+<h3 id="maps-acesso-2"><span class="section-number-3">1.20.</span> Maps - acesso</h3>
 <div class="outline-text-3" id="text-1-20">
 <p>
 Para acessar uma chave <code>e</code> de um mapa <code>f</code>:<br />
@@ -677,8 +677,8 @@ Um exemplo na REPL.<br />
 </div>
 </div>
 </div>
-<div id="outline-container-org0f540e8" class="outline-3">
-<h3 id="org0f540e8"><span class="section-number-3">1.21.</span> Operadores sobre Maps</h3>
+<div id="outline-container-operadores-sobre-maps-2" class="outline-3">
+<h3 id="operadores-sobre-maps-2"><span class="section-number-3">1.21.</span> Operadores sobre Maps</h3>
 <div class="outline-text-3" id="text-1-21">
 <p>
 Obtendo o conjunto com as chaves:<br />
@@ -710,8 +710,8 @@ Atualizando e adicionando valores:<br />
 </div>
 </div>
 </div>
-<div id="outline-container-org0eddf9e" class="outline-3">
-<h3 id="org0eddf9e"><span class="section-number-3">1.22.</span> Records</h3>
+<div id="outline-container-records-2" class="outline-3">
+<h3 id="records-2"><span class="section-number-3">1.22.</span> Records</h3>
 <div class="outline-text-3" id="text-1-22">
 <p>
 Construtor:<br />
@@ -757,8 +757,8 @@ Obtendo os nomes dos campos:<br />
 </div>
 </div>
 </div>
-<div id="outline-container-orgc3dfbcf" class="outline-3">
-<h3 id="orgc3dfbcf"><span class="section-number-3">1.23.</span> Listas (ou Sequências)</h3>
+<div id="outline-container-listas-ou-sequ-ncias-2" class="outline-3">
+<h3 id="listas-ou-sequ-ncias-2"><span class="section-number-3">1.23.</span> Listas (ou Sequências)</h3>
 <div class="outline-text-3" id="text-1-23">
 <p>
 Construtor:<br />
@@ -806,8 +806,8 @@ SelectSeq(s, Test) <span style="color: #C18E76;">\* select(l, Test)</span>
 </div>
 </div>
 </div>
-<div id="outline-container-org067bbe3" class="outline-3">
-<h3 id="org067bbe3"><span class="section-number-3">1.24.</span> Tuplas</h3>
+<div id="outline-container-tuplas-2" class="outline-3">
+<h3 id="tuplas-2"><span class="section-number-3">1.24.</span> Tuplas</h3>
 <div class="outline-text-3" id="text-1-24">
 <p>
 Já que não temos tipos em TLA+, tuplas são nada mais do que uma lista.<br />
@@ -841,8 +841,8 @@ Obtendo todas as possíveis tuplas:<br />
 </div>
 </div>
 </div>
-<div id="outline-container-orgc8e6c21" class="outline-3">
-<h3 id="orgc8e6c21"><span class="section-number-3">1.25.</span> Unchanged</h3>
+<div id="outline-container-unchanged-2" class="outline-3">
+<h3 id="unchanged-2"><span class="section-number-3">1.25.</span> Unchanged</h3>
 <div class="outline-text-3" id="text-1-25">
 <p>
 TLA+ fornece um operador para o caso especial onde uma variável se mantém com o mesmo valor em uma ação:<br />
@@ -868,8 +868,8 @@ Podemos escrever:<br />
 </div>
 </div>
 </div>
-<div id="outline-container-org0fda4b2" class="outline-3">
-<h3 id="org0fda4b2"><span class="section-number-3">1.26.</span> Folds</h3>
+<div id="outline-container-folds-2" class="outline-3">
+<h3 id="folds-2"><span class="section-number-3">1.26.</span> Folds</h3>
 <div class="outline-text-3" id="text-1-26">
 <p>
 Não consegui descobir um jeito de fazer <code>EXTENDS</code> pela REPL. Então, vamos usar o VSCode com a funcionalidade de avaliação:<br />
@@ -891,7 +891,7 @@ Para usar o fold, precisamos de:<br />
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #d79921;">Set</span>(1, 2, 3, 4).fold(0, (acc, i) =&gt; acc + i)
+<pre class="src src-quint">Set(1, 2, 3, 4).fold(0, (acc, i) =&gt; acc + i)
 </pre>
 </div>
 
@@ -904,8 +904,8 @@ Em TLA+:<br />
 </div>
 </div>
 </div>
-<div id="outline-container-orgaccefc7" class="outline-3">
-<h3 id="orgaccefc7"><span class="section-number-3">1.27.</span> Exercícios Fold</h3>
+<div id="outline-container-exerc-cios-fold-2" class="outline-3">
+<h3 id="exerc-cios-fold-2"><span class="section-number-3">1.27.</span> Exercícios Fold</h3>
 <div class="outline-text-3" id="text-1-27">
 <p>
 Exercício: Re-escreva nossos exemplos anteriores usando <code>FoldSet</code><br />
@@ -913,8 +913,8 @@ Agora, resolva ambos usando <code>FoldSet</code>.<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org6c398d6" class="outline-3">
-<h3 id="org6c398d6"><span class="section-number-3">1.28.</span> Exercícios TLA+</h3>
+<div id="outline-container-exerc-cios-tla-2" class="outline-3">
+<h3 id="exerc-cios-tla-2"><span class="section-number-3">1.28.</span> Exercícios TLA+</h3>
 <div class="outline-text-3" id="text-1-28">
 <ol class="org-ol">
 <li>Escreva um operador que recebe um conjunto e retorna a média dos valores.<br /></li>

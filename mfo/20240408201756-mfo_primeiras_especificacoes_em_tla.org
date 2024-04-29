@@ -30,6 +30,9 @@ Vamos corrigir juntos no VSCode.
 
 * Modelos em TLA+
 ** Modelos em TLA+
+  :PROPERTIES:
+  :CUSTOM_ID: modelos-em-tla-2
+  :END:
 Até agora, vimos principalmente a parte funcional da linguagem.
 - Diferente de Quint, não temos operadores exclusivos para ações. Ações são bem parecidas com a parte funcional.
 - Podemos identificar ações pelo operador /primed/ (='= ), e pelo =UNCHANGED=
@@ -101,6 +104,9 @@ FicaVerde(s) ==
 *Lendo essa ação*: tente prencher as lacunas
 "=FicaVerde= para um semáforo =s= define uma transição onde, no estado atual, =__________= deve ser =__________= e =___________= deve =_________=; e no próximo estado, =_________= deve ser =_________= e =___________= deve ser =___________="
 ** Próximo semáforo fica verde: Exercício
+:PROPERTIES:
+:CUSTOM_ID: proximo-semaforo-fica-verde-exercicio
+:END:
 #+begin_src tla
 FicaVerde(s) ==
   /\ proximo = s
@@ -425,6 +431,9 @@ MoveX ==
 #+end_src
 
 ** Estado inicial
+:PROPERTIES:
+:CUSTOM_ID: estado-inicial-2-2
+:END:
 #+begin_src tla
 Init ==
   /\ nextTurn = "X" \* X always goes first

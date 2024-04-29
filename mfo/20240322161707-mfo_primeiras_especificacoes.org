@@ -171,6 +171,9 @@ action all_multiplas_atualizacoes = all { a1, a2 }
 
 * Modos de Quint
 ** Modos de Quint
+:PROPERTIES:
+:CUSTOM_ID: modos-de-quint-2
+:END:
 Percebam como nas últimas aulas conversamos sobre coisas um tanto diferentes:
 - Aula passada, definimos
     - *operadores* com =def= e =pure def=
@@ -217,6 +220,9 @@ module jarros {
 #+end_src
 
 ** Ações
+  :PROPERTIES:
+  :CUSTOM_ID: acoes-2-2
+  :END:
 Tente escrever as ações abaixo, definindo os valores para =grande= e =pequeno= em cada uma delas. Nenhuma dessas ações precisa de parâmetros.
 #+begin_src quint
   action enche_grande
