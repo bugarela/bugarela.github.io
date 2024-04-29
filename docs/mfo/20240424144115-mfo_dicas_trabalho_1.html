@@ -8,7 +8,7 @@
   <title>Dicas Trabalho 1</title>
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
-  <meta property="og:url" content="http://nowhere.org/mfo/20240424144115-mfo_dicas_trabalho_1.html" />
+  <meta property="og:url" content="https://bugarela.com/mfo/20240424144115-mfo_dicas_trabalho_1.html" />
   <meta property="og:title" content="Dicas Trabalho 1" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content="Personal homepage exported with org-thtml" />
@@ -64,6 +64,16 @@
 <li><a href="#org5a44abd">1.1. [Quint] q::debug</a></li>
 <li><a href="#orgdfb2310">1.2. [TLA+] Print</a></li>
 <li><a href="#orgaf8908d">1.3. Composição</a></li>
+<li><a href="#orgbfef0f0">1.4. [Quint] Tipos soma - salvando o último ataque</a></li>
+<li><a href="#org3b500af">1.5. [Quint] Tipos soma - representando mais ações</a></li>
+<li><a href="#orgd8ab781">1.6. [TLA+] Representando ações diferentes</a></li>
+<li><a href="#org5459358">1.7. Controle de turnos</a></li>
+<li><a href="#orgb149034">1.8. Controle de turnos para N jogadores</a></li>
+<li><a href="#org564ca9f">1.9. Entendendo a ordenação</a></li>
+<li><a href="#org9f252ce">1.10. Equivalente em TLA+</a></li>
+<li><a href="#org17af487">1.11. Transformando todos os valores de um mapa</a></li>
+<li><a href="#orgb2e0fb1">1.12. Mapas indexam valores com chaves</a></li>
+<li><a href="#org438c767">1.13. [TLA+] Modo simulação do TLC</a></li>
 </ul>
 </li>
 </ul>
@@ -200,6 +210,260 @@ A opção (2) é geralmente mais interessante, já que ela funciona melhor se, p
 }
 </pre>
 </div>
+</div>
+</div>
+<div id="outline-container-orgbfef0f0" class="outline-3">
+<h3 id="orgbfef0f0"><span class="section-number-3">1.4.</span> [Quint] Tipos soma - salvando o último ataque</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+E se precisássemos registrar o modificador de dano de ataques elementais na nossa especificação de pokemons?<br />
+</p>
+<ul class="org-ul">
+<li>O problema aqui é que ataques do tipo <code>tackle</code> não tem modificador. Esse dado só existe para ataques elementais.<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Poderíamos colocar um valor qualquer no campo <code>modifier</code> quando o ataque é do tipo <code>tackle</code>, e lembrar que esse campo é irrelevante quando o tipo do ataque é <code>tackle</code>.<br /></li>
+</ul>
+
+<p>
+A alternativa mais elegante é usar um tipo soma para, no mesmo campo, termos tipos diferentes para um ataque elemental (aqui, um <i>record</i> com o modificador e o dano) e um <code>tackle</code> (aqui, um inteiro para o dano).<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">type</span> Attack =
+  | ElementalAttack({ modifier: DamageModifier, damage: <span style="color: #d79921;">int</span> })
+  | Tackle(<span style="color: #d79921;">int</span>)
+<span style="color: #e35b15;">type</span> AttackDescription = { attacker: Pokemon, receiver: Pokemon, attack: Attack }
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org3b500af" class="outline-3">
+<h3 id="org3b500af"><span class="section-number-3">1.5.</span> [Quint] Tipos soma - representando mais ações</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+Se quisermos deixar nossa especificação de pokemons mais completa, podemos adicionar outras ações que um pokemon pode tomar no seu turno, além de atacar. Vamos pensar somente nos tipos aqui.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">type</span> AttackDescription = ElementalAttack({ modifier: DamageModifier, damage: <span style="color: #d79921;">int</span> }) | Tackle(<span style="color: #d79921;">int</span>)
+<span style="color: #e35b15;">type</span> Status = Attack | Defense | SpecialDefense | SpecialAttack | Speed | Accuracy | Evasiveness
+<span style="color: #e35b15;">type</span> Condition = Poison | Burn | Freeze | Paralize | Sleep
+<span style="color: #e35b15;">type</span> TurnDescription =
+   | Attack({ attacker: Pokemon, receiver: Pokemon, attack: AttackDescription })
+   | Heal({ pokemon: Pokemon, healed_amount: <span style="color: #d79921;">int</span> })
+   | Buff({ pokemon: Pokemon, status: Status })
+   | Debuff({ caster: Pokemon, receiver: Pokemon, status: Status })
+   | ApplyCondition({ caster: Pokemon, receiver: Pokemon, condition: Condition })
+   | RemoveCondition({ pokemon: Pokemon, condition: Condition })
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd8ab781" class="outline-3">
+<h3 id="orgd8ab781"><span class="section-number-3">1.6.</span> [TLA+] Representando ações diferentes</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Em TLA+ (usando TLC), não temos tipos, então é possível usar <i>records</i> com diferentes campos em cada estado.<br />
+Por exemplo:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">lastAttack' =[ attacker |-&gt; p1, receiver |-&gt; p2, attack |-&gt; <span style="color: #98971a;">"elemental"</span>, modifier |-&gt; <span style="color: #98971a;">"super effective"</span>, damage |-&gt; <span style="color: #d79921; font-weight: bold;">20</span>]
+lastAttack' = [ action |-&gt; <span style="color: #98971a;">"buff"</span>, pokemon |-&gt; p, status |-&gt; <span style="color: #98971a;">"speed"</span> ]
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5459358" class="outline-3">
+<h3 id="org5459358"><span class="section-number-3">1.7.</span> Controle de turnos</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+O nosso controle de turnos na especificação dos pokemons e do jogo da velha funciona muito bem para 2 jogadores, mas não é muito útil com mais do que isso.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> init = {
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">...</span>
+  next_team' = <span style="color: #66a4a4;">if</span> (team_A_pokemon.speed &gt;= team_B_pokemon.speed) <span style="color: #98971a;">"A"</span> <span style="color: #66a4a4;">else</span> <span style="color: #98971a;">"B"</span>,
+}
+
+<span style="color: #e35b15;">action</span> step = {
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">...</span>
+  next_team' = other_team(next_team),
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb149034" class="outline-3">
+<h3 id="orgb149034"><span class="section-number-3">1.8.</span> Controle de turnos para N jogadores</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+Para não precisar salvar muita informação extra no estado (variáveis), uma alternativa legal é ter um contador de <i>rounds</i> e, a cada turno, computar quem é o jogador da vez naquele <i>round</i>.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">var</span> round: <span style="color: #d79921;">int</span>
+
+<span style="color: #e35b15;">action</span> init = <span style="color: #66a4a4;">all</span> {
+  pokemons' = ...,
+  round' = 1,
+}
+
+<span style="color: #e35b15;">action</span> step = {
+  <span style="color: #e35b15;">val</span> attackers_by_initiative = pokemons.values().toList((p1, p2) =&gt; intCompare(p2.speed, p1.speed))
+  <span style="color: #e35b15;">val</span> attacker = attackers_by_initiative[round % pokemons.keys().size()]
+  <span style="color: #e35b15;">val</span> receiver = pokemons.values().filter(p =&gt; attacker != p).oneOf()
+  <span style="color: #66a4a4;">all</span> {
+    attack(attacker, receiver),
+    round' = round + 1,
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org564ca9f" class="outline-3">
+<h3 id="org564ca9f"><span class="section-number-3">1.9.</span> Entendendo a ordenação</h3>
+<div class="outline-text-3" id="text-1-9">
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> attackers_by_initiative = pokemons.values().toList((p1, p2) =&gt; intCompare(p2.speed, p1.speed))
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>toList</code>: Converte um conjunto (<code>set</code>) para uma lista. Precisa de um operador que indique como ordenar os elementos desse set, para que não tenhamos comportamento arbitrário.<br /></li>
+</ul>
+<ul class="org-ul">
+<li><p>
+<code>intCompare</code>: Operador auxiliar para comparação de inteiros<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">  <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> intCompare(a: <span style="color: #d79921;">int</span>, b:<span style="color: #d79921;">int</span>): Ordering = {
+    <span style="color: #66a4a4;">if</span> (a &lt; b)
+      { LT }
+    <span style="color: #66a4a4;">else</span> <span style="color: #66a4a4;">if</span> (a &gt; b)
+      { GT }
+    <span style="color: #66a4a4;">else</span>
+      { EQ }
+  }
+</pre>
+</div></li>
+</ul>
+<ul class="org-ul">
+<li>Para que a ordem seja descendente de acordo com a velocidade, basta inverter a ordem dos argumentos (<code>intCompare(p2.speed, p1.speed)</code>).<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9f252ce" class="outline-3">
+<h3 id="org9f252ce"><span class="section-number-3">1.10.</span> Equivalente em TLA+</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+Para converter um conjunto em uma sequência com uma dada ordenação em TLA+, podemos usar o operador <code>SetToSortSeq</code> do módulo <code>SequencesExt</code>:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span style="color: #66a4a4;">EXTENDS</span> SequencesExt
+
+SetToSortSeq({ [ speed |-&gt; <span style="color: #d79921; font-weight: bold;">10</span> ], [ speed |-&gt; <span style="color: #d79921; font-weight: bold;">20</span> ] }, <span style="color: #66a4a4;">LAMBDA</span> r1, r2 : r1.speed &gt; r2.speed)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org17af487" class="outline-3">
+<h3 id="org17af487"><span class="section-number-3">1.11.</span> Transformando todos os valores de um mapa</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+Supondo que queremos aplicar 1 de dano em todos os pokemons.<br />
+</p>
+
+<p>
+Em Quint:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">pokemons.transformValues(p =&gt; p.damage(1))
+</pre>
+</div>
+
+<p>
+Em TLA+<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">[ team \in <span style="color: #66a4a4;">DOMAIN</span> pokemons |-&gt; damage(pokemons[team], <span style="color: #d79921; font-weight: bold;">1</span>) ]
+</pre>
+</div>
+
+<p>
+A versão em Quint equivalente a essa expressão em TLA+ seria:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">pokemons.keys().mapBy(team =&gt; pokemons.get(team).damage(1))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb2e0fb1" class="outline-3">
+<h3 id="orgb2e0fb1"><span class="section-number-3">1.12.</span> Mapas indexam valores com chaves</h3>
+<div class="outline-text-3" id="text-1-12">
+<p>
+Mapas mapeiam um conjunto de chaves para seus valores.<br />
+</p>
+<ul class="org-ul">
+<li><p>
+Na especificação dos pokemons, escolhemos indexar pokemons pelo seu time (<code>"A"</code> ou <code>"B"</code>).<br />
+</p>
+<ul class="org-ul">
+<li>Ou seja, nossas chaves são times (<i>strings</i>), e nossos valores são pokemons.<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Em Quint, o tipo do mapa é <code>str -&gt; Pokemon</code><br /></li>
+</ul></li>
+</ul>
+<ul class="org-ul">
+<li><p>
+Isso foi possível porque temos apenas um pokemon por time. Se tivéssemos mais de um pokemon por time, teríamos que escolher outra chave. Por exemplo, o nome do pokemon.<br />
+</p>
+<ul class="org-ul">
+<li>Mapas são equivalentes a funções. Uma chave só pode mapear um único valor<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Nesse caso, usamos time ao invés de nome por isso facilitar o acesso ao &ldquo;pokemon adversário&rdquo; (<code>pokemons.get(other_team(next_team))</code>)<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org438c767" class="outline-3">
+<h3 id="org438c767"><span class="section-number-3">1.13.</span> [TLA+] Modo simulação do TLC</h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+Como indicado no enunciado do trabalho, devemos usar simuladores. Para usar o TLC no seu modo de simulação:<br />
+</p>
+<ol class="org-ol">
+<li>Garanta que está na versão <b>nigthly</b> da extensão do TLA+ no VSCode.<br /></li>
+<li>Aperte F1 e escolha: TLA+: Check model with TLC<br />
+<ul class="org-ul">
+<li>Você deve ver um prompt para inserir opções adicionais para o TLC.<br /></li>
+</ul></li>
+</ol>
+
+<p>
+PS: Aconselho sempre usar a flag <code>-deadlock</code> para desativar checks de deadlock, já que essa não é uma preocupação para nossos sistemas de batalha.<br />
+</p>
+
+<p>
+Opções para simular até encontrar um erro, com no máximo 10 mil tentativas (semelhante ao <code>quint run</code>):<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">-deadlock -simulate <span style="color: #e4b6c3;">num</span>=<span style="color: #d79921; font-weight: bold;">10000</span>
+</pre>
+</div>
+
+<p>
+Se a propriedade for satisfeita, nenhum trace será exibido. Então, se você quiser ver um trace qualquer, use:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">-deadlock -simulate <span style="color: #e4b6c3;">file</span>=out,<span style="color: #e4b6c3;">num</span>=<span style="color: #d79921; font-weight: bold;">1</span>
+</pre>
+</div>
+
+<p>
+Assim, o TLC irá criar um arquivo <code>out_0_0</code> com um trace do modelo.<br />
+</p>
 </div>
 </div>
 </div>
