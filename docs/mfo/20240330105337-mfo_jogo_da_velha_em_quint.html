@@ -122,8 +122,8 @@ PS: a partir de hoje, não vou mais traduzir as especificações para português
 Definimos os seguintes tipos<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">type Player = X | O
-type Square = Occupied(Player) | Empty
+<pre class="src src-quint"><span style="color: #e35b15;">type</span> Player = X | O
+<span style="color: #e35b15;">type</span> Square = Occupied(Player) | Empty
 </pre>
 </div>
 
@@ -131,11 +131,11 @@ type Square = Occupied(Player) | Empty
 E as seguintes variáveis<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">/// A 3x3 tic-tac-toe board
-var board: int -&gt; int -&gt; Square
+<pre class="src src-quint"><span style="color: #C18E76;">//</span><span style="color: #C18E76;">/ A 3x3 tic-tac-toe board</span>
+<span style="color: #e35b15;">var</span> board: <span style="color: #d79921;">int</span> -&gt; <span style="color: #d79921;">int</span> -&gt; Square
 
-/// Who goes next
-var nextTurn: Player
+<span style="color: #C18E76;">//</span><span style="color: #C18E76;">/ Who goes next</span>
+<span style="color: #e35b15;">var</span> nextTurn: Player
 </pre>
 </div>
 </div>
@@ -144,21 +144,21 @@ var nextTurn: Player
 <h3 id="defini-es-sobre-coordenadas-2"><span class="section-number-3">1.3.</span> Definições sobre coordenadas</h3>
 <div class="outline-text-3" id="text-1-3">
 <div class="org-src-container">
-<pre class="src src-quint">pure val boardCoordinates = tuples(1.to(3), 1.to(3))
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> boardCoordinates = tuples(1.to(3), 1.to(3))
 
-def square(coordinate: (int, int)): Square =
+<span style="color: #e35b15;">def</span> square(coordinate: (<span style="color: #d79921;">int</span>, <span style="color: #d79921;">int</span>)): Square =
   board.get(coordinate._1).get(coordinate._2)
 
-def hasPlayer(coordinate, player) =
+<span style="color: #e35b15;">def</span> hasPlayer(coordinate, player) =
   match square(coordinate) {
-    | Empty       =&gt; false
+    | Empty       =&gt; <span style="color: #805b87;">false</span>
     | Occupied(p) =&gt; player == p
   }
 
-def isEmpty(coordinate) =
+<span style="color: #e35b15;">def</span> isEmpty(coordinate) =
   match square(coordinate) {
-    | Empty  =&gt; true
-    | _      =&gt; false
+    | Empty  =&gt; <span style="color: #805b87;">true</span>
+    | _      =&gt; <span style="color: #805b87;">false</span>
   }
 </pre>
 </div>
@@ -168,9 +168,9 @@ def isEmpty(coordinate) =
 <h3 id="defini-es-sobre-o-tabuleiro-2"><span class="section-number-3">1.4.</span> Definições sobre o tabuleiro</h3>
 <div class="outline-text-3" id="text-1-4">
 <div class="org-src-container">
-<pre class="src src-quint">val boardEmpty = boardCoordinates.forall(isEmpty)
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> boardEmpty = boardCoordinates.forall(isEmpty)
 
-val boardFull = not(boardCoordinates.exists(isEmpty))
+<span style="color: #e35b15;">val</span> boardFull = <span style="color: #66a4a4;">not</span>(boardCoordinates.exists(isEmpty))
 </pre>
 </div>
 </div>
@@ -183,18 +183,18 @@ val boardFull = not(boardCoordinates.exists(isEmpty))
 <li>Usamos <code>Set</code> - não precisamos de ordem nem de repetição, logo não devemos usar <code>List</code>.<br /></li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-quint">pure val winningPatterns = Set(
-  // Horizonal wins
-  Set((1,1), (1,2), (1,3)),
-  Set((2,1), (2,2), (2,3)),
-  Set((3,1), (3,2), (3,3)),
-  // Vertical wins
-  Set((1,1), (2,1), (3,1)),
-  Set((1,2), (2,2), (3,2)),
-  Set((1,3), (2,3), (3,3)),
-  // Diagonal wins
-  Set((1,1), (2,2), (3,3)),
-  Set((3,1), (2,2), (1,3))
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> winningPatterns = <span style="color: #d79921;">Set</span>(
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">Horizonal wins</span>
+  <span style="color: #d79921;">Set</span>((1,1), (1,2), (1,3)),
+  <span style="color: #d79921;">Set</span>((2,1), (2,2), (2,3)),
+  <span style="color: #d79921;">Set</span>((3,1), (3,2), (3,3)),
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">Vertical wins</span>
+  <span style="color: #d79921;">Set</span>((1,1), (2,1), (3,1)),
+  <span style="color: #d79921;">Set</span>((1,2), (2,2), (3,2)),
+  <span style="color: #d79921;">Set</span>((1,3), (2,3), (3,3)),
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">Diagonal wins</span>
+  <span style="color: #d79921;">Set</span>((1,1), (2,2), (3,3)),
+  <span style="color: #d79921;">Set</span>((3,1), (2,2), (1,3))
 )
 </pre>
 </div>
@@ -207,7 +207,7 @@ val boardFull = not(boardCoordinates.exists(isEmpty))
 Usamos as definições para <code>winningPaterns</code> e <code>hasPlayer</code> para determinar se um jogador venceu.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">def won(player) = winningPatterns.exists(pattern =&gt;
+<pre class="src src-quint"><span style="color: #e35b15;">def</span> won(player) = winningPatterns.exists(pattern =&gt;
   pattern.forall(coordinate =&gt; hasPlayer(coordinate, player))
 )
 </pre>
@@ -217,7 +217,7 @@ Usamos as definições para <code>winningPaterns</code> e <code>hasPlayer</code>
 Com essa definição e <code>boardFull</code>, podemos determinar se um jogo já acabou.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">val gameOver = won(X) or won(O) or boardFull
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> gameOver = won(X) <span style="color: #66a4a4;">or</span> won(O) <span style="color: #66a4a4;">or</span> boardFull
 </pre>
 </div>
 <ul class="org-ul">
@@ -235,7 +235,7 @@ Um dado jogador faz uma jogada (um <i>move</i>) em uma dada coordenada<br />
 <li>Determinístico<br /></li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-quint">action Move(player, coordinate) = all {
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> Move(player, coordinate) = <span style="color: #66a4a4;">all</span> {
   isEmpty(coordinate),
   board' = board.setBy(
     coordinate._1,
@@ -267,9 +267,9 @@ Um dado jogador faz uma jogada em <b>alguma</b> coordenada<br />
 <li>Não-determinístico<br /></li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-quint">action MoveToEmpty(player) = all {
-  not(gameOver),
-  nondet coordinate = boardCoordinates.filter(isEmpty).oneOf()
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> MoveToEmpty(player) = <span style="color: #66a4a4;">all</span> {
+  <span style="color: #66a4a4;">not</span>(gameOver),
+  <span style="color: #e35b15;">nondet</span> coordinate = boardCoordinates.filter(isEmpty).oneOf()
   Move(player, coordinate)
 }
 </pre>
@@ -295,7 +295,7 @@ Qual é a pré-condição pra essa ação?<br />
 <li><a id="move0-3"></a>Move0<br />
 <div class="outline-text-4" id="text-1-9-1">
 <div class="org-src-container">
-<pre class="src src-quint">action MoveO = all {
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> MoveO = <span style="color: #66a4a4;">all</span> {
   nextTurn == O,
   MoveToEmpty(O),
   nextTurn' = X,
@@ -307,7 +307,7 @@ Qual é a pré-condição pra essa ação?<br />
 <li><a id="movex-3"></a>MoveX<br />
 <div class="outline-text-4" id="text-1-9-2">
 <div class="org-src-container">
-<pre class="src src-quint">action MoveX = all {
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> MoveX = <span style="color: #66a4a4;">all</span> {
   nextTurn == X,
   MoveToEmpty(X),
   nextTurn' = O,
@@ -337,10 +337,10 @@ Qual é a pré-condição pra essas ações?<br />
 <h3 id="estado-inicial-2"><span class="section-number-3">1.10.</span> Estado inicial</h3>
 <div class="outline-text-3" id="text-1-10">
 <div class="org-src-container">
-<pre class="src src-quint">action init = all {
-  // X always goes first
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> init = <span style="color: #66a4a4;">all</span> {
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">X always goes first</span>
   nextTurn' = X,
-  // Every space in the board starts blank
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">Every space in the board starts blank</span>
   board' = 1.to(3).mapBy(_ =&gt; 1.to(3).mapBy(_ =&gt; Empty)),
 }
 </pre>
@@ -351,11 +351,11 @@ Qual é a pré-condição pra essas ações?<br />
 <h3 id="transi-es-2"><span class="section-number-3">1.11.</span> Transições</h3>
 <div class="outline-text-3" id="text-1-11">
 <div class="org-src-container">
-<pre class="src src-quint">action step = any {
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> step = <span style="color: #66a4a4;">any</span> {
   MoveX,
   MoveO,
-  // If the game is over, we don't need to do anything
-  all { gameOver, board' = board, nextTurn' = nextTurn },
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">If the game is over, we don't need to do anything</span>
+  <span style="color: #66a4a4;">all</span> { gameOver, board' = board, nextTurn' = nextTurn },
 }
 </pre>
 </div>
@@ -393,9 +393,9 @@ Qual é a pré-condição pra essas ações?<br />
 &ldquo;Dar velha&rdquo;, ou <i>stalemate</i>, quer dizer que o tabuleiro está cheio e ninguém ganhou. É um empate.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">val stalemate = boardFull and not(won(X)) and not(won(O))
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> stalemate = boardFull <span style="color: #66a4a4;">and</span> <span style="color: #66a4a4;">not</span>(won(X)) <span style="color: #66a4a4;">and</span> <span style="color: #66a4a4;">not</span>(won(O))
 
-val NotStalemate = not(stalemate)
+<span style="color: #e35b15;">val</span> NotStalemate = <span style="color: #66a4a4;">not</span>(stalemate)
 </pre>
 </div>
 
@@ -475,15 +475,15 @@ Vamos implementar essa estratégia para o jogador X, enquanto o jogador O contin
 <h3 id="come-ando-com-os-cantos-2"><span class="section-number-3">2.2.</span> Começando com os cantos</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
-<pre class="src src-quint">pure val corners = Set(
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> corners = <span style="color: #d79921;">Set</span>(
   (1,1),
   (3,1),
   (1,3),
   (3,3)
 )
 
-action StartInCorner =
-  nondet corner = oneOf(corners)
+<span style="color: #e35b15;">action</span> StartInCorner =
+  <span style="color: #e35b15;">nondet</span> corner = oneOf(corners)
   Move(X, corner)
 </pre>
 </div>
@@ -503,10 +503,10 @@ Precisamos definir as condições que determinam se cada uma das jogadas na list
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-quint">val canWin = winningPatterns.exists(canWinWithPattern)
-val canBlock = winningPatterns.exists(canBlockWithPattern)
-val canTakeCenter = isEmpty((2,2))
-val canSetupWin = winningPatterns.exists(canSetupWinWithPattern)
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> canWin = winningPatterns.exists(canWinWithPattern)
+<span style="color: #e35b15;">val</span> canBlock = winningPatterns.exists(canBlockWithPattern)
+<span style="color: #e35b15;">val</span> canTakeCenter = isEmpty((2,2))
+<span style="color: #e35b15;">val</span> canSetupWin = winningPatterns.exists(canSetupWinWithPattern)
 </pre>
 </div>
 
@@ -522,7 +522,7 @@ val canSetupWin = winningPatterns.exists(canSetupWinWithPattern)
 Dado um <i>winning pattern</i>, podemos <b>ganhar</b> com aquele <i>pattern</i> sse duas das coordenadas tiverem <code>X</code> e a outra estiver vazia. Lembrando que a ordem não importa.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">def canWinWithPattern(pattern) = and {
+<pre class="src src-quint"><span style="color: #e35b15;">def</span> canWinWithPattern(pattern) = <span style="color: #66a4a4;">and</span> {
   pattern.filter(coordinate =&gt; coordinate.hasPlayer(X)).size() == 2,
   pattern.filter(coordinate =&gt; coordinate.isEmpty()).size() == 1,
 }
@@ -533,7 +533,7 @@ Dado um <i>winning pattern</i>, podemos <b>ganhar</b> com aquele <i>pattern</i> 
 Dado um <i>winning pattern</i>, podemos <b>bloquear</b> com aquele <i>pattern</i> sse duas das coordenadas tiverem <code>O</code> e a outra estiver vazia.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">def canBlockWithPattern(pattern) = and {
+<pre class="src src-quint"><span style="color: #e35b15;">def</span> canBlockWithPattern(pattern) = <span style="color: #66a4a4;">and</span> {
   pattern.filter(coordinate =&gt; coordinate.hasPlayer(O)).size() == 2,
   pattern.filter(coordinate =&gt; coordinate.isEmpty()).size() == 1,
 }
@@ -544,7 +544,7 @@ Dado um <i>winning pattern</i>, podemos <b>bloquear</b> com aquele <i>pattern</i
 Dado um <i>winning pattern</i>, podemos <b>preparar uma vitória</b> com aquele <i>pattern</i> sse uma das coordenadas tiver <code>X</code> e as outras duas estiverem vazias.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">def canSetupWinWithPattern(pattern) = and {
+<pre class="src src-quint"><span style="color: #e35b15;">def</span> canSetupWinWithPattern(pattern) = <span style="color: #66a4a4;">and</span> {
   pattern.filter(coordinate =&gt; coordinate.hasPlayer(X)).size() == 1,
   pattern.filter(coordinate =&gt; coordinate.isEmpty()).size() == 2,
 }
@@ -556,10 +556,10 @@ Dado um <i>winning pattern</i>, podemos <b>preparar uma vitória</b> com aquele 
 <h3 id="a-es-win-2"><span class="section-number-3">2.5.</span> Ações - Win</h3>
 <div class="outline-text-3" id="text-2-5">
 <div class="org-src-container">
-<pre class="src src-quint">action Win = all {
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> Win = <span style="color: #66a4a4;">all</span> {
   canWin,
-  nondet pattern = winningPatterns.filter(canWinWithPattern).oneOf()
-  nondet coordinate = pattern.filter(isEmpty).oneOf()
+  <span style="color: #e35b15;">nondet</span> pattern = winningPatterns.filter(canWinWithPattern).oneOf()
+  <span style="color: #e35b15;">nondet</span> coordinate = pattern.filter(isEmpty).oneOf()
   Move(X, coordinate),
 }
 </pre>
@@ -572,7 +572,7 @@ Qual é a pré-condição pra essa ação?<br />
 <li><code>canWin</code>, lembrando que <code>canWin</code> é definido por:<br /></li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-quint">  val canWin = winningPatterns.exists(canWinWithPattern)
+<pre class="src src-quint">  <span style="color: #e35b15;">val</span> canWin = winningPatterns.exists(canWinWithPattern)
 </pre>
 </div>
 <ul class="org-ul">
@@ -585,10 +585,10 @@ Qual é a pré-condição pra essa ação?<br />
 <h3 id="a-es-block-2"><span class="section-number-3">2.6.</span> Ações - Block</h3>
 <div class="outline-text-3" id="text-2-6">
 <div class="org-src-container">
-<pre class="src src-quint">action Block = all {
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> Block = <span style="color: #66a4a4;">all</span> {
   canBlock,
-  nondet pattern = winningPatterns.filter(canBlockWithPattern).oneOf()
-  nondet coordinate = pattern.filter(isEmpty).oneOf()
+  <span style="color: #e35b15;">nondet</span> pattern = winningPatterns.filter(canBlockWithPattern).oneOf()
+  <span style="color: #e35b15;">nondet</span> coordinate = pattern.filter(isEmpty).oneOf()
   Move(X, coordinate),
 }
 </pre>
@@ -606,11 +606,11 @@ Observem o uso de <code>oneOf</code> para selecionar a coordenada aqui. Nesses c
 <h3 id="a-es-takecenter-e-setupwin-2"><span class="section-number-3">2.7.</span> Ações - TakeCenter e SetupWin</h3>
 <div class="outline-text-3" id="text-2-7">
 <div class="org-src-container">
-<pre class="src src-quint">action TakeCenter = Move(X, (2, 2))
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> TakeCenter = Move(X, (2, 2))
 
-action SetupWin = all {
-  nondet pattern = winningPatterns.filter(canSetupWinWithPattern).oneOf()
-  nondet coordinate = pattern.filter(isEmpty).oneOf()
+<span style="color: #e35b15;">action</span> SetupWin = <span style="color: #66a4a4;">all</span> {
+  <span style="color: #e35b15;">nondet</span> pattern = winningPatterns.filter(canSetupWinWithPattern).oneOf()
+  <span style="color: #e35b15;">nondet</span> coordinate = pattern.filter(isEmpty).oneOf()
   Move(X, coordinate),
 }
 </pre>
@@ -624,13 +624,13 @@ action SetupWin = all {
 Temos todas as ações para a estratégia definidas, agora basta definir um novo <code>MoveX</code> que chama essas ações conforme a prioridade estabelecida.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">action MoveX = all {
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> MoveX = <span style="color: #66a4a4;">all</span> {
   nextTurn == X,
-  if (boardEmpty) StartInCorner else
-  if (canWin) Win else
-  if (canBlock) Block else
-  if (canTakeCenter) TakeCenter else
-  if (canSetupWin) SetupWin else
+  <span style="color: #66a4a4;">if</span> (boardEmpty) StartInCorner <span style="color: #66a4a4;">else</span>
+  <span style="color: #66a4a4;">if</span> (canWin) Win <span style="color: #66a4a4;">else</span>
+  <span style="color: #66a4a4;">if</span> (canBlock) Block <span style="color: #66a4a4;">else</span>
+  <span style="color: #66a4a4;">if</span> (canTakeCenter) TakeCenter <span style="color: #66a4a4;">else</span>
+  <span style="color: #66a4a4;">if</span> (canSetupWin) SetupWin <span style="color: #66a4a4;">else</span>
   MoveToEmpty(X),
   nextTurn' = O,
 }
@@ -645,11 +645,11 @@ Temos todas as ações para a estratégia definidas, agora basta definir um novo
 Com isso, temos nosso modelo. Agora, vamos definir algumas invariantes para o uso dessa estratégia.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">  /// X has not won. This does not hold, as X wins most of the times.
-  val XHasNotWon = not(won(X))
+<pre class="src src-quint">  <span style="color: #C18E76;">//</span><span style="color: #C18E76;">/ X has not won. This does not hold, as X wins most of the times.</span>
+  <span style="color: #e35b15;">val</span> XHasNotWon = <span style="color: #66a4a4;">not</span>(won(X))
 
-  /// O has not won. This should hold, as O can only achieve a draw.
-  val OHasNotWon = not(won(O))
+  <span style="color: #C18E76;">//</span><span style="color: #C18E76;">/ O has not won. This should hold, as O can only achieve a draw.</span>
+  <span style="color: #e35b15;">val</span> OHasNotWon = <span style="color: #66a4a4;">not</span>(won(O))
 </pre>
 </div>
 </div>
@@ -658,9 +658,9 @@ Com isso, temos nosso modelo. Agora, vamos definir algumas invariantes para o us
 <h3 id="f-rmulas-temporais-2"><span class="section-number-3">2.10.</span> Fórmulas temporais</h3>
 <div class="outline-text-3" id="text-2-10">
 <div class="org-src-container">
-<pre class="src src-quint">/// This is not always true, as if O picks the right moves, the game will
-/// result in a stalemate.
-temporal XMustEventuallyWin = eventually(won(X))
+<pre class="src src-quint"><span style="color: #C18E76;">//</span><span style="color: #C18E76;">/ This is not always true, as if O picks the right moves, the game will</span>
+<span style="color: #C18E76;">//</span><span style="color: #C18E76;">/ result in a stalemate.</span>
+<span style="color: #e35b15;">temporal</span> XMustEventuallyWin = eventually(won(X))
 </pre>
 </div>
 

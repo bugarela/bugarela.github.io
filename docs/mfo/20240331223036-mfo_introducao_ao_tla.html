@@ -228,10 +228,10 @@ Opção 3 (com <code>sudo</code>):<br />
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">const MY_CONST: int
+<pre class="src src-quint"><span style="color: #e35b15;">const</span> MY_CONST: <span style="color: #d79921;">int</span>
 
-var x: str
-var y: bool
+<span style="color: #e35b15;">var</span> x: <span style="color: #d79921;">str</span>
+<span style="color: #e35b15;">var</span> y: <span style="color: #d79921;">bool</span>
 </pre>
 </div>
 
@@ -256,8 +256,8 @@ Temos as palavras-chave: <code>CONSTANT</code>, <code>CONSTANTS</code>, <code>VA
 Lembram nos semáforos, quando tínhamos a constante <code>SEMAFOROS</code>, e instanciávamos o módulo com:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">module semaforos_3 {
-  import semaforos(SEMAFOROS=Set(0, 1, 2)).*
+<pre class="src src-quint"><span style="color: #e35b15;">module</span> semaforos_3 {
+  <span style="color: #e35b15;">import</span> semaforos(SEMAFOROS=Set(0, 1, 2)).*
 }
 </pre>
 </div>
@@ -286,9 +286,9 @@ PS: Constantes e Instâncias são um tanto complicadas. A utilização delas nos
 Em Quint, tempos os imports<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">import meu_modulo.*
-import meu_modulo.minha_definicao
-import meu_modulo as M
+<pre class="src src-quint"><span style="color: #e35b15;">import</span> meu_modulo.*
+<span style="color: #e35b15;">import</span> meu_modulo.minha_definicao
+<span style="color: #e35b15;">import</span> meu_modulo <span style="color: #e35b15;">as</span> M
 </pre>
 </div>
 
@@ -351,9 +351,9 @@ Em TLA+, temos lambdas, de forma geral, como:<br />
 Em Quint, podemos declarar varios operadores seguidos de uma expressão:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">pure val a = {
-  pure val b = 1
-  pure val c = b + 1
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> a = {
+  <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> b = 1
+  <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> c = b + 1
   c + 1
 }
 </pre>
@@ -385,8 +385,8 @@ Percebam que usamos duplo <code>=</code>  (<code>==</code>) para definições. P
 Conjunção em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">pure val pred = a and b
-action conj = all {
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> pred = a <span style="color: #66a4a4;">and</span> b
+<span style="color: #e35b15;">action</span> conj = <span style="color: #66a4a4;">all</span> {
   A,
   B,
   C,
@@ -413,8 +413,8 @@ conj ==
 Disjunção em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">pure val pred = a or b
-action disj = any {
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> pred = a <span style="color: #66a4a4;">or</span> b
+<span style="color: #e35b15;">action</span> disj = <span style="color: #66a4a4;">any</span> {
   A,
   B,
   C,
@@ -444,7 +444,7 @@ conj ==
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">pure def f(x) = if (x == 0) 10 else 20
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f(x) = <span style="color: #66a4a4;">if</span> (x == 0) 10 <span style="color: #66a4a4;">else</span> 20
 </pre>
 </div>
 
@@ -464,7 +464,7 @@ Em TLA+:<br />
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">Set(1, 2, 3)
+<pre class="src src-quint"><span style="color: #d79921;">Set</span>(1, 2, 3)
 </pre>
 </div>
 
@@ -532,7 +532,7 @@ PS: Para usar <code>Cardinality</code>, precisamos fazer <code>EXTENDS FiniteSet
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">nondet name = my_set.oneOf()
+<pre class="src src-quint"><span style="color: #e35b15;">nondet</span> name = my_set.oneOf()
 x' = name
 </pre>
 </div>
@@ -891,7 +891,7 @@ Para usar o fold, precisamos de:<br />
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">Set(1, 2, 3, 4).fold(0, (acc, i) =&gt; acc + i)
+<pre class="src src-quint"><span style="color: #d79921;">Set</span>(1, 2, 3, 4).fold(0, (acc, i) =&gt; acc + i)
 </pre>
 </div>
 

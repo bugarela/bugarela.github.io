@@ -127,9 +127,9 @@ Sempre podemos definir operadores, valores e ações dentro do próprio corpo de
 </ul></li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-quint">pure def f(x) = {
-  pure def quadrado(y) = y * y
-  pure def dobro(y) = 2 * y
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f(x) = {
+  <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> quadrado(y) = y * y
+  <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> dobro(y) = 2 * y
   quadrado(x) + dobro(x)
 }
 </pre>
@@ -139,7 +139,7 @@ Sempre podemos definir operadores, valores e ações dentro do próprio corpo de
 As chaves <code>{}</code> são opcionais, e você pode usar elas quando quiser pra deixar mais claro o escopo, por exemplo:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">val foo = pure def f(x) = 2 * x { f(5) }
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> foo = <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f(x) = 2 * x { f(5) }
 </pre>
 </div>
 </div>
@@ -164,18 +164,18 @@ Vamos corrigir juntos usando a REPL.<br />
 x&rsquo; = x + 1 na REPL<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">&gt;&gt;&gt; var x: int
+<pre class="src src-quint">&gt;&gt;&gt; <span style="color: #e35b15;">var</span> x: <span style="color: #d79921;">int</span>
 
 &gt;&gt;&gt; x' = 0
-true
+<span style="color: #805b87;">true</span>
 &gt;&gt;&gt; x
 0
-&gt;&gt;&gt; action step = x' = x + 1
+&gt;&gt;&gt; <span style="color: #e35b15;">action</span> step = x' = x + 1
 
 &gt;&gt;&gt; step
-true
+<span style="color: #805b87;">true</span>
 &gt;&gt;&gt; step
-true
+<span style="color: #805b87;">true</span>
 &gt;&gt;&gt; x
 2
 </pre>
@@ -217,7 +217,7 @@ Os equivalentes em TLA+ são permitidos. Em Quint, somos forçados a escrever as
 Em vez de <code>and</code>, usamos <code>all</code><br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">  action incrementa_x_e_y = all {
+<pre class="src src-quint">  <span style="color: #e35b15;">action</span> incrementa_x_e_y = <span style="color: #66a4a4;">all</span> {
     x' = x + 1,
     y' = y + 1,
   }
@@ -230,7 +230,7 @@ Em vez de <code>and</code>, usamos <code>all</code><br />
 Em vez de or, usamos any<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">  action incrementa_ou_decrementa_x = any {
+<pre class="src src-quint">  <span style="color: #e35b15;">action</span> incrementa_ou_decrementa_x = <span style="color: #66a4a4;">any</span> {
     x' = x + 1,
     x' = x - 1,
   }
@@ -247,8 +247,8 @@ Em vez de or, usamos any<br />
 Em vez de <code>exists</code>, usamos <code>nondet</code> e <code>oneOf</code><br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">  action x_recebe_algum_valor = {
-    nondet valor = Set(1, 2, 3).oneOf()
+<pre class="src src-quint">  <span style="color: #e35b15;">action</span> x_recebe_algum_valor = {
+    <span style="color: #e35b15;">nondet</span> valor = <span style="color: #d79921;">Set</span>(1, 2, 3).oneOf()
     x' = valor
   }
 </pre>
@@ -264,10 +264,10 @@ Em vez de <code>exists</code>, usamos <code>nondet</code> e <code>oneOf</code><b
 O <code>if</code> não tem uma versão especial pra ações. Usamos ele normalmente.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">  action incrementa_x_se_par = {
-    if (x % 2 == 0) {
+<pre class="src src-quint">  <span style="color: #e35b15;">action</span> incrementa_x_se_par = {
+    <span style="color: #66a4a4;">if</span> (x % 2 == 0) {
       x' = x + 1
-    } else {
+    } <span style="color: #66a4a4;">else</span> {
       x' = x
     }
   }
@@ -308,15 +308,15 @@ Essas restrições valem pra TLA+ também, mas em TLA+ isso só será detectado 
 Os exemplos a seguir <b>não</b> são permitidos no Quint. PS: Para vê-los no editor, você precisa declarar as variáveis (<code>var x: int</code> e <code>var y: int</code>).<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">action any_desbalanceado = any {
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> any_desbalanceado = <span style="color: #66a4a4;">any</span> {
   x' = 1,
   y' = 2,
 }
 
-action if_desbalanceado = {
-  if (x &gt; 0) {
+<span style="color: #e35b15;">action</span> if_desbalanceado = {
+  <span style="color: #66a4a4;">if</span> (x &gt; 0) {
     x' = 1
-  } else {
+  } <span style="color: #66a4a4;">else</span> {
     y' = 2
   }
 }
@@ -331,14 +331,14 @@ action if_desbalanceado = {
 Os exemplos a seguir <b>não</b> são permitidos no Quint.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">action all_multiplas_atualizacoes = all {
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> all_multiplas_atualizacoes = <span style="color: #66a4a4;">all</span> {
   x' = 1,
   x' = 2,
 }
 
-action a1 = x' = 1
-action a2 = x' = 2
-action all_multiplas_atualizacoes = all { a1, a2 }
+<span style="color: #e35b15;">action</span> a1 = x' = 1
+<span style="color: #e35b15;">action</span> a2 = x' = 2
+<span style="color: #e35b15;">action</span> all_multiplas_atualizacoes = <span style="color: #66a4a4;">all</span> { a1, a2 }
 </pre>
 </div>
 </div>
@@ -419,9 +419,9 @@ Além destes, temos alguns modos adicionais:<br />
 <h3 id="vari-veis-2"><span class="section-number-3">5.2.</span> Variáveis</h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
-<pre class="src src-quint">module jarros {
-  var grande: int
-  var pequeno: int
+<pre class="src src-quint"><span style="color: #e35b15;">module</span> jarros {
+  <span style="color: #e35b15;">var</span> grande: <span style="color: #d79921;">int</span>
+  <span style="color: #e35b15;">var</span> pequeno: <span style="color: #d79921;">int</span>
 
   ...
 }
@@ -436,12 +436,12 @@ Além destes, temos alguns modos adicionais:<br />
 Tente escrever as ações abaixo, definindo os valores para <code>grande</code> e <code>pequeno</code> em cada uma delas. Nenhuma dessas ações precisa de parâmetros.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">  action enche_grande
-  action enche_pequeno
-  action esvazia_grande
-  action esvazia_pequeno
-  action grande_pro_pequeno
-  action pequeno_pro_grande
+<pre class="src src-quint">  <span style="color: #e35b15;">action</span> enche_grande
+  <span style="color: #e35b15;">action</span> enche_pequeno
+  <span style="color: #e35b15;">action</span> esvazia_grande
+  <span style="color: #e35b15;">action</span> esvazia_pequeno
+  <span style="color: #e35b15;">action</span> grande_pro_pequeno
+  <span style="color: #e35b15;">action</span> pequeno_pro_grande
 </pre>
 </div>
 </div>
@@ -450,7 +450,7 @@ Tente escrever as ações abaixo, definindo os valores para <code>grande</code> 
 <h3 id="estado-inicial-2"><span class="section-number-3">5.4.</span> Estado inicial</h3>
 <div class="outline-text-3" id="text-5-4">
 <div class="org-src-container">
-<pre class="src src-quint">  action init = all {
+<pre class="src src-quint">  <span style="color: #e35b15;">action</span> init = <span style="color: #66a4a4;">all</span> {
     grande' = 0,
     pequeno' = 0,
   }
@@ -483,7 +483,7 @@ Agora, vamos usar o <i>model checker</i> para encontrar a solução. Para isso, 
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-quint">  action step = any {
+<pre class="src src-quint">  <span style="color: #e35b15;">action</span> step = <span style="color: #66a4a4;">any</span> {
     enche_grande,
     enche_pequeno,
     esvazia_grande,
@@ -492,7 +492,7 @@ Agora, vamos usar o <i>model checker</i> para encontrar a solução. Para isso, 
     pequeno_pro_grande,
   }
 
-  val inv = grande != 4
+  <span style="color: #e35b15;">val</span> inv = grande != 4
 </pre>
 </div>
 </div>
@@ -589,7 +589,7 @@ Adicionando o <code>expect</code> no final, essa run também funciona como um te
 <div class="org-src-container">
 <pre class="src src-quint">$ quint -r jarros.qnt::jarros
 &gt;&gt;&gt; solution
-true
+<span style="color: #805b87;">true</span>
 &gt;&gt;&gt; grande
 4
 &gt;&gt;&gt; pequeno

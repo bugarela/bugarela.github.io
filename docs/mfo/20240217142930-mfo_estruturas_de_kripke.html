@@ -14,8 +14,8 @@
   <meta property="og:description" content="Personal homepage exported with org-thtml" />
   
     <meta property="og:image" content="https://bugarela.com/mfo/semaforo.png" />
-    <meta property="og:image:width" content="1695" />
-    <meta property="og:image:height" content="439" />
+    <meta property="og:image:width" content="1700" />
+    <meta property="og:image:height" content="440" />
   
   
     <meta name="twitter:card" content="summary_large_image">
@@ -74,9 +74,9 @@
 <li><a href="#estruturas-de-kripke-1">2. Estruturas de Kripke</a>
 <ul>
 <li><a href="#estruturas-de-kripke-2">2.1. Estruturas de Kripke</a></li>
-<li><a href="#exemplo-fatrafficlight-sem-foro-2">2.2. Exemplo: \faTrafficLight Semáforo</a></li>
-<li><a href="#exerc-cio-fatrafficlight-fatrafficlight-dois-sem-foros-2">2.3. Exercício: \faTrafficLight \faTrafficLight Dois semáforos</a></li>
-<li><a href="#exerc-cio-fatrafficlight-fatrafficlight-fatrafficlight-tr-s-sem-foros-2">2.4. Exercício: \faTrafficLight \faTrafficLight \faTrafficLight Três semáforos</a></li>
+<li><a href="#exemplo-fatrafficlight-sem-foro-2">2.2. Exemplo: <i class="fa fa-traffic-light"></i> Semáforo</a></li>
+<li><a href="#exerc-cio-fatrafficlight-fatrafficlight-dois-sem-foros-2">2.3. Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Dois semáforos</a></li>
+<li><a href="#exerc-cio-fatrafficlight-fatrafficlight-fatrafficlight-tr-s-sem-foros-2">2.4. Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Três semáforos</a></li>
 <li><a href="#n-sem-foros-em-tla-2">2.5. N semáforos em TLA+</a></li>
 <li><a href="#n-sem-foros-em-quint-2">2.6. N semáforos em Quint</a></li>
 <li><a href="#perguntas-2">2.7. Perguntas</a></li>
@@ -221,7 +221,7 @@ transições para si mesmo, ou seja \(Post(s) = \{s\}\)<br />
 </ol>
 </div>
 <div id="outline-container-exemplo-fatrafficlight-sem-foro-2" class="outline-3">
-<h3 id="exemplo-fatrafficlight-sem-foro-2"><span class="section-number-3">2.2.</span> Exemplo: \faTrafficLight Semáforo</h3>
+<h3 id="exemplo-fatrafficlight-sem-foro-2"><span class="section-number-3">2.2.</span> Exemplo: <i class="fa fa-traffic-light"></i> Semáforo</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Um semáforo pode ser representado por uma estrutura de Kripke \((S, \to, I)\) onde<br />
@@ -240,7 +240,7 @@ Um semáforo pode ser representado por uma estrutura de Kripke \((S, \to, I)\) o
 </div>
 </div>
 <div id="outline-container-exerc-cio-fatrafficlight-fatrafficlight-dois-sem-foros-2" class="outline-3">
-<h3 id="exerc-cio-fatrafficlight-fatrafficlight-dois-sem-foros-2"><span class="section-number-3">2.3.</span> Exercício: \faTrafficLight \faTrafficLight Dois semáforos</h3>
+<h3 id="exerc-cio-fatrafficlight-fatrafficlight-dois-sem-foros-2"><span class="section-number-3">2.3.</span> Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Dois semáforos</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Um sistema com <b>dois</b> semáforos pode ser representado por uma estrutura de Kripke \((S, \to, I)\) onde<br />
@@ -284,7 +284,7 @@ Um sistema com <b>dois</b> semáforos pode ser representado por uma estrutura de
 </div>
 </div>
 <div id="outline-container-exerc-cio-fatrafficlight-fatrafficlight-fatrafficlight-tr-s-sem-foros-2" class="outline-3">
-<h3 id="exerc-cio-fatrafficlight-fatrafficlight-fatrafficlight-tr-s-sem-foros-2"><span class="section-number-3">2.4.</span> Exercício: \faTrafficLight \faTrafficLight \faTrafficLight Três semáforos</h3>
+<h3 id="exerc-cio-fatrafficlight-fatrafficlight-fatrafficlight-tr-s-sem-foros-2"><span class="section-number-3">2.4.</span> Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Três semáforos</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>Vish!<br /></li>
@@ -326,16 +326,16 @@ Especificação completa no GitHub.<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-quint">module semaforos {
-  type Cor = Vermelho | Verde | Amarelo
-  type Semaforo = int
+<pre class="src src-quint"><span style="color: #e35b15;">module</span> semaforos {
+  <span style="color: #e35b15;">type</span> Cor = Vermelho | Verde | Amarelo
+  <span style="color: #e35b15;">type</span> Semaforo = <span style="color: #d79921;">int</span>
 
-  var cores: Semaforo -&gt; Cor
-  var proximo: Semaforo
+  <span style="color: #e35b15;">var</span> cores: Semaforo -&gt; Cor
+  <span style="color: #e35b15;">var</span> proximo: Semaforo
 
-  const SEMAFOROS: Set[Semaforo]
+  <span style="color: #e35b15;">const</span> SEMAFOROS: <span style="color: #d79921;">Set</span>[Semaforo]
 
-  action fica_verde(s: Semaforo): bool = all {
+  <span style="color: #e35b15;">action</span> fica_verde(s: Semaforo): <span style="color: #d79921;">bool</span> = <span style="color: #66a4a4;">all</span> {
     proximo == s,
     SEMAFOROS.forall(s2 =&gt; cores.get(s2) == Vermelho),
 
@@ -357,7 +357,7 @@ Especificação completa no GitHub.<br />
 Todos os exemplos de semáforos (1, 2, 3 e N) são sistemas de transições. Quais deles são Estruturas de Kripke?<br />
 </p>
 <ul class="org-ul">
-<li>\faBulb  Para um sistema de transições ser uma estrutura de Kripke, \(\to\) deve ser total:<br />
+<li><i class="fa-regular fa-lightbulb"></i>  Para um sistema de transições ser uma estrutura de Kripke, \(\to\) deve ser total:<br />
 <ul class="org-ul">
 <li>\(\forall s \in S, \exists s' \in S : s \to s'\)<br /></li>
 </ul></li>
@@ -369,7 +369,7 @@ Todos os exemplos de semáforos (1, 2, 3 e N) são sistemas de transições. Qua
 Os sistemas de semáforos são finitos?<br />
 </p>
 <ul class="org-ul">
-<li>\faBulb Um sistema de transições é dito <b>finito</b> se e somente se \(S\) é finito.<br /></li>
+<li><i class="fa-regular fa-lightbulb"></i> Um sistema de transições é dito <b>finito</b> se e somente se \(S\) é finito.<br /></li>
 </ul>
 <ul class="org-ul">
 <li><b>Resposta</b>: Sim! Os estados são um conjunto finito.<br /></li>
@@ -378,8 +378,8 @@ Os sistemas de semáforos são finitos?<br />
 Nossas definições de semáforo são determinísticas?<br />
 </p>
 <ul class="org-ul">
-<li>\faBulb O conjunto de <b>sucessores</b> de um estado \(s\) é definido por \(Post(s) = \{ s' \in S\ |\ s \to s' \}\).<br /></li>
-<li>\faBulb Sistema é deterministico sse \(|I| \leq 1 \land \forall s \in S : |Post(s)| \leq 1\)<br /></li>
+<li><i class="fa-regular fa-lightbulb"></i> O conjunto de <b>sucessores</b> de um estado \(s\) é definido por \(Post(s) = \{ s' \in S\ |\ s \to s' \}\).<br /></li>
+<li><i class="fa-regular fa-lightbulb"></i> Sistema é deterministico sse \(|I| \leq 1 \land \forall s \in S : |Post(s)| \leq 1\)<br /></li>
 </ul>
 <ul class="org-ul">
 <li><b>Resposta</b>: Nem todas. A definição que demos para 2 semáforos contém não determinismo. As definições para 1 semáforo e N semáforos são determinísticas.<br /></li>

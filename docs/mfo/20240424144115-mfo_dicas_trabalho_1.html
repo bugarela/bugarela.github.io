@@ -74,6 +74,8 @@
 <li><a href="#transformando-todos-os-valores-de-um-mapa-2">1.11. Transformando todos os valores de um mapa</a></li>
 <li><a href="#mapas-indexam-valores-com-chaves-2">1.12. Mapas indexam valores com chaves</a></li>
 <li><a href="#tla-modo-simula-o-do-tlc-2">1.13. [TLA+] Modo simulação do TLC</a></li>
+<li><a href="#quint-nondet-e-oneof-2">1.14. [Quint] nondet e oneOf</a></li>
+<li><a href="#quint-nondet-e-oneof-ii-2">1.15. [Quint] nondet e oneOf II</a></li>
 </ul>
 </li>
 </ul>
@@ -90,7 +92,7 @@
 Se você está conseguindo executar (simular) sua especificação, mas não entende <b>porque</b> algo está se comportando de determinada maneira, pode ser útil usar o operador auxiliar <code>q::debug</code>. Por exemplo, considere a função:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">pure def f(x) = (x + 1) * 2
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f(x) = (x + 1) * 2
 </pre>
 </div>
 
@@ -98,7 +100,7 @@ Se você está conseguindo executar (simular) sua especificação, mas não ente
 Se tivermos dúvida se nossa soma está correta, podemos envolve-la em uma chamada de <code>q::debug</code>, onde o primeiro argumento é uma string qualquer e o segundo a expressão a ser avaliada. O resultado de <code>q::debug</code> é exatamente igual à expressão em si, mas ele tem um efeito colateral que resulta na impressão daquele valor precedido pela string fornecida:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">&gt;&gt;&gt; pure def f(x) = q::debug("resultado soma: ", x + 1) * 2
+<pre class="src src-quint">&gt;&gt;&gt; <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f(x) = q::debug(<span style="color: #98971a;">"resultado soma: "</span>, x + 1) * 2
 &gt;&gt;&gt; f(1)
 &gt; resultado soma:  2
 4
@@ -169,40 +171,40 @@ A opção (2) é geralmente mais interessante, já que ela funciona melhor se, p
 </p>
 
 <div class="org-src-container">
-<pre class="src src-quint">type AttackDescription = { attacker: Pokemon, receiver: Pokemon, attack: str, damage: int }
-var last_attack: Option[List[AttackDescription]]
+<pre class="src src-quint"><span style="color: #e35b15;">type</span> AttackDescription = { attacker: Pokemon, receiver: Pokemon, attack: <span style="color: #d79921;">str</span>, damage: <span style="color: #d79921;">int</span> }
+<span style="color: #e35b15;">var</span> last_attack: Option[<span style="color: #d79921;">List</span>[AttackDescription]]
 
-pure def tackle(attacker: Pokemon, receiver: Pokemon): (Pokemon, AttackDescription) = {
-  (receiver.damage(10), { attacker: attacker, receiver: receiver, attack: "Tackle", damage: 10 })
+<span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> tackle(attacker: Pokemon, receiver: Pokemon): (Pokemon, AttackDescription) = {
+  (receiver.damage(10), { attacker: attacker, receiver: receiver, attack: <span style="color: #98971a;">"Tackle"</span>, damage: 10 })
 }
 
-pure def elemental_attack(attacker: Pokemon, receiver: Pokemon): (Pokemon, AttackDescription) = {
-  val base_damage = 10
-  val actual_damage = match damage_modifier(attacker, receiver) {
+<span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> elemental_attack(attacker: Pokemon, receiver: Pokemon): (Pokemon, AttackDescription) = {
+  <span style="color: #e35b15;">val</span> base_damage = 10
+  <span style="color: #e35b15;">val</span> actual_damage = match damage_modifier(attacker, receiver) {
     | SuperEffective =&gt; base_damage * 2
     | NotVeryEffective =&gt; base_damage / 2
     | Normal =&gt; base_damage
   }
-  (receiver.damage(actual_damage), { attacker: attacker, receiver: receiver, attack: "Elemental", damage: actual_damage })
+  (receiver.damage(actual_damage), { attacker: attacker, receiver: receiver, attack: <span style="color: #98971a;">"Elemental"</span>, damage: actual_damage })
 }
 
-pure def attack(attacker: Pokemon, receiver: Pokemon): (Pokemon, AttackDescription) = {
-  if (damage_modifier(attacker, receiver) == SuperEffective) {
+<span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> attack(attacker: Pokemon, receiver: Pokemon): (Pokemon, AttackDescription) = {
+  <span style="color: #66a4a4;">if</span> (damage_modifier(attacker, receiver) == SuperEffective) {
     attacker.elemental_attack(receiver)
-  } else {
+  } <span style="color: #66a4a4;">else</span> {
     attacker.tackle(receiver)
   }
 }
 
-action double_attack(attacker: Pokemon, receiver: Pokemon): bool = {
-  all {
+<span style="color: #e35b15;">action</span> double_attack(attacker: Pokemon, receiver: Pokemon): <span style="color: #d79921;">bool</span> = {
+  <span style="color: #66a4a4;">all</span> {
     attacker != receiver,
     attacker.hp &gt; 0,
     receiver.hp &gt; 0,
-    val first_attack_result = attacker.attack(receiver)
-    val second_attack_result = attacker.attack(first_attack_result._1)
-    val double_attack_description = [first_attack_result._2, second_attack_result._2]
-    all {
+    <span style="color: #e35b15;">val</span> first_attack_result = attacker.attack(receiver)
+    <span style="color: #e35b15;">val</span> second_attack_result = attacker.attack(first_attack_result._1)
+    <span style="color: #e35b15;">val</span> double_attack_description = [first_attack_result._2, second_attack_result._2]
+    <span style="color: #66a4a4;">all</span> {
       pokemons' = pokemons.set(receiver.team, second_attack_result._1),
       last_attack' = Some(double_attack_description)
     }
@@ -230,10 +232,10 @@ A alternativa mais elegante é usar um tipo soma para, no mesmo campo, termos ti
 </p>
 
 <div class="org-src-container">
-<pre class="src src-quint">type Attack =
-  | ElementalAttack({ modifier: DamageModifier, damage: int })
-  | Tackle(int)
-type AttackDescription = { attacker: Pokemon, receiver: Pokemon, attack: Attack }
+<pre class="src src-quint"><span style="color: #e35b15;">type</span> Attack =
+  | ElementalAttack({ modifier: DamageModifier, damage: <span style="color: #d79921;">int</span> })
+  | Tackle(<span style="color: #d79921;">int</span>)
+<span style="color: #e35b15;">type</span> AttackDescription = { attacker: Pokemon, receiver: Pokemon, attack: Attack }
 </pre>
 </div>
 </div>
@@ -245,12 +247,12 @@ type AttackDescription = { attacker: Pokemon, receiver: Pokemon, attack: Attack 
 Se quisermos deixar nossa especificação de pokemons mais completa, podemos adicionar outras ações que um pokemon pode tomar no seu turno, além de atacar. Vamos pensar somente nos tipos aqui.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">type AttackDescription = ElementalAttack({ modifier: DamageModifier, damage: int }) | Tackle(int)
-type Status = Attack | Defense | SpecialDefense | SpecialAttack | Speed | Accuracy | Evasiveness
-type Condition = Poison | Burn | Freeze | Paralize | Sleep
-type TurnDescription =
+<pre class="src src-quint"><span style="color: #e35b15;">type</span> AttackDescription = ElementalAttack({ modifier: DamageModifier, damage: <span style="color: #d79921;">int</span> }) | Tackle(<span style="color: #d79921;">int</span>)
+<span style="color: #e35b15;">type</span> Status = Attack | Defense | SpecialDefense | SpecialAttack | Speed | Accuracy | Evasiveness
+<span style="color: #e35b15;">type</span> Condition = Poison | Burn | Freeze | Paralize | Sleep
+<span style="color: #e35b15;">type</span> TurnDescription =
    | Attack({ attacker: Pokemon, receiver: Pokemon, attack: AttackDescription })
-   | Heal({ pokemon: Pokemon, healed_amount: int })
+   | Heal({ pokemon: Pokemon, healed_amount: <span style="color: #d79921;">int</span> })
    | Buff({ pokemon: Pokemon, status: Status })
    | Debuff({ caster: Pokemon, receiver: Pokemon, status: Status })
    | ApplyCondition({ caster: Pokemon, receiver: Pokemon, condition: Condition })
@@ -280,13 +282,13 @@ lastAttack' = [ action |-&gt; <span style="color: #98971a;">"buff"</span>, pokem
 O nosso controle de turnos na especificação dos pokemons e do jogo da velha funciona muito bem para 2 jogadores, mas não é muito útil com mais do que isso.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">action init = {
-  // ...
-  next_team' = if (team_A_pokemon.speed &gt;= team_B_pokemon.speed) "A" else "B",
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> init = {
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">...</span>
+  next_team' = <span style="color: #66a4a4;">if</span> (team_A_pokemon.speed &gt;= team_B_pokemon.speed) <span style="color: #98971a;">"A"</span> <span style="color: #66a4a4;">else</span> <span style="color: #98971a;">"B"</span>,
 }
 
-action step = {
-  // ...
+<span style="color: #e35b15;">action</span> step = {
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">...</span>
   next_team' = other_team(next_team),
 }
 </pre>
@@ -300,18 +302,18 @@ action step = {
 Para não precisar salvar muita informação extra no estado (variáveis), uma alternativa legal é ter um contador de <i>rounds</i> e, a cada turno, computar quem é o jogador da vez naquele <i>round</i>.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">var round: int
+<pre class="src src-quint"><span style="color: #e35b15;">var</span> round: <span style="color: #d79921;">int</span>
 
-action init = all {
+<span style="color: #e35b15;">action</span> init = <span style="color: #66a4a4;">all</span> {
   pokemons' = ...,
-  round' = 1,
+  round' = 0,
 }
 
-action step = {
-  val attackers_by_initiative = pokemons.values().toList((p1, p2) =&gt; intCompare(p2.speed, p1.speed))
-  val attacker = attackers_by_initiative[round % pokemons.keys().size()]
-  val receiver = pokemons.values().filter(p =&gt; attacker != p).oneOf()
-  all {
+<span style="color: #e35b15;">action</span> step = {
+  <span style="color: #e35b15;">val</span> attackers_by_initiative = pokemons.values().toList((p1, p2) =&gt; intCompare(p2.speed, p1.speed))
+  <span style="color: #e35b15;">val</span> attacker = attackers_by_initiative[round % pokemons.keys().size()]
+  <span style="color: #e35b15;">val</span> receiver = pokemons.values().filter(p =&gt; attacker != p).oneOf()
+  <span style="color: #66a4a4;">all</span> {
     attack(attacker, receiver),
     round' = round + 1,
   }
@@ -324,7 +326,7 @@ action step = {
 <h3 id="entendendo-a-ordena-o-2"><span class="section-number-3">1.9.</span> Entendendo a ordenação</h3>
 <div class="outline-text-3" id="text-1-9">
 <div class="org-src-container">
-<pre class="src src-quint">val attackers_by_initiative = pokemons.values().toList((p1, p2) =&gt; intCompare(p2.speed, p1.speed))
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> attackers_by_initiative = pokemons.values().toList((p1, p2) =&gt; intCompare(p2.speed, p1.speed))
 </pre>
 </div>
 <ul class="org-ul">
@@ -335,12 +337,12 @@ action step = {
 <code>intCompare</code>: Operador auxiliar para comparação de inteiros<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">  pure def intCompare(a: int, b:int): Ordering = {
-    if (a &lt; b)
+<pre class="src src-quint">  <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> intCompare(a: <span style="color: #d79921;">int</span>, b:<span style="color: #d79921;">int</span>): Ordering = {
+    <span style="color: #66a4a4;">if</span> (a &lt; b)
       { LT }
-    else if (a &gt; b)
+    <span style="color: #66a4a4;">else</span> <span style="color: #66a4a4;">if</span> (a &gt; b)
       { GT }
-    else
+    <span style="color: #66a4a4;">else</span>
       { EQ }
   }
 </pre>
@@ -464,6 +466,66 @@ Se a propriedade for satisfeita, nenhum trace será exibido. Então, se você qu
 <p>
 Assim, o TLC irá criar um arquivo <code>out_0_0</code> com um trace do modelo.<br />
 </p>
+</div>
+</div>
+<div id="outline-container-quint-nondet-e-oneof-2" class="outline-3">
+<h3 id="quint-nondet-e-oneof-2"><span class="section-number-3">1.14.</span> [Quint] nondet e oneOf</h3>
+<div class="outline-text-3" id="text-1-14">
+<div class="org-src-container">
+<pre class="src src-quint">  <span style="color: #e35b15;">action</span> x_recebe_algum_valor = {
+    <span style="color: #e35b15;">nondet</span> valor = <span style="color: #d79921;">Set</span>(1, 2, 3).oneOf()
+    x' = valor
+  }
+</pre>
+</div>
+
+<p>
+O operador <code>oneOf()</code> só pode ser usado nessa forma!<br />
+</p>
+<ul class="org-ul">
+<li>Como parte de uma ação (<code>action</code>)<br /></li>
+<li>Em uma definição do tipo <code>nondet</code><br /></li>
+<li>Sem mais operadores aplicados acima dele<br />
+<ul class="org-ul">
+<li>(i.e. <code>nondet valor = Set(1, 2, 3).oneOf() + 1</code>)<br /></li>
+</ul></li>
+</ul>
+
+<p>
+Essas regras ainda não são validadas pelo compilador, mas serão!<br />
+</p>
+<ul class="org-ul">
+<li>Devo lançar a alteração essa semana<br /></li>
+<li>Os trabalhos de vocês devem obedecer essas regras.<br />
+<ul class="org-ul">
+<li>Assim que a alteração for lançada, aviso para que atualizem<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-quint-nondet-e-oneof-ii-2" class="outline-3">
+<h3 id="quint-nondet-e-oneof-ii-2"><span class="section-number-3">1.15.</span> [Quint] nondet e oneOf II</h3>
+<div class="outline-text-3" id="text-1-15">
+<p>
+Por que isso é importante?<br />
+</p>
+<ul class="org-ul">
+<li>Quint obedece a lógica temporal das ações e pode ser traduzido para TLA+<br /></li>
+<li>Se usamos <code>oneOf()</code> fora desse padrão, temos potencialmente definições fora da lógica, que não podem ser traduzidas para TLA+<br /></li>
+<li>Lembrando que a versão em TLA+ para isso é o existe, cujo corpo é sempre booleano.<br /></li>
+</ul>
+
+<p>
+Atenção: isso significa que não é possível definir &ldquo;role um d20 para cada criatura&rdquo;. Vocês vão precisar definir um valor <code>nondet</code> para cada uma das criaturas:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> init = <span style="color: #66a4a4;">all</span> {
+  <span style="color: #e35b15;">nondet</span> d20_mago = <span style="color: #C18E76;">// </span><span style="color: #C18E76;">...</span>
+  <span style="color: #e35b15;">nondet</span> d20_clerigo = <span style="color: #C18E76;">// </span><span style="color: #C18E76;">...</span>
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">...</span>
+}
+</pre>
+</div>
 </div>
 </div>
 </div>

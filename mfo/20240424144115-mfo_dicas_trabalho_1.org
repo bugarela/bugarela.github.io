@@ -188,7 +188,7 @@ var round: int
 
 action init = all {
   pokemons' = ...,
-  round' = 1,
+  round' = 0,
 }
 
 action step = {
@@ -297,3 +297,42 @@ Se a propriedade for satisfeita, nenhum trace será exibido. Então, se você qu
 #+end_src
 
 Assim, o TLC irá criar um arquivo =out_0_0= com um trace do modelo.
+
+** [Quint] nondet e oneOf
+  #+begin_src quint
+  action x_recebe_algum_valor = {
+    nondet valor = Set(1, 2, 3).oneOf()
+    x' = valor
+  }
+  #+end_src
+
+O operador =oneOf()= só pode ser usado nessa forma!
+- Como parte de uma ação (=action=)
+- Em uma definição do tipo =nondet=
+- Sem mais operadores aplicados acima dele
+  - (i.e. =nondet valor = Set(1, 2, 3).oneOf() + 1=)
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Essas regras ainda não são validadas pelo compilador, mas serão!
+- Devo lançar a alteração essa semana
+- Os trabalhos de vocês devem obedecer essas regras.
+  - Assim que a alteração for lançada, aviso para que atualizem
+
+** [Quint] nondet e oneOf II
+
+Por que isso é importante?
+- Quint obedece a lógica temporal das ações e pode ser traduzido para TLA+
+- Se usamos =oneOf()= fora desse padrão, temos potencialmente definições fora da lógica, que não podem ser traduzidas para TLA+
+- Lembrando que a versão em TLA+ para isso é o existe, cujo corpo é sempre booleano.
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Atenção: isso significa que não é possível definir "role um d20 para cada criatura". Vocês vão precisar definir um valor =nondet= para cada uma das criaturas:
+#+begin_src quint
+action init = all {
+  nondet d20_mago = // ...
+  nondet d20_clerigo = // ...
+  // ...
+}
+#+end_src

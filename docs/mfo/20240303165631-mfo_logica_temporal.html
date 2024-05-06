@@ -14,8 +14,8 @@
   <meta property="og:description" content="Personal homepage exported with org-thtml" />
   
     <meta property="og:image" content="https://bugarela.com/mfo/figures/execucao_arvore_computacional.png" />
-    <meta property="og:image:width" content="2659" />
-    <meta property="og:image:height" content="1343" />
+    <meta property="og:image:width" content="2666" />
+    <meta property="og:image:height" content="1347" />
   
   
     <meta name="twitter:card" content="summary_large_image">
@@ -68,11 +68,11 @@
 <li><a href="#contexto-2">1.1. Contexto</a></li>
 <li><a href="#interface-de-um-model-checker-2">1.2. Interface de um <i>model checker</i></a></li>
 <li><a href="#vantagens-e-desvantagens-2">1.3. Vantagens e Desvantagens</a></li>
-<li><a href="#faprojectdiagram-modelos-2">1.4. \faProjectDiagram Modelos</a></li>
-<li><a href="#fanotequal-propriedades-faclock-l-gica-temporal-2">1.5. \faNotEqual Propriedades - \faClock Lógica temporal</a></li>
-<li><a href="#fanotequal-propriedades-facircle-invariantes-2">1.6. \faNotEqual Propriedades - \faCircle Invariantes</a></li>
-<li><a href="#faroute-contra-exemplo-2">1.7. \faRoute Contra-exemplo</a></li>
-<li><a href="#fausergraduate-exerc-cio-qual-dessas-f-rmulas-pode-ser-um-invariante-2">1.8. \faUserGraduate Exercício: Qual dessas fórmulas pode ser um invariante?</a></li>
+<li><a href="#faprojectdiagram-modelos-2">1.4. <i class="fa fa-project-diagram"></i> Modelos</a></li>
+<li><a href="#fanotequal-propriedades-faclock-l-gica-temporal-2">1.5. <i class="fa fa-not-equal"></i> Propriedades - <i class="fa-regular fa-clock"></i> Lógica temporal</a></li>
+<li><a href="#fanotequal-propriedades-facircle-invariantes-2">1.6. <i class="fa fa-not-equal"></i> Propriedades - <i class="fa-regular fa-circle"></i> Invariantes</a></li>
+<li><a href="#faroute-contra-exemplo-2">1.7. <i class="fa fa-route"></i> Contra-exemplo</a></li>
+<li><a href="#fausergraduate-exerc-cio-qual-dessas-f-rmulas-pode-ser-um-invariante-2">1.8. <i class="fa fa-user-graduate"></i> Exercício: Qual dessas fórmulas pode ser um invariante?</a></li>
 </ul>
 </li>
 <li><a href="#l-gica-temporal-1">2. Lógica Temporal</a>
@@ -124,9 +124,9 @@
 <ul class="org-ul">
 <li><b>Solução</b>: Diferentes níveis de verificação<br />
 <ol class="org-ol">
-<li>\faDice <i>Fuzzing</i> e simulação<br /></li>
-<li>\faLaptop <i>Model checking</i><br /></li>
-<li>\faUserEdit Provas (com assistente de provas)<br /></li>
+<li><i class="fa fa-dice"></i> <i>Fuzzing</i> e simulação<br /></li>
+<li><i class="fa fa-laptop"></i> <i>Model checking</i><br /></li>
+<li><i class="fa fa-user-edit"></i> Provas (com assistente de provas)<br /></li>
 </ol></li>
 </ul>
 </div>
@@ -142,17 +142,17 @@ Como um <i>model checker</i> é usado?<br />
 <li><a id="duas-entradas-3"></a>Duas entradas:<br />
 <div class="outline-text-4" id="text-1-2-1">
 <ol class="org-ol">
-<li>\faProjectDiagram Um modelo - uma máquina de estado finita*<br /></li>
-<li>\faNotEqual Uma propriedade - uma fórmula de alguma lógica temporal<br /></li>
+<li><i class="fa fa-project-diagram"></i> Um modelo - uma máquina de estado finita*<br /></li>
+<li><i class="fa fa-not-equal"></i> Uma propriedade - uma fórmula de alguma lógica temporal<br /></li>
 </ol>
 </div>
 </li>
 <li><a id="tr-s-poss-veis-sa-das-3"></a>Três possíveis saídas<br />
 <div class="outline-text-4" id="text-1-2-2">
 <ol class="org-ol">
-<li>\faThumbsUp Sucesso<br /></li>
-<li>\faThumbsDown Contra-exemplo: Uma sequência de estados que viola a propriedade<br /></li>
-<li>\faHandLizard Não há memória suficiente<br /></li>
+<li><i class="fa-regular fa-thumbs-up"></i> Sucesso<br /></li>
+<li><i class="fa-regular fa-thumbs-down"></i> Contra-exemplo: Uma sequência de estados que viola a propriedade<br /></li>
+<li><i class="fa-regular fa-hand-lizard"></i> Não há memória suficiente<br /></li>
 </ol>
 
 <p>
@@ -172,19 +172,19 @@ Opcionalmente, também pode detectar <i>deadlocks</i>.<br />
 <b>Vantagens</b><br />
 </p>
 <ol class="org-ol">
-<li>\faRoute Contra-exemplos<br /></li>
-<li>\faTasks Verificação parcial<br /></li>
-<li>\faLaptop Processo automatizado<br /></li>
-<li>\faSync Sequências infinitas de estados<br /></li>
+<li><i class="fa fa-route"></i> Contra-exemplos<br /></li>
+<li><i class="fa fa-tasks"></i> Verificação parcial<br /></li>
+<li><i class="fa fa-laptop"></i> Processo automatizado<br /></li>
+<li><i class="fa fa-sync"></i> Sequências infinitas de estados<br /></li>
 </ol>
 
 <p>
 <b>Desvantagens</b><br />
 </p>
 <ol class="org-ol">
-<li>\faBomb Explosão de estados<br /></li>
-<li>\faSearch Não permite generalização (i.e. \(N\) processos)<br /></li>
-<li>\faBug <i>Model checkers</i> em si não são verificados<br /></li>
+<li><i class="fa fa-bomb"></i> Explosão de estados<br /></li>
+<li><i class="fa fa-search"></i> Não permite generalização (i.e. \(N\) processos)<br /></li>
+<li><i class="fa fa-bug"></i> <i>Model checkers</i> em si não são verificados<br /></li>
 </ol>
 
 <p>
@@ -197,7 +197,7 @@ Comparado a testes e simulações aleatórias, pode ser mais eficiente em encont
 </div>
 </div>
 <div id="outline-container-faprojectdiagram-modelos-2" class="outline-3">
-<h3 id="faprojectdiagram-modelos-2"><span class="section-number-3">1.4.</span> \faProjectDiagram Modelos</h3>
+<h3 id="faprojectdiagram-modelos-2"><span class="section-number-3">1.4.</span> <i class="fa fa-project-diagram"></i> Modelos</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Linguagens de especificação fornecem diferentes abstrações para como definir uma máquina de estados. Exemplos: Redes de Petri, TLA+ (<i>Temporal Logic of Actions+</i>), CSP (<i>Communicating Sequential Processes</i>), Alloy, entre outras.<br />
@@ -205,7 +205,7 @@ Linguagens de especificação fornecem diferentes abstrações para como definir
 </div>
 </div>
 <div id="outline-container-fanotequal-propriedades-faclock-l-gica-temporal-2" class="outline-3">
-<h3 id="fanotequal-propriedades-faclock-l-gica-temporal-2"><span class="section-number-3">1.5.</span> \faNotEqual Propriedades - \faClock Lógica temporal</h3>
+<h3 id="fanotequal-propriedades-faclock-l-gica-temporal-2"><span class="section-number-3">1.5.</span> <i class="fa fa-not-equal"></i> Propriedades - <i class="fa-regular fa-clock"></i> Lógica temporal</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 Dois operadores temporais principais:<br />
@@ -221,7 +221,7 @@ Fórmulas de lógica temporal são sobre um comportamento (execução) do sistem
 </div>
 </div>
 <div id="outline-container-fanotequal-propriedades-facircle-invariantes-2" class="outline-3">
-<h3 id="fanotequal-propriedades-facircle-invariantes-2"><span class="section-number-3">1.6.</span> \faNotEqual Propriedades - \faCircle Invariantes</h3>
+<h3 id="fanotequal-propriedades-facircle-invariantes-2"><span class="section-number-3">1.6.</span> <i class="fa fa-not-equal"></i> Propriedades - <i class="fa-regular fa-circle"></i> Invariantes</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
 Invariantes são predicados sobre estados individuais do sistema. Um invariante é satisfeito se e somente se ele é verdadeiro para todos os estados do sistema.<br />
@@ -236,21 +236,21 @@ Invariantes são predicados sobre estados individuais do sistema. Um invariante 
 </div>
 </div>
 <div id="outline-container-faroute-contra-exemplo-2" class="outline-3">
-<h3 id="faroute-contra-exemplo-2"><span class="section-number-3">1.7.</span> \faRoute Contra-exemplo</h3>
+<h3 id="faroute-contra-exemplo-2"><span class="section-number-3">1.7.</span> <i class="fa fa-route"></i> Contra-exemplo</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 <b>Entradas:</b><br />
 </p>
 <ul class="org-ul">
-<li>\faProjectDiagram Modelo: 2 semáforos sem controle de revezamento<br /></li>
-<li>\faNotEqual Propriedade: para cada semáforo, ele deve eventualmente ficar verde<br /></li>
+<li><i class="fa fa-project-diagram"></i> Modelo: 2 semáforos sem controle de revezamento<br /></li>
+<li><i class="fa fa-not-equal"></i> Propriedade: para cada semáforo, ele deve eventualmente ficar verde<br /></li>
 </ul>
 
 <p>
 Execução do <i>model checker</i><br />
 </p>
 <p>
-<b>Saída - \faRoute Contra-exemplo:</b><br />
+<b>Saída - <i class="fa fa-route"></i> Contra-exemplo:</b><br />
 </p>
 <ol class="org-ol">
 <li>Semáforo 1 inicia vermelho, semáforo 2 inicia vermelho<br /></li>
@@ -265,7 +265,7 @@ Execução do <i>model checker</i><br />
 </div>
 </div>
 <div id="outline-container-fausergraduate-exerc-cio-qual-dessas-f-rmulas-pode-ser-um-invariante-2" class="outline-3">
-<h3 id="fausergraduate-exerc-cio-qual-dessas-f-rmulas-pode-ser-um-invariante-2"><span class="section-number-3">1.8.</span> \faUserGraduate Exercício: Qual dessas fórmulas pode ser um invariante?</h3>
+<h3 id="fausergraduate-exerc-cio-qual-dessas-f-rmulas-pode-ser-um-invariante-2"><span class="section-number-3">1.8.</span> <i class="fa fa-user-graduate"></i> Exercício: Qual dessas fórmulas pode ser um invariante?</h3>
 <div class="outline-text-3" id="text-1-8">
 <ol class="org-ol">
 <li>Ao fazer uma transferência bancária, eu acabo com menos dinheiro do que tinha antes<br /></li>

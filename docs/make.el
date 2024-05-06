@@ -88,7 +88,7 @@
         ("homepage-assets"
          :base-directory "./"
          :publishing-directory "./docs"
-         ;; :recursive t
+         :recursive t
          :language "pt_BR"
          :exclude "^\\(docs\\|templates\\).*"
          :base-extension "\\(ico\\|jpg\\|gif\\|png\\|css\\|js\\|el\\|nb\\|ipynb\\|pdf\\|xml\\|zip\\)"

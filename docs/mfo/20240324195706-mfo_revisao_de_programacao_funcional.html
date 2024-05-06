@@ -242,8 +242,8 @@ O tipo de um conjunto é dado por <code>Set[&lt;elemento&gt;]</code>. Ou seja, u
 Criando conjuntos:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">Set(1, 2, 3) // Set(1, 2, 3)
-1.to(3) // Set(1, 2, 3)
+<pre class="src src-quint"><span style="color: #d79921;">Set</span>(1, 2, 3) <span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set(1, 2, 3)</span>
+1.to(3) <span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set(1, 2, 3)</span>
 </pre>
 </div>
 </div>
@@ -256,7 +256,7 @@ Em linguagens funcionais, usamos muito a função <code>map</code>, que permite 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-quint">Set(1, 2, 3).map(x =&gt; x * 2) // Set(2, 4, 6)
+<pre class="src src-quint"><span style="color: #d79921;">Set</span>(1, 2, 3).map(x =&gt; x * 2) <span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set(2, 4, 6)</span>
 </pre>
 </div>
 
@@ -265,9 +265,9 @@ Pode ser usado com lambdas (operadores anônimos), como acima, ou com operadores
 </p>
 
 <div class="org-src-container">
-<pre class="src src-quint">pure def quadrado(x: int): int = x * x
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> quadrado(x: <span style="color: #d79921;">int</span>): <span style="color: #d79921;">int</span> = x * x
 
-Set(1, 2, 3).map(quadrado) // Set(1, 4, 9)
+<span style="color: #d79921;">Set</span>(1, 2, 3).map(quadrado) <span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set(1, 4, 9)</span>
 </pre>
 </div>
 </div>
@@ -280,13 +280,13 @@ Dado um conjunto de duplas, podemos aplicar um operador em cada uma das duplas. 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-quint">pure def soma(x: int, y: int): int = x + y
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> soma(x: <span style="color: #d79921;">int</span>, y: <span style="color: #d79921;">int</span>): <span style="color: #d79921;">int</span> = x + y
 
-Set((1, 1), (2, 3)).map(soma)
-// static analysis error: error: [QNT000] Expected 1 arguments, got 2
+<span style="color: #d79921;">Set</span>((1, 1), (2, 3)).map(soma)
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">static analysis error: error: [QNT000] Expected 1 arguments, got 2</span>
 
-Set((1, 1), (2, 3)).map(((a, b)) =&gt; soma(a, b))
-// Set(2, 5)
+<span style="color: #d79921;">Set</span>((1, 1), (2, 3)).map(((a, b)) =&gt; soma(a, b))
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set(2, 5)</span>
 </pre>
 </div>
 </div>
@@ -295,10 +295,10 @@ Set((1, 1), (2, 3)).map(((a, b)) =&gt; soma(a, b))
 <h3 id="map-com-operadores-que-esperam-uma-dupla-2"><span class="section-number-3">2.4.</span> <code>map</code> com operadores que esperam uma dupla</h3>
 <div class="outline-text-3" id="text-2-4">
 <div class="org-src-container">
-<pre class="src src-quint">pure def somaDupla(t: (int, int)): int = t._1 + t._2
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> somaDupla(t: (<span style="color: #d79921;">int</span>, <span style="color: #d79921;">int</span>)): <span style="color: #d79921;">int</span> = t._1 + t._2
 
-Set((1, 1), (2, 3)).map(somaDupla)
-// Set(2, 5)
+<span style="color: #d79921;">Set</span>((1, 1), (2, 3)).map(somaDupla)
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set(2, 5)</span>
 </pre>
 </div>
 </div>
@@ -335,8 +335,8 @@ Exemplo: Dado um conjunto de números, retorne um conjunto apenas com os número
 </p>
 
 <div class="org-src-container">
-<pre class="src src-quint">Set(1, 2, 3, 4).filter(x =&gt; x % 2 == 0)
-// Set(2, 4)
+<pre class="src src-quint"><span style="color: #d79921;">Set</span>(1, 2, 3, 4).filter(x =&gt; x % 2 == 0)
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set(2, 4)</span>
 </pre>
 </div>
 </div>
@@ -357,8 +357,8 @@ Argumentos do <code>fold</code><br />
 Exemplo: Dado um conjunto de números, retorne a soma de todos esses números.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">Set(1, 2, 3, 4).fold(0, (acc, i) =&gt; acc + i)
-// 10
+<pre class="src src-quint"><span style="color: #d79921;">Set</span>(1, 2, 3, 4).fold(0, (acc, i) =&gt; acc + i)
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">10</span>
 </pre>
 </div>
 <p>
@@ -404,8 +404,8 @@ Exercício: Re-escreva nossos exemplos anteriores usando <code>fold</code> ao in
 <h3 id="powerset-conjunto-das-partes-2"><span class="section-number-3">2.11.</span> Powerset - Conjunto das partes</h3>
 <div class="outline-text-3" id="text-2-11">
 <div class="org-src-container">
-<pre class="src src-quint">Set(1, 2).powerset()
-// Set(Set(), Set(1), Set(2), Set(1, 2))
+<pre class="src src-quint"><span style="color: #d79921;">Set</span>(1, 2).powerset()
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set(Set(), Set(1), Set(2), Set(1, 2))</span>
 </pre>
 </div>
 
@@ -421,8 +421,8 @@ Exercício: Re-escreva nossos exemplos anteriores usando <code>fold</code> ao in
 Um conjunto de conjuntos de elementos to tipo <code>t</code> pode ser convertido em um conjunto de elementos do tipo <code>t</code> com o operador <code>flatten</code>.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">Set(Set(1, 2), Set(1, 3)).flatten()
-// Set(1, 2, 3)
+<pre class="src src-quint"><span style="color: #d79921;">Set</span>(<span style="color: #d79921;">Set</span>(1, 2), <span style="color: #d79921;">Set</span>(1, 3)).flatten()
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set(1, 2, 3)</span>
 </pre>
 </div>
 </div>
@@ -447,14 +447,14 @@ O tipo de um mapa é dado por <code>&lt;chave&gt; -&gt; &lt;valor&gt;</code>. Ou
 Criando <code>Maps</code>:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">Map(1 -&gt; "a", 2 -&gt; "b")
-// Map(1 -&gt; "a", 2 -&gt; "b")
+<pre class="src src-quint">Map(1 -&gt; <span style="color: #98971a;">"a"</span>, 2 -&gt; <span style="color: #98971a;">"b"</span>)
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Map(1 -&gt; "a", 2 -&gt; "b")</span>
 
-Set((1, "a"), (2, "b")).setToMap()
-// Map(1 -&gt; "a", 2 -&gt; "b")
+<span style="color: #d79921;">Set</span>((1, <span style="color: #98971a;">"a"</span>), (2, <span style="color: #98971a;">"b"</span>)).setToMap()
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Map(1 -&gt; "a", 2 -&gt; "b")</span>
 
-Set(1, 2).mapBy(x =&gt; if (x &lt; 2) "a" else "b")
-// Map(1 -&gt; "a", 2 -&gt; "b")
+<span style="color: #d79921;">Set</span>(1, 2).mapBy(x =&gt; <span style="color: #66a4a4;">if</span> (x &lt; 2) <span style="color: #98971a;">"a"</span> <span style="color: #66a4a4;">else</span> <span style="color: #98971a;">"b"</span>)
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Map(1 -&gt; "a", 2 -&gt; "b")</span>
 </pre>
 </div>
 </div>
@@ -466,8 +466,8 @@ Set(1, 2).mapBy(x =&gt; if (x &lt; 2) "a" else "b")
 Para obter todas as chaves:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">Map(1 -&gt; "a", 2 -&gt; "b").keys()
-// Set(1, 2)
+<pre class="src src-quint">Map(1 -&gt; <span style="color: #98971a;">"a"</span>, 2 -&gt; <span style="color: #98971a;">"b"</span>).keys()
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set(1, 2)</span>
 </pre>
 </div>
 
@@ -475,9 +475,9 @@ Para obter todas as chaves:<br />
 E os valores?<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">val m = Map(1 -&gt; "a", 2 -&gt; "b")
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> m = Map(1 -&gt; <span style="color: #98971a;">"a"</span>, 2 -&gt; <span style="color: #98971a;">"b"</span>)
 m.keys().map(k =&gt; m.get(k))
-// Set("a", "b")
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set("a", "b")</span>
 </pre>
 </div>
 </div>
@@ -490,19 +490,19 @@ m.keys().map(k =&gt; m.get(k))
 </p>
 
 <div class="org-src-container">
-<pre class="src src-quint">val m = Map(1 -&gt; "a", 2 -&gt; "b")
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> m = Map(1 -&gt; <span style="color: #98971a;">"a"</span>, 2 -&gt; <span style="color: #98971a;">"b"</span>)
 
 m.get(1)
-// "a"
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">"a"</span>
 
-m.set(1, "c")
-// Map(1 -&gt; "c", 2 -&gt; "b")
+m.set(1, <span style="color: #98971a;">"c"</span>)
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Map(1 -&gt; "c", 2 -&gt; "b")</span>
 
-m.set(3, "c")
-// runtime error: error: [QNT507] Called 'set' with a non-existing key
+m.set(3, <span style="color: #98971a;">"c"</span>)
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">runtime error: error: [QNT507] Called 'set' with a non-existing key</span>
 
-m.put(3, "c")
-// Map(1 -&gt; "a", 2 -&gt; "b", 3 -&gt; "c")
+m.put(3, <span style="color: #98971a;">"c"</span>)
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Map(1 -&gt; "a", 2 -&gt; "b", 3 -&gt; "c")</span>
 </pre>
 </div>
 </div>
@@ -514,13 +514,13 @@ m.put(3, "c")
 <code>setBy</code> é uma utilidade para quando queremos fazer uma operação sobre um valor existente no mapa.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">val m = Map("a" -&gt; 1, "b" -&gt; 2)
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> m = Map(<span style="color: #98971a;">"a"</span> -&gt; 1, <span style="color: #98971a;">"b"</span> -&gt; 2)
 
-m.set("a", m.get("a") + 1)
-// Map("a" -&gt; 2, "b" -&gt; 2)
+m.set(<span style="color: #98971a;">"a"</span>, m.get(<span style="color: #98971a;">"a"</span>) + 1)
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Map("a" -&gt; 2, "b" -&gt; 2)</span>
 
-m.setBy("a", x =&gt; x + 1)
-// Map("a" -&gt; 2, "b" -&gt; 2)
+m.setBy(<span style="color: #98971a;">"a"</span>, x =&gt; x + 1)
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Map("a" -&gt; 2, "b" -&gt; 2)</span>
 </pre>
 </div>
 </div>
@@ -532,9 +532,9 @@ m.setBy("a", x =&gt; x + 1)
 Para criar todos os <code>Maps</code> possíveis dado um domínio e um co-domínio, podemos usar o <code>setOfMaps</code>:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">Set(1, 2).setOfMaps(Set("a", "b"))
-// Set(Map(1 -&gt; "a", 2 -&gt; "a"), Map(1 -&gt; "b", 2 -&gt; "a"),
-//     Map(1 -&gt; "a", 2 -&gt; "b"), Map(1 -&gt; "b", 2 -&gt; "b"))
+<pre class="src src-quint"><span style="color: #d79921;">Set</span>(1, 2).setOfMaps(<span style="color: #d79921;">Set</span>(<span style="color: #98971a;">"a"</span>, <span style="color: #98971a;">"b"</span>))
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set(Map(1 -&gt; "a", 2 -&gt; "a"), Map(1 -&gt; "b", 2 -&gt; "a"),</span>
+<span style="color: #C18E76;">//     </span><span style="color: #C18E76;">Map(1 -&gt; "a", 2 -&gt; "b"), Map(1 -&gt; "b", 2 -&gt; "b"))</span>
 </pre>
 </div>
 </div>
@@ -559,7 +559,7 @@ O tipo de uma tupla é dado por <code>(t0, ..., tn)</code>. Uma tupla com tipo <
 Existe um único jeito de criar uma tupla:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">(1, "a", true)
+<pre class="src src-quint">(1, <span style="color: #98971a;">"a"</span>, <span style="color: #805b87;">true</span>)
 </pre>
 </div>
 </div>
@@ -574,13 +574,13 @@ Itens de tuplas são acessados com <code>._1</code>, <code>._2</code>, <code>._3
 Não existe <code>._0</code>, a contagem inicia do 1.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">val t = (1, "a", true)
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> t = (1, <span style="color: #98971a;">"a"</span>, <span style="color: #805b87;">true</span>)
 
 t._1
-// 1
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">1</span>
 
 t._3
-// true
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">true</span>
 </pre>
 </div>
 </div>
@@ -592,11 +592,11 @@ t._3
 Para criar um conjunto com todas as tuplas possíveis com elementos em dados conjuntos, usamos o <code>tuples</code>:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">tuples(Set(1, 2), Set("a", "b"))
-// Set((1, "a"), (2, "a"), (1, "b"), (2, "b"))
+<pre class="src src-quint">tuples(<span style="color: #d79921;">Set</span>(1, 2), <span style="color: #d79921;">Set</span>(<span style="color: #98971a;">"a"</span>, <span style="color: #98971a;">"b"</span>))
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set((1, "a"), (2, "a"), (1, "b"), (2, "b"))</span>
 
-tuples(Set(1), Set("a", "b"), Set(false))
-// Set((1, "a", false), (1, "b", false))
+tuples(<span style="color: #d79921;">Set</span>(1), <span style="color: #d79921;">Set</span>(<span style="color: #98971a;">"a"</span>, <span style="color: #98971a;">"b"</span>), <span style="color: #d79921;">Set</span>(<span style="color: #805b87;">false</span>))
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set((1, "a", false), (1, "b", false))</span>
 </pre>
 </div>
 </div>
@@ -622,19 +622,19 @@ O tipo de um <i>record</i> é dado por <code>{ field0: t0, ..., fieldn: tn }</co
 <h3 id="acessando-e-atualizando-2"><span class="section-number-3">5.2.</span> Acessando e atualizando</h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
-<pre class="src src-quint">val r = { nome: "Gabriela", idade: 25 }
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> r = { nome: <span style="color: #98971a;">"Gabriela"</span>, idade: 25 }
 
 r.nome
-// "Gabriela"
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">"Gabriela"</span>
 
 r.with(idade, 26)
-// { nome: "Gabriela", idade: 26 }
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">{ nome: "Gabriela", idade: 26 }</span>
 
 { ...r, idade: 26 }
-// { nome: "Gabriela", idade: 26 }
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">{ nome: "Gabriela", idade: 26 }</span>
 
 r
-// { nome: "Gabriela", idade: 25 }
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">{ nome: "Gabriela", idade: 25 }</span>
 </pre>
 </div>
 </div>
@@ -660,13 +660,13 @@ Criando listas:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-quint">[1, 2, 3]
-// [1, 2, 3]
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">[1, 2, 3]</span>
 
-List(1, 2, 3)
-// [1, 2, 3]
+<span style="color: #d79921;">List</span>(1, 2, 3)
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">[1, 2, 3]</span>
 
 range(1, 4)
-// [1, 2, 3]
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">[1, 2, 3]</span>
 </pre>
 </div>
 </div>
@@ -675,16 +675,16 @@ range(1, 4)
 <h3 id="acessando-2"><span class="section-number-3">6.2.</span> Acessando</h3>
 <div class="outline-text-3" id="text-6-2">
 <div class="org-src-container">
-<pre class="src src-quint">val l = [1, 2, 3]
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> l = [1, 2, 3]
 
 l[1]
-// 2
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">2</span>
 
 l.head()
-// 1
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">1</span>
 
 l.tail()
-// [2, 3]
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">[2, 3]</span>
 </pre>
 </div>
 </div>
@@ -693,19 +693,19 @@ l.tail()
 <h3 id="atualizando-2"><span class="section-number-3">6.3.</span> Atualizando</h3>
 <div class="outline-text-3" id="text-6-3">
 <div class="org-src-container">
-<pre class="src src-quint">val l = [1, 2, 3]
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> l = [1, 2, 3]
 
 l.replaceAt(0, 5)
-// [5, 2, 3]
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">[5, 2, 3]</span>
 
 l.concat([4, 5])
-// [1, 2, 3, 4, 5]
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">[1, 2, 3, 4, 5]</span>
 
 l.append(4)
-// [1, 2, 3, 4]
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">[1, 2, 3, 4]</span>
 
 l
-// [1, 2, 3]
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">[1, 2, 3]</span>
 </pre>
 </div>
 </div>
@@ -718,7 +718,7 @@ l
 </p>
 <div class="org-src-container">
 <pre class="src src-quint">[1, 2, 3].slice(0, 1)
-// [1]
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">[1]</span>
 </pre>
 </div>
 
@@ -727,7 +727,7 @@ l
 </p>
 <div class="org-src-container">
 <pre class="src src-quint">[1, 2, 3, 4, 5].select(x =&gt; x &gt; 3)
-// [4, 5]
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">[4, 5]</span>
 </pre>
 </div>
 </div>
@@ -743,10 +743,10 @@ Atenção também para a ordem dos argumentos do operador dado como último argu
 </p>
 <div class="org-src-container">
 <pre class="src src-quint">[1, 2, 3].foldl([], (acc, i) =&gt; acc.append(i))
-// [1, 2, 3]
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">[1, 2, 3]</span>
 
 [1, 2, 3].foldr([], (i, acc) =&gt; acc.append(i))
-// [3, 2, 1]
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">[3, 2, 1]</span>
 </pre>
 </div>
 </div>
@@ -758,11 +758,11 @@ Atenção também para a ordem dos argumentos do operador dado como último argu
 O operador <code>map</code> não funciona pra listas. Conseguimos reproduzir essa funcionalidade usando o operador <code>indices</code>, que returna o índices de uma lista (isso é, \(0\) até \(length(l) - 1\)).<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">val l = [1, 2, 3]
-def f(x) = x + 1
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> l = [1, 2, 3]
+<span style="color: #e35b15;">def</span> f(x) = x + 1
 
 l.indices().map(i =&gt; f(l[i]))
-// Set(2, 3, 4)
+<span style="color: #C18E76;">// </span><span style="color: #C18E76;">Set(2, 3, 4)</span>
 </pre>
 </div>
 
@@ -783,9 +783,9 @@ Perceba que o resultado aqui é um conjunto. Para que o resultado seja uma lista
 Nomes de tipos devem sempre iniciar com letra maiúscula.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">type Idade = int
+<pre class="src src-quint"><span style="color: #e35b15;">type</span> Idade = <span style="color: #d79921;">int</span>
 
-val a: Idade = 1
+<span style="color: #e35b15;">val</span> a: Idade = 1
 </pre>
 </div>
 </div>
@@ -794,11 +794,11 @@ val a: Idade = 1
 <h3 id="tipos-soma-2"><span class="section-number-3">7.2.</span> Tipos soma</h3>
 <div class="outline-text-3" id="text-7-2">
 <div class="org-src-container">
-<pre class="src src-quint">type Periodo = Manha | Tarde | Noite
+<pre class="src src-quint"><span style="color: #e35b15;">type</span> Periodo = Manha | Tarde | Noite
 
-type EstadoLogin = Logado(str) | Deslogado
+<span style="color: #e35b15;">type</span> EstadoLogin = Logado(<span style="color: #d79921;">str</span>) | Deslogado
 
-type Opcional[a] = Algum(a) | Nenhum
+<span style="color: #e35b15;">type</span> Opcional[a] = Algum(a) | Nenhum
 </pre>
 </div>
 </div>

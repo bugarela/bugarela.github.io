@@ -16,3 +16,4 @@
 - [[file:20240422102646-mfo_especificar_vs_implementar.org][MFO Especificar vs Implementar]]
 - [[file:20240424144115-mfo_dicas_trabalho_1.org][Dicas Trabalho 1]]
 - [[file:20240423183852-mfo_trabalho_1.org][Trabalho 1]]
+- [[file:20240504145616-mfo_design_de_protocolos.org][Design de protocolos]]
