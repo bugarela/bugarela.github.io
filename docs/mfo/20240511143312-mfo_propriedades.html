@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Propriedades</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="https://bugarela.com/mfo/20240511143312-mfo_propriedades.html" />
+  <meta property="og:title" content="Propriedades" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+    <meta property="og:image" content="https://bugarela.com/mfo/figures/lupa_invariante.png" />
+    <meta property="og:image:width" content="1566" />
+    <meta property="og:image:height" content="1435" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Propriedades">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../css/layouts/style.css">
+
+  </head>
+  <body>
+    <div id="layout" class="pure-g">
+      <div class="sidebar pure-u-1 pure-u-md-1-3">
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-lg-1-2">
+    </div>
+    <div class="pure-u-1 pure-u-lg-1-2">
+      <div class="header">
+        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
+      </div>
+      <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+      </div>
+      <div class="footer">
+  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-2-3">
+        <h2>Propriedades</h2>
+        <a href="https://bugarela.com/mfo/slides/20240511143312-mfo_propriedades.pdf">Slides</a><br />
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#tipos-de-propriedades-1">1. Tipos de propriedades</a>
+<ul>
+<li><a href="#propriedades-2">1.1. Propriedades</a></li>
+<li><a href="#seguran-a-2">1.2. Segurança</a></li>
+<li><a href="#seguran-a-invariantes-2">1.3. Segurança - Invariantes</a></li>
+<li><a href="#vivacidade-2">1.4. Vivacidade</a></li>
+<li><a href="#vivacidade-propriedade-de-persist-ncia-2">1.5. Vivacidade - propriedade de persistência</a></li>
+<li><a href="#demonstrando-vivacidade-com-runs-em-quint-2">1.6. Demonstrando vivacidade com runs em Quint</a></li>
+<li><a href="#fairness-razoabilidade-2">1.7. <i>Fairness</i> (razoabilidade)</a></li>
+<li><a href="#fairness-defini-es-precisas-2">1.8. Fairness - definições precisas</a></li>
+<li><a href="#weak-fairness-defini-o-precisa-2">1.9. Weak fairness - definição precisa</a></li>
+<li><a href="#strong-fairness-defini-o-precisa-2">1.10. Strong fairness - definição precisa</a></li>
+<li><a href="#fairness-na-pr-tica-2">1.11. Fairness na prática</a></li>
+</ul>
+</li>
+<li><a href="#propriedades-temporais-em-quint-e-tla-1">2. Propriedades temporais em Quint e TLA+</a>
+<ul>
+<li><a href="#propriedades-temporais-em-quint-e-tla-2">2.1. Propriedades temporais em Quint e TLA+</a></li>
+<li><a href="#sintaxe-2">2.2. Sintaxe</a></li>
+<li><a href="#operador-leads-to-leva-a-2">2.3. Operador <i>leads to</i> (leva a)</a></li>
+<li><a href="#verificando-propriedades-temporais-2">2.4. Verificando propriedades temporais</a></li>
+<li><a href="#especifica-o-dos-sem-foros-2">2.5. Especificação dos semáforos</a></li>
+<li><a href="#especifica-o-da-chaleira-2">2.6. Especificação da chaleira</a></li>
+<li><a href="#refer-ncias-2">2.7. Referências</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-tipos-de-propriedades-1" class="outline-2">
+<h2 id="tipos-de-propriedades-1"><span class="section-number-2">1.</span> Tipos de propriedades</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-propriedades-2" class="outline-3">
+<h3 id="propriedades-2"><span class="section-number-3">1.1.</span> Propriedades</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Propriedades podem ser propriedades de <b>segurança</b> (<i>safety properties</i>), <b>vivacidade</b> (<i>liveness properties</i>) ou uma combinação das duas.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-seguran-a-2" class="outline-3">
+<h3 id="seguran-a-2"><span class="section-number-3">1.2.</span> Segurança</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+<i>&ldquo;Algo ruim <b>não</b> acontece&rdquo;</i><br />
+</p>
+
+<p>
+Descreve algo específico. Basta esse algo acontecer uma única vez para que a propriedade seja violada.<br />
+</p>
+
+<p>
+<b>Exemplos</b>:<br />
+</p>
+<ul class="org-ul">
+<li>&ldquo;O saque não deve ser autorizado, a menos que uma senha correta tenha sido digitada&rdquo;<br /></li>
+<li>&ldquo;Dois processos não devem estar na seção crítica ao mesmo tempo&rdquo;<br /></li>
+<li>&ldquo;Ao receber um saque, eu fico com mais dinheiro do que eu tinha antes&rdquo;<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-seguran-a-invariantes-2" class="outline-3">
+<h3 id="seguran-a-invariantes-2"><span class="section-number-3">1.3.</span> Segurança - Invariantes</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<ol class="org-ol">
+<li><a id="defini-o-3"></a>Definição<br />
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+Invariantes são um tipo de propriedade de segurança.<br />
+</p>
+
+<p>
+Uma invariante é uma propriedade sobre um <b>estado</b>, <i>não sobre uma execução</i>. Uma invariante não consegue &ldquo;ver além&rdquo; de um único estado.<br />
+</p>
+
+<p>
+Uma <b>execução</b> satisfaz uma invariante sse cada estado da execução satisfaz a invariante.<br />
+Uma <b>estrutura de Kripke</b> satisfaz uma invariante sse cada estado alcançável satisfaz a invariante.<br />
+</p>
+</div>
+</li>
+<li><a id="representa-o-3"></a>Representação<br />
+<div class="outline-text-4" id="text-1-3-2">
+
+<div class="figure">
+<p><img src="./figures/lupa_invariante.png" alt="lupa_invariante.png" /><br />
+</p>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-vivacidade-2" class="outline-3">
+<h3 id="vivacidade-2"><span class="section-number-3">1.4.</span> Vivacidade</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+<i>&ldquo;Algo bom eventualmente acontece&rdquo;</i><br />
+</p>
+
+<p>
+\(\Diamond F\)<br />
+</p>
+
+<p>
+<b>Exemplos</b>:<br />
+</p>
+<ul class="org-ul">
+<li>&ldquo;Se um processo pediu pra entrar na seção crítica, ele eventualmente deve conseguir&rdquo;<br /></li>
+<li>&ldquo;Cada sinaleiro deve sempre eventualmente ficar verde&rdquo;<br /></li>
+</ul>
+
+<p>
+Lembrando que em Quint e TLA+ usamos LTL, não CTL. Portanto, as fórmulas devem ser verdadeiras em todas as execuções.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-vivacidade-propriedade-de-persist-ncia-2" class="outline-3">
+<h3 id="vivacidade-propriedade-de-persist-ncia-2"><span class="section-number-3">1.5.</span> Vivacidade - propriedade de persistência</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+<i>&ldquo;Eventualmente, algo é satisfeito pra sempre&rdquo;</i><br />
+</p>
+
+<p>
+\(\Diamond\square F\)<br />
+</p>
+
+<p>
+<b>Exemplos</b>:<br />
+</p>
+<ul class="org-ul">
+<li>Ao entrar na faculdade, eventualmente vou ter um diploma<br /></li>
+<li>Eventualmente estaremos mortos<br /></li>
+<li>Eventualmente teremos cabelos brancos ou calvice<br /></li>
+<li>Eventualmente as partes chegam em consenso<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-demonstrando-vivacidade-com-runs-em-quint-2" class="outline-3">
+<h3 id="demonstrando-vivacidade-com-runs-em-quint-2"><span class="section-number-3">1.6.</span> Demonstrando vivacidade com runs em Quint</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Uma forma alternativa de mostrar que &ldquo;coisas boas acontecem&rdquo; em Quint é através de runs.<br />
+</p>
+<ul class="org-ul">
+<li>Uma <code>run</code> pode definir uma ou mais execuções onde algo acontece.<br />
+<ul class="org-ul">
+<li>Não serve para mostrar que algo acontece em todas as execuções, como a propriedade em si<br /></li>
+</ul></li>
+<li>Útil quando queremos demonstrar que algo acontece em algumas execuções, mas não necessariamente todas.<br /></li>
+</ul>
+
+<p>
+Por exemplo, se queremos saber se é possível, em algum cenário, chegar em consenso. Podemos definir uma run semelhante a:<br />
+</p>
+<ol class="org-ol">
+<li>Estado inicial<br /></li>
+<li>Processo 1 propõe &ldquo;A&rdquo;<br /></li>
+<li>Processo 2 propõe &ldquo;A&rdquo;<br /></li>
+<li>Trocas de mensagens seguindo protocolo de consenso<br /></li>
+<li>Processos 1 e 2 decidem &ldquo;A&rdquo;<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-fairness-razoabilidade-2" class="outline-3">
+<h3 id="fairness-razoabilidade-2"><span class="section-number-3">1.7.</span> <i>Fairness</i> (razoabilidade)</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+Propriedades de razoabilidade (<i>Fairness properties</i>)<br />
+</p>
+<ul class="org-ul">
+<li><p>
+Razoabilidade incondicional (<i>Unconditional fairness</i>): &ldquo;Algo acontece com frequência infinita&rdquo;<br />
+</p>
+<ul class="org-ul">
+<li>Razoabilidade <b>forte</b> (<i>Strong fairness</i>): &ldquo;Algo acontece com frequência infinita <b>se é habilitado com frequência infinita</b>&rdquo;<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Razoabilidade <b>fraca</b> (<i>Weak fairness</i>): &ldquo;Algo acontece com frequência infinita <b>se é continuamente habilitado a partir de um certo momento</b>&rdquo;<br /></li>
+</ul></li>
+</ul>
+
+<p>
+Usamos essas propriedades como <b>pré-condições</b> para descartar execuções não realistas.<br />
+</p>
+<ul class="org-ul">
+<li>\(WF(...) \rightarrow F\)<br /></li>
+<li>\(SF(...) \rightarrow F\)<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-fairness-defini-es-precisas-2" class="outline-3">
+<h3 id="fairness-defini-es-precisas-2"><span class="section-number-3">1.8.</span> Fairness - definições precisas</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+Primeiramente, precisamos definir <b>passos balbuciantes</b> (<i>stuttering steps</i>): são aqueles em que o valor de uma variável ou de um conjunto de váriáveis não se altera.<br />
+</p>
+<ul class="org-ul">
+<li>Por exemplo, <code>x' = x</code> é um passo balbuciante para a variável <code>x</code>.<br /></li>
+</ul>
+
+<p>
+Operador <b>enabled</b> (ativado):<br />
+</p>
+<ul class="org-ul">
+<li>\textsc{enabled} \(A\) (ou <code>enabled(A)</code> em Quint) para uma ação \(A\) é verdadeiro em um estado \(s\) sse é possível fazer um passo \(A\) a partir de \(s\).<br /></li>
+<li>Ou seja, se existe um estado \(t\) tal que o passo \(s \rightarrow t\) satisfaz \(A\).<br /></li>
+</ul>
+
+<p>
+Seguem definições precisas copiadas do meu TCC (traduzidas do livro do Lamport (<a href="#citeproc_bib_item_1">LAMPORT, 2002</a>)).<br />
+</p>
+<ul class="org-ul">
+<li>Infelizmente não tem como simplificar essas definições, mas tenham em mente que elas estão aqui por questões de completude.<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-weak-fairness-defini-o-precisa-2" class="outline-3">
+<h3 id="weak-fairness-defini-o-precisa-2"><span class="section-number-3">1.9.</span> Weak fairness - definição precisa</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+A razoabilidade fraca para uma fórmula de estado \(f\) e uma ação \(A\) é escrita como \(WF_f (A)\).<br />
+</p>
+<ul class="org-ul">
+<li>É satisfeita por um comportamento sse \(A \land (f' \neq f)\) é infinitamente não ativável (\textsc{enabled}) ou infinitos passos  \(A \land (f' \neq f)\) ocorrem.<br /></li>
+<li>Garante que \(A\) não possa permanecer continuamente ativável para sempre sem que um passo \(A\) ocorra. Essa condição pode ser escrita de forma equivalente como<br />
+<ul class="org-ul">
+<li>\(\square (\ENABLED  A \implies \Diamond\langle A\rangle_f)\)<br /></li>
+</ul></li>
+</ul>
+
+<p>
+A conjunção com \((f' \neq f)\), expressada com a notação \(\langle A\rangle_f\), se deve ao fato de não ser desejável exigir que passos balbuciantes eventualmente ocorram.<br />
+</p>
+<ul class="org-ul">
+<li>\(A \land (f' \neq f)\) pode ser lido como &ldquo;todos os passos não balbuciantes que satisfazem \(A\)&rdquo;.<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-strong-fairness-defini-o-precisa-2" class="outline-3">
+<h3 id="strong-fairness-defini-o-precisa-2"><span class="section-number-3">1.10.</span> Strong fairness - definição precisa</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+A razoabilidade fraca recebe a denominação &ldquo;fraca&rdquo; porque exige que uma ação permaneça continuamente ativável para garantir a ocorrência de um passo que a satisfaça.<br />
+</p>
+<ul class="org-ul">
+<li>Se um comportamento repetidamente tornar a ação ativável e em seguida não ativável, a razoabilidade fraca não garante nada sobre a ocorrência da ação neste comportamento.<br /></li>
+<li>Para tal, é necessário garantir a propriedade de razoabilidade forte (\textit{strong fairness}).<br /></li>
+</ul>
+
+<p>
+A razoabilidade forte para uma fórmula de estado \(f\) e uma ação \(A\) é escrita como \(SF_f (A)\).<br />
+</p>
+<ul class="org-ul">
+<li>É satisfeita por um comportamento sse \(A \land (f' \neq f)\) ocorre finitas vezes ou infinitos passos  \(A \land (f' \neq f)\) ocorrem.<br /></li>
+<li>Garante que \(A\) não possa ser repetidamente ativável para sempre sem que um passo \(A\) ocorra.<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-fairness-na-pr-tica-2" class="outline-3">
+<h3 id="fairness-na-pr-tica-2"><span class="section-number-3">1.11.</span> Fairness na prática</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+Usamos fairness para &ldquo;excluir&rdquo; cenários que não são realistas mas podem causar loops no modelo.<br />
+</p>
+<ul class="org-ul">
+<li>&ldquo;loops irrealistas não ocorrem&rdquo; implica em &ldquo;coisa boa eventualmente acontece&rdquo;<br /></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-propriedades-temporais-em-quint-e-tla-1" class="outline-2">
+<h2 id="propriedades-temporais-em-quint-e-tla-1"><span class="section-number-2">2.</span> Propriedades temporais em Quint e TLA+</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-propriedades-temporais-em-quint-e-tla-2" class="outline-3">
+<h3 id="propriedades-temporais-em-quint-e-tla-2"><span class="section-number-3">2.1.</span> Propriedades temporais em Quint e TLA+</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+O Apalache atualmente tem algumas limitações para fórmulas temporais, então vamos usar o TLC.<br />
+</p>
+
+<p>
+O Quint ainda não está completamente integrado ao TLC. Para usar Quint com TLC, temos que:<br />
+</p>
+<ol class="org-ol">
+<li>Usar o subcomando <code>quint compile</code> para produzir uma especificação em TLA+<br /></li>
+<li>Alterar a definição de <code>init</code> na especificação em TLA+ para que seja um predicado (e não uma ação)<br /></li>
+</ol>
+
+<p>
+Como esse processo ainda não está legal, vamos usar somente TLA+ nos testes da aula de hoje. De qualquer forma, veremos as sintaxes nas duas linguagens.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-sintaxe-2" class="outline-3">
+<h3 id="sintaxe-2"><span class="section-number-3">2.2.</span> Sintaxe</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+\(\square F\), Sempre, <i>Always</i>:<br />
+</p>
+<ul class="org-ul">
+<li><code>[]F</code> (TLA+)<br /></li>
+<li><code>always(F)</code> (Quint)<br /></li>
+</ul>
+
+<p>
+\(\Diamond F\), Eventualmente, Finalmente:<br />
+</p>
+<ul class="org-ul">
+<li><code>&lt;&gt;F</code> (TLA+)<br /></li>
+<li><code>eventually(F)</code> (Quint)<br /></li>
+</ul>
+
+<p>
+Razoabilidade forte e fraca (<i>weak fairness</i> e <i>strong fairness</i>) de uma ação <code>A</code> exigindo mudanças nas variáveis <code>vars</code><br />
+</p>
+<ul class="org-ul">
+<li><code>WF_&lt;vars&gt;(A)</code> e <code>SF_&lt;vars&gt;(A)</code> (TLA+)<br /></li>
+<li><code>weakFair(A, vars)</code> e <code>strongFair(A, vars)</code> (Quint*)<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-operador-leads-to-leva-a-2" class="outline-3">
+<h3 id="operador-leads-to-leva-a-2"><span class="section-number-3">2.3.</span> Operador <i>leads to</i> (leva a)</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+TLA+ também define o operador temporal <code>~&gt;</code> lido com <i>leads to</i>.<br />
+</p>
+<ul class="org-ul">
+<li><code>F ~&gt; G</code> determina que, sempre que F é verdade, G deve ser verdade eventualmente<br /></li>
+<li>Equivalente a \(\square (F \rightarrow \Diamond G)\)<br /></li>
+</ul>
+
+<p>
+Não existe <i>leads to</i> em Quint, mas podemos definir a versão equivalente:<br />
+</p>
+<ul class="org-ul">
+<li><code>always(F implies eventually(Q))</code><br /></li>
+</ul>
+
+<p>
+PS: Não confundir com until ou release da lógica temporal.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-verificando-propriedades-temporais-2" class="outline-3">
+<h3 id="verificando-propriedades-temporais-2"><span class="section-number-3">2.4.</span> Verificando propriedades temporais</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Em Quint (instável):<br />
+<code>quint verify --temporal minha_propriedade arquivo.qnt</code><br />
+</p>
+<ul class="org-ul">
+<li>PS: as formulas em Quint devem ser escritas em definições do modo <code>temporal</code><br />
+<ul class="org-ul">
+<li>i.e. <code>temporal minha_propriedade = eventually(true)</code><br /></li>
+</ul></li>
+</ul>
+
+<p>
+Em TLA+ (com TLC):<br />
+</p>
+<ul class="org-ul">
+<li><p>
+No arquivo <code>.cfg</code>, adicionar:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-txt">  PROPERTY
+  MinhaPropriedade
+</pre>
+</div></li>
+<li>Depois, só rodar o model checker normalmente.<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-especifica-o-dos-sem-foros-2" class="outline-3">
+<h3 id="especifica-o-dos-sem-foros-2"><span class="section-number-3">2.5.</span> Especificação dos semáforos</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+Vamos verificar duas propriedades temporais para a especificação dos semáforos.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-tla">EventualmenteAbre == WF_&lt;&lt;cores&gt;&gt;(Next) =&gt;
+  \A s \in SEMAFOROS : &lt;&gt;(cores[s] = <span style="color: #98971a;">"verde"</span>)
+
+SeAbriuVaiFechar == WF_&lt;&lt;cores&gt;&gt;(Next) =&gt;
+  \A s \in SEMAFOROS : (cores[s] = <span style="color: #98971a;">"verde"</span> ~&gt; cores[s] = <span style="color: #98971a;">"vermelho"</span>)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-especifica-o-da-chaleira-2" class="outline-3">
+<h3 id="especifica-o-da-chaleira-2"><span class="section-number-3">2.6.</span> Especificação da chaleira</h3>
+<div class="outline-text-3" id="text-2-6">
+
+<div class="figure">
+<p><img src="./figures/chaleira-tla.png" alt="chaleira-tla.png" /><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-refer-ncias-2" class="outline-3">
+<h3 id="refer-ncias-2"><span class="section-number-3">2.7.</span> Referências</h3>
+<div class="outline-text-3" id="text-2-7">
+<div class="csl-bib-body">
+  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>LAMPORT, L. <b><a href="https://www.microsoft.com/en-us/research/publication/specifying-systems-the-tla-language-and-tools-for-hardware-and-software-engineers/">Specifying systems: The tla+ language and tools for hardware and software engineers</a></b>. Boston: Addison-Wesley, 2002. </div>
+</div>
+</div>
+</div>
+</div>
+
+      </div>
+    </div>
+  </body>
+</html>
