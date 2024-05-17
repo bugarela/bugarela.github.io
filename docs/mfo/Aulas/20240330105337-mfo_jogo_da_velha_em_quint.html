@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Jogo da Velha em Quint</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="https://bugarela.com/mfo/Aulas/20240330105337-mfo_jogo_da_velha_em_quint.html" />
+  <meta property="og:title" content="Jogo da Velha em Quint" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Jogo da Velha em Quint">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../../css/layouts/style.css">
+
+  </head>
+  <body>
+    <div id="layout" class="pure-g">
+      <div class="sidebar pure-u-1 pure-u-md-1-3">
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-lg-1-2">
+    </div>
+    <div class="pure-u-1 pure-u-lg-1-2">
+      <div class="header">
+        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
+      </div>
+      <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+      </div>
+      <div class="footer">
+  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-2-3">
+        <h2>Jogo da Velha em Quint</h2>
+        <a href="https://bugarela.com/mfo/slides/20240330105337-mfo_jogo_da_velha_em_quint.pdf">Slides</a><br />
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#jogando-de-qualquer-jeito-1">1. Jogando de qualquer jeito</a>
+<ul>
+<li><a href="#jogo-da-velha-2">1.1. Jogo da Velha</a></li>
+<li><a href="#tipos-e-vari-veis-2">1.2. Tipos e variáveis</a></li>
+<li><a href="#defini-es-sobre-coordenadas-2">1.3. Definições sobre coordenadas</a></li>
+<li><a href="#defini-es-sobre-o-tabuleiro-2">1.4. Definições sobre o tabuleiro</a></li>
+<li><a href="#definindo-ganhar-coordenadas-2">1.5. Definindo &ldquo;ganhar&rdquo; - coordenadas</a></li>
+<li><a href="#definindo-ganhar-operador-won-2">1.6. Definindo &ldquo;ganhar&rdquo; - operador won</a></li>
+<li><a href="#a-es-move-2">1.7. Ações - Move</a></li>
+<li><a href="#a-es-movetoempty-2">1.8. Ações - MoveToEmpty</a></li>
+<li><a href="#a-es-moveo-e-movex-2">1.9. Ações - MoveO e MoveX</a></li>
+<li><a href="#estado-inicial-2">1.10. Estado inicial</a></li>
+<li><a href="#transi-es-2">1.11. Transições</a></li>
+<li><a href="#rodando-jogos-aleat-rios-com-o-simulador-2">1.12. Rodando jogos aleatórios com o simulador</a></li>
+<li><a href="#usando-uma-invariante-para-procurar-jogos-que-d-o-velha-2">1.13. Usando uma invariante para procurar jogos que &ldquo;dão velha&rdquo;</a></li>
+<li><a href="#contraexemplo-2">1.14. Contraexemplo</a></li>
+</ul>
+</li>
+<li><a href="#jogando-pra-ganhar-1">2. Jogando pra ganhar</a>
+<ul>
+<li><a href="#jogando-pra-ganhar-2">2.1. Jogando pra ganhar</a></li>
+<li><a href="#come-ando-com-os-cantos-2">2.2. Começando com os cantos</a></li>
+<li><a href="#condi-es-para-as-jogadas-2">2.3. Condições para as jogadas</a></li>
+<li><a href="#condi-es-para-as-jogadas-defini-es-auxiliares-2">2.4. Condições para as jogadas - definições auxiliares</a></li>
+<li><a href="#a-es-win-2">2.5. Ações - Win</a></li>
+<li><a href="#a-es-block-2">2.6. Ações - Block</a></li>
+<li><a href="#a-es-takecenter-e-setupwin-2">2.7. Ações - TakeCenter e SetupWin</a></li>
+<li><a href="#a-es-alterando-movex-2">2.8. Ações - alterando MoveX</a></li>
+<li><a href="#invariantes-2">2.9. Invariantes</a></li>
+<li><a href="#f-rmulas-temporais-2">2.10. Fórmulas temporais</a></li>
+<li><a href="#tarefa-de-casa-2">2.11. Tarefa de casa</a></li>
+<li><a href="#fim-2">2.12. FIM</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-jogando-de-qualquer-jeito-1" class="outline-2">
+<h2 id="jogando-de-qualquer-jeito-1"><span class="section-number-2">1.</span> Jogando de qualquer jeito</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-jogo-da-velha-2" class="outline-3">
+<h3 id="jogo-da-velha-2"><span class="section-number-3">1.1.</span> Jogo da Velha</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Todos conhecem jogo da velha?<br />
+</p>
+<p>
+PS: a partir de hoje, não vou mais traduzir as especificações para português<br />
+</p>
+<ul class="org-ul">
+<li>Acho legal usar português no início para que fique claro o que são <code>keywords</code> (sempre em inglês) e o que podemos escolher o nome (nesses casos, em português)<br /></li>
+<li>A partir daqui, vou usar os exemplos originais, em inglês.<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-tipos-e-vari-veis-2" class="outline-3">
+<h3 id="tipos-e-vari-veis-2"><span class="section-number-3">1.2.</span> Tipos e variáveis</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Definimos os seguintes tipos<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">type</span> Player = X | O
+<span style="color: #e35b15;">type</span> Square = Occupied(Player) | Empty
+</pre>
+</div>
+
+<p>
+E as seguintes variáveis<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #C18E76;">//</span><span style="color: #C18E76;">/ A 3x3 tic-tac-toe board</span>
+<span style="color: #e35b15;">var</span> board: <span style="color: #d79921;">int</span> -&gt; <span style="color: #d79921;">int</span> -&gt; Square
+
+<span style="color: #C18E76;">//</span><span style="color: #C18E76;">/ Who goes next</span>
+<span style="color: #e35b15;">var</span> nextTurn: Player
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-defini-es-sobre-coordenadas-2" class="outline-3">
+<h3 id="defini-es-sobre-coordenadas-2"><span class="section-number-3">1.3.</span> Definições sobre coordenadas</h3>
+<div class="outline-text-3" id="text-1-3">
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> boardCoordinates = tuples(1.to(3), 1.to(3))
+
+<span style="color: #e35b15;">def</span> square(coordinate: (<span style="color: #d79921;">int</span>, <span style="color: #d79921;">int</span>)): Square =
+  board.get(coordinate._1).get(coordinate._2)
+
+<span style="color: #e35b15;">def</span> hasPlayer(coordinate, player) =
+  match square(coordinate) {
+    | Empty       =&gt; <span style="color: #805b87;">false</span>
+    | Occupied(p) =&gt; player == p
+  }
+
+<span style="color: #e35b15;">def</span> isEmpty(coordinate) =
+  match square(coordinate) {
+    | Empty  =&gt; <span style="color: #805b87;">true</span>
+    | _      =&gt; <span style="color: #805b87;">false</span>
+  }
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-defini-es-sobre-o-tabuleiro-2" class="outline-3">
+<h3 id="defini-es-sobre-o-tabuleiro-2"><span class="section-number-3">1.4.</span> Definições sobre o tabuleiro</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> boardEmpty = boardCoordinates.forall(isEmpty)
+
+<span style="color: #e35b15;">val</span> boardFull = <span style="color: #66a4a4;">not</span>(boardCoordinates.exists(isEmpty))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-definindo-ganhar-coordenadas-2" class="outline-3">
+<h3 id="definindo-ganhar-coordenadas-2"><span class="section-number-3">1.5.</span> Definindo &ldquo;ganhar&rdquo; - coordenadas</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>Como o tabuleiro é sempre 3x3, é mais fácil listar todas as combinações de coordenadas que levam a uma vitória do que implementar os cálculos.<br /></li>
+<li>Usamos <code>Set</code> - não precisamos de ordem nem de repetição, logo não devemos usar <code>List</code>.<br /></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> winningPatterns = <span style="color: #d79921;">Set</span>(
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">Horizonal wins</span>
+  <span style="color: #d79921;">Set</span>((1,1), (1,2), (1,3)),
+  <span style="color: #d79921;">Set</span>((2,1), (2,2), (2,3)),
+  <span style="color: #d79921;">Set</span>((3,1), (3,2), (3,3)),
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">Vertical wins</span>
+  <span style="color: #d79921;">Set</span>((1,1), (2,1), (3,1)),
+  <span style="color: #d79921;">Set</span>((1,2), (2,2), (3,2)),
+  <span style="color: #d79921;">Set</span>((1,3), (2,3), (3,3)),
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">Diagonal wins</span>
+  <span style="color: #d79921;">Set</span>((1,1), (2,2), (3,3)),
+  <span style="color: #d79921;">Set</span>((3,1), (2,2), (1,3))
+)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-definindo-ganhar-operador-won-2" class="outline-3">
+<h3 id="definindo-ganhar-operador-won-2"><span class="section-number-3">1.6.</span> Definindo &ldquo;ganhar&rdquo; - operador won</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Usamos as definições para <code>winningPaterns</code> e <code>hasPlayer</code> para determinar se um jogador venceu.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">def</span> won(player) = winningPatterns.exists(pattern =&gt;
+  pattern.forall(coordinate =&gt; hasPlayer(coordinate, player))
+)
+</pre>
+</div>
+
+<p>
+Com essa definição e <code>boardFull</code>, podemos determinar se um jogo já acabou.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> gameOver = won(X) <span style="color: #66a4a4;">or</span> won(O) <span style="color: #66a4a4;">or</span> boardFull
+</pre>
+</div>
+<ul class="org-ul">
+<li>Reparem que o operador <code>or</code> pode ser usado na forma infixa (no meio dos argumentos)<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-a-es-move-2" class="outline-3">
+<h3 id="a-es-move-2"><span class="section-number-3">1.7.</span> Ações - Move</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+Um dado jogador faz uma jogada (um <i>move</i>) em uma dada coordenada<br />
+</p>
+<ul class="org-ul">
+<li>Determinístico<br /></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> Move(player, coordinate) = <span style="color: #66a4a4;">all</span> {
+  isEmpty(coordinate),
+  board' = board.setBy(
+    coordinate._1,
+    row =&gt; row.set(coordinate._2, Occupied(player))
+  ),
+}
+</pre>
+</div>
+<ul class="org-ul">
+<li><p>
+Qual é a pré-condição pra essa ação?<br />
+</p>
+<ul class="org-ul">
+<li>A pré-condição para essa ação é que a coordenada esteja vazia<br /></li>
+</ul></li>
+</ul>
+<ul class="org-ul">
+<li><code>setBy</code> é bem útil pra atualizar mapas aninhados (como nesse caso, <code>int -&gt; int -&gt; Square</code>)<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-a-es-movetoempty-2" class="outline-3">
+<h3 id="a-es-movetoempty-2"><span class="section-number-3">1.8.</span> Ações - MoveToEmpty</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+Um dado jogador faz uma jogada em <b>alguma</b> coordenada<br />
+</p>
+<ul class="org-ul">
+<li>Não-determinístico<br /></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> MoveToEmpty(player) = <span style="color: #66a4a4;">all</span> {
+  <span style="color: #66a4a4;">not</span>(gameOver),
+  <span style="color: #e35b15;">nondet</span> coordinate = boardCoordinates.filter(isEmpty).oneOf()
+  Move(player, coordinate)
+}
+</pre>
+</div>
+<ul class="org-ul">
+<li><p>
+Qual é a pré-condição pra essa ação?<br />
+</p>
+<ul class="org-ul">
+<li>A pré-condição para essa ação é que o jogo ainda não tenha acabado<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-a-es-moveo-e-movex-2" class="outline-3">
+<h3 id="a-es-moveo-e-movex-2"><span class="section-number-3">1.9.</span> Ações - MoveO e MoveX</h3>
+<div class="outline-text-3" id="text-1-9">
+<ul class="org-ul">
+<li>Por enquanto, as ações <code>MoveO</code> e <code>MoveX</code> são bem parecidas porque ambos jogam &ldquo;de qualquer jeito&rdquo;. Não vamos parametrizar elas porque depois vamos mudar somente o comportamento de <code>X</code>.<br /></li>
+</ul>
+</div>
+<ol class="org-ol">
+<li><a id="move0-3"></a>Move0<br />
+<div class="outline-text-4" id="text-1-9-1">
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> MoveO = <span style="color: #66a4a4;">all</span> {
+  nextTurn == O,
+  MoveToEmpty(O),
+  nextTurn' = X,
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="movex-3"></a>MoveX<br />
+<div class="outline-text-4" id="text-1-9-2">
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> MoveX = <span style="color: #66a4a4;">all</span> {
+  nextTurn == X,
+  MoveToEmpty(X),
+  nextTurn' = O,
+}
+</pre>
+</div>
+</div>
+</li>
+<li><a id="-3"></a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="B_ignoreheading">B_ignoreheading</span></span><br />
+<div class="outline-text-4" id="text-1-9-3">
+<ul class="org-ul">
+<li><p>
+Qual é a pré-condição pra essas ações?<br />
+</p>
+<ul class="org-ul">
+<li>Para ambas, a pré-condição é que seja o turno do jogador a fazer a jogada<br />
+<ul class="org-ul">
+<li>Implicitamente, também temos a pré-condição de <code>MoveToEmpty</code> empregada nessa ação<br /></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-estado-inicial-2" class="outline-3">
+<h3 id="estado-inicial-2"><span class="section-number-3">1.10.</span> Estado inicial</h3>
+<div class="outline-text-3" id="text-1-10">
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> init = <span style="color: #66a4a4;">all</span> {
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">X always goes first</span>
+  nextTurn' = X,
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">Every space in the board starts blank</span>
+  board' = 1.to(3).mapBy(_ =&gt; 1.to(3).mapBy(_ =&gt; Empty)),
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-transi-es-2" class="outline-3">
+<h3 id="transi-es-2"><span class="section-number-3">1.11.</span> Transições</h3>
+<div class="outline-text-3" id="text-1-11">
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> step = <span style="color: #66a4a4;">any</span> {
+  MoveX,
+  MoveO,
+  <span style="color: #C18E76;">// </span><span style="color: #C18E76;">If the game is over, we don't need to do anything</span>
+  <span style="color: #66a4a4;">all</span> { gameOver, board' = board, nextTurn' = nextTurn },
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-rodando-jogos-aleat-rios-com-o-simulador-2" class="outline-3">
+<h3 id="rodando-jogos-aleat-rios-com-o-simulador-2"><span class="section-number-3">1.12.</span> Rodando jogos aleatórios com o simulador</h3>
+<div class="outline-text-3" id="text-1-12">
+<div class="org-src-container">
+<pre class="src src-sh">quint run tictactoe.qnt --max-samples=<span style="color: #d79921; font-weight: bold;">1</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-quint">...
+
+[State 20]
+{
+  board:
+    Map(
+      1 -&gt; Map(1 -&gt; Occupied(O), 2 -&gt; Occupied(X), 3 -&gt; Occupied(X)),
+      2 -&gt; Map(1 -&gt; Occupied(X), 2 -&gt; Occupied(O), 3 -&gt; Occupied(O)),
+      3 -&gt; Map(1 -&gt; Occupied(X), 2 -&gt; Occupied(O), 3 -&gt; Occupied(X))
+    ),
+  nextTurn: O
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-usando-uma-invariante-para-procurar-jogos-que-d-o-velha-2" class="outline-3">
+<h3 id="usando-uma-invariante-para-procurar-jogos-que-d-o-velha-2"><span class="section-number-3">1.13.</span> Usando uma invariante para procurar jogos que &ldquo;dão velha&rdquo;</h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+&ldquo;Dar velha&rdquo;, ou <i>stalemate</i>, quer dizer que o tabuleiro está cheio e ninguém ganhou. É um empate.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> stalemate = boardFull <span style="color: #66a4a4;">and</span> <span style="color: #66a4a4;">not</span>(won(X)) <span style="color: #66a4a4;">and</span> <span style="color: #66a4a4;">not</span>(won(O))
+
+<span style="color: #e35b15;">val</span> NotStalemate = <span style="color: #66a4a4;">not</span>(stalemate)
+</pre>
+</div>
+
+<p>
+Essa invariante é fácil de quebrar, podemos usar o simulador ao invés do <i>model checker</i> tranquilamente:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">quint run tictactoe.qnt --invariant=NotStalemate
+</pre>
+</div>
+
+<p>
+Mas podemos usar o <i>model checker</i> também! Ele vai demorar mais, porque faz BFS e vai levar um tempo para chegar em jogos com 9 jogadas feitas, que são necessárias para um tabuleiro completo.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">quint verify tictactoe.qnt --invariant=NotStalemate
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-contraexemplo-2" class="outline-3">
+<h3 id="contraexemplo-2"><span class="section-number-3">1.14.</span> Contraexemplo</h3>
+<div class="outline-text-3" id="text-1-14">
+<div class="org-src-container">
+<pre class="src src-quint">[State 9]
+{
+  board:
+    Map(
+      1 -&gt; Map(1 -&gt; Occupied(O), 2 -&gt; Occupied(X), 3 -&gt; Occupied(O)),
+      2 -&gt; Map(1 -&gt; Occupied(O), 2 -&gt; Occupied(X), 3 -&gt; Occupied(X)),
+      3 -&gt; Map(1 -&gt; Occupied(X), 2 -&gt; Occupied(O), 3 -&gt; Occupied(X))
+    ),
+  nextTurn: O
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-jogando-pra-ganhar-1" class="outline-2">
+<h2 id="jogando-pra-ganhar-1"><span class="section-number-2">2.</span> Jogando pra ganhar</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-jogando-pra-ganhar-2" class="outline-3">
+<h3 id="jogando-pra-ganhar-2"><span class="section-number-3">2.1.</span> Jogando pra ganhar</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Jogo da velha é um jogo bem simples e fácil<br /></li>
+<li>Ainda quando crianças, enjoamos do jogo, porque percebemos que &ldquo;sempre dá velha&rdquo;<br /></li>
+<li>Hipótese: Se um jogador seguir uma certa estratégia, ele nunca perde.<br />
+<ul class="org-ul">
+<li>Consequência: Se os dois jogadores seguirem essa estratégia, nenhum dos dois perde - &ldquo;sempre dá velha&rdquo;<br /></li>
+</ul></li>
+</ul>
+
+<p>
+<b>Estratégia</b>:<br />
+</p>
+<ul class="org-ul">
+<li>A primeira jogada é sempre nos cantos<br /></li>
+<li>As outras jogadas fazem a primeira jogada possível nessa lista de prioridade:<br />
+<ul class="org-ul">
+<li>Ganhar<br /></li>
+<li>Bloquear<br /></li>
+<li>Jogar no centro<br /></li>
+<li>Preparar uma vitória (preenchendo 2 de 3 quadrados numa fila/coluna/diagonal)<br /></li>
+<li>Jogada qualquer<br /></li>
+</ul></li>
+</ul>
+
+<p>
+Vamos implementar essa estratégia para o jogador X, enquanto o jogador O continua jogando &ldquo;de qualquer jeito&rdquo;.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-come-ando-com-os-cantos-2" class="outline-3">
+<h3 id="come-ando-com-os-cantos-2"><span class="section-number-3">2.2.</span> Começando com os cantos</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> corners = <span style="color: #d79921;">Set</span>(
+  (1,1),
+  (3,1),
+  (1,3),
+  (3,3)
+)
+
+<span style="color: #e35b15;">action</span> StartInCorner =
+  <span style="color: #e35b15;">nondet</span> corner = oneOf(corners)
+  Move(X, corner)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-condi-es-para-as-jogadas-2" class="outline-3">
+<h3 id="condi-es-para-as-jogadas-2"><span class="section-number-3">2.3.</span> Condições para as jogadas</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Precisamos definir as condições que determinam se cada uma das jogadas na lista de prioridade pode ser feita.<br />
+</p>
+<ul class="org-ul">
+<li>Ganhar<br /></li>
+<li>Bloquear<br /></li>
+<li>Jogar no centro<br /></li>
+<li>Preparar uma vitória<br /></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">val</span> canWin = winningPatterns.exists(canWinWithPattern)
+<span style="color: #e35b15;">val</span> canBlock = winningPatterns.exists(canBlockWithPattern)
+<span style="color: #e35b15;">val</span> canTakeCenter = isEmpty((2,2))
+<span style="color: #e35b15;">val</span> canSetupWin = winningPatterns.exists(canSetupWinWithPattern)
+</pre>
+</div>
+
+<p>
+(<code>canWinWithPattern</code>, <code>canBlockWithPattern</code> e <code>canSetupWintWithPattern</code> a seguir)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-condi-es-para-as-jogadas-defini-es-auxiliares-2" class="outline-3">
+<h3 id="condi-es-para-as-jogadas-defini-es-auxiliares-2"><span class="section-number-3">2.4.</span> Condições para as jogadas - definições auxiliares</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Dado um <i>winning pattern</i>, podemos <b>ganhar</b> com aquele <i>pattern</i> sse duas das coordenadas tiverem <code>X</code> e a outra estiver vazia. Lembrando que a ordem não importa.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">def</span> canWinWithPattern(pattern) = <span style="color: #66a4a4;">and</span> {
+  pattern.filter(coordinate =&gt; coordinate.hasPlayer(X)).size() == 2,
+  pattern.filter(coordinate =&gt; coordinate.isEmpty()).size() == 1,
+}
+</pre>
+</div>
+
+<p>
+Dado um <i>winning pattern</i>, podemos <b>bloquear</b> com aquele <i>pattern</i> sse duas das coordenadas tiverem <code>O</code> e a outra estiver vazia.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">def</span> canBlockWithPattern(pattern) = <span style="color: #66a4a4;">and</span> {
+  pattern.filter(coordinate =&gt; coordinate.hasPlayer(O)).size() == 2,
+  pattern.filter(coordinate =&gt; coordinate.isEmpty()).size() == 1,
+}
+</pre>
+</div>
+
+<p>
+Dado um <i>winning pattern</i>, podemos <b>preparar uma vitória</b> com aquele <i>pattern</i> sse uma das coordenadas tiver <code>X</code> e as outras duas estiverem vazias.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">def</span> canSetupWinWithPattern(pattern) = <span style="color: #66a4a4;">and</span> {
+  pattern.filter(coordinate =&gt; coordinate.hasPlayer(X)).size() == 1,
+  pattern.filter(coordinate =&gt; coordinate.isEmpty()).size() == 2,
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-a-es-win-2" class="outline-3">
+<h3 id="a-es-win-2"><span class="section-number-3">2.5.</span> Ações - Win</h3>
+<div class="outline-text-3" id="text-2-5">
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> Win = <span style="color: #66a4a4;">all</span> {
+  canWin,
+  <span style="color: #e35b15;">nondet</span> pattern = winningPatterns.filter(canWinWithPattern).oneOf()
+  <span style="color: #e35b15;">nondet</span> coordinate = pattern.filter(isEmpty).oneOf()
+  Move(X, coordinate),
+}
+</pre>
+</div>
+<ul class="org-ul">
+<li><p>
+Qual é a pré-condição pra essa ação?<br />
+</p>
+<ul class="org-ul">
+<li><code>canWin</code>, lembrando que <code>canWin</code> é definido por:<br /></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-quint">  <span style="color: #e35b15;">val</span> canWin = winningPatterns.exists(canWinWithPattern)
+</pre>
+</div>
+<ul class="org-ul">
+<li>Isso é importante para garantir que nunca estamos chamando <code>oneOf</code> em um set vazio.<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-a-es-block-2" class="outline-3">
+<h3 id="a-es-block-2"><span class="section-number-3">2.6.</span> Ações - Block</h3>
+<div class="outline-text-3" id="text-2-6">
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> Block = <span style="color: #66a4a4;">all</span> {
+  canBlock,
+  <span style="color: #e35b15;">nondet</span> pattern = winningPatterns.filter(canBlockWithPattern).oneOf()
+  <span style="color: #e35b15;">nondet</span> coordinate = pattern.filter(isEmpty).oneOf()
+  Move(X, coordinate),
+}
+</pre>
+</div>
+
+<p>
+Observem o uso de <code>oneOf</code> para selecionar a coordenada aqui. Nesses casos (tanto <code>Win</code> quanto <code>Block</code>), essa seleção é <b>determinística</b>, porque sabemos que sempre haverá uma única coordenada vazia nesses <i>patterns</i>. Contudo, o Quint não sabe disso.<br />
+</p>
+<ul class="org-ul">
+<li>Não existe algo como &ldquo;pegar o primeiro elemento do set&rdquo; - porque sets não são ordenados!<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-a-es-takecenter-e-setupwin-2" class="outline-3">
+<h3 id="a-es-takecenter-e-setupwin-2"><span class="section-number-3">2.7.</span> Ações - TakeCenter e SetupWin</h3>
+<div class="outline-text-3" id="text-2-7">
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> TakeCenter = Move(X, (2, 2))
+
+<span style="color: #e35b15;">action</span> SetupWin = <span style="color: #66a4a4;">all</span> {
+  <span style="color: #e35b15;">nondet</span> pattern = winningPatterns.filter(canSetupWinWithPattern).oneOf()
+  <span style="color: #e35b15;">nondet</span> coordinate = pattern.filter(isEmpty).oneOf()
+  Move(X, coordinate),
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-a-es-alterando-movex-2" class="outline-3">
+<h3 id="a-es-alterando-movex-2"><span class="section-number-3">2.8.</span> Ações - alterando MoveX</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+Temos todas as ações para a estratégia definidas, agora basta definir um novo <code>MoveX</code> que chama essas ações conforme a prioridade estabelecida.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">action</span> MoveX = <span style="color: #66a4a4;">all</span> {
+  nextTurn == X,
+  <span style="color: #66a4a4;">if</span> (boardEmpty) StartInCorner <span style="color: #66a4a4;">else</span>
+  <span style="color: #66a4a4;">if</span> (canWin) Win <span style="color: #66a4a4;">else</span>
+  <span style="color: #66a4a4;">if</span> (canBlock) Block <span style="color: #66a4a4;">else</span>
+  <span style="color: #66a4a4;">if</span> (canTakeCenter) TakeCenter <span style="color: #66a4a4;">else</span>
+  <span style="color: #66a4a4;">if</span> (canSetupWin) SetupWin <span style="color: #66a4a4;">else</span>
+  MoveToEmpty(X),
+  nextTurn' = O,
+}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-invariantes-2" class="outline-3">
+<h3 id="invariantes-2"><span class="section-number-3">2.9.</span> Invariantes</h3>
+<div class="outline-text-3" id="text-2-9">
+<p>
+Com isso, temos nosso modelo. Agora, vamos definir algumas invariantes para o uso dessa estratégia.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">  <span style="color: #C18E76;">//</span><span style="color: #C18E76;">/ X has not won. This does not hold, as X wins most of the times.</span>
+  <span style="color: #e35b15;">val</span> XHasNotWon = <span style="color: #66a4a4;">not</span>(won(X))
+
+  <span style="color: #C18E76;">//</span><span style="color: #C18E76;">/ O has not won. This should hold, as O can only achieve a draw.</span>
+  <span style="color: #e35b15;">val</span> OHasNotWon = <span style="color: #66a4a4;">not</span>(won(O))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-f-rmulas-temporais-2" class="outline-3">
+<h3 id="f-rmulas-temporais-2"><span class="section-number-3">2.10.</span> Fórmulas temporais</h3>
+<div class="outline-text-3" id="text-2-10">
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #C18E76;">//</span><span style="color: #C18E76;">/ This is not always true, as if O picks the right moves, the game will</span>
+<span style="color: #C18E76;">//</span><span style="color: #C18E76;">/ result in a stalemate.</span>
+<span style="color: #e35b15;">temporal</span> XMustEventuallyWin = eventually(won(X))
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Infelizmente, a implementação de propriedades temporais no Apalache ainda é bem rudimentar.<br /></li>
+<li>Podemos traduzir Quint pra TLA+ e usar o TLC para checar essa propriedade<br />
+<ul class="org-ul">
+<li>Esse processo ainda tem alguns problemas, então vamos deixar quieto por enquanto<br /></li>
+</ul></li>
+<li>O simulador não suporta fórmulas temporais<br />
+<ul class="org-ul">
+<li>Poderia suportar com aquela implementação que fizemos em C++/Haskell na disciplina<br /></li>
+</ul></li>
+<li>Vamos ver essa mesma especificação em TLA+, e aí podemos explorar melhor as propriedades temporais<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-tarefa-de-casa-2" class="outline-3">
+<h3 id="tarefa-de-casa-2"><span class="section-number-3">2.11.</span> Tarefa de casa</h3>
+<div class="outline-text-3" id="text-2-11">
+<p>
+Tarefa para a próxima aula: ler o blogpost <a href="https://elliotswart.github.io/pragmaticformalmodeling/">https://elliotswart.github.io/pragmaticformalmodeling/</a><br />
+</p>
+<ul class="org-ul">
+<li>Serve como uma revisão de alguns conteúdos da matéria até agora<br /></li>
+<li>Explica a modelagem do jogo da velha em TLA+, que veremos na próxima aula<br /></li>
+<li>Também conta como referência pra essa aula :)<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-fim-2" class="outline-3">
+<h3 id="fim-2"><span class="section-number-3">2.12.</span> FIM</h3>
+<div class="outline-text-3" id="text-2-12">
+</div>
+</div>
+</div>
+
+      </div>
+    </div>
+  </body>
+</html>

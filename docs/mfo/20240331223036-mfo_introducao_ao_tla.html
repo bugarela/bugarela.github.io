@@ -649,6 +649,30 @@ O <code>CHOOSE</code> é um operador um tanto complicado<br />
 <li>Ele parece não determinístico, mas é completamente determinístico<br /></li>
 <li>Vamos evitar ele por agora. Talvez voltamos nisso no final da disciplina.<br /></li>
 </ul>
+
+<p>
+Solução: <code>SetAsFun</code><br />
+</p>
+
+<p>
+Podemos copiar o operador <code>SetAsFun</code> do Apalache e usá-lo. Primeiro, copie e cole a seguinte definição<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">SetAsFun(S) ==
+    <span style="color: #66a4a4;">LET</span> Dom == { x: &lt;&lt;x, y&gt;&gt; \in S }
+        Rng == { y: &lt;&lt;x, y&gt;&gt; \in S }
+    <span style="color: #66a4a4;">IN</span>
+    [ x \in Dom |-&gt; <span style="color: #66a4a4;">CHOOSE</span> y \in Rng: &lt;&lt;x, y&gt;&gt; \in S ]
+</pre>
+</div>
+
+<p>
+E para utilizar, basta fornecer um conjundo de duplas do tipo <a></a> como parâmetro:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">MeuMapa == SetAsFun({ &lt;&lt;k_1, v_1&gt;&gt;, &lt;&lt;k_2, v_2&gt;&gt;, &lt;&lt;k_3, v_3&gt;&gt; })
+</pre>
+</div>
 </div>
 </div>
 <div id="outline-container-maps-acesso-2" class="outline-3">

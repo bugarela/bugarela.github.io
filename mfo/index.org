@@ -2,8 +2,6 @@
 #+date: <2024-02-25 Sun>
 #+OPTIONS:  num:nil toc:nil
 
-** Links úteis
-#+HTML: <a href="https://bugarela.com/mfo/cheatsheet_logica_temporal.pdf">Cheatsheet Lógica Temporal (PDF)</a>
+[[https://bugarela.com/mfo/cheatsheet_logica_temporal.pdf][Cheatsheet Lógica Temporal (PDF)]]
 
-** Aulas
 #+include: sitemap.inc

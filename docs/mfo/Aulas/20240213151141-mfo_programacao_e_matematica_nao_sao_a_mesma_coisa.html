@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Programação e matemática não são a mesma coisa</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="https://bugarela.com/mfo/Aulas/20240213151141-mfo_programacao_e_matematica_nao_sao_a_mesma_coisa.html" />
+  <meta property="og:title" content="Programação e matemática não são a mesma coisa" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+    <meta property="og:image" content="https://bugarela.com/mfo/Aulas/figures/pioneer-plaque.png" />
+    <meta property="og:image:width" content="4004" />
+    <meta property="og:image:height" content="3173" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Programação e matemática não são a mesma coisa">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../../css/layouts/style.css">
+
+  </head>
+  <body>
+    <div id="layout" class="pure-g">
+      <div class="sidebar pure-u-1 pure-u-md-1-3">
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-lg-1-2">
+    </div>
+    <div class="pure-u-1 pure-u-lg-1-2">
+      <div class="header">
+        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
+      </div>
+      <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+      </div>
+      <div class="footer">
+  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-2-3">
+        <h2>Programação e matemática não são a mesma coisa</h2>
+        <a href="https://bugarela.com/mfo/slides/20240213151141-mfo_programacao_e_matematica_nao_sao_a_mesma_coisa.pdf">Slides</a>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#introdu-o-1">1. Introdução</a>
+<ul>
+<li><a href="#essa-aula-n-o-sobre-2">1.1. Essa aula não é sobre</a></li>
+<li><a href="#essa-aula-sobre-2">1.2. Essa aula é sobre</a></li>
+</ul>
+</li>
+<li><a href="#correspond-ncias-interessantes-1">2. Correspondências interessantes</a>
+<ul>
+<li><a href="#correspond-ncias-interessantes-est-tudo-interligado-2">2.1. Correspondências interessantes - está tudo interligado!</a></li>
+<li><a href="#linguagem-universal-2">2.2. Linguagem universal</a></li>
+<li><a href="#isomorfismo-de-curry-howard-2">2.3. Isomorfismo de Curry-Howard</a></li>
+<li><a href="#interpreta-o-alg-brica-para-tipos-2">2.4. Interpretação algébrica para tipos</a></li>
+<li><a href="#exponencia-o-como-tipos-de-fun-es-i-2">2.5. Exponenciação como tipos de funções I</a></li>
+<li><a href="#fun-es-parciais-2">2.6. Funções parciais</a></li>
+</ul>
+</li>
+<li><a href="#diferen-as-importantes-1">3. Diferenças importantes</a>
+<ul>
+<li><a href="#erros-vs-indefini-es-2">3.1. Erros vs indefinições</a></li>
+<li><a href="#fun-es-vs-maps-2">3.2. Funções vs <code>Maps</code></a></li>
+<li><a href="#implementa-o-vs-defini-o-2">3.3. Implementação vs definição</a></li>
+<li><a href="#em-resumo-2">3.4. Em resumo</a></li>
+<li><a href="#refer-ncias-2">3.5. Referências</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-introdu-o-1" class="outline-2">
+<h2 id="introdu-o-1"><span class="section-number-2">1.</span> Introdução</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-essa-aula-n-o-sobre-2" class="outline-3">
+<h3 id="essa-aula-n-o-sobre-2"><span class="section-number-3">1.1.</span> Essa aula não é sobre</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Essa aula não é sobre:<br />
+</p>
+<ul class="org-ul">
+<li>&ldquo;Precisa saber matemática pra programar?&rdquo;<br /></li>
+<li>&ldquo;Quem tem base matemática programa melhor?&rdquo;<br /></li>
+</ul>
+
+<p>
+&#x2026; que muitas vezes são derivados de &ldquo;precisa ter faculdade pra trabalhar com programação?&rdquo;<br />
+</p>
+
+<p>
+Vocês estão cursando Ciência da Computação, então independente disso tudo, vão sim aprender uma base lógica/matemática.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-essa-aula-sobre-2" class="outline-3">
+<h3 id="essa-aula-sobre-2"><span class="section-number-3">1.2.</span> Essa aula é sobre</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Como matemática e programação se relacionam, e a importância de entender as diferenças.<br />
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="m-todos-formais-s-o-sobre-matem-tica-ou-sobre-programa-o-3"></a>Métodos Formais são sobre matemática ou sobre programação?<br />
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+Vamos trabalhar com ambos no mesmo ambiente, e o domínio sobre quando usar uma perspectiva ou outra é a principal habilidade para se escrever uma boa <b>especificação formal</b>.<br />
+</p>
+
+<p>
+No geral, nós, programadores, tendemos à <b>perspectiva da programação</b>, e precisamos nos esforçar para descrever algumas coisas na <b>perspectiva matemática</b>.<br />
+</p>
+
+<p>
+Para isso, primeiro precisamos entender as semelhanças e diferenças<br />
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-correspond-ncias-interessantes-1" class="outline-2">
+<h2 id="correspond-ncias-interessantes-1"><span class="section-number-2">2.</span> Correspondências interessantes</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-correspond-ncias-interessantes-est-tudo-interligado-2" class="outline-3">
+<h3 id="correspond-ncias-interessantes-est-tudo-interligado-2"><span class="section-number-3">2.1.</span> Correspondências interessantes - está tudo interligado!</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Em 1930, Church e Turing provam, de forma independente, que o problema Entscheidungsproblem não pode ser resolvido<br />
+<ul class="org-ul">
+<li>Church criando o cálculo lambda<br /></li>
+<li>Turing criando as máquinas de Turing<br /></li>
+<li>São equivalentes!<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-linguagem-universal-2" class="outline-3">
+<h3 id="linguagem-universal-2"><span class="section-number-3">2.2.</span> Linguagem universal</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>(<a href="#citeproc_bib_item_3">WADLER, 2015</a>) E se mandássemos cálculo lambda para os alienígenas? Seriam eles capazes de compreender?<br /></li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./figures/pioneer-plaque.png" alt="pioneer-plaque.png" width="600px" /><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-isomorfismo-de-curry-howard-2" class="outline-3">
+<h3 id="isomorfismo-de-curry-howard-2"><span class="section-number-3">2.3.</span> Isomorfismo de Curry-Howard</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>Proposições como tipos<br /></li>
+<li>Provas como programas<br /></li>
+<li>Simplificação de provas como avaliação de programas<br /></li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Lógica</th>
+<th scope="col" class="org-left">Tipos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Falso</td>
+<td class="org-left"><code>Void</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Verdadeiro</td>
+<td class="org-left"><code>()</code></td>
+</tr>
+
+<tr>
+<td class="org-left">\(a \lor b\)</td>
+<td class="org-left"><code>Either a b</code></td>
+</tr>
+
+<tr>
+<td class="org-left">\(a \land b\)</td>
+<td class="org-left"><code>(a,b)</code></td>
+</tr>
+
+<tr>
+<td class="org-left">\(a \implies b\)</td>
+<td class="org-left"><code>a -&gt; b</code></td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Exemplo: implicação e abstração + aplicação<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Lógica</th>
+<th scope="col" class="org-left">Tipos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\({\displaystyle {\frac {}{\Gamma _{1},\alpha ,\Gamma _{2}\vdash \alpha }}{\text{Ax}}} \rule{0pt}{4ex}\)</td>
+<td class="org-left">\({\displaystyle {\frac {}{\Gamma _{1},x:\alpha ,\Gamma _{2}\vdash x:\alpha }}}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\({\displaystyle {\frac {\Gamma ,\alpha \vdash \beta }{\Gamma \vdash \alpha \rightarrow \beta }}\rightarrow I} \rule{0pt}{8ex}\)</td>
+<td class="org-left">\({\displaystyle {\frac {\Gamma ,x:\alpha \vdash t:\beta }{\Gamma \vdash \lambda x.t:\alpha \rightarrow \beta }}}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\({\displaystyle {\frac {\Gamma \vdash \alpha \rightarrow \beta \qquad \Gamma \vdash \alpha }{\Gamma \vdash \beta }}\rightarrow E} \rule{0pt}{8ex}\)</td>
+<td class="org-left">\({\displaystyle {\frac {\Gamma \vdash t:\alpha \rightarrow \beta \qquad \Gamma \vdash u:\alpha }{\Gamma \vdash t\;u:\beta }}}\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-interpreta-o-alg-brica-para-tipos-2" class="outline-3">
+<h3 id="interpreta-o-alg-brica-para-tipos-2"><span class="section-number-3">2.4.</span> Interpretação algébrica para tipos</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>A teoria das categorias define um nível ainda mais alto de abstração para enxergar algumas coisas. Um dos exemplos mais simples de uma categoria é a categoria dos conjuntos (e das funções entre eles) (<a href="#citeproc_bib_item_1">DE FRANÇA, 2019</a>).<br /></li>
+<li>As chamadas categorias cartesianas fechadas podem ser relacionadas a nossa álgebra de ensino médio<br />
+<ul class="org-ul">
+<li>A categoria dos tipos é uma delas!<br /></li>
+</ul></li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Lógica</th>
+<th scope="col" class="org-left">Tipos</th>
+<th scope="col" class="org-left">Álgebra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Falso</td>
+<td class="org-left"><code>Void</code></td>
+<td class="org-left">\(0\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Verdadeiro</td>
+<td class="org-left"><code>()</code></td>
+<td class="org-left">\(1\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(a \lor b\)</td>
+<td class="org-left"><code>Either a b</code></td>
+<td class="org-left">\(a + b\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(a \land b\)</td>
+<td class="org-left"><code>(a,b)</code></td>
+<td class="org-left">\(a * b\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(a \implies b\)</td>
+<td class="org-left"><code>a -&gt; b</code></td>
+<td class="org-left">\(b^a\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-exponencia-o-como-tipos-de-fun-es-i-2" class="outline-3">
+<h3 id="exponencia-o-como-tipos-de-fun-es-i-2"><span class="section-number-3">2.5.</span> Exponenciação como tipos de funções I</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+Vamos escrever tipos função (<code>a -&gt; b</code>) como operações de exponenciação da álgebra:<br />
+</p>
+<ul class="org-ul">
+<li><p>
+\(a^0 = 1\) tem assinatura <code>Void -&gt; a</code>. Apenas uma função tem essa assinatura (em Haskell, <code>absurd</code>)<br />
+</p></li>
+<li><p>
+\(a^1 = a\) tem assinatura <code>() -&gt; a</code>. O número de funções com esse tipo é o mesmo número de valores do tipo <code>a</code>.<br />
+</p>
+<ul class="org-ul">
+<li>Por exemplo, pra <code>a</code> sendo <code>bool</code>, temos <code>f x = false</code> e <code>f x = true</code><br /></li>
+</ul></li>
+<li><p>
+\(1^a = 1\) tem assinatura <code>a -&gt; ()</code>. Apenas uma função tem essa assinatura (<code>f x = ()</code>)<br />
+</p></li>
+<li><p>
+\(a^{b+c}\) tem assinatura <code>Either b c -&gt; a</code><br />
+</p>
+<ul class="org-ul">
+<li>Para isso, temos que definir os casos <code>Left</code> com tipo <code>b -&gt; a</code> e <code>Right</code> com tipo <code>c -&gt; a</code><br /></li>
+<li>Ou seja, \(a^{b + c} = a^b * a^c\)<br /></li>
+</ul></li>
+<li><p>
+\((a^b)^c\) tem assinatura <code>c -&gt; (b -&gt; a)</code><br />
+</p>
+<ul class="org-ul">
+<li>Lembrando de currying, sabemos que isso é equivalente a <code>(c,b) -&gt; a</code>.<br /></li>
+<li>Ou seja, \((a^b)^c = a^{(b*c)}\)<br /></li>
+</ul></li>
+<li>\((a*b)^c\) tem assinatura <code>c -&gt; (a, b)</code><br />
+<ul class="org-ul">
+<li>Equivalente a um par de funções <code>c -&gt; a</code> e <code>c -&gt; b</code><br /></li>
+<li>Ou seja, \((a*b)^c = a^c * b^c\)<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-fun-es-parciais-2" class="outline-3">
+<h3 id="fun-es-parciais-2"><span class="section-number-3">2.6.</span> Funções parciais</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+Agora, um caso mais tangível para voltarmos um pouco para a nossa realidade.<br />
+</p>
+<ul class="org-ul">
+<li>Na matemática, funções podem ser totais ou parciais<br />
+<ul class="org-ul">
+<li>Para transformar funções parciais em totais, adicionamos o valor bottom (\(\bot\)) ao co-domínio e mapeamos todos os valores anteriormente indefinidos ao bottom.<br /></li>
+</ul></li>
+<li>Na computação, funções parciais precisam retornar o tipo soma. Dependendo da linguagem, pode ser algo como:<br />
+<ul class="org-ul">
+<li><code>f(x: int): int | undefined</code><br /></li>
+<li><code>int -&gt; Maybe int</code><br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-diferen-as-importantes-1" class="outline-2">
+<h2 id="diferen-as-importantes-1"><span class="section-number-2">3.</span> Diferenças importantes</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-erros-vs-indefini-es-2" class="outline-3">
+<h3 id="erros-vs-indefini-es-2"><span class="section-number-3">3.1.</span> Erros vs indefinições</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>Na matemática, algumas fórmulas são indefinidas.<br />
+<ul class="org-ul">
+<li>Divisão não está definida para denominador \(0\)<br /></li>
+<li>Exponenciação não está definida para \(0^0\)<br /></li>
+</ul></li>
+
+<li>Na programação, precisamos <b>definir</b> o que acontece nesses cenários<br />
+<ul class="org-ul">
+<li>Normalmente, o que queremos é reportar algum tipo de erro<br /></li>
+<li>Programação envolve humanos. Humanos erram e precisam entender aonde erraram.<br />
+<ul class="org-ul">
+<li>&ldquo;Opa, você tentou dividir por 0 na linha X coluna Y&rdquo; - pode salvar alguém de horas de debugging<br /></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-fun-es-vs-maps-2" class="outline-3">
+<h3 id="fun-es-vs-maps-2"><span class="section-number-3">3.2.</span> Funções vs <code>Maps</code></h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Funções matemáticas podem ser programadas através de funções ou <code>Maps</code> (<a href="#citeproc_bib_item_2">KONNOV, 2024</a>). Pense nos exemplos<br />
+</p>
+<ol class="org-ol">
+<li>Função de um número para seu dobro.<br /></li>
+<li>Função do nome da pessoa para sua idade.<br /></li>
+</ol>
+
+<p>
+Na programação, vamos considerar os fatores<br />
+</p>
+<ul class="org-ul">
+<li>Uso de Memória<br /></li>
+<li>Velocidade de resposta<br /></li>
+</ul>
+
+<p>
+Numa especificação formal, memória e velocidade não importam da mesma forma<br />
+</p>
+</div>
+</div>
+<div id="outline-container-implementa-o-vs-defini-o-2" class="outline-3">
+<h3 id="implementa-o-vs-defini-o-2"><span class="section-number-3">3.3.</span> Implementação vs definição</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Imagine a seguinte definição:<br />
+</p>
+<ul class="org-ul">
+<li>Dada uma função que ordena uma lista de inteiros<br /></li>
+</ul>
+
+<p>
+O que você pensou sobre essa função?<br />
+</p>
+<p>
+Bem possível que pensou em um ou mais algoritmos de ordenação (i.e. bubble sort, selection sort, quick sort)<br />
+</p>
+<p>
+Na matemática, não importa <b>como</b> a ordenação é feita. A função em questão poderia ser descrita mais precisamente por:<br />
+</p>
+<ul class="org-ul">
+<li>Seja \(f: \overline{\mathbb{Z}} \rightarrow \overline{\mathbb{Z}}\) tal que \(f(x)_i \leq f(x)_{i+1}\) para todo \(i \in [0, |x|-1)\)<br /></li>
+</ul>
+
+<p>
+Numa especificação formal, se não há relevância no algoritmo de ordenação (contanto que ele, de fato, ordene), podemos economizar recursos na verificação ao especificar somente a propriedade de ordenação.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-em-resumo-2" class="outline-3">
+<h3 id="em-resumo-2"><span class="section-number-3">3.4.</span> Em resumo</h3>
+<div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li>Matemática e programação estão muito interligados<br /></li>
+<li>Contudo, há diferenças nos níveis de abstração entre o que costumamos descrever em definições matemáticas e em programas.<br />
+<ul class="org-ul">
+<li>Em programas, nos importamos com memória e velocidade, o que normalmente não é representado na matemática.<br /></li>
+<li>Em programas, precisamos detalhar <b>como</b> cada função é implementada, enquanto na matemática podemos somente definir funções pelas suas propriedades.<br />
+<ul class="org-ul">
+<li>Inclusive, precisamos detalhar o que acontece em casos indefinidos pela matemática, como divisão por 0.<br /></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-refer-ncias-2" class="outline-3">
+<h3 id="refer-ncias-2"><span class="section-number-3">3.5.</span> Referências</h3>
+<div class="outline-text-3" id="text-3-5">
+<div class="csl-bib-body">
+  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>DE FRANÇA, F. O. <b>Tipo função</b>. Disponível em: &#60;<a href="https://haskell.pesquisa.ufabc.edu.br/teoria-das-categorias/09-tipofuncao/">https://haskell.pesquisa.ufabc.edu.br/teoria-das-categorias/09-tipofuncao/</a>&#62;. </div>
+  <div class="csl-entry"><a id="citeproc_bib_item_2"></a>KONNOV, I. <b>You should not care about memory in protocol specifications</b>. Disponível em: &#60;<a href="https://konnov.github.io/protocols-made-fun/quint/2024/01/14/maps.html">https://konnov.github.io/protocols-made-fun/quint/2024/01/14/maps.html</a>&#62;. </div>
+  <div class="csl-entry"><a id="citeproc_bib_item_3"></a>WADLER, P. <a href="https://doi.org/10.1145/2699407">Propositions as types</a>. <b>Commun. acm</b>, v. 58, n. 12, p. 75–84, Nov. 2015. </div>
+</div>
+</div>
+</div>
+</div>
+
+      </div>
+    </div>
+  </body>
+</html>

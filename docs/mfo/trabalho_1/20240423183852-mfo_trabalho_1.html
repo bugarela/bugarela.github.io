@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Trabalho 1</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="https://bugarela.com/mfo/trabalho_1/20240423183852-mfo_trabalho_1.html" />
+  <meta property="og:title" content="Trabalho 1" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Trabalho 1">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../../css/layouts/style.css">
+
+  </head>
+  <body>
+    <div id="layout" class="pure-g">
+      <div class="sidebar pure-u-1 pure-u-md-1-3">
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-lg-1-2">
+    </div>
+    <div class="pure-u-1 pure-u-lg-1-2">
+      <div class="header">
+        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
+      </div>
+      <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+      </div>
+      <div class="footer">
+  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-2-3">
+        <h2>Trabalho 1</h2>
+        <div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#informa-es-importantes-1">Informações importantes</a></li>
+<li><a href="#uma-batalha-venc-vel-1">Uma batalha vencível</a>
+<ul>
+<li><a href="#ataques-2">Ataques</a></li>
+<li><a href="#paralisia-2">Paralisia</a></li>
+<li><a href="#provoca-o-taunt-2">Provocação (<i>taunt</i>)</a></li>
+<li><a href="#imunidade-2">Imunidade</a></li>
+<li><a href="#criaturas-2">Criaturas</a>
+<ul>
+<li><a href="#monstros-3">Monstros</a></li>
+<li><a href="#personagens-3">Personagens</a></li>
+</ul>
+</li>
+<li><a href="#iniciativa-2">Iniciativa</a></li>
+</ul>
+</li>
+<li><a href="#atividades-do-trabalho-1">Atividades do trabalho</a>
+<ul>
+<li><a href="#especifica-o-com-as-regras-do-jogo-2">Especificação com as regras do jogo</a></li>
+<li><a href="#invariantes-2">Invariantes</a></li>
+<li><a href="#especifica-o-com-estrat-gia-2">Especificação com estratégia</a></li>
+<li><a href="#especifica-o-com-dois-monstros-2">Especificação com dois monstros</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<a href="https://bugarela.com/mfo/slides/20240423183852-mfo_trabalho_1.pdf">PDF</a><br />
+<div id="outline-container-informa-es-importantes-1" class="outline-2">
+<h2 id="informa-es-importantes-1">Informações importantes</h2>
+<div class="outline-text-2" id="text-informa-es-importantes-1">
+<ul class="org-ul">
+<li>Data de entrega: 22 de maio (quarta-feira)</li>
+<li>Trabalho individual ou em dupla</li>
+<li>Especificações a serem entregues em TLA+ ou Quint.</li>
+<li>Formato de apresentação: Explicação breve do código (somente para a professora) + implementação de uma pequena modificação por membro.</li>
+<li>Nota: 50% código entregue + 50% apresentação.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-uma-batalha-venc-vel-1" class="outline-2">
+<h2 id="uma-batalha-venc-vel-1">Uma batalha vencível</h2>
+<div class="outline-text-2" id="text-uma-batalha-venc-vel-1">
+<p>
+De forma semelhante aos exemplos de jogo da velha e pokemons, você deve especificar um jogo onde as partes fazem jogadas aleatórias, mostrando que assim ambas as partes podem vencer; e então especificar uma versão desse jogo onde os personagens usam uma estratégia que garante que eles não percam.
+</p>
+
+<p>
+As regras dessa batalha são inspiradas em jogo de RPG, porém um tanto exageradas para que possamos explorar algumas correspondências interessantes com problemas e soluções reais.
+</p>
+</div>
+<div id="outline-container-ataques-2" class="outline-3">
+<h3 id="ataques-2">Ataques</h3>
+<div class="outline-text-3" id="text-ataques-2">
+<p>
+Ataques são a forma de dar dano em criaturas. O dano é determinado por um inteiro, e ao receber um ataque, uma criatura perde uma quantidade de pontos de vida (HP - <i>Health Points</i>) igual ao dano do ataque.
+Uma criatura morre quando seus pontos de vida chegam a zero.
+</p>
+</div>
+</div>
+<div id="outline-container-paralisia-2" class="outline-3">
+<h3 id="paralisia-2">Paralisia</h3>
+<div class="outline-text-3" id="text-paralisia-2">
+<p>
+Criaturas podem ser paralisadas. Criaturas paralisadas não podem fazer nada em seu turno.
+</p>
+<ul class="org-ul">
+<li>A paralisia infringida por monstros é permanente, e só pode ser removida se um personagem (não paralisado) usar seu turno para isso, ajudando um jogador paralisado e assim removendo sua paralisia.</li>
+<li>A paralisia infringida por personagens dura apenas um turno. Após perder um turno por paralisia, a criatura deixa de estar paralisada.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-provoca-o-taunt-2" class="outline-3">
+<h3 id="provoca-o-taunt-2">Provocação (<i>taunt</i>)</h3>
+<div class="outline-text-3" id="text-provoca-o-taunt-2">
+<p>
+Personagens da classe bárbaro tem habilidade de provocar um monstro para que ele passe a somente atacar o bárbaro, ignorando os outros personagens.
+Uma criatura provocada ataca somente quem a provocou.
+A provocação dura um turno, de forma que a criatura provocada deixa de estar provocada ao terminar seu turno.
+</p>
+</div>
+</div>
+<div id="outline-container-imunidade-2" class="outline-3">
+<h3 id="imunidade-2">Imunidade</h3>
+<div class="outline-text-3" id="text-imunidade-2">
+<p>
+Personagens da classe clérigo tem habilidade de melhorar a defesa dos seus aliados, deixando-os imunes. Ao usar essa habilidade, todos os aliados, incluindo o clérigo em si, recebem imunidade, que dura até o início do próximo turno do clérigo.
+Criaturas imunes não podem receber dano. Todo dano infringido a elas é reduzido a zero.
+</p>
+</div>
+</div>
+<div id="outline-container-criaturas-2" class="outline-3">
+<h3 id="criaturas-2">Criaturas</h3>
+<div class="outline-text-3" id="text-criaturas-2">
+<p>
+Essa batalha tem várias criaturas lutando entre si, entre elas monstros e personagens
+</p>
+<ul class="org-ul">
+<li>Monstros não atacam outros monstros</li>
+<li>Personagens não atacam outros personagens</li>
+<li>Podemos assumir que há somente um personagem de cada classe</li>
+</ul>
+</div>
+<div id="outline-container-monstros-3" class="outline-4">
+<h4 id="monstros-3">Monstros</h4>
+<div class="outline-text-4" id="text-monstros-3">
+<p>
+Todos os monstros são iguais. Monstros tem 100 pontos de vida iniciais, e podem fazer as seguintes ações em seus turnos (uma ação por turno)
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="atacar-um-personagem-4"></a>Atacar um personagem<br />
+<div class="outline-text-5" id="text-atacar-um-personagem-4">
+<p>
+Os ataques de monstro sempre dão 20 de dano, exceto se esse for o primeiro turno de <b>toda</b> a batalha (ninguém jogou ainda), onde o ataque é mais fraco (ele ainda está carregando todo o seu poder). No primeiro turno, um monstro dá apenas 10 de dano.
+</p>
+</div>
+</li>
+<li><a id="paralizar-um-personagem-4"></a>Paralizar um personagem<br />
+<div class="outline-text-5" id="text-paralizar-um-personagem-4">
+<p>
+Um monstro pode paralizar um personagem. Essa paralisia é permanente, e só é removida quando outro personagem usa sua ação para remover a paralisia de um jogador específico.
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-personagens-3" class="outline-4">
+<h4 id="personagens-3">Personagens</h4>
+<div class="outline-text-4" id="text-personagens-3">
+<p>
+Os ataques de personagem causam 10 de dano, independente da classe.
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="mago-4"></a>Mago<br />
+<div class="outline-text-5" id="text-mago-4">
+<p>
+Um mago tem 20 pontos de vida iniciais e pode executar uma das seguintes ações em seu turno:
+</p>
+<ul class="org-ul">
+<li>Atacar um monstro</li>
+<li>Remover paralisia de um personagem</li>
+<li>Paralizar um monstro</li>
+</ul>
+</div>
+</li>
+<li><a id="cl-rigo-4"></a>Clérigo<br />
+<div class="outline-text-5" id="text-cl-rigo-4">
+<p>
+Um clérigo tem 20 pontos de vida iniciais e pode executar uma das seguintes ações em seu turno:
+</p>
+<ul class="org-ul">
+<li>Atacar um monstro</li>
+<li>Remover paralisia de um personagem</li>
+<li>Imunizar todos os personagens</li>
+</ul>
+</div>
+</li>
+<li><a id="b-rbaro-4"></a>Bárbaro<br />
+<div class="outline-text-5" id="text-b-rbaro-4">
+<p>
+Um bárbaro tem 150 pontos de vida iniciais e pode executar uma das seguintes ações em seu turno:
+</p>
+<ul class="org-ul">
+<li>Atacar um monstro</li>
+<li>Remover paralisia de um personagem</li>
+<li>Provocar um monstro</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-iniciativa-2" class="outline-3">
+<h3 id="iniciativa-2">Iniciativa</h3>
+<div class="outline-text-3" id="text-iniciativa-2">
+<p>
+No início da batalha, cada criatura roda um d20 (dado com 20 faces, de 1 até 20) para determinar sua iniciativa. Aqueles com maior iniciativa jogam primeiro, e os com menor iniciativa jogam por último.
+Se duas ou mais criaturas tiverem a mesma iniciativa, a ordem que elas jogam entre si não importa. Nesse caso, fica a critério de vocês qual o comportamento exato.
+Se uma criatura A tem iniciativa maior que a criatura B, A deve jogar antes de B.
+Após todas as criaturas jogarem uma vez, o ciclo reinicia seguindo as mesmas regras e a mesma iniciativa.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-atividades-do-trabalho-1" class="outline-2">
+<h2 id="atividades-do-trabalho-1">Atividades do trabalho</h2>
+<div class="outline-text-2" id="text-atividades-do-trabalho-1">
+</div>
+<div id="outline-container-especifica-o-com-as-regras-do-jogo-2" class="outline-3">
+<h3 id="especifica-o-com-as-regras-do-jogo-2">Especificação com as regras do jogo</h3>
+<div class="outline-text-3" id="text-especifica-o-com-as-regras-do-jogo-2">
+<p>
+Primeiramente, escreva uma especificação descrevendo o que pode acontecer nesse jogo. Considere que exista um único monstro, e um personagem de cada classe. Nessa versão, deve ser possível tanto que o monstro quanto que algum dos jogadores morra.
+</p>
+<ul class="org-ul">
+<li>Inclua uma (ou mains) variável(is) que registre informações relevantes sobre o que aconteceu no último turno, assim como fizemos para o exemplo do pokemon.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-invariantes-2" class="outline-3">
+<h3 id="invariantes-2">Invariantes</h3>
+<div class="outline-text-3" id="text-invariantes-2">
+<p>
+Escreva duas invariantes:
+</p>
+<ol class="org-ol">
+<li>O monstro não morre</li>
+<li>Nenhum personagem morre</li>
+</ol>
+
+<p>
+Nenhuma delas deve ser verdadeira nessa versão.
+</p>
+
+<p>
+Você pode usar simuladores ao invés de <i>model checkers</i> para testar as invariantes em todas as etapas deste trabalho. Idealmente, devíamos usar model checkers, mas o modelo deste trabalho tem estados demais e execuções muito longas para uso de <i>model checkers</i>. Usaremos <i>model checkers</i> nos exemplos reais de sistemas distribuídos que veremos na disciplina.
+</p>
+</div>
+</div>
+<div id="outline-container-especifica-o-com-estrat-gia-2" class="outline-3">
+<h3 id="especifica-o-com-estrat-gia-2">Especificação com estratégia</h3>
+<div class="outline-text-3" id="text-especifica-o-com-estrat-gia-2">
+<p>
+Agora, modifique a especificação (mas salve o arquivo! Você precisa entregar as duas) para que os personagens utilizem uma estratégia, ao escolher suas ações, de forma que a invariante &ldquo;nenhum personagem morre&rdquo; seja verdadeira.
+</p>
+</div>
+</div>
+<div id="outline-container-especifica-o-com-dois-monstros-2" class="outline-3">
+<h3 id="especifica-o-com-dois-monstros-2">Especificação com dois monstros</h3>
+<div class="outline-text-3" id="text-especifica-o-com-dois-monstros-2">
+<p>
+Por último, modifique a especificação anterior (com estratégia) para que a batalha seja contra dois monstros. Você pode escolher entregar um arquivo a mais com essa versão, ou simplesmente entregar com essa parte comentada, já que pode ser uma modificação de apenas uma linha.
+</p>
+
+<p>
+Essa batalha é impossível, mesmo com as estratégias empregadas. Assim, a invariante &ldquo;nenhum personagem morre&rdquo; deve ser violada. Se os personagens estiverem sobrevivendo na sua versão, pode ser que alguma regra não esteja definida corretamente.
+</p>
+</div>
+</div>
+</div>
+
+      </div>
+    </div>
+  </body>
+</html>

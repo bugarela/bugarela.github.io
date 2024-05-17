@@ -6,6 +6,94 @@
             http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/09/sitemap.xsd">
 <url>
+ <loc>https://bugarela.com/mfo/Aulas/20240213151141-mfo_programacao_e_matematica_nao_sao_a_mesma_coisa.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240217142930-mfo_estruturas_de_kripke.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240303165631-mfo_logica_temporal.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240306214020-mfo_logica_temporal_2.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240310185059-por_que_e_pra_que_metodos_formais.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240319195624-mfo_logica_temporal_das_acoes.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240322161707-mfo_primeiras_especificacoes.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240324195706-mfo_revisao_de_programacao_funcional.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240330105337-mfo_jogo_da_velha_em_quint.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240331223036-mfo_introducao_ao_tla.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240408201756-mfo_primeiras_especificacoes_em_tla.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240415205323-mfo_exercicios_pokemon.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240422102646-mfo_especificar_vs_implementar.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240504145616-mfo_design_de_protocolos.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240507182006-mfo_efetivacao_em_duas_fases.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Aulas/20240511143312-mfo_propriedades.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Trabalho 1/20240423183852-mfo_trabalho_1.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Trabalho 1/20240424144115-mfo_dicas_trabalho_1.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/Trabalho 1/20240517155753-mfo_faq_trabalho_1.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/trabalho_1/20240423183852-mfo_trabalho_1.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/trabalho_1/20240424144115-mfo_dicas_trabalho_1.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/trabalho_1/20240517155753-mfo_faq_trabalho_1.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
  <loc>https://bugarela.com/mfo/20240210123703-mfo_apresentacao.html</loc>
  <priority>0.5</priority>
 </url>
@@ -79,6 +167,10 @@
 </url>
 <url>
  <loc>https://bugarela.com/mfo/20240511143312-mfo_propriedades.html</loc>
+ <priority>0.5</priority>
+</url>
+<url>
+ <loc>https://bugarela.com/mfo/20240517155753-mfo_faq_trabalho_1.html</loc>
  <priority>0.5</priority>
 </url>
 <url>

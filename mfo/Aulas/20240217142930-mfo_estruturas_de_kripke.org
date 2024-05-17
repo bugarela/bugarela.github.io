@@ -1,0 +1,410 @@
+:PROPERTIES:
+:ID:       216176e3-3f0c-4726-9829-e2ee59e3b71d
+:END:
+#+title:     Estruturas de Kripke
+#+AUTHOR:    Gabriela Moreira
+#+EMAIL:     gabrielamoreira05@gmail.com
+#+DATE:      2024-03-04
+#+LANGUAGE:  en
+#+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:nil
+#+BEAMER_FRAME_LEVEL: 2
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [smaller]
+#+BEAMER_THEME: udesc
+#+BEAMER_HEADER: \input{header.tex} \subtitle{Aula para disciplina de Métodos Formais} \institute{Departamento de Ciência da Computação - DCC\\Universidade do Estado de Santa Catarina - UDESC}
+#+LATEX_COMPILER: pdflatex
+#+bibliography: references.bib
+#+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
+#+EXCLUDE_TAGS: sem_resposta
+
+
+#+begin_src elisp :exports none
+(setq org-ref-default-citation-link "citeauthor")
+#+end_src
+
+#+HTML: <a href="https://bugarela.com/mfo/slides/20240217142930-mfo_estruturas_de_kripke.pdf">Slides</a>
+#+beamer: \begin{frame}{Conteúdo}
+#+TOC: headlines 3
+#+beamer: \end{frame}
+
+* Sistemas de transições
+** Sistema de transições: Definição
+- Abstrações que descrevem o comportamento de sistemas com precisão matemática e sem ambiguidade [cite:@principles-of-model-checking] .
+- Podem ser vistos como grafos dirigidos onde
+  - Os nós são *estados*
+  - As arestas são *transições*
+
+#+BEAMER: \medskip
+Um *estado* descreve as informações de um sistema em um momento específico.
+
+#+BEAMER: \medskip
+Uma *transição* descreve como um sistema pode mudar de um estado para outro.
+
+** Sistema de transições: Definição formal
+
+Um sistema de transições é definido pela tripla $(S, \to, I)$ onde
+- $S$ é um conjunto de estados,
+- $\to\ \subseteq S \times S$ é uma relação de transições, e
+- $I \subseteq S$ é um conjunto de estados iniciais.
+#+BEAMER: \medskip
+
+Um *comportamento* ou *execução* $\rho$ de um sistema de transições é uma sequência de estados tal que
+$$\rho = s_0, s_1, \dots\ tal\ que\ s_i \to s_{i+1}\ para\ todo\ i \geq 0$$
+
+
+** Sistemas de transições finito :com_resposta:
+Um sistema de transições é dito *finito* se e somente se $S$ é finito.
+
+#+BEAMER: \medskip
+*Pergunta*: Comportamentos de sistemas de transições finitos são sempre finitos?
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+
+Não! Comportamentos sobre uma sequência de estados ainda podem ser infinitos, mesmo que os estados sejam finitos.
+
+** Sistemas de transições finito :sem_resposta:
+Um sistema de transições é dito *finito* se e somente se $S$ é finito.
+
+#+BEAMER: \medskip
+*Pergunta*: Comportamentos de sistemas de transições finitos são sempre finitos?
+
+** Determinismo e Não-Determinismo
+O conjunto de *sucessores* de um estado $s$ é definido por $Post(s) = \{ s' \in S\ |\ s \to s' \}$.
+
+#+BEAMER: \medskip
+Um sistema de transições é dito *determinístico* se e somente se $|I| \leq 1 \land \forall s \in S : |Post(s)| \leq 1$. Ou seja:
+- Tem apenas um estado inicial, e
+- Todo estado tem, no máximo, um sucessor.
+
+Não-Determinismo acontece quando há múltiplos estados iniciais $|I| > 1$ ou múltiplos sucessores para o mesmo estado ($|Post(s)| > 1$).
+
+* Estruturas de Kripke
+** Estruturas de Kripke
+Estruturas de Kripke são um tipo de sistema de transições com uma restrição adicional:
+#+begin_quote
+A relação $\to$ deve ser total
+#+end_quote
+
+ou seja
+
+#+begin_quote
+$\forall s \in S, \exists s' \in S : s \to s'$
+#+end_quote
+
+#+BEAMER: \pause
+*** Estados terminais
+Em sistemas de transições, um estado é dito terminal se $Post(s) = \emptyset$.
+
+#+BEAMER: \medskip
+Isso não é possível em estruturas de Kripke, devido a restrição acima. Em
+estruturas de Kripke, estados terminais são aqueles que possuem apenas
+transições para si mesmo, ou seja $Post(s) = \{s\}$
+
+** Exemplo: \faTrafficLight Semáforo
+
+Um semáforo pode ser representado por uma estrutura de Kripke $(S, \to, I)$ onde
+- $S = \{ verde, amarelo, vermelho \}$
+- $\to = \{ verde \to amarelo, amarelo \to vermelho, vermelho \to verde \}$
+- $I = \{ vermelho \}$
+
+#+begin_src mermaid :file semaforo.png :theme neutral :width 400px :background-color transparent
+stateDiagram
+    direction LR
+    vermelho --> verde
+    verde --> amarelo
+    amarelo --> vermelho
+#+end_src
+
+** Exercício: \faTrafficLight \faTrafficLight Dois semáforos :com_resposta:
+Um sistema com *dois* semáforos pode ser representado por uma estrutura de Kripke $(S, \to, I)$ onde
+#+BEAMER: \pause
+- $S = \{ (1: vermelho\ e\ 2: vermelho), (1: amarelo\ e\ 2: vermelho), (1: verde\ e\ 2: vermelho),
+  (1: vermelho\ e \2: amarelo), (1: vermelho\ e\ 2: verde) \}$
+#+BEAMER: \pause
+- $\begin{aligned}
+   \to\ = \{ &\\
+      & (1: vermelho\ e\ 2: vermelho) \to (1: verde\ e\ 2: vermelho),\\
+      & (1: verde\ e\ 2: vermelho) \to (1: amarelo\ e\ 2: vermelho),\\
+      & (1: amarelo\ e\ 2: vermelho) \to (1: vermelho\ e\ 2: vermelho),\\
+      & (1: vermelho\ e\ 2: vermelho) \to (1: vermelho\ e\ 2: verde),\\
+      & (1: vermelho\ e\ 2: verde) \to (1: vermelho\ e\ 2: amarelo),\\
+      & (1: vermelho\ e\ 2: amarelo) \to (1: vermelho\ e\ 2: vermelho),\\
+    \} &
+    \end{aligned}$
+#+BEAMER: \pause
+- $I = \{ (1: vermelho\ e\ 2: vermelho ) \}$
+
+  #+BEAMER: \end{itemize}
+  #+BEAMER: \end{frame}
+  #+BEAMER: \begin{frame}{Exercício: \faTrafficLight[] \faTrafficLight[] Dois semáforos II}
+  #+BEAMER: \begin{itemize}
+
+#+begin_src mermaid :file 2semaforos.png :theme neutral :width 400px :background-color transparent
+stateDiagram
+    direction LR
+      1_vermelho,2_vermelho --> 1_verde,2_vermelho
+      1_verde,2_vermelho --> 1_amarelo,2_vermelho
+      1_amarelo,2_vermelho --> 1_vermelho,2_vermelho
+      1_vermelho,2_vermelho --> 1_vermelho,2_verde
+      1_vermelho,2_verde --> 1_vermelho,2_amarelo
+      1_vermelho,2_amarelo --> 1_vermelho,2_vermelho
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+
+[[https://forsyte.at/kripke/]]
+
+- =AF(B_verde)=
+- =AF(A_vermelho & B_vermelho)=
+
+** Exercício: \faTrafficLight \faTrafficLight Dois semáforos :sem_resposta:
+Um sistema com *dois* semáforos pode ser representado por uma estrutura de Kripke $(S, \to, I)$ onde ...
+
+** Exercício: \faTrafficLight \faTrafficLight \faTrafficLight Três semáforos
+#+BEAMER: \pause
+- Vish!
+#+BEAMER: \pause
+- Muita coisa pra escrever, certo?
+- Um jeito melhor: linguagens de especificação
+
+#+BEAMER: \pause
+*** Vamos perceber algumas generalizações
+1. Cada semáforo deve iniciar vermelho, e fazer o caminho vermelho $\to$ verde $\to$ amarelo enquanto os outros permanecem vermelhos.
+2. Quando um semáforo fecha, queremos que *outro* semáforo abra
+   - Com três semáforos, deve haver um revezamento que garanta que cada um vai abrir de vez em quando.
+
+** N semáforos em TLA+
+#+ATTR_HTML: :width 600px :center nil
+#+ATTR_LATEX: :width 2.9\textwidth
+# ()convertfrompdf:t
+[[./specs/Semaforos.png]]
+
+
+** N semáforos em Quint
+Especificação completa no GitHub.
+
+#+begin_src quint
+module semaforos {
+  type Cor = Vermelho | Verde | Amarelo
+  type Semaforo = int
+
+  var cores: Semaforo -> Cor
+  var proximo: Semaforo
+
+  const SEMAFOROS: Set[Semaforo]
+
+  action fica_verde(s: Semaforo): bool = all {
+    proximo == s,
+    SEMAFOROS.forall(s2 => cores.get(s2) == Vermelho),
+
+    cores' = cores.set(s, Verde),
+    proximo' = (s + 1) % SEMAFOROS.size(),
+  }
+
+  ...
+}
+#+end_src
+
+** Perguntas :com_resposta:
+1. Todos os exemplos de semáforos (1, 2, 3 e N) são sistemas de transições. Quais deles são Estruturas de Kripke?
+   #+BEAMER: \pause
+   - \faBulb  Para um sistema de transições ser uma estrutura de Kripke, $\to$ deve ser total:
+     - $\forall s \in S, \exists s' \in S : s \to s'$
+   #+BEAMER: \pause
+   - *Resposta*: Sim! Sempre há um passo para um próximo estado
+   #+BEAMER: \pause
+2. Os sistemas de semáforos são finitos?
+   #+BEAMER: \pause
+   - \faBulb Um sistema de transições é dito *finito* se e somente se $S$ é finito.
+   #+BEAMER: \pause
+   - *Resposta*: Sim! Os estados são um conjunto finito.
+   #+BEAMER: \pause
+3. Nossas definições de semáforo são determinísticas?
+   #+BEAMER: \pause
+   - \faBulb O conjunto de *sucessores* de um estado $s$ é definido por $Post(s) = \{ s' \in S\ |\ s \to s' \}$.
+   - \faBulb Sistema é deterministico sse $|I| \leq 1 \land \forall s \in S : |Post(s)| \leq 1$
+   #+BEAMER: \pause
+   - *Resposta*: Nem todas. A definição que demos para 2 semáforos contém não determinismo. As definições para 1 semáforo e N semáforos são determinísticas.
+
+** Perguntas :sem_resposta:
+1. Todos os exemplos de semáforos (1, 2, 3 e N) são sistemas de transições. Quais deles são Estruturas de Kripke?
+   #+BEAMER: \pause
+   - \faBulb  Para um sistema de transições ser uma estrutura de Kripke, $\to$ deve ser total:
+     - $\forall s \in S, \exists s' \in S : s \to s'$
+   #+BEAMER: \pause
+2. Os sistemas de semáforos são finitos?
+   #+BEAMER: \pause
+   - \faBulb Um sistema de transições é dito *finito* se e somente se $S$ é finito.
+   #+BEAMER: \pause
+3. Nossas definições de semáforo são determinísticas?
+   #+BEAMER: \pause
+   - \faBulb O conjunto de *sucessores* de um estado $s$ é definido por $Post(s) = \{ s' \in S\ |\ s \to s' \}$.
+   - \faBulb Sistema é deterministico sse $|I| \leq 1 \land \forall s \in S : |Post(s)| \leq 1$
+
+* Não determinismo
+
+** Não determinismo nos semáforos
+Como seriam semáforos com não determinismo?
+   - $Post(s) = \{ s' \in S\ |\ s \to s' \}$.
+   - Sistema é deterministico sse $|I| \leq 1 \land \forall s \in S : |Post(s)| \leq 1$
+   #+BEAMER: \pause
+1. Qualquer estado pode ser um estado inicial. Se definirmos isso ($I = S$), temos não determinismo
+   #+BEAMER: \pause
+   - $|I| \leq 1$ não é satisfeito
+   #+BEAMER: \pause
+2. Caso o primeiro semáforo a abrir não esteja definido
+   #+BEAMER: \pause
+   - $|Post(1: vermelho\ e\ ...\ e\ N: vermelho\ e\ próximo: indefinido)| \leq 1$ não é satisfeito
+   #+BEAMER: \pause
+3. Caso a definição de próximo seja removida
+   #+BEAMER: \pause
+   - $|Post(1: vermelho\ e\ ...\ e\ N: vermelho)| \leq 1$ não é satisfeito
+
+** Não determinismo na realidade :com_resposta:
+Onde podemos encontrar não determinismo em sistemas de software?
+#+BEAMER: \pause
+1. Escolhas de usuário
+   - Depósitos e saques
+   - Qualquer input em geral
+   #+BEAMER: \pause
+2. Fatores aleatórios
+   - Se rolar 20 no dado, o dano é dobrado
+   #+BEAMER: \pause
+3. Influências do ambiente
+   - Falha de hardware
+   - Falha na rede
+   #+BEAMER: \pause
+4. Ordem de execução quando há concorrência
+   - Processo A executa antes do processo B
+   - Requisição A é recebida antes da requisição B
+
+** Não determinismo na realidade :sem_resposta:
+Onde podemos encontrar não determinismo em sistemas de software?
+
+** Definindo a fronteira
+Ao especificar um sistema, especialmente quando há não determinismo, é preciso definir uma fronteira.
+- Até aquela fronteira, fatores externos não especificados determinam o que acontece.
+- O não determinismo é uma forma de abstrair esses fatores externos
+  - i.e. De A, vou pra B ou C. Isso depende de algum fator externo. Se é a jogada de um dado ou o input de um usuário, não me importa.
+  - Se isso me importa, então vou modelar a jogada de dado.
+
+** Exemplo: Notas de alunos
+Vamos considerar duas fronteiras diferentes:
+1. O professor coloca uma nota no SIGA. Se a nota for $\geq 7$, o aluno passa.
+   - Não determinismo no input do professor
+   #+BEAMER: \pause
+2. O aluno pode ou não prestar atenção nas aulas. Se prestar atenção, vai se dar bem na prova, sua nota será maior que 7, e portanto vai passar.
+   - Não determinismo nas escolhas do aluno
+   - A nota que o professor dá é *determinada* pelas escolhas do aluno
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+No caso (2) estamos detalhando mais o mundo externo fora do SIGA, enquanto no (1) a fronteira é na interface do SIGA.
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+O caso (1) é uma especificação do SIGA, enquanto o (2) fala mais sobre um sistema universitário.
+
+** Exemplo: Notas de alunos - input professor
+#+begin_src mermaid :file siga-prof.png :theme neutral :width 400px :background-color transparent
+stateDiagram
+    direction LR
+    input_professor --> aluno_passa
+    aluno_passa --> aluno_passa
+    input_professor --> aluno_reprova
+    aluno_reprova --> aluno_reprova
+#+end_src
+
+** Exemplo: Notas de alunos - escolhas dos alunos
+#+begin_src mermaid :file siga-aluno.png :theme neutral :width 400px :background-color transparent
+stateDiagram
+    direction LR
+    aula_dada --> prestou_atencao
+    aula_dada --> sem_atencao
+    prestou_atencao --> vai_bem_prova
+    vai_bem_prova --> input_professor_positivo
+    sem_atencao --> vai_mal_prova
+    vai_mal_prova --> input_professor_negativo
+    input_professor_positivo --> aluno_passa
+    aluno_passa --> aluno_passa
+    input_professor_negativo --> aluno_reprova
+    aluno_reprova --> aluno_reprova
+#+end_src
+
+** Exemplo: Vôo com conexões
+*Versão 1*:
+#+begin_quote
+  Joinville \rightarrow São Paulo \rightarrow Paris
+#+end_quote
+
+#+BEAMER: \pause
+*Versão 2*:
+#+begin_quote
+  Check-in em Joinville \rightarrow Despacho de Bagagem em Joinville \rightarrow Check de Segurança em Joinville \rightarrow Embarque em Joinville \rightarrow Pouso em São Paulo \rightarrow Check de Segurança em São Paulo \rightarrow Embarque em São Paulo \rightarrow Pouso em Paris \rightarrow Retirada de bagagem em Paris
+#+end_quote
+
+** Exemplo: Vôo com conexões - Não determinismo
+Onde poderia ter *não determinismo*?
+- Chegar atrasado e perder o check-in
+- Acharem uma bomba na bagagem
+- Problemas técnicos no vôo
+- Perder a conexão
+
+#+BEAMER: \pause
+Podemos ter não determinismo em cada estado. Nos casos listados, podemos ou não determinar o que acontece. Cabe ao nível de detalhe, ou a *fronteira* da nossa modelagem.
+
+** Exemplo: Vôo com conexões - Perdendo a conexão
+#+BEAMER: \scalebox{1.2}{\hspace{-1cm}\begin{minipage}{\textwidth}
+#+begin_src mermaid :file voos-det.png :theme neutral :width 800px :background-color transparent
+stateDiagram
+    direction LR
+    checkin_Jlle --> despacho_Jlle
+    despacho_Jlle --> seguranca_Jlle
+    seguranca_Jlle --> embarque_Jlle
+    embarque_Jlle --> pouso_SP
+    pouso_SP --> seguranca_SP
+    seguranca_SP --> embarque_SP
+    embarque_SP --> pouso_Paris
+    pouso_Paris --> retirada_Paris
+    retirada_Paris --> retirada_Paris
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+#+begin_src mermaid :file voos-det-zoom.png :theme neutral :width 800px :background-color transparent
+stateDiagram
+    direction LR
+    A: ...
+    B: ...
+    A --> embarque_Jlle
+    embarque_Jlle --> pouso_SP
+    pouso_SP --> seguranca_SP
+    seguranca_SP --> embarque_SP
+    embarque_SP --> B
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+#+begin_src mermaid :file voos-nondet-zoom.png :theme neutral :width 800px :background-color transparent
+stateDiagram
+    direction LR
+    A: ...
+    B: ...
+    A --> seguranca_SP
+    seguranca_SP --> embarque_SP
+    seguranca_SP --> perdeu_voo_SP
+    perdeu_voo_SP --> solicitou_novo_voo_SP
+    solicitou_novo_voo_SP --> embarque_SP
+    embarque_SP --> B
+#+end_src
+
+#+BEAMER: \end{minipage}}
+
+** Referências
+#+print_bibliography:
+
+#+beamer: \end{frame} \maketitle
