@@ -2,6 +2,7 @@
 
 * [[file:20240210123703-mfo_apresentacao.org][Apresentação]]
 * Aulas
+  - [[file:Aulas/20240520131408-mfo_testando_um_problema_da_maratona.org][Testando um problema da maratona]]
   - [[file:Aulas/20240213151141-mfo_programacao_e_matematica_nao_sao_a_mesma_coisa.org][Programação e matemática não são a mesma coisa]]
   - [[file:Aulas/20240217142930-mfo_estruturas_de_kripke.org][Estruturas de Kripke]]
   - [[file:Aulas/20240303165631-mfo_logica_temporal.org][Checando propriedades com Lógica Temporal]]
