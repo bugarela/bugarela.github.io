@@ -1,5 +1,6 @@
 #+TITLE: 
 
+* [[file:20240525134648-mfo_exercicios_para_a_prova.org][Exercícios para a prova]]
 * [[file:20240210123703-mfo_apresentacao.org][Apresentação]]
 * Aulas
   - [[file:Aulas/20240520131408-mfo_testando_um_problema_da_maratona.org][Testando um problema da maratona]]

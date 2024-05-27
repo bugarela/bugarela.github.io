@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Exercícios para a prova</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="https://bugarela.com/mfo/20240525134648-mfo_exercicios_para_a_prova.html" />
+  <meta property="og:title" content="Exercícios para a prova" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+    <meta property="og:image" content="https://bugarela.com/mfo/1a.png" />
+    <meta property="og:image:width" content="1696" />
+    <meta property="og:image:height" content="439" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Exercícios para a prova">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../css/layouts/style.css">
+
+  </head>
+  <body>
+    <div id="layout" class="pure-g">
+      <div class="sidebar pure-u-1 pure-u-md-1-3">
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-lg-1-2">
+    </div>
+    <div class="pure-u-1 pure-u-lg-1-2">
+      <div class="header">
+        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
+      </div>
+      <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+      </div>
+      <div class="footer">
+  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-2-3">
+        <h2>Exercícios para a prova</h2>
+        <div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#estruturas-de-kripke-1">Estruturas de Kripke</a></li>
+<li><a href="#l-gica-temporal-1">Lógica temporal</a></li>
+<li><a href="#propriedades-1">Propriedades</a></li>
+<li><a href="#assumptions-1">Assumptions</a></li>
+<li><a href="#perguntas-gerais-1">Perguntas gerais</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-estruturas-de-kripke-1" class="outline-2">
+<h2 id="estruturas-de-kripke-1">Estruturas de Kripke</h2>
+<div class="outline-text-2" id="text-estruturas-de-kripke-1">
+<ol class="org-ol">
+<li>Identifique em quais estruturas de Kripke a seguir tem não-determinismo e justifique sua resposta.
+<ol class="org-ol">
+<li><p>
+Semáforos
+</p>
+
+<div class="figure">
+<p><img src="1a.png" alt="1a.png" />
+</p>
+</div></li>
+
+<li><p>
+Chaleira
+</p>
+
+<div class="figure">
+<p><img src="2b.png" alt="2b.png" />
+</p>
+</div></li>
+</ol></li>
+
+<li><p>
+Defina uma estrutura de Kripke para um sistema de caixa da água com as seguintes características:
+</p>
+<ul class="org-ul">
+<li>A caixa da água contém uma bóia que impede que ela transborde, ou seja, a bóia interrompe o enchimento quando a caixa está completamente cheia.</li>
+<li>A caixa não enche enquanto está sendo usada, ou seja, ela não pode estar enchendo e esvaziando ao mesmo tempo.</li>
+<li>Se a caixa está vazia, ela não pode ser esvaziada.</li>
+</ul>
+<p>
+PS: Tente usar o mínimo de estados e transições necessários para representar esse sistema.
+</p></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-l-gica-temporal-1" class="outline-2">
+<h2 id="l-gica-temporal-1">Lógica temporal</h2>
+<div class="outline-text-2" id="text-l-gica-temporal-1">
+<ol class="org-ol">
+<li>Dada uma fórmula temporal e uma execução, indique se a fórmula é verdadeira ou falsa para a execução. Ou seja, responda verdadeiro se a execução satisfaz a fórmula e falso caso não satisfaça. Considere que \(a\) e \(b\) são proposições.
+
+<ol class="org-ol">
+<li>Fórmula: \(X(b)\)
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> \([b], [b], [a]\)</li>
+<li class="off"><code>[&#xa0;]</code> \([a], [b], [a]\)</li>
+<li class="off"><code>[&#xa0;]</code> \([a], [a], [b]\)</li>
+</ul></li>
+<li>Fórmula: \(a -> b\)
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> \([a], [a], [a]\)</li>
+<li class="off"><code>[&#xa0;]</code> \([a], [b], [a]\)</li>
+<li class="off"><code>[&#xa0;]</code> \([a, b], [a], [a]\)</li>
+<li class="off"><code>[&#xa0;]</code> \([b], [a], [a]\)</li>
+</ul></li>
+<li>Fórmula: \(F(a)\)
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> \([a], [a], [a]\)</li>
+<li class="off"><code>[&#xa0;]</code> \([b], [a], [b]\)</li>
+</ul></li>
+</ol></li>
+
+<li>Explique a diferença entre LTL (Lógica Temporal Linear) e CTL (Lógica de árvore computacional - <i>Computational Tree Logic</i>).</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-propriedades-1" class="outline-2">
+<h2 id="propriedades-1">Propriedades</h2>
+<div class="outline-text-2" id="text-propriedades-1">
+<ol class="org-ol">
+<li>Assinale as fórmulas abaixo com [I] - Invariante ou [V] - Vivacidade (Propriedade de Vivacidade ou <i>Liveness Property</i>). Lembre-se que não importa se a fórmula é verdadeira ou falsa.
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> Para cada compra no cartão de crédito, vem uma cobrança na fatura ao final do mês.</li>
+<li class="off"><code>[&#xa0;]</code> Nunca vou para a academia sem meus fones de ouvido</li>
+<li class="off"><code>[&#xa0;]</code> Em algum momento vou terminar de pagar as parcelas do meu apartamento</li>
+<li class="off"><code>[&#xa0;]</code> Sempre uso óculos para dirigir</li>
+<li class="off"><code>[&#xa0;]</code> Não é possível estar na aula e no shopping ao mesmo tempo</li>
+<li class="off"><code>[&#xa0;]</code> Todos os códigos em C++ serão migrados para Rust</li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-assumptions-1" class="outline-2">
+<h2 id="assumptions-1">Assumptions</h2>
+<div class="outline-text-2" id="text-assumptions-1">
+<ol class="org-ol">
+<li>Alice e Bob estavam combinando de se encontrar e Alice mandou a seguinte mensagem para Bob: &ldquo;Encontre-me as 15h na cafeteria Café Quentinho&rdquo;. Ao fazer essa comunicação, Alice estava supondo algumas coisas. Descreva qual suposição de Alice estava errada para cada um dos cenários a seguir.
+<ol class="org-ol">
+<li>Bob não apareceu. A bateria do celular dele acabou antes que visse a mensagem de Alice.
+Responda: Alice assumiu que &#x2026;</li>
+<li>Bob foi em outro Café Quentinho - acontece que havia outra cafeteria com esse nome em outro bairro.
+Responda: Alice assumiu que &#x2026;</li>
+<li>Quando Alice chegou, o Bob já estava lá por uma hora. Ele havia esquecido de ajustar seu relógio no fim do horário de verão.
+Responda: Alice assumiu que &#x2026;</li>
+</ol></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-perguntas-gerais-1" class="outline-2">
+<h2 id="perguntas-gerais-1">Perguntas gerais</h2>
+<div class="outline-text-2" id="text-perguntas-gerais-1">
+<ol class="org-ol">
+<li>Suponha que temos um modelo e uma propriedade que é violada numa execução de 5 passos. Considere que estamos usando um simulador aleatório com até 10.000 amostras e 10 passos, e um <i>model checker</i> com até 10 passos. Assinale com verdadeiro ou falso <b>e justifque sua resposta</b>.
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> O simulador irá encontar um contraexemplo para propriedades</li>
+<li class="off"><code>[&#xa0;]</code> O <i>model checker</i> encontrará um contraexemplo de 5 passos</li>
+<li class="off"><code>[&#xa0;]</code> O <i>model checker</i> demorará mais tempo que o simulador para responder</li>
+<li class="off"><code>[&#xa0;]</code> O simulador demorará mais tempo que o <i>model checker</i> para responder</li>
+<li class="off"><code>[&#xa0;]</code> O <i>model checker</i> poderá finalizar a execução sem encontrar o contraexemplo</li>
+<li class="off"><code>[&#xa0;]</code> O simulador pode encontrar um contraexemplo de 9 passos</li>
+</ul></li>
+</ol>
+</div>
+</div>
+
+      </div>
+    </div>
+  </body>
+</html>
