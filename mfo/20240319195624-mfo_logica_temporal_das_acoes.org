@@ -1,0 +1,130 @@
+:PROPERTIES:
+:ID:       a2f58293-e3fc-4fee-acb1-60054b39c813
+:END:
+#+title: Introdução à Lógica Temporal das Ações
+#+EMAIL:     gabrielamoreira05@gmail.com
+#+DATE:      2024-03-20
+#+LANGUAGE:  en
+#+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
+#+BEAMER_FRAME_LEVEL: 2
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [smaller]
+#+BEAMER_THEME: udesc
+#+BEAMER_HEADER: \input{header.tex} \subtitle{Aula para disciplina de Métodos Formais} \institute{Departamento de Ciência da Computação - DCC\\Universidade do Estado de Santa Catarina - UDESC}
+#+LATEX_COMPILER: pdflatex
+#+bibliography: references.bib
+#+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
+
+#+HTML: <a href="https://bugarela.com/mfo/slides/20240319195624-mfo_logica_temporal_das_acoes.pdf">Slides</a><br />
+#+HTML: <a href="https://bugarela.com/mfo/specs/semaforos.zip">Specs</a>
+#+beamer: \begin{frame}{Conteúdo}
+#+TOC: headlines 3
+#+beamer: \end{frame}
+
+* Lógica Temporal das Ações (TLA)
+** Introdução
+A Lógica Temporal das Ações (/Temporal Logic of Actions/ - TLA) foi proposta em [cite:@tlaformalization].
+
+#+BEAMER: \medskip
+Seu principal conceito são *ações*. Uma ação é uma expressão booleana composta de variáveis, variáveis /primed/ e constantes.
+
+#+BEAMER: \medskip
+Nessa aula, vamos focar em como usar ações, com o operador /primed/ (='=), para definir estruturas de Kripke. Mais adiante, em outra aula, falaremos sobre outros conceitos.
+
+** Operador /primed/
+$f'$ (f /primed/) para uma função de estado $f$ é o valor de $f$ no *final de um passo*.
+
+#+BEAMER: \medskip
+Em outras palavras, para um passo composto por uma *dupla de estados* $(s, t)$, $f'$ é o valor de $f$ para $t$.
+
+#+BEAMER: \medskip
+De forma semelhante, $P'$ para um predicado $P$ é o valor de $P$ para o estado final de um passo. Assim, na avaliação da valoração de uma ação para um passo, predicados e variáveis *sem* o operador /primed/ se referem aos seus respectivos valores no *primeiro estado* do passo, e sempre que *forem marcados* com o operador, fazem referência aos valores no *segundo* estado do passo.
+
+** Exemplos: operador /primed/
+1. $x' = x + 1$
+2. $x + 1 = x'$
+3. $x = x' - 1$
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Outros exemplos:
+- $x' > x$
+- $x' /= x + 1$
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+PS: É necessário muito cuidado ao usar formas diferentes de (1).
+
+** Ações definem Transições
+Combinando operações /primed/ e predicados comuns, podemos definir as transições do modelo.
+- Uma transição é permitida no modelo definido por uma ação sse a avaliação da ação pro passo da transição é verdadeiro.
+  - Exemplo:
+    - Ação $x' = x + 1$
+    - Transição $1 \rightarrow 2$
+    - Substituindo $x$ por $1$ e $x'$ por $2$, a igualdade é satisfeita
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Note que *1* ação define *N* transições. Assim, uma única ação pode definir todas as transições de um modelo!
+
+** Uma fórmula temporal define o modelo!
+1. Um predicado comum define o(s) estado(s) inicial(is).
+   - Geralmente, chamamos de $Init$ ou =init=.
+   - Exemplo: $Init \triangleq x = 0$
+#+BEAMER: \pause
+2. Uma ação define as transições.
+   - Geralmente, chamamos de $Next$ ou =step=.
+   - Exemplo: $Next \triangleq x' = x + 1$
+#+BEAMER: \pause
+3. Uma fórmula temporal define o modelo.
+   - $Spec \triangleq Init \land \square Next$
+
+* TLA+ e Quint
+** TLA+ e Quint
+:PROPERTIES:
+:CUSTOM_ID: tla-e-quint-2
+:END:
+- TLA+ (/Temporal Logic of Actions+/) combina a lógica de TLA com teoria de conjuntos, definindo uma linguagem de especificação formal.
+#+BEAMER: \pause
+#+BEAMER: \medskip
+- Quint é uma syntaxe alternativa à TLA+, que pode ser transpilada para TLA+, e portanto pode usar as mesmas ferramentas.
+  - Quint tem alguns recursos adicionais que não existem em TLA+, com definições de testes e execuções (/runs/).
+  - Quint (ainda) não suporta algumas coisas de TLA+ que serão vistas no final da disciplina, como refinamento.
+  - No geral, Quint é *intencionalmente* mais restrito que TLA+.
+
+** TLC e Apalache
+Temos dois /model checkers/ disponíveis para TLA+ e Quint.
+- TLC
+  - Primeiro /model checker/ para TLA+. Faz enumeração explícita de estados.
+  - Funciona apenas com TLA+, então especificações em Quint precisam ser transpiladas
+  - Open source, mantido pela Microsoft Research
+#+BEAMER: \pause
+- Apalache
+  - /Model checker/ limitado simbólico. Traduz a especificação para restrições SMT e resolve-as usando o /solver/ Z3.
+  - Exige anotações de tipo para variáveis e constantes
+  - Suporte nativo a TLA+ e Quint*
+  - Open source, desenvolvido e mantido pela Informal Systems
+
+** /Model checking/ TLA+
+1. Apalache
+   - Lembre-se de anotar os tipos
+   - Use a linha de comando
+#+BEAMER: \pause
+2. TLC
+   - Crie um arquivo =.cfg=
+   - Use a linha de comando ou a extensão para VSCode
+#+BEAMER: \pause
+3. Toolbox (TLC)
+   - A IDE cria as configurações para você, porém você fica dependente da IDE para rodar o /model checker./
+
+** /Model checking/ Quint
+1. Linha de comando: =quint verify spec.qnt=
+  - Isso vai baixar e usar o Apalache por baixo
+#+BEAMER: \pause
+2. TLC: em breve, talvez.
+
+** Referências
+#+print_bibliography:
+#+beamer: \end{frame} \maketitle

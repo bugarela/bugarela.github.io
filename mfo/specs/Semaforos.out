@@ -1,0 +1,202 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.16 of 31 December 2020 (rev: cdddf55)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 99 and seed -4793066820545900715 with 1 worker on 8 cores with 3502MB heap and 64MB offheap memory [pid: 1130949] (Linux 6.1.63 amd64, N/A 19.0.2 x86_64, MSBDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file /home/gabriela/MEGA/org/roam/udesc/specs/Semaforos.tla
+Parsing file /tmp/Integers.tla
+Parsing file /tmp/FiniteSets.tla
+Parsing file /tmp/Naturals.tla
+Parsing file /tmp/Sequences.tla
+Semantic processing of module Naturals
+Semantic processing of module Integers
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module Semaforos
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2024-03-20 15:12:48)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 1 distinct state generated at 2024-03-20 15:12:48.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2110:1 @!@!@
+Invariant Inv is violated.
+@!@!@ENDMSG 2110 @!@!@
+@!@!@STARTMSG 2121:1 @!@!@
+The behavior up to this point is:
+@!@!@ENDMSG 2121 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ cores = (0 :> "vermelho" @@ 1 :> "vermelho" @@ 2 :> "vermelho")
+/\ proximo = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <FicaVerde line 6, col 18 to line 9, col 61 of module Semaforos>
+/\ cores = (0 :> "verde" @@ 1 :> "vermelho" @@ 2 :> "vermelho")
+/\ proximo = 1
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <FicaAmarelo line 11, col 19 to line 13, col 42 of module Semaforos>
+/\ cores = (0 :> "amarelo" @@ 1 :> "vermelho" @@ 2 :> "vermelho")
+/\ proximo = 1
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+4: <FicaVermelho line 15, col 20 to line 17, col 39 of module Semaforos>
+/\ cores = (0 :> "vermelho" @@ 1 :> "vermelho" @@ 2 :> "vermelho")
+/\ proximo = 1
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+5: <FicaVerde line 6, col 18 to line 9, col 61 of module Semaforos>
+/\ cores = (0 :> "vermelho" @@ 1 :> "verde" @@ 2 :> "vermelho")
+/\ proximo = 2
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+6: <FicaAmarelo line 11, col 19 to line 13, col 42 of module Semaforos>
+/\ cores = (0 :> "vermelho" @@ 1 :> "amarelo" @@ 2 :> "vermelho")
+/\ proximo = 2
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+7: <FicaVermelho line 15, col 20 to line 17, col 39 of module Semaforos>
+/\ cores = (0 :> "vermelho" @@ 1 :> "vermelho" @@ 2 :> "vermelho")
+/\ proximo = 2
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+8: <FicaVerde line 6, col 18 to line 9, col 61 of module Semaforos>
+/\ cores = (0 :> "vermelho" @@ 1 :> "vermelho" @@ 2 :> "verde")
+/\ proximo = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+9: <FicaAmarelo line 11, col 19 to line 13, col 42 of module Semaforos>
+/\ cores = (0 :> "vermelho" @@ 1 :> "vermelho" @@ 2 :> "amarelo")
+/\ proximo = 0
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2024-03-20 15:12:48
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2773:0 @!@!@
+<Init line 19, col 1 to line 19, col 4 of module Semaforos>: 2:2
+@!@!@ENDMSG 2773 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 19, col 9 to line 19, col 62 of module Semaforos: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<FicaVerde line 6, col 1 to line 6, col 12 of module Semaforos>: 3:6
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 6, col 20 to line 6, col 30 of module Semaforos: 45
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 6, col 20 to line 6, col 26 of module Semaforos: 39
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 6, col 30 to line 6, col 30 of module Semaforos: 39
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 7, col 42 to line 9, col 61 of module Semaforos: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 7, col 42 to line 8, col 56 of module Semaforos: 18
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 7, col 42 to line 7, col 63 of module Semaforos: 36
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 7, col 42 to line 7, col 50 of module Semaforos: 30
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 8, col 19 to line 8, col 56 of module Semaforos: 20
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 8, col 19 to line 8, col 24 of module Semaforos: 14
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |||line 8, col 28 to line 8, col 56 of module Semaforos: 24
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 9, col 19 to line 9, col 61 of module Semaforos: 20
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 9, col 19 to line 9, col 26 of module Semaforos: 14
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  ||line 9, col 30 to line 9, col 61 of module Semaforos: 24
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 7, col 30 to line 7, col 38 of module Semaforos: 12
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<FicaAmarelo line 11, col 1 to line 11, col 14 of module Semaforos>: 3:6
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 11, col 21 to line 11, col 38 of module Semaforos: 41
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 11, col 21 to line 11, col 28 of module Semaforos: 36
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 12, col 20 to line 12, col 59 of module Semaforos: 5
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 12, col 29 to line 12, col 59 of module Semaforos: 6
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 13, col 20 to line 13, col 42 of module Semaforos: 5
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<FicaVermelho line 15, col 1 to line 15, col 15 of module Semaforos>: 2:4
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 15, col 22 to line 15, col 41 of module Semaforos: 36
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  |line 15, col 22 to line 15, col 29 of module Semaforos: 32
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 16, col 17 to line 16, col 57 of module Semaforos: 4
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 17, col 17 to line 17, col 39 of module Semaforos: 4
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2774:0 @!@!@
+<Inv line 23, col 1 to line 23, col 3 of module Semaforos>
+@!@!@ENDMSG 2774 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 23, col 8 to line 23, col 28 of module Semaforos: 9
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(9) at 2024-03-20 15:12:48: 9 states generated (1,102 s/min), 9 distinct states found (1,102 ds/min), 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+9 states generated, 9 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2194:0 @!@!@
+The depth of the complete state graph search is 9.
+@!@!@ENDMSG 2194 @!@!@
+@!@!@STARTMSG 2268:0 @!@!@
+The average outdegree of the complete state graph is 1 (minimum is 1, the maximum 1 and the 95th percentile is 1).
+@!@!@ENDMSG 2268 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 497ms at (2024-03-20 15:12:48)
+@!@!@ENDMSG 2186 @!@!@

@@ -1,0 +1,72 @@
+{
+  "elements": {
+    "edges": [
+      {
+        "data": {
+          "source": "s0",
+          "target": "s1",
+          "id": "ele0"
+        }
+      },
+      {
+        "data": {
+          "source": "s1",
+          "target": "s0",
+          "id": "ele1"
+        }
+      },
+      {
+        "data": {
+          "source": "s1",
+          "target": "s2",
+          "id": "ele2"
+        }
+      },
+      {
+        "data": {
+          "source": "s2",
+          "target": "s0",
+          "id": "ele3"
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "data": {
+          "id": "s0",
+          "labels": [
+            "casa"
+          ]
+        },
+        "position": {
+          "x": 396,
+          "y": 294.9574508666992
+        }
+      },
+      {
+        "data": {
+          "id": "s1",
+          "labels": [
+            "udesc"
+          ]
+        },
+        "position": {
+          "x": 395,
+          "y": 148.95745086669922
+        }
+      },
+      {
+        "data": {
+          "id": "s2",
+          "labels": [
+            "pirabeiraba"
+          ]
+        },
+        "position": {
+          "x": 623,
+          "y": 145.95745086669922
+        }
+      }
+    ]
+  }
+}

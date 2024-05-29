@@ -1,0 +1,611 @@
+:PROPERTIES:
+:ID:       08216603-fab5-4c23-bbde-ccb3be47757f
+:END:
+#+title: Introdução ao TLA+
+#+EMAIL:     gabrielamoreira05@gmail.com
+#+DATE:      2024-04-08
+#+LANGUAGE:  en
+#+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
+#+BEAMER_FRAME_LEVEL: 2
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [smaller]
+#+BEAMER_THEME: udesc
+#+BEAMER_HEADER: \input{header.tex} \subtitle{Aula para disciplina de Métodos Formais} \institute{Departamento de Ciência da Computação - DCC\\Universidade do Estado de Santa Catarina - UDESC}
+#+LATEX_COMPILER: pdflatex
+#+bibliography: references.bib
+#+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
+#+PROPERTY: header-args :tangle tictactoe.qnt
+#+HTML: <a href="https://bugarela.com/mfo/slides/20240331223036-mfo_introducao_ao_tla.pdf">Slides</a><br />
+#+beamer: \begin{frame}{Conteúdo}
+#+TOC: headlines 3
+#+beamer: \end{frame}
+
+* Quint -> TLA+
+** Quint -> TLA+
+Já aprendemos Quint, então vamos ver TLA+ pensando nas equivalencias com Quint.
+- O próprio [[https://github.com/informalsystems/quint/blob/main/doc/lang.md][Manual do Quint]] trás essas comparações entra TLA+ e Quint
+
+** Tipos
+TLA+ não tem tipos!
+#+BEAMER: \pause
+- No TLC, erros de tipo serão detectados em runtime
+  - Se seu modelo tiver =1 + "bla"= no sétimo estado da execução, o TLC só vai perceber o problema quando chegar nesse estado em sua exploração
+#+BEAMER: \pause
+- No Apalache, é preciso traduzir o modelo para fórmulas SMT, que precisam ser tipadas
+  - TLA+ para o Apalache é tipado
+  - A linguagem em si não é tipada, mas o Apalache espera que os tipos sejam anotados nos comentários
+    #+begin_src tla
+    VARIABLES
+      \* @type: Int -> Int;
+      clock,
+      \* @type: Int -> (Int -> Int);
+      req,
+      \* @type: Int -> Set(Int);
+      ack,
+    #+end_src
+  - Mais informações no [[https://apalache.informal.systems/docs/tutorials/snowcat-tutorial.html][Manual do Apalache]]
+    - Não vamos nos aprofundar nisso na disciplina!
+
+** TLA+ REPL
+- O TLA+ tem uma REPL que só funciona para expressões constantes
+  - Não podemos usar ela para definir variáveis e avaliar transições
+- Só está disponível na pre-release do TLA+, então
+  - No VSCode, precisamos da extensão versão *Nightly*
+  - No =.jar=, precisamos da versão 1.8.0
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Atenção para como faremos pra rodar ela nos computadores da UDESC:
+1. No VSCode, baixar a extensão: *TLA+ Nightly*
+2. Aperte F1 e escolha: TLA+: Run REPL in Terminal.
+
+** TLA+ REPL em qualquer terminal
+Opção 1 (com ou sem =sudo=, somente UNIX):
+- [[https://github.com/pmer/tla-bin]]
+- Instalar:
+  #+begin_src sh
+  git clone https://github.com/pmer/tla-bin.git
+  cd tla-bin
+  sh download_or_update_tla.sh --nightly
+  sh install.sh ~/.local
+  # ou, se tiver sudo:
+  sudo install.sh
+  #+end_src
+- Executar:
+  #+begin_src sh
+  cd ~/.local/bin
+  ./tlarepl
+  #+end_src
+#+BEAMER: \end{frame}
+#+BEAMER: \begin{frame}[fragile]{TLA+ REPL em qualquer terminal II}
+Opção 2 (sem =sudo)=:
+1. Baixar o =tla2tools.jar= versão 1.8.0. Duas opções:
+   - Do GitHub: [[https://github.com/tlaplus/tlaplus/releases/download/v1.8.0/tla2tools.jar]]
+   - Ou, se você já instalou a extensão do VSCode, esse arquivo já existe em =~/.vscode/extensions/alygin.vscode-tlaplus-nightly-<versao>/tools/tla2tools.jar=
+2. Executar o =jar=:
+   =java -cp tla2tools.jar tlc2.REPL=
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Opção 3 (com =sudo=):
+  - Seguir as instruções em [[https://lamport.azurewebsites.net/tla/standalone-tools.html]]
+  - Executar com =java tlc2.REPL=
+
+** Constantes e variáveis
+Em Quint:
+#+begin_src quint
+const MY_CONST: int
+
+var x: str
+var y: bool
+#+end_src
+
+#+BEAMER: \medskip
+Em TLA+:
+#+begin_src tla
+CONSTANT MY_CONST
+VARIABLES x, y
+#+end_src
+
+#+BEAMER: \medskip
+Temos as palavras-chave: =CONSTANT=, =CONSTANTS=, =VARIABLE= e =VARIABLES=.
+
+** Instanciando módulos
+Lembram nos semáforos, quando tínhamos a constante =SEMAFOROS=, e instanciávamos o módulo com:
+#+begin_src quint
+module semaforos_3 {
+  import semaforos(SEMAFOROS=Set(0, 1, 2)).*
+}
+#+end_src
+
+#+BEAMER: \medskip
+Em TLA+, usaríamos o =INSTANCE=:
+#+begin_src tla
+INSTANCE semaforos WITH SEMAFOROS <- {0, 1 ,2}
+#+end_src
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Inclusive, em TLA+ podemos atribuir *variáveis* nas instâncias também, o que não é permitido em Quint.
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+PS: Constantes e Instâncias são um tanto complicadas. A utilização delas nos trabalhos da disciplina é totalmente opcional.
+
+** Imports
+Em Quint, tempos os imports
+#+begin_src quint
+import meu_modulo.*
+import meu_modulo.minha_definicao
+import meu_modulo as M
+#+end_src
+
+#+BEAMER: \medskip
+Em TLA+
+#+begin_src tla
+EXTENDS meu_modulo
+#+end_src
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Inclusive, os interios não são /built-in/ em TLA+. Temos que importar o módulo de inteiros com
+#+begin_src tla
+EXTENDS Integers
+#+end_src
+
+** Literais
+- =false= em Quint é =FALSE= em TLA+
+- =true= em Quint é =TRUE= em TLA+
+- inteiros e strings são a mesma coisa
+  - Divisão de inteiros é feita com =\div=
+
+** Lambdas (Operadores Anônimos)
+Em Quint, temos lambdas como o a seguir. Contudo (por hora), lambdas só podem ser usados como argumentos pra outros operadores, como para o =map= e =fold=:
+#+begin_src quint
+my_set.map(x => x + 1)
+my_set.fold(0, (acc, i) => acc + i)
+#+end_src
+
+#+BEAMER: \medskip
+Em TLA+, temos lambdas, de forma geral, como:
+#+begin_src tla
+LAMBDA x: x + 1
+LAMBDA x, y: x + y
+#+end_src
+
+** LET ... IN ...
+Em Quint, podemos declarar varios operadores seguidos de uma expressão:
+#+begin_src quint
+pure val a = {
+  pure val b = 1
+  pure val c = b + 1
+  c + 1
+}
+#+end_src
+
+Em TLA+, fazemos o semelhante com:
+#+begin_src tla
+a == LET b == 1
+         c == b + 1
+      IN c + 1
+#+end_src
+
+#+BEAMER: \pause
+Percebam que usamos duplo ===  (====) para definições. Para o predicado de igualdade, usamos um único ===, diferente de linguagens de programação. Basicamente, o oposto de Quint.
+** Conjunção e Disjunção
+*** Conjunção
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+Conjunção em Quint:
+#+begin_src quint
+pure val pred = a and b
+action conj = all {
+  A,
+  B,
+  C,
+}
+#+end_src
+
+Conjunção em TLA+:
+#+begin_src tla
+pred == a /\ b
+conj ==
+   /\ A
+   /\ B
+   /\ C
+#+end_src
+
+*** Disjunção
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+Disjunção em Quint:
+#+begin_src quint
+pure val pred = a or b
+action disj = any {
+  A,
+  B,
+  C,
+}
+#+end_src
+
+Disjunção em TLA+:
+#+begin_src tla
+pred == a \/ b
+conj ==
+   \/ A
+   \/ B
+   \/ C
+#+end_src
+
+** Condicional
+Em Quint:
+#+begin_src quint
+pure def f(x) = if (x == 0) 10 else 20
+#+end_src
+
+Em TLA+:
+#+begin_src tla
+f(x) == IF x = 0 THEN 10 ELSE 20
+#+end_src
+
+** Sets!
+Em Quint:
+#+begin_src quint
+Set(1, 2, 3)
+#+end_src
+
+#+BEAMER: \medskip
+Em TLA+:
+#+begin_src tla
+{1, 2, 3}
+#+end_src
+
+** Operadores sobre sets
+
+Existe e para todo:
+#+begin_src tla
+\E x \in S: P \* S.exists(x => P)
+\A x \in S: P \* S.forall(x => P)
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+=map= e =filter=:
+#+begin_src tla
+{ e: x \in S } \* S.map(x => e)
+{ x \in S: P } \* S.filter(x => P)
+#+end_src
+#+BEAMER: \end{frame}
+#+BEAMER: \begin{frame}[fragile]{Operadores sobre sets II}
+Predicados:
+#+begin_src tla
+e \in S \* e.in(S) ou S.contains(e)
+S \union T \* S.union(T)
+S \intersect T \* S.intersect(T)
+S \ T \* S.exclude(T)
+S \subseteq T \* S.subseteq(T)
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Outros operadores:
+#+begin_src tla
+SUBSET S \* S.powerset()
+UNION S \* S.flatten()
+Cardinality(S) \* S.size()
+a..b \* a.to(b)
+#+end_src
+
+#+BEAMER: \medskip
+PS: Para usar =Cardinality=, precisamos fazer =EXTENDS FiniteSets=
+
+** Não-determinismo
+Em Quint:
+#+begin_src quint
+nondet name = my_set.oneOf()
+x' = name
+#+end_src
+
+#+BEAMER: \medskip
+Em TLA+, é apenas um /exists/ normal:
+#+begin_src tla
+\E name \in my_set: x' = name
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Lembrando que o equivalente ao /exists/ (=my_set.exists(name => x' = name)=) não é permitido em Quint, pois não podemos usar *ações* como argumentos do =exists=.
+
+** Exercícios Sets
+Resolva usando os equivalentes a =map= e =filter= na REPL:
+1. Dado um conjunto de números, retorne um conjunto do quadrado desses números.
+  #+begin_src tla
+LET quadrado(S) == resolucao IN quadrado({1, 2, 3, 4})
+  #+end_src
+2. Dado um conjunto de números, retorne um conjunto apenas com os números pares.
+  #+begin_src tla
+LET pares(S) == resolucao IN pares({1, 2, 3, 4})
+  #+end_src
+
+** Maps
+- Chamados funções em TLA+, mas podemos continuar chamando de mapas para não confundir.
+- Contudo, a perspectiva aqui é a de funções. Não temos uma boa forma de expressar um mapa que começa vazio e vai crescendo conforme o sistema evolui.
+  - Geralmente inicializamos o mapa com as chaves já definidas, e algum valor inicial.
+  - Isso é uma boa prática para Quint também!
+
+** Maps - construtor
+
+#+BEAMER: \medskip
+Em Quint:
+#+begin_src quint
+S.mapBy(x => e)
+#+end_src
+
+#+BEAMER: \medskip
+Em TLA+:
+#+begin_src tla
+[ x \in S |-> e ]
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Por exemplo, criando uma estrutura para guardar o saldo no banco de cada pessoa:
+#+begin_src tla
+[ pessoa \in { "alice", "bob", "charlie" } |-> 0 ]
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Se eu ainda não souber quem são as pessoas, aí sim preciso criar um mapa vazio:
+#+begin_src tla
+[ pessoa \in {} |-> 0 ]
+#+end_src
+
+** Maps - construtor como em Quint
+O equivalente a:
+#+begin_src quint
+Map(k_1 -> v_1, k_2 -> v_2, k_3 -> v_3)
+#+end_src
+
+seria:
+#+begin_src tla
+[ x \in { a: <<a, b>> \in S } |-> (CHOOSE p \in S: p[1] = x)[2]]
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+O =CHOOSE= é um operador um tanto complicado
+  - Ele parece não determinístico, mas é completamente determinístico
+  - Vamos evitar ele por agora. Talvez voltamos nisso no final da disciplina.
+
+#+BEAMER: \end{frame}
+#+BEAMER: \begin{frame}[fragile]{Maps - construtor como em Quint II}
+
+Solução: =SetAsFun=
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Podemos copiar o operador =SetAsFun= do Apalache e usá-lo. Primeiro, copie e cole a seguinte definição
+#+begin_src tla
+SetAsFun(S) ==
+    LET Dom == { x: <<x, y>> \in S }
+        Rng == { y: <<x, y>> \in S }
+    IN
+    [ x \in Dom |-> CHOOSE y \in Rng: <<x, y>> \in S ]
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+E para utilizar, basta fornecer um conjundo de duplas do tipo <<chave, valor>> como parâmetro:
+#+begin_src tla
+MeuMapa == SetAsFun({ <<k_1, v_1>>, <<k_2, v_2>>, <<k_3, v_3>> })
+#+end_src
+
+** Maps - acesso
+Para acessar uma chave =e= de um mapa =f=:
+#+begin_src tla
+f[e] \* f.get(e)
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Um exemplo na REPL.
+  - PS: A REPL de TLA+ imprime somente os valores de um mapa quando imprime um mapa.
+#+begin_src tla
+(tla+) [ x \in {1, 2} |-> x + 1 ]
+\* <<2, 3>>
+(tla+) LET m == [ x \in {1, 2} |-> x + 1 ] IN m[1]
+\* 2
+#+end_src
+
+** Operadores sobre Maps
+Obtendo o conjunto com as chaves:
+#+begin_src tla
+DOMAIN f \* f.keys()
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Obtendo todos os mapas possíveis:
+#+begin_src tla
+[ S -> T ] \* setOfMaps(S, T)
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Atualizando e adicionando valores:
+#+begin_src tla
+[f EXCEPT ![e1] = e2] \* f.set(e1, e2)
+[f EXCEPT ![e1] = e2, ![e3] = e4]
+\* f.set(e1, e2).set(e3, e4)
+[f EXCEPT ![e1] = @ + y]
+\* f.setBy(e1, (old => old + y))
+(k :> v) @@ f \* f.put(k, v)
+#+end_src
+
+** Records
+Construtor:
+#+begin_src tla
+[ f_1 |-> e_1, ..., f_n |-> e_n ]
+\* { f_1: e_1, ..., f_n: e_n }
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Acesso, idêntico ao Quint:
+#+begin_src tla
+r.meu_campo \* r.meu_campo
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Atualização:
+#+begin_src tla
+[r EXCEPT !.f = e]
+\* r.with("f", e) ou  { ...r, f: e }
+[r EXCEPT !.f1 = e1, !fN = eN] \* N campos
+#+end_src
+#+BEAMER: \end{frame}
+#+BEAMER: \begin{frame}[fragile]{Records II}
+Obtendo todos os possíveis records:
+#+begin_src tla
+[ f_1: S_1, ..., f_n: S_n ]
+\* tuples(S_1, ..., S_n).map(((a_1, ..., a_n)) => { f_1: a_1, ..., f_n: a_n })
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Obtendo os nomes dos campos:
+#+begin_src tla
+DOMAIN r \* r.fieldNames()
+#+end_src
+
+** Listas (ou Sequências)
+Construtor:
+#+begin_src tla
+<<e_1, ..., e_n>> \* [ e_1, ..., e_n ]
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Acesso, sendo que os índices iniciam em 1:
+#+begin_src tla
+s[i] \* l[i - 1]
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Atualização em um índice:
+#+begin_src tla
+[ s EXCEPT ![i] = e ] \* l.replaceAt(i - 1, e)
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Adicionando elementos:
+#+begin_src tla
+Append(s, e) \* l.append(e)
+l \circ t \* l.concat(t)
+#+end_src
+#+BEAMER: \end{frame}
+#+BEAMER: \begin{frame}[fragile]{Listas II}
+Outros operadores:
+#+begin_src tla
+Head(l) \* l.head()
+Tail(l) \* l.tail()
+Len(s) \* l.length()
+DOMAIN  i \* l.indices().map(i => i - 1)
+SubSeq(lst, start, end) \* l.slice(start - 1, end)
+SelectSeq(s, Test) \* select(l, Test)
+#+end_src
+
+** Tuplas
+Já que não temos tipos em TLA+, tuplas são nada mais do que uma lista.
+ - elementos podem ter tipos distintos em ambas (heterogenindade).
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+ Construtor:
+#+begin_src tla
+<< e_1, ..., e_n >> \* (e_1, ..., e_n)
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Acesso:
+#+begin_src tla
+t[1], t[2], ... , t[50] \* t._1, t._2, ..., t._50
+#+end_src
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Obtendo todas as possíveis tuplas:
+#+begin_src tla
+S_1 \X S_2 \X ... \X S_n \* tuples(S_1, S_2, ..., S_n)
+#+end_src
+
+** Unchanged
+TLA+ fornece um operador para o caso especial onde uma variável se mantém com o mesmo valor em uma ação:
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Ao invés de escrevermos:
+#+begin_src tla
+MinhaAcao ==
+  /\ a' = a
+  /\ b' = b
+#+end_src
+
+Podemos escrever:
+#+begin_src tla
+MinhaAcao ==
+  UNCHANGED << a, b >>
+#+end_src
+
+** Folds
+Não consegui descobir um jeito de fazer =EXTENDS= pela REPL. Então, vamos usar o VSCode com a funcionalidade de avaliação:
+- Selecione o texto de uma *expressão*
+- Aperte F1 e selecione TLA+: Evaluate selected expression
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Para usar o fold, precisamos de:
+- =EXTENDS FiniteSetsExt= para =FoldSet=
+- =EXTENDS SequencesExt= para =FoldSeq=
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Em Quint:
+#+begin_src quint
+Set(1, 2, 3, 4).fold(0, (acc, i) => acc + i)
+#+end_src
+
+#+BEAMER: \medskip
+Em TLA+:
+#+begin_src tla
+FoldSet(LAMBDA i, acc : acc + i, 0, S)
+#+end_src
+
+** Exercícios Fold
+Exercício: Re-escreva nossos exemplos anteriores usando =FoldSet=
+Agora, resolva ambos usando =FoldSet=.
+
+** Exercícios TLA+
+1. Escreva um operador que recebe um conjunto e retorna a média dos valores.
+2. Dado um conjunto de =records= como =[ nome |-> "Gabriela", idade |-> 25 ]=, escreva um operador que recebe esse conjunto e retorna a diferença de idade entre o mais velho e o mais novo.
+3. Defina um valor que contenha todos os conjuntos possíveis com valores inteiros de 1 a 10, com tamanho maior que 2 e menor que 5.
+4. Escreva um operador que calcule o fatorial de um número. Recursão não é permitida.
+5. Escreva um operador que recebe uma lista e retorna um mapa onde as chaves são os elementos da lista, e os valores são inteiros representando a quantidade de ocorrências daquele elemento na lista.
+
+#+BEAMER: \medskip
+#+BEAMER: \pause
+Dica: você vai precisar dos módulos importados pela expressão:
+#+begin_src tla
+EXTENDS FiniteSets, FiniteSetsExt, Integers, SequencesExt
+#+end_src
+
+# SelectSeq(<<1,2>>, LAMBDA x: x > 1)
