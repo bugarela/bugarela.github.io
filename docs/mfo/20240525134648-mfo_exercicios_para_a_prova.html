@@ -58,62 +58,135 @@
 
       <div class="content pure-u-1 pure-u-md-2-3">
         <h2>Exercícios para a prova</h2>
-        <div id="table-of-contents" role="doc-toc">
+        <nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#estruturas-de-kripke-1">Estruturas de Kripke</a></li>
-<li><a href="#l-gica-temporal-1">Lógica temporal</a></li>
-<li><a href="#propriedades-1">Propriedades</a></li>
-<li><a href="#assumptions-1">Assumptions</a></li>
-<li><a href="#perguntas-gerais-1">Perguntas gerais</a></li>
+<li><a href="#estruturas-de-kripke-1">Estruturas de Kripke</a>
+<ul>
+<li><a href="#quest-o-1-2">Questão 1</a></li>
+<li><a href="#quest-o-2-2">Questão 2</a></li>
+</ul>
+</li>
+<li><a href="#l-gica-temporal-1">Lógica temporal</a>
+<ul>
+<li><a href="#quest-o-3-2">Questão 3</a></li>
+<li><a href="#quest-o-4-2">Questão 4</a></li>
+</ul>
+</li>
+<li><a href="#propriedades-1">Propriedades</a>
+<ul>
+<li><a href="#quest-o-5-2">Questão 5</a></li>
+</ul>
+</li>
+<li><a href="#assumptions-1">Assumptions</a>
+<ul>
+<li><a href="#quest-o-6-2">Questão 6</a></li>
+</ul>
+</li>
+<li><a href="#perguntas-gerais-1">Perguntas gerais</a>
+<ul>
+<li><a href="#quest-o-7-2">Questão 7</a></li>
+</ul>
+</li>
+<li><a href="#tla-e-quint-1">TLA+ e Quint</a>
+<ul>
+<li><a href="#quest-o-8-2">Questão 8</a>
+<ul>
+<li><a href="#especifica-o-a-3">Especificação A</a></li>
+<li><a href="#especifica-o-b-3">Especificação B</a></li>
+</ul>
+</li>
+<li><a href="#quest-o-9-2">Questão 9</a></li>
+<li><a href="#quest-o-10-2">Questão 10</a></li>
+</ul>
+</li>
 </ul>
 </div>
-</div>
+</nav>
 <div id="outline-container-estruturas-de-kripke-1" class="outline-2">
 <h2 id="estruturas-de-kripke-1">Estruturas de Kripke</h2>
 <div class="outline-text-2" id="text-estruturas-de-kripke-1">
+</div>
+<div id="outline-container-quest-o-1-2" class="outline-3">
+<h3 id="quest-o-1-2">Questão 1</h3>
+<div class="outline-text-3" id="text-quest-o-1-2">
+<p>
+Identifique em quais estruturas de Kripke a seguir tem não-determinismo e <b>justifique sua resposta</b>.
+</p>
 <ol class="org-ol">
-<li>Identifique em quais estruturas de Kripke a seguir tem não-determinismo e justifique sua resposta.
-<ol class="org-ol">
 <li><p>
-Semáforos
+Semáforos. Considere o conjunto de estados inicial \(I = \{vermelho\}\)
 </p>
 
-<div class="figure">
-<p><img src="1a.png" alt="1a.png" />
-</p>
-</div></li>
+<figure>
+<img src="1a.png" alt="1a.png">
 
-<li><p>
-Chaleira
-</p>
+</figure>
 
-<div class="figure">
-<p><img src="2b.png" alt="2b.png" />
+<details>
+<summary><b>[Resposta]</b></summary>
+
+<p>
+Determinístico (não há não-determinismo), porque existe somente um estado inicial e, para cada um dos três estados, há apenas uma possível transição.
 </p>
-</div></li>
-</ol></li>
+</details></li>
 
 <li><p>
+Chaleira. Considere o conjunto de estados inicial \(I = \{temperatura\_ambiente\}\)
+</p>
+
+<figure>
+<img src="2b.png" alt="2b.png">
+
+</figure>
+
+<details>
+<summary><b>[Resposta]</b></summary>
+
+<p>
+Não-determinístico (há não-determinismo), porque, para os estados &ldquo;esquentando&rdquo; e &ldquo;esfriando&rdquo;, há mais de uma transição possível.
+</p>
+</details></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-quest-o-2-2" class="outline-3">
+<h3 id="quest-o-2-2">Questão 2</h3>
+<div class="outline-text-3" id="text-quest-o-2-2">
+<p>
 Defina uma estrutura de Kripke para um sistema de caixa da água com as seguintes características:
 </p>
 <ul class="org-ul">
 <li>A caixa da água contém uma bóia que impede que ela transborde, ou seja, a bóia interrompe o enchimento quando a caixa está completamente cheia.</li>
 <li>A caixa não enche enquanto está sendo usada, ou seja, ela não pode estar enchendo e esvaziando ao mesmo tempo.</li>
 <li>Se a caixa está vazia, ela não pode ser esvaziada.</li>
+<li>O sistema inicia com a caixa vazia</li>
 </ul>
 <p>
 PS: Tente usar o mínimo de estados e transições necessários para representar esse sistema.
-</p></li>
-</ol>
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+<ul class="org-ul">
+<li>\(S = \{vazia, enchendo, cheia, esvaziando\}\)</li>
+<li>\(\rightarrow = \{vazia \rightarrow enchendo, enchendo \rightarrow esvaziando, enchendo \rightarrow cheia, cheia \rightarrow esvaziando, esvaziando \rightarrow enchendo, enchendo \rightarrow vazia\}\)</li>
+<li>\(I = \{vazia\}\)</li>
+</ul>
+</details>
+</div>
 </div>
 </div>
 <div id="outline-container-l-gica-temporal-1" class="outline-2">
 <h2 id="l-gica-temporal-1">Lógica temporal</h2>
 <div class="outline-text-2" id="text-l-gica-temporal-1">
-<ol class="org-ol">
-<li>Dada uma fórmula temporal e uma execução, indique se a fórmula é verdadeira ou falsa para a execução. Ou seja, responda verdadeiro se a execução satisfaz a fórmula e falso caso não satisfaça. Considere que \(a\) e \(b\) são proposições.
+</div>
+<div id="outline-container-quest-o-3-2" class="outline-3">
+<h3 id="quest-o-3-2">Questão 3</h3>
+<div class="outline-text-3" id="text-quest-o-3-2">
+<p>
+Dada uma fórmula temporal e uma execução, indique se a fórmula é verdadeira ou falsa para a execução. Ou seja, responda verdadeiro se a execução satisfaz a fórmula e falso caso não satisfaça. Considere que \(a\) e \(b\) são proposições.
+</p>
 
 <ol class="org-ol">
 <li>Fórmula: \(X(b)\)
@@ -134,17 +207,60 @@ PS: Tente usar o mínimo de estados e transições necessários para representar
 <li class="off"><code>[&#xa0;]</code> \([a], [a], [a]\)</li>
 <li class="off"><code>[&#xa0;]</code> \([b], [a], [b]\)</li>
 </ul></li>
-</ol></li>
-
-<li>Explique a diferença entre LTL (Lógica Temporal Linear) e CTL (Lógica de árvore computacional - <i>Computational Tree Logic</i>).</li>
 </ol>
+
+<details>
+<summary><b>[Resposta]</b></summary>
+
+<ol class="org-ol">
+<li>Fórmula: \(X(b)\)
+<ul class="org-ul">
+<li>[V] \([b], [b], [a]\)</li>
+<li>[V] \([a], [b], [a]\)</li>
+<li>[F] \([a], [a], [b]\)</li>
+</ul></li>
+<li>Fórmula: \(a -> b\)
+<ul class="org-ul">
+<li>[F] \([a], [a], [a]\)</li>
+<li>[F] \([a], [b], [a]\)</li>
+<li>[V] \([a, b], [a], [a]\)</li>
+<li>[V] \([b], [a], [a]\)</li>
+</ul></li>
+<li>Fórmula: \(F(a)\)
+<ul class="org-ul">
+<li>[V] \([a], [a], [a]\)</li>
+<li>[V] \([b], [a], [b]\)</li>
+</ul></li>
+</ol>
+</details>
+</div>
+</div>
+<div id="outline-container-quest-o-4-2" class="outline-3">
+<h3 id="quest-o-4-2">Questão 4</h3>
+<div class="outline-text-3" id="text-quest-o-4-2">
+<p>
+Explique a diferença entre LTL (Lógica Temporal Linear) e CTL (Lógica de árvore computacional - <i>Computational Tree Logic</i>).
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+
+<p>
+A representação de árvore da CTL permite que usemos quantificações existenciais com nossas fórmulas temporais: existe alguma execução onde eventualmente X. Já na LTL, todas as fórmulas são implicitamente universalmente quantificadas, e isso não é possível. Essa diferença faz com que existam fórmulas na LTL que não podem ser espressadas em CTL e fórmulas na CTL que não podem ser espressadas na LTL.
+</p>
+</details>
+</div>
 </div>
 </div>
 <div id="outline-container-propriedades-1" class="outline-2">
 <h2 id="propriedades-1">Propriedades</h2>
 <div class="outline-text-2" id="text-propriedades-1">
-<ol class="org-ol">
-<li>Assinale as fórmulas abaixo com [I] - Invariante ou [V] - Vivacidade (Propriedade de Vivacidade ou <i>Liveness Property</i>). Lembre-se que não importa se a fórmula é verdadeira ou falsa.
+</div>
+<div id="outline-container-quest-o-5-2" class="outline-3">
+<h3 id="quest-o-5-2">Questão 5</h3>
+<div class="outline-text-3" id="text-quest-o-5-2">
+<p>
+Assinale as fórmulas abaixo com [I] - Invariante ou [V] - Vivacidade (Propriedade de Vivacidade ou <i>Liveness Property</i>). Lembre-se que não importa se a fórmula é verdadeira ou falsa.
+</p>
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> Para cada compra no cartão de crédito, vem uma cobrança na fatura ao final do mês.</li>
 <li class="off"><code>[&#xa0;]</code> Nunca vou para a academia sem meus fones de ouvido</li>
@@ -152,31 +268,79 @@ PS: Tente usar o mínimo de estados e transições necessários para representar
 <li class="off"><code>[&#xa0;]</code> Sempre uso óculos para dirigir</li>
 <li class="off"><code>[&#xa0;]</code> Não é possível estar na aula e no shopping ao mesmo tempo</li>
 <li class="off"><code>[&#xa0;]</code> Todos os códigos em C++ serão migrados para Rust</li>
-</ul></li>
-</ol>
+</ul>
+<details>
+<summary><b>[Resposta]</b></summary>
+<ul class="org-ul">
+<li>[V] Para cada compra no cartão de crédito, vem uma cobrança na fatura ao final do mês.</li>
+<li>[I] Nunca vou para a academia sem meus fones de ouvido</li>
+<li>[V] Em algum momento vou terminar de pagar as parcelas do meu apartamento</li>
+<li>[I] Sempre uso óculos para dirigir</li>
+<li>[I] Não é possível estar na aula e no shopping ao mesmo tempo</li>
+<li>[V] Todos os códigos em C++ serão migrados para Rust</li>
+</ul>
+</details>
+</div>
 </div>
 </div>
 <div id="outline-container-assumptions-1" class="outline-2">
 <h2 id="assumptions-1">Assumptions</h2>
 <div class="outline-text-2" id="text-assumptions-1">
+</div>
+<div id="outline-container-quest-o-6-2" class="outline-3">
+<h3 id="quest-o-6-2">Questão 6</h3>
+<div class="outline-text-3" id="text-quest-o-6-2">
+<p>
+Alice e Bob estavam combinando de se encontrar e Alice mandou a seguinte mensagem para Bob: &ldquo;Encontre-me as 15h na cafeteria Café Quentinho&rdquo;. Ao fazer essa comunicação, Alice estava supondo algumas coisas. Descreva qual suposição de Alice estava errada para cada um dos cenários a seguir.
+</p>
 <ol class="org-ol">
-<li>Alice e Bob estavam combinando de se encontrar e Alice mandou a seguinte mensagem para Bob: &ldquo;Encontre-me as 15h na cafeteria Café Quentinho&rdquo;. Ao fazer essa comunicação, Alice estava supondo algumas coisas. Descreva qual suposição de Alice estava errada para cada um dos cenários a seguir.
-<ol class="org-ol">
-<li>Bob não apareceu. A bateria do celular dele acabou antes que visse a mensagem de Alice.
-Responda: Alice assumiu que &#x2026;</li>
-<li>Bob foi em outro Café Quentinho - acontece que havia outra cafeteria com esse nome em outro bairro.
-Responda: Alice assumiu que &#x2026;</li>
-<li>Quando Alice chegou, o Bob já estava lá por uma hora. Ele havia esquecido de ajustar seu relógio no fim do horário de verão.
-Responda: Alice assumiu que &#x2026;</li>
-</ol></li>
+<li><p>
+Bob não apareceu. A bateria do celular dele acabou antes que visse a mensagem de Alice.
+Responda: Alice assumiu que &#x2026;
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+
+<p>
+Alice assumiu que Bob havia recebido a mensagem dela.
+</p>
+</details></li>
+<li><p>
+Bob foi em outro Café Quentinho - acontece que havia outra cafeteria com esse nome em outro bairro.
+Responda: Alice assumiu que &#x2026;
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+
+<p>
+Alice assumiu que havia apenas uma &ldquo;Café Quentinho&rdquo; na cidade
+</p>
+</details></li>
+<li><p>
+Quando Alice chegou, o Bob já estava lá por uma hora. Ele havia esquecido de ajustar seu relógio no fim do horário de verão.
+Responda: Alice assumiu que &#x2026;
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+
+<p>
+Alice assumiu que o relógio de Bob estava no mesmo horário que o dela.
+</p>
+</details></li>
 </ol>
+</div>
 </div>
 </div>
 <div id="outline-container-perguntas-gerais-1" class="outline-2">
 <h2 id="perguntas-gerais-1">Perguntas gerais</h2>
 <div class="outline-text-2" id="text-perguntas-gerais-1">
-<ol class="org-ol">
-<li>Suponha que temos um modelo e uma propriedade que é violada numa execução de 5 passos. Considere que estamos usando um simulador aleatório com até 10.000 amostras e 10 passos, e um <i>model checker</i> com até 10 passos. Assinale com verdadeiro ou falso <b>e justifque sua resposta</b>.
+</div>
+<div id="outline-container-quest-o-7-2" class="outline-3">
+<h3 id="quest-o-7-2">Questão 7</h3>
+<div class="outline-text-3" id="text-quest-o-7-2">
+<p>
+Suponha que temos um modelo e uma propriedade que é violada numa execução de 5 passos. Considere que estamos usando um simulador aleatório com até 10.000 amostras e 10 passos, e um <i>model checker</i> com até 10 passos. Assinale com verdadeiro ou falso <b>e justifque sua resposta</b>.
+</p>
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> O simulador irá encontar um contraexemplo para propriedades</li>
 <li class="off"><code>[&#xa0;]</code> O <i>model checker</i> encontrará um contraexemplo de 5 passos</li>
@@ -184,8 +348,292 @@ Responda: Alice assumiu que &#x2026;</li>
 <li class="off"><code>[&#xa0;]</code> O simulador demorará mais tempo que o <i>model checker</i> para responder</li>
 <li class="off"><code>[&#xa0;]</code> O <i>model checker</i> poderá finalizar a execução sem encontrar o contraexemplo</li>
 <li class="off"><code>[&#xa0;]</code> O simulador pode encontrar um contraexemplo de 9 passos</li>
+</ul>
+
+<details>
+<summary><b>[Resposta]</b></summary>
+
+<ul class="org-ul">
+<li>[F] O simulador irá encontar um contraexemplo para propriedades</li>
+<li>[V] O <i>model checker</i> encontrará um contraexemplo de 5 passos</li>
+<li>[F] O <i>model checker</i> demorará mais tempo que o simulador para responder</li>
+<li>[F] O simulador demorará mais tempo que o <i>model checker</i> para responder</li>
+<li>[F] O <i>model checker</i> poderá finalizar a execução sem encontrar o contraexemplo</li>
+<li>[V] O simulador pode encontrar um contraexemplo de 9 passos</li>
+</ul>
+</details>
+</div>
+</div>
+</div>
+<div id="outline-container-tla-e-quint-1" class="outline-2">
+<h2 id="tla-e-quint-1">TLA+ e Quint</h2>
+<div class="outline-text-2" id="text-tla-e-quint-1">
+</div>
+<div id="outline-container-quest-o-8-2" class="outline-3">
+<h3 id="quest-o-8-2">Questão 8</h3>
+<div class="outline-text-3" id="text-quest-o-8-2">
+<p>
+Dada uma especificação simples, escreva uma breve descrição do que ela faz. Observe o seguinte exemplo:
+Quint:
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">var</span> x: <span style="color: #d79921;">int</span>
+
+<span style="color: #e35b15;">action</span> init = x' = 0
+
+<span style="color: #e35b15;">action</span> step = x' = <span style="color: #66a4a4;">if</span> (x &lt; 10) x + 1 <span style="color: #66a4a4;">else</span> x
+</pre>
+</div>
+
+<p>
+TLA+:
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span style="color: #66a4a4;">VARIABLE</span> x
+
+Init == x = <span style="color: #d79921; font-weight: bold;">0</span>
+
+Next == x' = <span style="color: #66a4a4;">IF</span> (x &lt; <span style="color: #d79921; font-weight: bold;">10</span>) <span style="color: #66a4a4;">THEN</span> x + <span style="color: #d79921; font-weight: bold;">1</span> <span style="color: #66a4a4;">ELSE</span> x
+</pre>
+</div>
+
+<p>
+Poderíamos descrever como: Um modelo onde x começa em zero e é incrementado até chegar a 10, com incrementos de tamanho 1. Ao chegar a 10, x permanece com o mesmo valor pra sempre
+</p>
+
+<p>
+Agora, responda com uma descrição para cada especificação abaixo:
+</p>
+</div>
+<div id="outline-container-especifica-o-a-3" class="outline-4">
+<h4 id="especifica-o-a-3">Especificação A</h4>
+<div class="outline-text-4" id="text-especifica-o-a-3">
+<p>
+Quint:
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">var</span> x: <span style="color: #d79921;">int</span>
+
+<span style="color: #e35b15;">action</span> init = x' = 0
+
+<span style="color: #e35b15;">action</span> step = <span style="color: #66a4a4;">any</span> {
+  <span style="color: #66a4a4;">all</span> {
+    x &lt; 5,
+    x' = x + 1
+  },
+  <span style="color: #66a4a4;">all</span> {
+    x &gt; -5,
+    x' = x - 1
+  }
+}
+</pre>
+</div>
+
+<p>
+TLA+
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span style="color: #66a4a4;">VARIABLE</span> x
+
+Init == x = <span style="color: #d79921; font-weight: bold;">0</span>
+
+Next ==
+  \/ /\ x &lt; <span style="color: #d79921; font-weight: bold;">5</span>
+     /\ x' = x + <span style="color: #d79921; font-weight: bold;">1</span>
+  \/ /\ x &gt; -5
+     /\ x' = x - <span style="color: #d79921; font-weight: bold;">1</span>
+
+</pre>
+</div>
+
+<details>
+<summary><b>[Resposta]</b></summary>
+
+<p>
+Um modelo onde x começa em zero e pode ser incrementado em 1 caso seja menor que 5, ou decrementado em 1 caso seja maior que -5. Ou seja, a cada passo x terá seu valor modificado (mais um ou menos um) e permanecerá sempre entre -5 e 5.
+</p>
+</details>
+</div>
+</div>
+<div id="outline-container-especifica-o-b-3" class="outline-4">
+<h4 id="especifica-o-b-3">Especificação B</h4>
+<div class="outline-text-4" id="text-especifica-o-b-3">
+<p>
+Quint:
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">var</span> x: <span style="color: #d79921;">int</span>
+
+<span style="color: #e35b15;">action</span> init = x' = 1
+
+<span style="color: #e35b15;">action</span> step = {
+  <span style="color: #e35b15;">nondet</span> v = 1.to(10).oneOf()
+  <span style="color: #66a4a4;">all</span> {
+    x != v,
+    x' = v
+  }
+}
+</pre>
+</div>
+
+<p>
+TLA+:
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span style="color: #66a4a4;">VARIABLE</span> x
+
+Init == x = <span style="color: #d79921; font-weight: bold;">1</span>
+
+Next == \E v \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">10</span>:
+  /\ x /= v
+  /\ x' = v
+</pre>
+</div>
+
+<details>
+<summary><b>[Resposta]</b></summary>
+
+<p>
+Um modelo onde x começa em 1 e a cada passo recebe um novo valor, diferente do atual, entre 1 e 10.
+</p>
+</details>
+</div>
+</div>
+</div>
+<div id="outline-container-quest-o-9-2" class="outline-3">
+<h3 id="quest-o-9-2">Questão 9</h3>
+<div class="outline-text-3" id="text-quest-o-9-2">
+<p>
+Considere o modelo a seguir:
+</p>
+
+<p>
+Quint:
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span style="color: #e35b15;">var</span> x: <span style="color: #d79921;">int</span>
+
+<span style="color: #e35b15;">action</span> init = x' = 10
+
+<span style="color: #e35b15;">action</span> step = <span style="color: #66a4a4;">any</span> {
+  <span style="color: #66a4a4;">all</span> {
+    x &lt; 20,
+    x % 2 = 0,
+    x' = x + 3
+  },
+  <span style="color: #66a4a4;">all</span> {
+    x &gt; 5,
+    x' = x - 1
+  }
+}
+</pre>
+</div>
+
+<p>
+TLA+:
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span style="color: #66a4a4;">VARIABLE</span> x
+
+Init == x = <span style="color: #d79921; font-weight: bold;">1</span>
+
+Next == \E v \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">10</span>:
+  /\ x /= v
+  /\ x' = v
+</pre>
+</div>
+
+<p>
+Para cada execução a seguir, assinale verdadeiro se o modelo permite a execução e falso caso contrário. Quando responder falso, <b>justifique sua resposta</b>.
+</p>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> <code>x: 7, x: 6, x: 9, x: 8</code></li>
+<li class="off"><code>[&#xa0;]</code> <code>x: 10, x: 13, x: 12, x: 11, x: 10</code></li>
+<li class="off"><code>[&#xa0;]</code> <code>x: 10, x: 9, x: 8, x: 11</code></li>
+<li class="off"><code>[&#xa0;]</code> <code>x: 10, x: 9, x: 12, x: 15</code></li>
+</ul>
+
+<details>
+<summary><b>[Resposta]</b></summary>
+
+<ul class="org-ul">
+<li>[F] <code>x: 7, x: 6, x: 9, x: 8</code>
+<ul class="org-ul">
+<li>x não pode ser 7 no estado inicial. Deve ser 10.</li>
 </ul></li>
-</ol>
+<li>[V] <code>x: 10, x: 13, x: 12, x: 11, x: 10</code></li>
+<li>[V] <code>x: 10, x: 9, x: 8, x: 11</code></li>
+<li>[F] <code>x: 10, x: 9, x: 12, x: 15</code>
+<ul class="org-ul">
+<li>não podemos somar 3 ao 9 para chegar em 12, porque uma das pré-condições para somar 3 é que x seja divisível por 2, e 9 não é.</li>
+</ul></li>
+</ul>
+</details>
+</div>
+</div>
+<div id="outline-container-quest-o-10-2" class="outline-3">
+<h3 id="quest-o-10-2">Questão 10</h3>
+<div class="outline-text-3" id="text-quest-o-10-2">
+<p>
+O operador primed (<code>'</code>) permite que escrevamos predicados sobre o próximo estado. Assinale verdadeiro se o operador primed está sendo usado corretamente, ou falso se o uso resultará em um erro. Caso responder falso, <b>justifique sua resposta</b>. Considere que x e y são variáveis. As respostas para Quint ou TLA+ são as mesmas, responda apenas uma delas.
+</p>
+
+<p>
+Quint:
+</p>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> <code>all { x' = 1, x' = 2 }</code></li>
+<li class="off"><code>[&#xa0;]</code> <code>any { x' = 1, x' = 2 }</code></li>
+<li class="off"><code>[&#xa0;]</code> <code>all { x' = 1, y' = 2 }</code></li>
+<li class="off"><code>[&#xa0;]</code> <code>any { x' = 1, y' = 2 }</code></li>
+</ul>
+
+<p>
+TLA+:
+</p>
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> <code>x' = 1 /\ x' = 2</code></li>
+<li class="off"><code>[&#xa0;]</code> <code>x' = 1 \/ x' = 2</code></li>
+<li class="off"><code>[&#xa0;]</code> <code>x' = 1 /\ y' = 2</code></li>
+<li class="off"><code>[&#xa0;]</code> <code>x' = 1 \/ y' = 2</code></li>
+</ul>
+
+<details>
+<summary><b>[Resposta]</b></summary>
+
+<p>
+Quint:
+</p>
+<ul class="org-ul">
+<li>[F] <code>all { x' = 1, x' = 2 }</code>
+<ul class="org-ul">
+<li>x é atualizado duas vezes na mesma ação</li>
+</ul></li>
+<li>[V] <code>any { x' = 1, x' = 2 }</code></li>
+<li>[V] <code>all { x' = 1, y' = 2 }</code></li>
+<li>[F] <code>any { x' = 1, y' = 2 }</code>
+<ul class="org-ul">
+<li>atualização desbalanceada: em uma das ramificações apenas x é atualizado, e em outra apenas y</li>
+</ul></li>
+</ul>
+
+<p>
+TLA+:
+</p>
+<ul class="org-ul">
+<li>[F] <code>x' = 1 /\ x' = 2</code>
+<ul class="org-ul">
+<li>x é atualizado duas vezes na mesma ação</li>
+</ul></li>
+<li>[V] <code>x' = 1 \/ x' = 2</code></li>
+<li>[V] <code>x' = 1 /\ y' = 2</code></li>
+<li>[F] <code>x' = 1 \/ y' = 2</code>
+<ul class="org-ul">
+<li>atualização desbalanceada: em uma das ramificações apenas x é atualizado, e em outra apenas y</li>
+</ul></li>
+</ul>
+</details>
+</div>
 </div>
 </div>
 

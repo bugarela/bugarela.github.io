@@ -220,3 +220,8 @@ code, pre, kbd, samp {
 th, td {
     padding: 0.5em;
 }
+
+details {
+    background: #f0f0f0;
+    padding: 0.5em;
+}
