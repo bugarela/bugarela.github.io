@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Trabalho 2</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="https://bugarela.com/mfo/20240609214243-mfo_trabalho_2.html" />
+  <meta property="og:title" content="Trabalho 2" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Trabalho 2">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../css/layouts/style.css">
+
+  </head>
+  <body>
+    <div id="layout" class="pure-g">
+      <div class="sidebar pure-u-1 pure-u-md-1-3">
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-lg-1-2">
+    </div>
+    <div class="pure-u-1 pure-u-lg-1-2">
+      <div class="header">
+        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
+      </div>
+      <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+      </div>
+      <div class="footer">
+  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-2-3">
+        <h2>Trabalho 2</h2>
+        <div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#informa-es-importantes-1">Informações importantes</a></li>
+<li><a href="#ajudando-o-banco-1">Ajudando o banco</a>
+<ul>
+<li><a href="#artefatos-2">Artefatos</a></li>
+<li><a href="#procedimento-para-execu-o-2">Procedimento para execução</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<a href="https://bugarela.com/mfo/slides/20240609214243-mfo_trabalho_2.pdf">PDF</a><br />
+<div id="outline-container-informa-es-importantes-1" class="outline-2">
+<h2 id="informa-es-importantes-1">Informações importantes</h2>
+<div class="outline-text-2" id="text-informa-es-importantes-1">
+<ul class="org-ul">
+<li>Data de entrega: 01 de julho (segunda-feira)</li>
+<li>Trabalho individual ou em dupla</li>
+<li>Formato de entrega: Código + relatório</li>
+<li>Formato de apresentação: Breve explicação + demonstração (somente para a professora)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-ajudando-o-banco-1" class="outline-2">
+<h2 id="ajudando-o-banco-1">Ajudando o banco</h2>
+<div class="outline-text-2" id="text-ajudando-o-banco-1">
+<p>
+Você recebeu um software em C++ que implementa um banco, e sua missão é encontrar e consertar <i>bugs</i> desse código. Você já escreveu uma especificação em Quint com as funcionalidades desse software, verificando propriedades relevantes e ajustanto a especificação até que todas elas fossem satisfeitas (assim como fizemos no trabalho 1). Com isso, você consegue afirmar que o modelo está correto.
+</p>
+
+<p>
+Contudo, a sua missão é sobre o código, não sobre o modelo. Então, agora você precisa utilizar o modelo para aumentar a confiança no software em si. Não é possível, com testes, garantir que o modelo e o software correspondem 100%. Mas, quanto mais testes forem rodados, menor a chance de termos diferenças de comportamento.
+</p>
+
+<p>
+Conecte o modelo existente ao código existente com testes baseados em modelos. Para cada teste que falhar, ou seja, para cada execução onde o comportamento do modelo for diferente do comportamento do código, ajuste o código para que o teste passe a suceder.
+</p>
+</div>
+<div id="outline-container-artefatos-2" class="outline-3">
+<h3 id="artefatos-2">Artefatos</h3>
+<div class="outline-text-3" id="text-artefatos-2">
+<p>
+Você recebe:
+</p>
+<ol class="org-ol">
+<li>Um modelo em Quint completo e correto para o sistema do banco
+<ul class="org-ul">
+<li>Não precisa ser modificado</li>
+<li>Se modificá-lo, pode ser necessário ajustar o esqueleto dos testes (3)</li>
+</ul></li>
+<li>Uma implementação em C++ do banco (com <i>bugs</i>)
+<ul class="org-ul">
+<li>Deve ser modificado</li>
+<li>Todas as modificações devem ser motivadas por testes falhando, e devidamente documentadas no relatório (i.e. &ldquo;Adicionei um if na função de depósito devido a esse teste falhando&rdquo;)</li>
+</ul></li>
+<li>Um esqueleto para a implementação dos testes (em C++)
+<ul class="org-ul">
+<li>Deve ser modificado</li>
+<li>Compilar passando a pasta <code>lib</code>: <code>g++ -I lib test.cpp</code></li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-procedimento-para-execu-o-2" class="outline-3">
+<h3 id="procedimento-para-execu-o-2">Procedimento para execução</h3>
+<div class="outline-text-3" id="text-procedimento-para-execu-o-2">
+<ol class="org-ol">
+<li>Obter uma execução a partir do simulador: <code>quint run bank.qnt --max-samples=1 --mbt --out-itf=out.itf.json</code></li>
+<li>Executar o teste (que lerá o JSON produzido no passo (1))</li>
+</ol>
+
+<p>
+Os testes deverão falhar (até que todos os <i>bugs</i> tenham sido consertados). Se o teste suceder em alguma iteração, repita o processo algumas vezes para adiquirir mais confiança.
+</p>
+
+<p>
+Quando um teste falhar:
+</p>
+<ol class="org-ol">
+<li>Observe o que aconteceu. Imprima mais informações se necessário. Entenda o motivo da diferença entre modelo vs código.</li>
+<li>Ajuste a implementação (Artefato 2) para consertar o <i>bug</i> que você encontrou</li>
+<li>Re-compile e execute novamente (com a mesma execução!). Se seu ajuste foi feito corretamente, o teste deve suceder (ou falhar por outro motivo mais adiante na execução).</li>
+<li>Documente o que você observou e que ajuste fez no relatório.</li>
+</ol>
+
+<p>
+Quando um teste suceder:
+</p>
+<ul class="org-ul">
+<li>Volte ao início, até ter confiança de que o comportamento do modelo e do código são os mesmos.</li>
+</ul>
+</div>
+</div>
+</div>
+
+      </div>
+    </div>
+  </body>
+</html>
