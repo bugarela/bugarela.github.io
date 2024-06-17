@@ -28,19 +28,22 @@ Conecte o modelo existente ao código existente com testes baseados em modelos. 
 
 ** Artefatos
 Você recebe:
-1. Um modelo em Quint completo e correto para o sistema do banco
+1. Um modelo em Quint completo e correto para o sistema do banco (=bank.qnt=)
    - Não precisa ser modificado
    - Se modificá-lo, pode ser necessário ajustar o esqueleto dos testes (3)
-2. Uma implementação em C++ do banco (com /bugs/)
+2. Uma implementação em C++ do banco com /bugs/ (=bank.hpp=)
    - Deve ser modificado
    - Todas as modificações devem ser motivadas por testes falhando, e devidamente documentadas no relatório (i.e. "Adicionei um if na função de depósito devido a esse teste falhando")
-3. Um esqueleto para a implementação dos testes (em C++)
+3. Um esqueleto para a implementação dos testes em C++ (=bank.cpp=)
    - Deve ser modificado
    - Compilar passando a pasta =lib=: =g++ -I lib test.cpp=
 
 ** Procedimento para execução
-1. Obter uma execução a partir do simulador: =quint run bank.qnt --max-samples=1 --mbt --out-itf=out.itf.json=
-2. Executar o teste (que lerá o JSON produzido no passo (1))
+*Atenção*: É necessária a versão v0.21.0 do Quint para usar o =--n-traces=, atualizem!
+
+1. Obter 10 mil execuções a partir do simulador: =quint run bank.qnt --mbt --out-itf=traces/out.itf.json --n-traces=10000=
+   - PS: crie a pasta =traces= para que todos os arquivos JSON sejam escritos nela.
+2. Executar o teste (que lerá os JSONs produzidos no passo (1))
 
 Os testes deverão falhar (até que todos os /bugs/ tenham sido consertados). Se o teste suceder em alguma iteração, repita o processo algumas vezes para adiquirir mais confiança.
 
@@ -51,4 +54,23 @@ Quando um teste falhar:
 4. Documente o que você observou e que ajuste fez no relatório.
 
 Quando um teste suceder:
-- Volte ao início, até ter confiança de que o comportamento do modelo e do código são os mesmos.
+- Volte ao início, até ter confiança de que o comportamento do modelo e do
+  código são os mesmos. Como já estamos testando 10 mil traces nesse
+  procedimento, é bem provável que uma iteração seja suficiente, mas repita
+  algumas vezes para aumentar a confiança.
+
+** Relatório
+*Atenção*: Deve ser entregue em PDF!
+
+O relatório deve justificar cada alteração feita na implementação do banco
+(arquivo =bank.hpp=). Cada alteração deve ser mínima: quanto menor, melhor. Isso
+demonstra que você está utilizando o método corretamente, e que conseguirá
+aplicá-lo mesmo em uma implementação muito complexa.
+
+Seu relatório deve conter uma seção explicando brevemente como seu teste está funcionando: quais dados estão sendo impressos e quais comparações estão sendo feitas; e uma seção com as modificações que você fez.
+
+Para cada modificação, você deve apresentar:
+1. Qual informação do teste levou você a identificar o /bug/. Pode ser uma captura de tela do terminal ou cópia do output, com uma breve descrição.
+2. A modificação que você fez. Pode ser uma captura de tela ou cópia do código inserido. Necessário que fique claro o que foi modificado (não coloquem uma imagem do código inteiro). Alternativamente, podem informar a /hash/ do /commit/ do GitHub, de forma que o commit contenha apenas a modificação em questão.
+
+A princípio, seu relatório pode conter apenas a descrição o teste e das modificações, sem necessidade de mais seções como introdução e conclusão. Se houverem mais informações relevantes, podem acrescentar.

@@ -29,4 +29,4 @@
 * Seminário
   - [[file:20240531080208-mfo_seminario.org][Seminário]]
 * Trabalho 2
-  - [[file:20240609214243-mfo_trabalho_2.org][Trabalho 2 - INCOMPLETO]]
+  - [[file:20240609214243-mfo_trabalho_2.org][Trabalho 2]]

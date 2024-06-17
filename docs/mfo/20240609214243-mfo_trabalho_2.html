@@ -63,6 +63,7 @@
 <ul>
 <li><a href="#artefatos-2">Artefatos</a></li>
 <li><a href="#procedimento-para-execu-o-2">Procedimento para execução</a></li>
+<li><a href="#relat-rio-2">Relatório</a></li>
 </ul>
 </li>
 </ul>
@@ -102,17 +103,17 @@ Conecte o modelo existente ao código existente com testes baseados em modelos. 
 Você recebe:
 </p>
 <ol class="org-ol">
-<li>Um modelo em Quint completo e correto para o sistema do banco
+<li>Um modelo em Quint completo e correto para o sistema do banco (<code>bank.qnt</code>)
 <ul class="org-ul">
 <li>Não precisa ser modificado</li>
 <li>Se modificá-lo, pode ser necessário ajustar o esqueleto dos testes (3)</li>
 </ul></li>
-<li>Uma implementação em C++ do banco (com <i>bugs</i>)
+<li>Uma implementação em C++ do banco com <i>bugs</i> (<code>bank.hpp</code>)
 <ul class="org-ul">
 <li>Deve ser modificado</li>
 <li>Todas as modificações devem ser motivadas por testes falhando, e devidamente documentadas no relatório (i.e. &ldquo;Adicionei um if na função de depósito devido a esse teste falhando&rdquo;)</li>
 </ul></li>
-<li>Um esqueleto para a implementação dos testes (em C++)
+<li>Um esqueleto para a implementação dos testes em C++ (<code>bank.cpp</code>)
 <ul class="org-ul">
 <li>Deve ser modificado</li>
 <li>Compilar passando a pasta <code>lib</code>: <code>g++ -I lib test.cpp</code></li>
@@ -123,9 +124,16 @@ Você recebe:
 <div id="outline-container-procedimento-para-execu-o-2" class="outline-3">
 <h3 id="procedimento-para-execu-o-2">Procedimento para execução</h3>
 <div class="outline-text-3" id="text-procedimento-para-execu-o-2">
+<p>
+<b>Atenção</b>: É necessária a versão v0.21.0 do Quint para usar o <code>--n-traces</code>, atualizem!
+</p>
+
 <ol class="org-ol">
-<li>Obter uma execução a partir do simulador: <code>quint run bank.qnt --max-samples=1 --mbt --out-itf=out.itf.json</code></li>
-<li>Executar o teste (que lerá o JSON produzido no passo (1))</li>
+<li>Obter 10 mil execuções a partir do simulador: <code>quint run bank.qnt --mbt --out-itf=traces/out.itf.json --n-traces=10000</code>
+<ul class="org-ul">
+<li>PS: crie a pasta <code>traces</code> para que todos os arquivos JSON sejam escritos nela.</li>
+</ul></li>
+<li>Executar o teste (que lerá os JSONs produzidos no passo (1))</li>
 </ol>
 
 <p>
@@ -146,8 +154,42 @@ Quando um teste falhar:
 Quando um teste suceder:
 </p>
 <ul class="org-ul">
-<li>Volte ao início, até ter confiança de que o comportamento do modelo e do código são os mesmos.</li>
+<li>Volte ao início, até ter confiança de que o comportamento do modelo e do
+código são os mesmos. Como já estamos testando 10 mil traces nesse
+procedimento, é bem provável que uma iteração seja suficiente, mas repita
+algumas vezes para aumentar a confiança.</li>
 </ul>
+</div>
+</div>
+<div id="outline-container-relat-rio-2" class="outline-3">
+<h3 id="relat-rio-2">Relatório</h3>
+<div class="outline-text-3" id="text-relat-rio-2">
+<p>
+<b>Atenção</b>: Deve ser entregue em PDF!
+</p>
+
+<p>
+O relatório deve justificar cada alteração feita na implementação do banco
+(arquivo <code>bank.hpp</code>). Cada alteração deve ser mínima: quanto menor, melhor. Isso
+demonstra que você está utilizando o método corretamente, e que conseguirá
+aplicá-lo mesmo em uma implementação muito complexa.
+</p>
+
+<p>
+Seu relatório deve conter uma seção explicando brevemente como seu teste está funcionando: quais dados estão sendo impressos e quais comparações estão sendo feitas; e uma seção com as modificações que você fez.
+</p>
+
+<p>
+Para cada modificação, você deve apresentar:
+</p>
+<ol class="org-ol">
+<li>Qual informação do teste levou você a identificar o <i>bug</i>. Pode ser uma captura de tela do terminal ou cópia do output, com uma breve descrição.</li>
+<li>A modificação que você fez. Pode ser uma captura de tela ou cópia do código inserido. Necessário que fique claro o que foi modificado (não coloquem uma imagem do código inteiro). Alternativamente, podem informar a <i>hash</i> do <i>commit</i> do GitHub, de forma que o commit contenha apenas a modificação em questão.</li>
+</ol>
+
+<p>
+A princípio, seu relatório pode conter apenas a descrição o teste e das modificações, sem necessidade de mais seções como introdução e conclusão. Se houverem mais informações relevantes, podem acrescentar.
+</p>
 </div>
 </div>
 </div>
