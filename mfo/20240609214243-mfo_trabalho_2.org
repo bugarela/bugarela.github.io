@@ -34,7 +34,7 @@ Você recebe:
 2. Uma implementação em C++ do banco com /bugs/ (=bank.hpp=)
    - Deve ser modificado
    - Todas as modificações devem ser motivadas por testes falhando, e devidamente documentadas no relatório (i.e. "Adicionei um if na função de depósito devido a esse teste falhando")
-3. Um esqueleto para a implementação dos testes em C++ (=bank.cpp=)
+3. Um esqueleto para a implementação dos testes em C++ (=test.cpp=)
    - Deve ser modificado
    - Compilar passando a pasta =lib=: =g++ -I lib test.cpp=
 
