@@ -4,7 +4,7 @@
 #+title:     Apresentação
 #+AUTHOR:    Gabriela Moreira
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      26 de fevereiro de 2024
+#+DATE:      05 de agosto de 2024
 #+KEYWORDS:
 #+LANGUAGE:  en
 #+OPTIONS:   H:3 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
@@ -41,8 +41,8 @@ As técnicas incluem dois componentes:
 *** Histórico da disciplina
 - Lá por 2015~2017, ensinava-se uma linguagem chamada Z
 - Em ~2018, ensinava-se Redes de Petri
-- Desde 2019, o prof Cristiano assumiu a disciplina ensinando Coq
-- Esse semestre, vou ensinar TLA+ (Temporal Logic of Actions+) e Quint
+- Em 2019, o prof Cristiano assumiu a disciplina ensinando Coq
+- Em 2024/1, eu assumi a disciplina ensinando TLA+ (Temporal Logic of Actions+) e Quint
 
 ** Sobre Mim
 *** Sobre Mim
@@ -61,25 +61,40 @@ Indústria:
 
 *** Meu envolvimento com Métodos Formais
 - Aprendi TLA+ na graduação para fazer meu TCC, e continuei estudando TLA+ no mestrado
+#+BEAMER: \pause
 - Entrei na Informal Systems devido a pesquisa ativa (minha e deles) em TLA+
+  #+BEAMER: \pause
   - Muitos engenheiros com dificuldade em aprender e usar TLA+
+  #+BEAMER: \pause
   - Tinham a proposta de uma nova syntaxe para TLA+, que chamamos hoje de *Quint*
+    #+BEAMER: \pause
     - Sou a principal desenvolvedora dessa linguagem desde o início de 2022
 
 * Plano de Ensino
 *** Vamos aprender TLA+ e Quint?
-- TLA+ é uma linguagem de especificação bem estabelecida, e será nossa principal fundamentação teórica da disciplina
-  - Alguns assuntos mais avançados vamos abordar somente em TLA+
-- Quint é completamente opcional, vocês podem escolher fazer tudo em TLA+ se quiserem.
-  - A linguagem e o ferramental de Quint pode facilitar bastante a vida de vocês.
-  - Vamos conversar mais sobre isso no decorrer das aulas.
+Sim, mas vocês vão escolher em qual das duas fazer o primeiro trabalho
+#+BEAMER: \pause
+- Na prova, sempre que houver exemplo de código, haverá versões nas duas linguagens
 
 #+BEAMER: \medskip
+#+BEAMER: \pause
 
 Os exemplos em aula poderão ser em qualquer uma das linguagens.
 
 #+BEAMER: \medskip
+#+BEAMER: \pause
 Minha expectativa é que vocês consigam entender especificações em ambas as linguagens, já que toda a base lógica para elas é a mesma - e a base lógica é a parte mais importante da disciplina.
+
+*** Vamos aprender TLA+ e Quint? - Continuação
+TLA+ é uma linguagem de especificação bem estabelecida, e será nossa principal fundamentação teórica da disciplina
+  - Alguns assuntos mais avançados vamos abordar somente em TLA+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Quint é opcional, vocês podem escolher fazer tudo em TLA+ se quiserem.
+  - A linguagem e o ferramental de Quint pode facilitar bastante a vida de vocês.
+  - O trabalho final será em Quint, mas vocês vão receber a especificação pronta.
+    - Será necessário rodar comandos no terminal, então todos terão que instalar o Quint.
+  - Vamos conversar mais sobre isso no decorrer das aulas.
 
 ** Conteúdo
 *** Plano de ensino
@@ -121,6 +136,10 @@ Desenvolver habilidades para reconhecimento de cenários, em sistemas computacio
 *** Metodologia
 A disciplina será desenvolvida através de aulas expositivo-dialogadas, com exercícios e trabalhos práticos, e seminários. O conteúdo da disciplina poderá ser ministrado na modalidade de ensino a distância em até 20% do total de sua Carga Horária (MEC PORTARIA No 4.059, DE 10 DE DEZEMBRO DE 2004 publicado no DOU de 13/12/2004, Seção 1, p. 34).
 
+#+BEAMER: \pause
+#+BEAMER: \medskip
+As aulas do dias 7, 9 e 14 de outubro serão na modalidade de ensino a distância porque tenho uma viagem de trabalho agendada.
+
 ** Sistema de avaliação
 *** Do desempenho do aluno
 A qualidade do desempenho do aluno será avaliada com base em:
@@ -144,7 +163,7 @@ Os estudantes terão, igualmente, a oportunidade de fazer uma avaliação do des
 [cite/n:@specifying-systems;@understanding-formal-methods;@principles-of-model-checking]
 #+print_bibliography: :keyword main
 *** Bibliografia complementar
-[cite/n:@a-science-of-concurrent-programs;@apalache-lang-manual]
+[cite/n:@a-science-of-concurrent-programs;@apalache-lang-manual;@quint]
 #+print_bibliography: :notkeyword main
 
 * Recursos
@@ -154,7 +173,6 @@ Os estudantes terão, igualmente, a oportunidade de fazer uma avaliação do des
 2. Toda a bibliografia tem disponível online gratuitamente
 3. Páginas web relevantes
    - TLA+: [[https://lamport.azurewebsites.net/tla/tla.html]]
-   - Quint: [[https://github.com/informalsystems/quint]]
-4. Pesquisa de opinão: querem usar o moodle?
+   - Quint: [[https://quint-lang.org]]
 
 #+beamer: \end{frame} \maketitle
