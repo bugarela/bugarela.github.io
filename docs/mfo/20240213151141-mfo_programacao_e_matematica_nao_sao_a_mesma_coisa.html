@@ -13,9 +13,9 @@
   <meta property="og:type" content="article" />
   <meta property="og:description" content="Personal homepage exported with org-thtml" />
   
-    <meta property="og:image" content="https://bugarela.com/mfo/figures/pioneer-plaque.png" />
-    <meta property="og:image:width" content="4004" />
-    <meta property="og:image:height" content="3173" />
+    <meta property="og:image" content="https://bugarela.com/mfo/figures/wadler.png" />
+    <meta property="og:image:width" content="756" />
+    <meta property="og:image:height" content="607" />
   
   
     <meta name="twitter:card" content="summary_large_image">
@@ -67,22 +67,29 @@
 <ul>
 <li><a href="#essa-aula-n-o-sobre-2">1.1. Essa aula não é sobre</a></li>
 <li><a href="#essa-aula-sobre-2">1.2. Essa aula é sobre</a></li>
+<li><a href="#ainda-sobre-essa-aula-2">1.3. Ainda sobre essa aula</a></li>
 </ul>
 </li>
 <li><a href="#correspond-ncias-interessantes-1">2. Correspondências interessantes</a>
 <ul>
-<li><a href="#correspond-ncias-interessantes-est-tudo-interligado-2">2.1. Correspondências interessantes - está tudo interligado!</a></li>
-<li><a href="#linguagem-universal-2">2.2. Linguagem universal</a></li>
-<li><a href="#isomorfismo-de-curry-howard-2">2.3. Isomorfismo de Curry-Howard</a></li>
-<li><a href="#interpreta-o-alg-brica-para-tipos-2">2.4. Interpretação algébrica para tipos</a></li>
-<li><a href="#exponencia-o-como-tipos-de-fun-es-i-2">2.5. Exponenciação como tipos de funções I</a></li>
-<li><a href="#fun-es-parciais-2">2.6. Funções parciais</a></li>
+<li><a href="#philip-wadler-2">2.1. Philip Wadler</a></li>
+<li><a href="#um-pouco-de-hist-ria-2">2.2. Um pouco de história</a></li>
+<li><a href="#computabilidade-2">2.3. Computabilidade</a></li>
+<li><a href="#correspond-ncias-interessantes-est-tudo-interligado-2">2.4. Correspondências interessantes - está tudo interligado!</a></li>
+<li><a href="#a-matem-tica-inventada-ou-descoberta-2">2.5. A matemática é inventada ou descoberta?</a></li>
+<li><a href="#a-matem-tica-inventada-ou-descoberta-cont-2">2.6. A matemática é inventada ou descoberta? - Cont.</a></li>
+<li><a href="#isomorfismo-de-curry-howard-2">2.7. Isomorfismo de Curry-Howard</a></li>
+<li><a href="#interpreta-o-alg-brica-para-tipos-2">2.8. Interpretação algébrica para tipos</a></li>
+<li><a href="#exponencia-o-como-tipos-de-fun-es-i-2">2.9. Exponenciação como tipos de funções I</a></li>
+<li><a href="#sistemas-de-tipos-2">2.10. Sistemas de tipos</a></li>
+<li><a href="#tipos-dependentes-2">2.11. Tipos dependentes</a></li>
+<li><a href="#fun-es-parciais-2">2.12. Funções parciais</a></li>
 </ul>
 </li>
 <li><a href="#diferen-as-importantes-1">3. Diferenças importantes</a>
 <ul>
 <li><a href="#erros-vs-indefini-es-2">3.1. Erros vs indefinições</a></li>
-<li><a href="#fun-es-vs-maps-2">3.2. Funções vs <code>Maps</code></a></li>
+<li><a href="#fun-es-vs-maps-2">3.2. Funções vs Maps</a></li>
 <li><a href="#implementa-o-vs-defini-o-2">3.3. Implementação vs definição</a></li>
 <li><a href="#em-resumo-2">3.4. Em resumo</a></li>
 <li><a href="#refer-ncias-2">3.5. Referências</a></li>
@@ -140,29 +147,120 @@ Para isso, primeiro precisamos entender as semelhanças e diferenças<br />
 </li>
 </ol>
 </div>
+<div id="outline-container-ainda-sobre-essa-aula-2" class="outline-3">
+<h3 id="ainda-sobre-essa-aula-2"><span class="section-number-3">1.3.</span> Ainda sobre essa aula</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Se você gostar muito do conteúdo dessa aula:<br />
+</p>
+<ul class="org-ul">
+<li>Maravilha, considere fazer TCC/pesquisa sobre um dos assuntos!<br /></li>
+<li>Sinta-se motivado para a disciplina<br /></li>
+</ul>
+
+<p>
+Se você <b>não</b> gostar da aula e ela só te assustar:<br />
+</p>
+<ul class="org-ul">
+<li>Calma, a disciplina não vai ser nesse nível de loucura<br /></li>
+<li>Começamos tudo do básico na próxima aula, e a maioria do conteúdo dessa aula nem será visto na disciplina<br /></li>
+</ul>
+
+<p>
+Pensem nisso como uma apresentação de feira de profissões (para a profissão métodos formais e adjacentes).<br />
+</p>
+</div>
+</div>
 </div>
 <div id="outline-container-correspond-ncias-interessantes-1" class="outline-2">
 <h2 id="correspond-ncias-interessantes-1"><span class="section-number-2">2.</span> Correspondências interessantes</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-correspond-ncias-interessantes-est-tudo-interligado-2" class="outline-3">
-<h3 id="correspond-ncias-interessantes-est-tudo-interligado-2"><span class="section-number-3">2.1.</span> Correspondências interessantes - está tudo interligado!</h3>
+<div id="outline-container-philip-wadler-2" class="outline-3">
+<h3 id="philip-wadler-2"><span class="section-number-3">2.1.</span> Philip Wadler</h3>
 <div class="outline-text-3" id="text-2-1">
+<p>
+A primeira parte dessa aula é baseada na palestra/artigo do Philip Wadler (<a href="#citeproc_bib_item_3">WADLER, 2015</a>)<br />
+</p>
+
+<div class="figure">
+<p><img src="./figures/wadler.png" alt="wadler.png" width="600px" /><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-um-pouco-de-hist-ria-2" class="outline-3">
+<h3 id="um-pouco-de-hist-ria-2"><span class="section-number-3">2.2.</span> Um pouco de história</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Em 1928, Hilbert propõe um desafio intitulado <i>entscheidungsproblem</i> (problema de decisão).<br />
+</p>
 <ul class="org-ul">
-<li>Em 1930, Church e Turing provam, de forma independente, que o problema Entscheidungsproblem não pode ser resolvido<br />
+<li>Ele acredita que existe um possível algoritmo que diz se uma declaração pode ou não ser provada pelas regras de uma lógica.<br /></li>
+<li>Isso é equivalente a afirmar que a lógica é completa: tudo o que é provado é verdadeiro, e tudo o que e verdadeiro é provável.<br /></li>
+</ul>
+
+<p>
+Gödel prova a incompletude da lógica em 1931 (teorema da incompletude de Gödel). Ele mostra como representar o seguinte teorema em qualquer lógica capaz de representar aritmética:<br />
+</p>
+<blockquote>
+<p>
+&ldquo;Esta declaração não é provável&rdquo;<br />
+</p>
+</blockquote>
 <ul class="org-ul">
-<li>Church criando o cálculo lambda<br /></li>
-<li>Turing criando as máquinas de Turing<br /></li>
-<li>São equivalentes!<br /></li>
-</ul></li>
+<li>Se for verdade, não é provável<br /></li>
+<li>Se for provável, não é verdade<br /></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-linguagem-universal-2" class="outline-3">
-<h3 id="linguagem-universal-2"><span class="section-number-3">2.2.</span> Linguagem universal</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-computabilidade-2" class="outline-3">
+<h3 id="computabilidade-2"><span class="section-number-3">2.3.</span> Computabilidade</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+O primeiro computador (ENIAC) surgiu somente em 1946. Na época de Hilbert, o conceito de algoritmo é um conjunto de instruções a ser seguido por um humano.<br />
+</p>
 <ul class="org-ul">
-<li>(<a href="#citeproc_bib_item_3">WADLER, 2015</a>) E se mandássemos cálculo lambda para os alienígenas? Seriam eles capazes de compreender?<br /></li>
+<li>Não havia uma definição formal do que é computabilidade/algoritmo<br /></li>
+</ul>
+
+<p>
+Enquanto as pessoas acreditavam que Hilbert estava correto, não havia necessidade de definir computabilidade.<br />
+</p>
+<ul class="org-ul">
+<li>Quando alguém encontrar a solução para o problema, a solução será um algoritmo.<br /></li>
+</ul>
+
+<p>
+Para mostrar que o <i>entscheidungsproblem</i> é indecidível, precisamos da definição de computabilidade<br />
+</p>
+<ul class="org-ul">
+<li>Para que seja possível mostrar que nenhum possível algoritmo pode resolver o problema.<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-correspond-ncias-interessantes-est-tudo-interligado-2" class="outline-3">
+<h3 id="correspond-ncias-interessantes-est-tudo-interligado-2"><span class="section-number-3">2.4.</span> Correspondências interessantes - está tudo interligado!</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Então, as pessoas começam a tentar definir computabilidade. Surpreendentemente, três pessoas independentemente encontram soluções:<br />
+</p>
+<ul class="org-ul">
+<li>Em maio de 1935, Alonzo Church define o cálculo lambda<br /></li>
+<li>Em julho de 1935, Kurt Gödel (e seu aluno Kleene) define funções recursivas<br /></li>
+<li>Em maio de 1936, Alan Turing define maquinas de Turing<br /></li>
+</ul>
+
+<p>
+As três são equivalentes!<br />
+</p>
+</div>
+</div>
+<div id="outline-container-a-matem-tica-inventada-ou-descoberta-2" class="outline-3">
+<h3 id="a-matem-tica-inventada-ou-descoberta-2"><span class="section-number-3">2.5.</span> A matemática é inventada ou descoberta?</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li>(<a href="#citeproc_bib_item_3">WADLER, 2015</a>) Quais partes dessa imagem um alienígena tem mais chances de entender?<br /></li>
 </ul>
 
 
@@ -170,11 +268,30 @@ Para isso, primeiro precisamos entender as semelhanças e diferenças<br />
 <p><img src="./figures/pioneer-plaque.png" alt="pioneer-plaque.png" width="600px" /><br />
 </p>
 </div>
+
+<ul class="org-ul">
+<li>Quais linguagens de programação eles teriam mais chances de entender?<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-a-matem-tica-inventada-ou-descoberta-cont-2" class="outline-3">
+<h3 id="a-matem-tica-inventada-ou-descoberta-cont-2"><span class="section-number-3">2.6.</span> A matemática é inventada ou descoberta? - Cont.</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+Wadler faz uma ótima argumentação de que a matemática é descoberta, o que ressoa muito comigo pessoalmente.<br />
+</p>
+<ul class="org-ul">
+<li>Se Church, Gödel e Turing tivessem inventado (e não descoberto) essas definições, quais as chances delas acabarem sendo equivalentes?<br /></li>
+</ul>
+
+<p>
+Vamos ver mais um argumento de Wadler a favor dessa perspectiva: o Isomorfismo de Curry-Howard.<br />
+</p>
 </div>
 </div>
 <div id="outline-container-isomorfismo-de-curry-howard-2" class="outline-3">
-<h3 id="isomorfismo-de-curry-howard-2"><span class="section-number-3">2.3.</span> Isomorfismo de Curry-Howard</h3>
-<div class="outline-text-3" id="text-2-3">
+<h3 id="isomorfismo-de-curry-howard-2"><span class="section-number-3">2.7.</span> Isomorfismo de Curry-Howard</h3>
+<div class="outline-text-3" id="text-2-7">
 <ul class="org-ul">
 <li>Proposições como tipos<br /></li>
 <li>Provas como programas<br /></li>
@@ -261,8 +378,8 @@ Exemplo: implicação e abstração + aplicação<br />
 </div>
 </div>
 <div id="outline-container-interpreta-o-alg-brica-para-tipos-2" class="outline-3">
-<h3 id="interpreta-o-alg-brica-para-tipos-2"><span class="section-number-3">2.4.</span> Interpretação algébrica para tipos</h3>
-<div class="outline-text-3" id="text-2-4">
+<h3 id="interpreta-o-alg-brica-para-tipos-2"><span class="section-number-3">2.8.</span> Interpretação algébrica para tipos</h3>
+<div class="outline-text-3" id="text-2-8">
 <ul class="org-ul">
 <li>A teoria das categorias define um nível ainda mais alto de abstração para enxergar algumas coisas. Um dos exemplos mais simples de uma categoria é a categoria dos conjuntos (e das funções entre eles) (<a href="#citeproc_bib_item_1">DE FRANÇA, 2019</a>).<br /></li>
 <li>As chamadas categorias cartesianas fechadas podem ser relacionadas a nossa álgebra de ensino médio<br />
@@ -323,8 +440,8 @@ Exemplo: implicação e abstração + aplicação<br />
 </div>
 </div>
 <div id="outline-container-exponencia-o-como-tipos-de-fun-es-i-2" class="outline-3">
-<h3 id="exponencia-o-como-tipos-de-fun-es-i-2"><span class="section-number-3">2.5.</span> Exponenciação como tipos de funções I</h3>
-<div class="outline-text-3" id="text-2-5">
+<h3 id="exponencia-o-como-tipos-de-fun-es-i-2"><span class="section-number-3">2.9.</span> Exponenciação como tipos de funções I</h3>
+<div class="outline-text-3" id="text-2-9">
 <p>
 Vamos escrever tipos função (<code>a -&gt; b</code>) como operações de exponenciação da álgebra:<br />
 </p>
@@ -337,6 +454,7 @@ Vamos escrever tipos função (<code>a -&gt; b</code>) como operações de expon
 </p>
 <ul class="org-ul">
 <li>Por exemplo, pra <code>a</code> sendo <code>bool</code>, temos <code>f x = false</code> e <code>f x = true</code><br /></li>
+<li>Qualquer outra versão de <code>f x</code> pra esse tipo será equivalente a uma dessas duas<br /></li>
 </ul></li>
 <li><p>
 \(1^a = 1\) tem assinatura <code>a -&gt; ()</code>. Apenas uma função tem essa assinatura (<code>f x = ()</code>)<br />
@@ -345,7 +463,7 @@ Vamos escrever tipos função (<code>a -&gt; b</code>) como operações de expon
 \(a^{b+c}\) tem assinatura <code>Either b c -&gt; a</code><br />
 </p>
 <ul class="org-ul">
-<li>Para isso, temos que definir os casos <code>Left</code> com tipo <code>b -&gt; a</code> e <code>Right</code> com tipo <code>c -&gt; a</code><br /></li>
+<li>Para definir uma função desse tipo, temos que definir os casos <code>Left</code> com tipo <code>b -&gt; a</code> e <code>Right</code> com tipo <code>c -&gt; a</code><br /></li>
 <li>Ou seja, \(a^{b + c} = a^b * a^c\)<br /></li>
 </ul></li>
 <li><p>
@@ -363,14 +481,52 @@ Vamos escrever tipos função (<code>a -&gt; b</code>) como operações de expon
 </ul>
 </div>
 </div>
+<div id="outline-container-sistemas-de-tipos-2" class="outline-3">
+<h3 id="sistemas-de-tipos-2"><span class="section-number-3">2.10.</span> Sistemas de tipos</h3>
+<div class="outline-text-3" id="text-2-10">
+<ul class="org-ul">
+<li>Com tudo o que vimos até aqui, é seguro afirmar que istemas de tipos são uma parte da ciência da computação que tem uma grande intersecção com a matemática<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Sistemas de tipos também são métodos formais: Definimos uma especificação (assinaturas de tipos) e o type checker é nosso sistema de verificação.<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Estudar matemática avançada pode dar base para usos cada vez mais avançados de sistemas de tipos<br />
+<ul class="org-ul">
+<li>Tipos dependentes<br /></li>
+<li>HoTT (Homotopy Type Theory)<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-tipos-dependentes-2" class="outline-3">
+<h3 id="tipos-dependentes-2"><span class="section-number-3">2.11.</span> Tipos dependentes</h3>
+<div class="outline-text-3" id="text-2-11">
+<p>
+Tipos dependentes: quando o tipo depende do valor. No exemplo a seguir, usamos o sistema de tipos para provar que a função <code>map</code> não altera o tamanho de um vetor. Isso não é possível sem tipos dependentes.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-agda">map : {A B : Set} {n : Nat} -&gt; (A -&gt; B) -&gt; Vec A n -&gt; Vec B n
+map f [] = []
+map f (x :: xs) = f x :: map f xs
+</pre>
+</div>
+
+<p>
+Tipos dependentes são uma parte importante de muitos assistentes de provas (como Coq e Agda). Bem provável que vamos ver mais sobre eles durante os seminários da disciplina.<br />
+</p>
+</div>
+</div>
 <div id="outline-container-fun-es-parciais-2" class="outline-3">
-<h3 id="fun-es-parciais-2"><span class="section-number-3">2.6.</span> Funções parciais</h3>
-<div class="outline-text-3" id="text-2-6">
+<h3 id="fun-es-parciais-2"><span class="section-number-3">2.12.</span> Funções parciais</h3>
+<div class="outline-text-3" id="text-2-12">
 <p>
 Agora, um caso mais tangível para voltarmos um pouco para a nossa realidade.<br />
 </p>
 <ul class="org-ul">
-<li>Na matemática, funções podem ser totais ou parciais<br />
+<li><p>
+Na matemática, funções podem ser totais ou parciais<br />
+</p>
 <ul class="org-ul">
 <li>Para transformar funções parciais em totais, adicionamos o valor bottom (\(\bot\)) ao co-domínio e mapeamos todos os valores anteriormente indefinidos ao bottom.<br /></li>
 </ul></li>
@@ -396,7 +552,9 @@ Agora, um caso mais tangível para voltarmos um pouco para a nossa realidade.<br
 <li>Divisão não está definida para denominador \(0\)<br /></li>
 <li>Exponenciação não está definida para \(0^0\)<br /></li>
 </ul></li>
+</ul>
 
+<ul class="org-ul">
 <li>Na programação, precisamos <b>definir</b> o que acontece nesses cenários<br />
 <ul class="org-ul">
 <li>Normalmente, o que queremos é reportar algum tipo de erro<br /></li>
@@ -409,7 +567,7 @@ Agora, um caso mais tangível para voltarmos um pouco para a nossa realidade.<br
 </div>
 </div>
 <div id="outline-container-fun-es-vs-maps-2" class="outline-3">
-<h3 id="fun-es-vs-maps-2"><span class="section-number-3">3.2.</span> Funções vs <code>Maps</code></h3>
+<h3 id="fun-es-vs-maps-2"><span class="section-number-3">3.2.</span> Funções vs Maps</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Funções matemáticas podem ser programadas através de funções ou <code>Maps</code> (<a href="#citeproc_bib_item_2">KONNOV, 2024</a>). Pense nos exemplos<br />
