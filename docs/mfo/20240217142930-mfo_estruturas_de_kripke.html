@@ -14,8 +14,8 @@
   <meta property="og:description" content="Personal homepage exported with org-thtml" />
   
     <meta property="og:image" content="https://bugarela.com/mfo/semaforo.png" />
-    <meta property="og:image:width" content="1700" />
-    <meta property="og:image:height" content="440" />
+    <meta property="og:image:width" content="1696" />
+    <meta property="og:image:height" content="439" />
   
   
     <meta name="twitter:card" content="summary_large_image">
@@ -151,10 +151,6 @@ Um sistema de transições é dito <b>finito</b> se e somente se \(S\) é finito
 <p>
 <b>Pergunta</b>: Comportamentos de sistemas de transições finitos são sempre finitos?<br />
 </p>
-
-<p>
-Não! Comportamentos sobre uma sequência de estados ainda podem ser infinitos, mesmo que os estados sejam finitos.<br />
-</p>
 </div>
 </div>
 <div id="outline-container-determinismo-e-n-o-determinismo-2" class="outline-3">
@@ -243,44 +239,8 @@ Um semáforo pode ser representado por uma estrutura de Kripke \((S, \to, I)\) o
 <h3 id="exerc-cio-fatrafficlight-fatrafficlight-dois-sem-foros-2"><span class="section-number-3">2.3.</span> Exercício: <i class="fa fa-traffic-light"></i> <i class="fa fa-traffic-light"></i> Dois semáforos</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-Um sistema com <b>dois</b> semáforos pode ser representado por uma estrutura de Kripke \((S, \to, I)\) onde<br />
+Um sistema com <b>dois</b> semáforos pode ser representado por uma estrutura de Kripke \((S, \to, I)\) onde &#x2026;<br />
 </p>
-<ul class="org-ul">
-<li>\(S = \{ (1: vermelho\ e\ 2: vermelho), (1: amarelo\ e\ 2: vermelho), (1: verde\ e\ 2: vermelho),
-  (1: vermelho\ e \2: amarelo), (1: vermelho\ e\ 2: verde) \}\)<br /></li>
-</ul>
-<ul class="org-ul">
-<li>\(\begin{aligned}
-   \to\ = \{ &\\
-      & (1: vermelho\ e\ 2: vermelho) \to (1: verde\ e\ 2: vermelho),\\
-      & (1: verde\ e\ 2: vermelho) \to (1: amarelo\ e\ 2: vermelho),\\
-      & (1: amarelo\ e\ 2: vermelho) \to (1: vermelho\ e\ 2: vermelho),\\
-      & (1: vermelho\ e\ 2: vermelho) \to (1: vermelho\ e\ 2: verde),\\
-      & (1: vermelho\ e\ 2: verde) \to (1: vermelho\ e\ 2: amarelo),\\
-      & (1: vermelho\ e\ 2: amarelo) \to (1: vermelho\ e\ 2: vermelho),\\
-    \} &
-    \end{aligned}\)<br /></li>
-</ul>
-<ul class="org-ul">
-<li><p>
-\(I = \{ (1: vermelho\ e\ 2: vermelho ) \}\)<br />
-</p></li>
-</ul>
-
-
-<div class="figure">
-<p><img src="2semaforos.png" alt="2semaforos.png" /><br />
-</p>
-</div>
-
-<p>
-<a href="https://forsyte.at/kripke/">https://forsyte.at/kripke/</a><br />
-</p>
-
-<ul class="org-ul">
-<li><code>AF(B_verde)</code><br /></li>
-<li><code>AF(A_vermelho &amp; B_vermelho)</code><br /></li>
-</ul>
 </div>
 </div>
 <div id="outline-container-exerc-cio-fatrafficlight-fatrafficlight-fatrafficlight-tr-s-sem-foros-2" class="outline-3">
@@ -313,7 +273,7 @@ Um sistema com <b>dois</b> semáforos pode ser representado por uma estrutura de
 <div class="outline-text-3" id="text-2-5">
 
 <div class="figure">
-<p><img src="./specs/Semaforos.png" alt="Semaforos.png" /><br />
+<p><img src="./specs/semaforos/Semaforos.png" alt="Semaforos.png" /><br />
 </p>
 </div>
 </div>
@@ -361,18 +321,12 @@ Todos os exemplos de semáforos (1, 2, 3 e N) são sistemas de transições. Qua
 <ul class="org-ul">
 <li>\(\forall s \in S, \exists s' \in S : s \to s'\)<br /></li>
 </ul></li>
-</ul>
-<ul class="org-ul">
-<li><b>Resposta</b>: Sim! Sempre há um passo para um próximo estado<br /></li>
 </ul></li>
 <li><p>
 Os sistemas de semáforos são finitos?<br />
 </p>
 <ul class="org-ul">
 <li><i class="fa-regular fa-lightbulb"></i> Um sistema de transições é dito <b>finito</b> se e somente se \(S\) é finito.<br /></li>
-</ul>
-<ul class="org-ul">
-<li><b>Resposta</b>: Sim! Os estados são um conjunto finito.<br /></li>
 </ul></li>
 <li><p>
 Nossas definições de semáforo são determinísticas?<br />
@@ -380,9 +334,6 @@ Nossas definições de semáforo são determinísticas?<br />
 <ul class="org-ul">
 <li><i class="fa-regular fa-lightbulb"></i> O conjunto de <b>sucessores</b> de um estado \(s\) é definido por \(Post(s) = \{ s' \in S\ |\ s \to s' \}\).<br /></li>
 <li><i class="fa-regular fa-lightbulb"></i> Sistema é deterministico sse \(|I| \leq 1 \land \forall s \in S : |Post(s)| \leq 1\)<br /></li>
-</ul>
-<ul class="org-ul">
-<li><b>Resposta</b>: Nem todas. A definição que demos para 2 semáforos contém não determinismo. As definições para 1 semáforo e N semáforos são determinísticas.<br /></li>
 </ul></li>
 </ol>
 </div>
@@ -430,33 +381,6 @@ Caso a definição de próximo seja removida<br />
 <p>
 Onde podemos encontrar não determinismo em sistemas de software?<br />
 </p>
-<ol class="org-ol">
-<li><p>
-Escolhas de usuário<br />
-</p>
-<ul class="org-ul">
-<li>Depósitos e saques<br /></li>
-<li>Qualquer input em geral<br /></li>
-</ul></li>
-<li><p>
-Fatores aleatórios<br />
-</p>
-<ul class="org-ul">
-<li>Se rolar 20 no dado, o dano é dobrado<br /></li>
-</ul></li>
-<li><p>
-Influências do ambiente<br />
-</p>
-<ul class="org-ul">
-<li>Falha de hardware<br /></li>
-<li>Falha na rede<br /></li>
-</ul></li>
-<li>Ordem de execução quando há concorrência<br />
-<ul class="org-ul">
-<li>Processo A executa antes do processo B<br /></li>
-<li>Requisição A é recebida antes da requisição B<br /></li>
-</ul></li>
-</ol>
 </div>
 </div>
 <div id="outline-container-definindo-a-fronteira-2" class="outline-3">

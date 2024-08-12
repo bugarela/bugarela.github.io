@@ -4,7 +4,7 @@
 #+title:     Estruturas de Kripke
 #+AUTHOR:    Gabriela Moreira
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      2024-03-04
+#+DATE:      12 de agosto de 2024
 #+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:nil
@@ -17,7 +17,7 @@
 #+LATEX_COMPILER: pdflatex
 #+bibliography: references.bib
 #+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
-#+EXCLUDE_TAGS: sem_resposta
+#+EXCLUDE_TAGS: com_resposta
 
 
 #+begin_src elisp :exports none
@@ -181,7 +181,7 @@ Um sistema com *dois* semáforos pode ser representado por uma estrutura de Krip
 #+ATTR_HTML: :width 600px :center nil
 #+ATTR_LATEX: :width 2.9\textwidth
 # ()convertfrompdf:t
-[[./specs/Semaforos.png]]
+[[./specs/semaforos/Semaforos.png]]
 
 
 ** N semáforos em Quint
