@@ -14,8 +14,8 @@
   <meta property="og:description" content="Personal homepage exported with org-thtml" />
   
     <meta property="og:image" content="https://bugarela.com/mfo/figures/execucao_arvore_computacional.png" />
-    <meta property="og:image:width" content="2666" />
-    <meta property="og:image:height" content="1347" />
+    <meta property="og:image:width" content="2660" />
+    <meta property="og:image:height" content="1344" />
   
   
     <meta name="twitter:card" content="summary_large_image">
@@ -105,7 +105,8 @@
 <li><a href="#exemplo-chaleiras-2">5.3. Exemplo chaleiras</a></li>
 <li><a href="#exemplo-adultos-e-crian-as-modelo-2">5.4. Exemplo Adultos e Crianças - modelo</a></li>
 <li><a href="#exemplo-adultos-e-crian-as-2">5.5. Exemplo Adultos e Crianças</a></li>
-<li><a href="#refer-ncias-2">5.6. Referências</a></li>
+<li><a href="#workaround-para-falta-do-existencial-com-invariantes-2">5.6. <i>Workaround</i> para falta do existencial com invariantes</a></li>
+<li><a href="#refer-ncias-2">5.7. Referências</a></li>
 </ul>
 </li>
 </ul>
@@ -416,7 +417,7 @@ Exemplo:<br />
 <h3 id="exerc-cios-2"><span class="section-number-3">3.4.</span> Exercícios</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
-Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next</i>), U (<i>Until</i>) e R (<i>Release</i>) pode ser representado pelo diagrama a seguir?<br />
+Qual dos operadores temporais G (<i>Globally</i>), F (<i>Finally</i>), X (<i>Next</i>), U (<i>Until</i>) e R (<i>Release</i>) pode ser representado pelo diagrama a seguir?<br />
 </p>
 
 
@@ -430,7 +431,7 @@ Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next
 </p>
 
 <p>
-Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next</i>), U (<i>Until</i>) e R (<i>Release</i>) pode ser representado pelo diagrama a seguir?<br />
+Qual dos operadores temporais G (<i>Globally</i>), F (<i>Finally</i>), X (<i>Next</i>), U (<i>Until</i>) e R (<i>Release</i>) pode ser representado pelo diagrama a seguir?<br />
 </p>
 
 
@@ -444,7 +445,7 @@ Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next
 </p>
 
 <p>
-Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next</i>), U (<i>Until</i>) e R (<i>Release</i>) pode ser representado pelo diagrama a seguir?<br />
+Qual dos operadores temporais G (<i>Globally</i>), F (<i>Finally</i>), X (<i>Next</i>), U (<i>Until</i>) e R (<i>Release</i>) pode ser representado pelo diagrama a seguir?<br />
 </p>
 
 
@@ -458,7 +459,7 @@ Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next
 </p>
 
 <p>
-Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next</i>), U (<i>Until</i>) e R (<i>Release</i>) pode ser representado pelo diagrama a seguir?<br />
+Qual dos operadores temporais G (<i>Globally</i>), F (<i>Finally</i>), X (<i>Next</i>), U (<i>Until</i>) e R (<i>Release</i>) pode ser representado pelo diagrama a seguir?<br />
 </p>
 
 
@@ -472,7 +473,7 @@ Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next
 </p>
 
 <p>
-Qual dos operadores temporais G (<i>Globaly</i>), F (<i>Finally</i>), X (<i>Next</i>), U (<i>Until</i>) e R (<i>Release</i>) pode ser representado pelo diagrama a seguir?<br />
+Qual dos operadores temporais G (<i>Globally</i>), F (<i>Finally</i>), X (<i>Next</i>), U (<i>Until</i>) e R (<i>Release</i>) pode ser representado pelo diagrama a seguir?<br />
 </p>
 
 
@@ -626,9 +627,34 @@ PS: Release é <code>V</code> nesse sistema<br />
 </ul>
 </div>
 </div>
-<div id="outline-container-refer-ncias-2" class="outline-3">
-<h3 id="refer-ncias-2"><span class="section-number-3">5.6.</span> Referências</h3>
+<div id="outline-container-workaround-para-falta-do-existencial-com-invariantes-2" class="outline-3">
+<h3 id="workaround-para-falta-do-existencial-com-invariantes-2"><span class="section-number-3">5.6.</span> <i>Workaround</i> para falta do existencial com invariantes</h3>
 <div class="outline-text-3" id="text-5-6">
+<p>
+Na prática, quando queremos verificar o equivalente a <code>EF p</code> onde <code>p</code> é uma proposição (não uma fórmula temporal), fazemos o seguinte:<br />
+</p>
+<ol class="org-ol">
+<li><p>
+Definimos <code>p</code> como uma invariante (isso é, <code>p</code> deve ser verdade em todos os estados)<br />
+</p></li>
+<li><p>
+Rodamos o <i>model checker</i><br />
+</p></li>
+<li><p>
+Invertemos o resultado:<br />
+</p>
+<ul class="org-ul">
+<li>Se for &ldquo;ok&rdquo;, é porque a propriedade <code>EF p</code> é falsa<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Se for uma violação, é porque a propriedade <code>EF p</code> é verdadeira (e o contra-exemplo é um exemplo de execução onde <code>F p</code> é verdade).<br /></li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-refer-ncias-2" class="outline-3">
+<h3 id="refer-ncias-2"><span class="section-number-3">5.7.</span> Referências</h3>
+<div class="outline-text-3" id="text-5-7">
 <div class="csl-bib-body">
   <div class="csl-entry"><a id="citeproc_bib_item_1"></a>BULTAN, T. <b>Cs 267: Automated verification - lecture 2</b>. Disponível em: &#60;<a href="https://sites.cs.ucsb.edu/~bultan/courses/267/lectures/l2.pdf">https://sites.cs.ucsb.edu/~bultan/courses/267/lectures/l2.pdf</a>&#62;. </div>
   <div class="csl-entry"><a id="citeproc_bib_item_2"></a>RAJU, D. <b>Ltl and ctl - lecture notes by dhananjay raju</b>. Disponível em: &#60;<a href="https://www.cs.utexas.edu/~draju/Verification/class2.pdf">https://www.cs.utexas.edu/~draju/Verification/class2.pdf</a>&#62;. </div>

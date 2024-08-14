@@ -4,7 +4,7 @@
 #+title:     Checando propriedades com Lógica Temporal
 #+AUTHOR:    Gabriela Moreira
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      2024-03-06
+#+DATE:      14 de agosto de 2024
 #+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
@@ -225,7 +225,7 @@ stateDiagram
 # https://quizlet.com/nl/512866390/ch11-linear-temporal-logic-ltl-flash-cards/
 
 ** Exercícios
-Qual dos operadores temporais G (/Globaly/), F (/Finally/), X (/Next/), U (/Until/) e R (/Release/) pode ser representado pelo diagrama a seguir?
+Qual dos operadores temporais G (/Globally/), F (/Finally/), X (/Next/), U (/Until/) e R (/Release/) pode ser representado pelo diagrama a seguir?
 
 [[./figures/LTL_next.png]]
 
@@ -235,7 +235,7 @@ Qual dos operadores temporais G (/Globaly/), F (/Finally/), X (/Next/), U (/Unti
 #+BEAMER: \end{frame}
 #+BEAMER: \begin{frame}{Exercícios II}
 
-Qual dos operadores temporais G (/Globaly/), F (/Finally/), X (/Next/), U (/Until/) e R (/Release/) pode ser representado pelo diagrama a seguir?
+Qual dos operadores temporais G (/Globally/), F (/Finally/), X (/Next/), U (/Until/) e R (/Release/) pode ser representado pelo diagrama a seguir?
 
 [[./figures/LTL_globally.png]]
 
@@ -244,7 +244,7 @@ Qual dos operadores temporais G (/Globaly/), F (/Finally/), X (/Next/), U (/Unti
 
 #+BEAMER: \end{frame}
 #+BEAMER: \begin{frame}{Exercícios III}
-Qual dos operadores temporais G (/Globaly/), F (/Finally/), X (/Next/), U (/Until/) e R (/Release/) pode ser representado pelo diagrama a seguir?
+Qual dos operadores temporais G (/Globally/), F (/Finally/), X (/Next/), U (/Until/) e R (/Release/) pode ser representado pelo diagrama a seguir?
 
 [[./figures/LTL_until.png]]
 
@@ -253,7 +253,7 @@ Qual dos operadores temporais G (/Globaly/), F (/Finally/), X (/Next/), U (/Unti
 
 #+BEAMER: \end{frame}
 #+BEAMER: \begin{frame}{Exercícios IV}
-Qual dos operadores temporais G (/Globaly/), F (/Finally/), X (/Next/), U (/Until/) e R (/Release/) pode ser representado pelo diagrama a seguir?
+Qual dos operadores temporais G (/Globally/), F (/Finally/), X (/Next/), U (/Until/) e R (/Release/) pode ser representado pelo diagrama a seguir?
 
 [[./figures/LTL_finally.png]]
 
@@ -262,7 +262,7 @@ Qual dos operadores temporais G (/Globaly/), F (/Finally/), X (/Next/), U (/Unti
 
 #+BEAMER: \end{frame}
 #+BEAMER: \begin{frame}{Exercícios IV}
-Qual dos operadores temporais G (/Globaly/), F (/Finally/), X (/Next/), U (/Until/) e R (/Release/) pode ser representado pelo diagrama a seguir?
+Qual dos operadores temporais G (/Globally/), F (/Finally/), X (/Next/), U (/Until/) e R (/Release/) pode ser representado pelo diagrama a seguir?
 
 [[./figures/LTL_release.png]]
 
@@ -357,33 +357,18 @@ stateDiagram
 - =formatura -> X(trabalho U adulto_dormir)=: true
 - =(F brincar) U formatura=: false
 
-
-# * Tipos de propriedades
-# ** Propriedades
-#  Propriedades podem ser propriedades de *segurança* (/safety properties/), *vivacidade* (/liveness properties/) ou uma combinação das duas.
-
-# ** Safety
-# A bad thing does not happen.
-# In hoare logic: An execution that starts in a state satisfying a given precondition terminates, but the final state does not satisfy the required postcondition;
-# Describes a discrete thing, that happens at a particular place during execution
-# - Example: "money should not be dispensed unless a PIN has been entered"
-
-# *** Invariants
-# Only refers to the current state.
-# A Kripke structure satisfies an invariant if and only if every reachable state satisfies the invariant, which can be checked by a breadth-first search or depth-first search. Safety properties can be verified inductively using invariants.
-
-# ** Liveness
-# Something good eventually happens.
-# Good things for every execution. Doesn't need to be discrete
-# *** Persistence properties
-# Eventually forever something holds
-
-# ** Fairness
-# Fairness properties are preconditions imposed on a system to rule out unrealistic traces
-# - Unconditional fairness: "every process gets its turn infinitely often"
-#   - Strong fairness: "every process gets its turn infinitely often **if it is enabled infinitely often**"
-#   - Weak fairness: "every process gets its turn infinitely often **if it is continuously enabled from a particular point**"
-# - A fairness property is realizable for a Kripke structure if every reachable state has a fair path starting from that state
+** /Workaround/ para falta do existencial com invariantes
+Na prática, quando queremos verificar o equivalente a =EF p= onde =p= é uma proposição (não uma fórmula temporal), fazemos o seguinte:
+ #+BEAMER: \pause\medskip
+ 1. Definimos =p= como uma invariante (isso é, =p= deve ser verdade em todos os estados)
+   #+BEAMER: \pause\smallskip
+ 2. Rodamos o /model checker/
+   #+BEAMER: \pause\smallskip
+ 3. Invertemos o resultado:
+   #+BEAMER: \pause
+   - Se for "ok", é porque a propriedade =EF p= é falsa
+   #+BEAMER: \pause
+   - Se for uma violação, é porque a propriedade =EF p= é verdadeira (e o contra-exemplo é um exemplo de execução onde =F p= é verdade).
 
 ** Referências
 #+print_bibliography:
