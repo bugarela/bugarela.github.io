@@ -81,18 +81,8 @@
 <li><a href="#exerc-cio-pr-tico-1">3. Exercício prático</a>
 <ul>
 <li><a href="#exerc-cio-pr-tico-2">3.1. Exercício prático</a></li>
-</ul>
-</li>
-<li><a href="#tipos-de-propriedades-1">4. Tipos de propriedades</a>
-<ul>
-<li><a href="#propriedades-2">4.1. Propriedades</a></li>
-<li><a href="#seguran-a-2">4.2. Segurança</a></li>
-<li><a href="#seguran-a-invariantes-2">4.3. Segurança - Invariantes</a></li>
-<li><a href="#vivacidade-2">4.4. Vivacidade</a></li>
-<li><a href="#vivacidade-propriedade-de-persist-ncia-2">4.5. Vivacidade - propriedade de persistência</a></li>
-<li><a href="#fariness-razoabilidade-2">4.6. <i>Fariness</i> (razoabilidade)</a></li>
-<li><a href="#tarefa-de-casa-2">4.7. Tarefa de casa</a></li>
-<li><a href="#fim-2">4.8. FIM</a></li>
+<li><a href="#tarefa-de-casa-2">3.2. Tarefa de casa</a></li>
+<li><a href="#fim-2">3.3. FIM</a></li>
 </ul>
 </li>
 </ul>
@@ -281,151 +271,17 @@ Vamos escrever um avaliador de operadores para operadores temporais<br />
 </ul>
 </div>
 </div>
-</div>
-<div id="outline-container-tipos-de-propriedades-1" class="outline-2">
-<h2 id="tipos-de-propriedades-1"><span class="section-number-2">4.</span> Tipos de propriedades</h2>
-<div class="outline-text-2" id="text-4">
-</div>
-<div id="outline-container-propriedades-2" class="outline-3">
-<h3 id="propriedades-2"><span class="section-number-3">4.1.</span> Propriedades</h3>
-<div class="outline-text-3" id="text-4-1">
-<p>
-Propriedades podem ser propriedades de <b>segurança</b> (<i>safety properties</i>), <b>vivacidade</b> (<i>liveness properties</i>) ou uma combinação das duas.<br />
-</p>
-</div>
-</div>
-<div id="outline-container-seguran-a-2" class="outline-3">
-<h3 id="seguran-a-2"><span class="section-number-3">4.2.</span> Segurança</h3>
-<div class="outline-text-3" id="text-4-2">
-<p>
-<i>&ldquo;Algo ruim <b>não</b> acontece&rdquo;</i><br />
-</p>
-
-<p>
-Descreve algo específico. Basta esse algo acontecer uma única vez para que a propriedade seja violada.<br />
-</p>
-
-<p>
-<b>Exemplos</b>:<br />
-</p>
-<ul class="org-ul">
-<li>&ldquo;O saque não deve ser autorizado, a menos que uma senha correta tenha sido digitada&rdquo;<br /></li>
-<li>&ldquo;Dois processos não devem estar na seção crítica ao mesmo tempo&rdquo;<br /></li>
-<li>&ldquo;Ao receber um saque, eu fico com mais dinheiro do que eu tinha antes&rdquo;<br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-seguran-a-invariantes-2" class="outline-3">
-<h3 id="seguran-a-invariantes-2"><span class="section-number-3">4.3.</span> Segurança - Invariantes</h3>
-<div class="outline-text-3" id="text-4-3">
-</div>
-<ol class="org-ol">
-<li><a id="defini-o-3"></a>Definição<br />
-<div class="outline-text-4" id="text-4-3-1">
-<p>
-Invariantes são um tipo de propriedade de segurança.<br />
-</p>
-
-<p>
-Uma invariante é uma propriedade sobre um <b>estado</b>, <i>não sobre uma execução</i>. Uma invariante não consegue &ldquo;ver além&rdquo; de um único estado.<br />
-</p>
-
-<p>
-Uma <b>execução</b> satisfaz uma invariante sse cada estado da execução satisfaz a invariante.<br />
-Uma <b>estrutura de Kripke</b> satisfaz uma invariante sse cada estado alcançável satisfaz a invariante.<br />
-</p>
-</div>
-</li>
-<li><a id="representa-o-3"></a>Representação<br />
-<div class="outline-text-4" id="text-4-3-2">
-
-<div class="figure">
-<p><img src="./figures/lupa_invariante.png" alt="lupa_invariante.png" /><br />
-</p>
-</div>
-</div>
-</li>
-</ol>
-</div>
-<div id="outline-container-vivacidade-2" class="outline-3">
-<h3 id="vivacidade-2"><span class="section-number-3">4.4.</span> Vivacidade</h3>
-<div class="outline-text-3" id="text-4-4">
-<p>
-<i>&ldquo;Algo bom eventualmente acontece&rdquo;</i><br />
-</p>
-
-<p>
-<b>Exemplos</b>:<br />
-</p>
-<ul class="org-ul">
-<li>&ldquo;Se um processo pediu pra entrar na seção crítica, ele eventualmente deve conseguir&rdquo;<br /></li>
-<li>&ldquo;Cada sinaleiro deve sempre eventualmente ficar verde&rdquo;<br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-vivacidade-propriedade-de-persist-ncia-2" class="outline-3">
-<h3 id="vivacidade-propriedade-de-persist-ncia-2"><span class="section-number-3">4.5.</span> Vivacidade - propriedade de persistência</h3>
-<div class="outline-text-3" id="text-4-5">
-<p>
-<i>&ldquo;Eventualmente, algo é satisfeito pra sempre&rdquo;</i><br />
-</p>
-
-<p>
-\(\Diamond\square F\)<br />
-</p>
-
-<p>
-<b>Exemplos</b>:<br />
-</p>
-<ul class="org-ul">
-<li>Ao entrar na faculdade, eventualmente vou ter um diploma<br /></li>
-<li>Eventualmente estaremos mortos<br /></li>
-<li>Eventualmente teremos cabelos brancos ou calvice<br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-fariness-razoabilidade-2" class="outline-3">
-<h3 id="fariness-razoabilidade-2"><span class="section-number-3">4.6.</span> <i>Fariness</i> (razoabilidade)</h3>
-<div class="outline-text-3" id="text-4-6">
-<p>
-Propriedades de razoabilidade (<i>Fairness properties</i>)<br />
-</p>
-<ul class="org-ul">
-<li><p>
-Razoabilidade incondicional (<i>Unconditional fairness</i>): &ldquo;Algo acontece com frequência infinita&rdquo;<br />
-</p>
-<ul class="org-ul">
-<li>Razoabilidade <b>forte</b> (<i>Strong fairness</i>): &ldquo;Algo acontece com frequência infinita <b>se é habilitado com frequência infinita</b>&rdquo;<br /></li>
-</ul>
-<ul class="org-ul">
-<li>Razoabilidade <b>fraca</b> (<i>Weak fairness</i>): &ldquo;Algo acontece com frequência infinita <b>se é continuamente habilitado a partir de um certo momento</b>&rdquo;<br /></li>
-</ul></li>
-</ul>
-
-<p>
-Vamos ver isso com mais precisão na Lógica Temporal das Ações (TLA).<br />
-</p>
-
-<p>
-Usamos essas propriedades como <b>pré-condições</b> para descartar execuções não realistas.<br />
-</p>
-<ul class="org-ul">
-<li>\(WF(...) \rightarrow F\)<br /></li>
-<li>\(SF(...) \rightarrow F\)<br /></li>
-</ul>
-</div>
-</div>
 <div id="outline-container-tarefa-de-casa-2" class="outline-3">
-<h3 id="tarefa-de-casa-2"><span class="section-number-3">4.7.</span> Tarefa de casa</h3>
-<div class="outline-text-3" id="text-4-7">
+<h3 id="tarefa-de-casa-2"><span class="section-number-3">3.2.</span> Tarefa de casa</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 Ler página 10 de <a href="https://www.whitehouse.gov/wp-content/uploads/2024/02/Final-ONCD-Technical-Report.pdf">https://www.whitehouse.gov/wp-content/uploads/2024/02/Final-ONCD-Technical-Report.pdf</a><br />
 </p>
 </div>
 </div>
 <div id="outline-container-fim-2" class="outline-3">
-<h3 id="fim-2"><span class="section-number-3">4.8.</span> FIM</h3>
-<div class="outline-text-3" id="text-4-8">
+<h3 id="fim-2"><span class="section-number-3">3.3.</span> FIM</h3>
+<div class="outline-text-3" id="text-3-3">
 </div>
 </div>
 </div>
