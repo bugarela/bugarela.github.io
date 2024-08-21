@@ -3,7 +3,7 @@
 :END:
 #+title: Por que e pra que métodos formais?
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      2024-03-13
+#+DATE:      21 de agosto de 2024
 #+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
@@ -28,6 +28,14 @@ Em todas as aulas dessa disciplina, eu vou estar, explicita ou implicitamente, t
 
 #+BEAMER: \medskip
 Contudo, pessoas diferentes tem visões diferentes, e tem muita gente de respeito por aí falando da importância de métodos formais. Essa aula vai apresentar as respostas de *outras pessoas* à pergunta: *Por que e pra que métodos formais?*
+
+** Introdução II
+
+Eu posso pensar como na figura abaixo, mas cada pessoa se motiva de uma forma diferente (por exemplo, ver /Moving Motivators/).
+#+attr_html: :width 450px
+#+ATTR_LATEX: :width 0.6\textwidth
+[[./figures/correspondence_meme.jpg]]
+
 
 * Joost-Pieter Katoen
 ** Joost-Pieter Katoen

@@ -3,7 +3,7 @@
 :END:
 #+title:     Seminário - Outros métodos formais
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      04 de junho de 2024
+#+DATE:      21 de agosto de 2024
 #+LANGUAGE:  en
 #+OPTIONS:   num:t toc:nil author:nil date:nil
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
@@ -17,7 +17,7 @@
 
 #+LATEX: \vspace{-2cm}
 * Informações importantes
-- Data de apresentação: 17 de junho (segunda-feira)
+- Data de apresentação: 25 e 30 de setembro
 - Trabalho individual ou em dupla
 - Enviar slides no moodle (em PDF)
 - Tempo de apresentação: 15 minutos (dupla) ou 10 minutos (individual)
