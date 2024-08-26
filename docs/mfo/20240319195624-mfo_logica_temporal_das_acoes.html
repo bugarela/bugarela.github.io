@@ -75,7 +75,16 @@
 <li><a href="#tlc-e-apalache-2">2.2. TLC e Apalache</a></li>
 <li><a href="#model-checking-tla-2">2.3. <i>Model checking</i> TLA+</a></li>
 <li><a href="#model-checking-quint-2">2.4. <i>Model checking</i> Quint</a></li>
-<li><a href="#refer-ncias-2">2.5. Referências</a></li>
+<li><a href="#instalando-as-ferramentas-depend-ncias-2">2.5. Instalando as ferramentas - Dependências</a></li>
+<li><a href="#quint-2">2.6. Quint</a></li>
+<li><a href="#tlc-2">2.7. TLC</a></li>
+<li><a href="#apalache-2">2.8. Apalache</a></li>
+</ul>
+</li>
+<li><a href="#exemplos-1">3. Exemplos</a>
+<ul>
+<li><a href="#exemplos-sem-foro-e-banco-2">3.1. Exemplos: Semáforo e Banco</a></li>
+<li><a href="#refer-ncias-2">3.2. Referências</a></li>
 </ul>
 </li>
 </ul>
@@ -228,7 +237,7 @@ Temos dois <i>model checkers</i> disponíveis para TLA+ e Quint.<br />
 <li><i>Model checker</i> limitado simbólico. Traduz a especificação para restrições SMT e resolve-as usando o <i>solver</i> Z3.<br /></li>
 <li>Exige anotações de tipo para variáveis e constantes<br /></li>
 <li>Suporte nativo a TLA+ e Quint*<br /></li>
-<li>Open source, desenvolvido e mantido pela Informal Systems<br /></li>
+<li>Open source, desenvolvido majoritariamente pela Informal Systems<br /></li>
 </ul></li>
 </ul>
 </div>
@@ -265,6 +274,7 @@ Temos dois <i>model checkers</i> disponíveis para TLA+ e Quint.<br />
 <li>Linha de comando: <code>quint verify spec.qnt</code><br />
 <ul class="org-ul">
 <li>Isso vai baixar e usar o Apalache por baixo<br /></li>
+<li>Funciona bem em Linux e MacOS. No windows, precisamos de alguns hacks (a seguir)<br /></li>
 </ul></li>
 </ol>
 <ol class="org-ol">
@@ -272,9 +282,86 @@ Temos dois <i>model checkers</i> disponíveis para TLA+ e Quint.<br />
 </ol>
 </div>
 </div>
-<div id="outline-container-refer-ncias-2" class="outline-3">
-<h3 id="refer-ncias-2"><span class="section-number-3">2.5.</span> Referências</h3>
+<div id="outline-container-instalando-as-ferramentas-depend-ncias-2" class="outline-3">
+<h3 id="instalando-as-ferramentas-depend-ncias-2"><span class="section-number-3">2.5.</span> Instalando as ferramentas - Dependências</h3>
 <div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li><a href="https://nodejs.org/en/download">NodeJS &gt;= 18</a><br /></li>
+<li><a href="https://adoptium.net">Java Development Kit &gt;= 17</a><br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-quint-2" class="outline-3">
+<h3 id="quint-2"><span class="section-number-3">2.6.</span> Quint</h3>
+<div class="outline-text-3" id="text-2-6">
+<ol class="org-ol">
+<li>Com acesso de administrador<br />
+<ul class="org-ul">
+<li>Instalar: <code>npm i @informalsystems/quint -g</code><br /></li>
+<li>Executar: <code>quint --help</code><br /></li>
+</ul></li>
+
+<li>Sem acesso de administrador<br />
+<ul class="org-ul">
+<li>Instalar: <code>npm i @informalsystems/quint --user</code><br /></li>
+<li>Executar: <code>npx quint --help</code><br /></li>
+<li>Essa instalação é local, então você vai precisar instalar de novo se trocar de pasta<br /></li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-tlc-2" class="outline-3">
+<h3 id="tlc-2"><span class="section-number-3">2.7.</span> TLC</h3>
+<div class="outline-text-3" id="text-2-7">
+<ul class="org-ul">
+<li><a href="https://lamport.azurewebsites.net/tla/standalone-tools.html">TLC para linha de comando</a><br />
+<ul class="org-ul">
+<li>Opcional, se quiser usar pela linha de comando<br /></li>
+</ul></li>
+<li>Extensão no VSCode (TLA+ Nightly)<br />
+<ul class="org-ul">
+<li>Após instalar, abra um arquivo <code>.tla</code>, aperte F1 e procure o comando &ldquo;TLA+: Check model with TLC&rdquo;<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-apalache-2" class="outline-3">
+<h3 id="apalache-2"><span class="section-number-3">2.8.</span> Apalache</h3>
+<div class="outline-text-3" id="text-2-8">
+<ul class="org-ul">
+<li><a href="https://github.com/informalsystems/apalache/releases">Apalache para linha de comando</a><br /></li>
+<li>É usado internamente pelo Quint quando invocamos <code>quint verify</code>. Só precisa baixar separadamente se quiser utilizar com TLA+.<br /></li>
+<li>Usuários de <b>Windows</b>: Baixar a versão disponível no moodle, que inclui um <code>.bat</code><br />
+<ul class="org-ul">
+<li>Também precisam executar o servidor do Apalache manualmente: <code>.\apalache-mc.bat server</code><br /></li>
+<li>Se não fizerem isso, <code>quint verify</code> não vai funcionar<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-exemplos-1" class="outline-2">
+<h2 id="exemplos-1"><span class="section-number-2">3.</span> Exemplos</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-exemplos-sem-foro-e-banco-2" class="outline-3">
+<h3 id="exemplos-sem-foro-e-banco-2"><span class="section-number-3">3.1.</span> Exemplos: Semáforo e Banco</h3>
+<div class="outline-text-3" id="text-3-1">
+<ol class="org-ol">
+<li>Vamos ver novamente o exemplo dos semáforos e verificar propriedades em Quint e TLA+<br />
+<ul class="org-ul">
+<li>Arquivo no moodle/site da disciplina<br /></li>
+</ul></li>
+<li>Vamos seguir o tutorial &ldquo;Getting Started&rdquo; do Quint<br />
+<ul class="org-ul">
+<li><a href="https://quint-lang.org/docs/getting-started">https://quint-lang.org/docs/getting-started</a><br /></li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-refer-ncias-2" class="outline-3">
+<h3 id="refer-ncias-2"><span class="section-number-3">3.2.</span> Referências</h3>
+<div class="outline-text-3" id="text-3-2">
 <div class="csl-bib-body">
   <div class="csl-entry"><a id="citeproc_bib_item_1"></a>LAMPORT, L. The temporal logic of actions. <b>ACM trans. program. lang. syst.</b>, v. 16, n. 3, p. 872–923, 1994. </div>
 </div>
