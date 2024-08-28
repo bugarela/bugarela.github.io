@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>TLA+ Getting Started</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="https://bugarela.com/mfo/20240828153443-tla_getting_started.html" />
+  <meta property="og:title" content="TLA+ Getting Started" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="TLA+ Getting Started">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../css/layouts/style.css">
+
+  </head>
+  <body>
+    <div id="layout" class="pure-g">
+      <div class="sidebar pure-u-1 pure-u-md-1-3">
+  <div class="pure-g">
+    <div class="pure-u-1 pure-u-lg-1-2">
+    </div>
+    <div class="pure-u-1 pure-u-lg-1-2">
+      <div class="header">
+        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
+      </div>
+      <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+      </div>
+      <div class="footer">
+  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-2-3">
+        <h2>TLA+ Getting Started</h2>
+        <p>
+Esse é um pequeno guia cobrindo desde a instalação até sua primeira verificação em TLA+. Baseado no <a href="https://quint-lang.org/docs/getting-started">Getting Started do Quint</a>.
+</p>
+
+<ol class="org-ol">
+<li><p>
+Instalar a extensão TLA+ Nightly no VSCode
+Abra o painel de extensões (Ctrl+Shift+X ou clicando no ícone)
+Procure por TLA+ Nightly e clique e instalar
+</p>
+<ul class="org-ul">
+<li>Se a extensão &ldquo;TLA+&rdquo; estiver instalada, desinstale-a, porque as duas não funcionam bem juntas. A versão Nightly tem mais features, e vamos precisar de uma delas logo.</li>
+</ul>
+
+<p>
+PS: Se aparecer pra você que essa versão está depreciada e recomendar a nova &ldquo;TLA+ (Temporal Logic of Actions)&rdquo;, pode instalar a nova. Na aula de segunda isso não apareceu pra mim, mas vi esse aviso no meu computador de casa agora. Eles acabaram de lançar essa versão, e ela parecer ter tudo o que vamos precisar pra disciplina, então tudo bem. Se instalarem essa, lembrem de desinstalar a TLA+/TLA+ Nightly.
+</p></li>
+
+<li><p>
+Escreva sua primeira especificação
+Para rodar as ferramentas do TLA+, precisamos primeiro de uma especificação em TLA+. Vamos usar a seguinte especificação de um banco, que tem um bug:
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">-------------------------- <span style="color: #66a4a4;">MODULE</span> bank --------------------------
+<span style="color: #66a4a4;">EXTENDS</span> Integers
+
+<span style="color: #C18E76;">\* A state variable to store the balance of each account</span>
+<span style="color: #66a4a4;">VARIABLE</span> balances
+
+ADDRESSES == { <span style="color: #98971a;">"alice"</span>, <span style="color: #98971a;">"bob"</span>, <span style="color: #98971a;">"charlie"</span> }
+
+Deposit(account, amount) ==
+  <span style="color: #C18E76;">\* Increment balance of account by amount</span>
+  balances' = [balances <span style="color: #66a4a4;">EXCEPT</span> ![account] = @ + amount]
+
+Withdraw(account, amount) ==
+  <span style="color: #C18E76;">\* Decrement balance of account by amount</span>
+  balances' = [balances <span style="color: #66a4a4;">EXCEPT</span> ![account] = @ - amount]
+
+Init ==
+  <span style="color: #C18E76;">\* At the initial state, all balances are zero</span>
+  balances = [ addr \in ADDRESSES |-&gt; <span style="color: #d79921; font-weight: bold;">0</span> ]
+
+Next ==
+  <span style="color: #C18E76;">\* Non-deterministically pick an address and an amount</span>
+  \E account \in ADDRESSES, amount \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">100</span> :
+    <span style="color: #C18E76;">\* Non-deterministically choose to either deposit or withdraw</span>
+    \/ Deposit(account, amount)
+    \/ Withdraw(account, amount)
+
+NoNegatives == \A addr \in ADDRESSES : balances[addr] &gt;= <span style="color: #d79921; font-weight: bold;">0</span>
+=================================================================
+</pre>
+</div>
+
+<p>
+Crie um arquivo <code>bank.tla</code> com o conteúdo acima. O arquivo deve ter esse nome, porque em TLA+, o nome do modulo deve ser idêntico ao do arquivo. Vamos tentar checar a invariante <code>NoNegatives</code>, que diz que nenhum dos saldos (<code>balances</code>) pode ser negativo. Uma invariante é algo que precisa ser verdadeiro em todos os estados alcançáveis.
+</p>
+
+<p>
+Adicionalmente, precisamos de um arquivo <code>bank.cfg</code> para configurar os parâmeros, com o conteúdo a seguir.
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">INIT
+Init
+
+NEXT
+Next
+
+INVARIANT
+NoNegatives
+</pre>
+</div></li>
+
+<li><p>
+Encontrando uma violação
+Primeiro, vamos usar o modo de simulação para encontrar uma violação. Esse modo vai tentar várias (mas não todas) execuções.
+</p>
+
+<ol class="org-ol">
+<li>Abra o arquivo <code>bank.tla</code> e use F1 ou Ctrl+Shift+P para abrir o menu de comandos do VSCode</li>
+<li>Selecione a opção &ldquo;TLA+: Check model with TLC&rdquo;</li>
+<li>No prompt que aparece, substitua o valor padrão <code>-coverage=1</code> por <code>-simulate num=10000</code> para rodar o TLC no modo de simulação com 10 mil amostras e aperte Enter.</li>
+</ol>
+
+<p>
+Isso deve resultar em uma violação, mostrando uma execução onde alguém fica com saldo negativo.
+</p></li>
+
+<li><p>
+Consertando o bug
+Atualize a definição <code>Withdraw</code> para previnir que esse cenário aconteça: usuários não deveriam poder sacar mais do que eles tem em saldo.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-tla">Withdraw(account, amount) ==
+  <span style="color: #C18E76;">\* A precondition, there should be enough to withdraw</span>
+  /\ balances[account] &gt;= amount
+  <span style="color: #C18E76;">\* Decrement balance of account by amount</span>
+  /\ balances' = [balances <span style="color: #66a4a4;">EXCEPT</span> ![account] = @ - amount]
+</pre>
+</div>
+
+<p>
+Agora, podemos rodar o simulador novamente (repetir passo 3) e nenhuma violação deve ser encontrada.
+</p></li>
+
+<li><p>
+Verificando o resultado
+</p>
+
+<p>
+Contudo, o simulador pode não ter considerado algumas execuções. Para ter certeza que o problema foi consertado, devemos rodar o <i>model checker</i>. O TLC não é um model checker limitado, e como essa especificação lida com inteiros arbitrários, ele vai ficar rodando até ficar sem memória. Então, precisamos antes restringir nosso espaço de busca. Vamos modificar nosso <code>Next</code> para que a execução só consiga progredir enquanto os saldos forem menor do que <code>50</code> (você pode diminuir esse número se o TLC ainda estiver demorando muito):
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">Next ==
+  <span style="color: #C18E76;">\* Only continue if balance is small enough to avoid a big state space</span>
+  /\ \A addr \in ADDRESSES : balances[addr] &lt;= <span style="color: #d79921; font-weight: bold;">50</span>
+  <span style="color: #C18E76;">\* Non-deterministically pick an address and an amount</span>
+  /\ \E account \in ADDRESSES, amount \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">100</span> :
+      <span style="color: #C18E76;">\* Non-deterministically choose to either deposit or withdraw</span>
+      \/ Deposit(account, amount)
+      \/ Withdraw(account, amount)
+</pre>
+</div>
+
+<p>
+Agora podemos rodar:
+</p>
+<ol class="org-ol">
+<li>Abra o arquivo <code>bank.tla</code> e use F1 ou Ctrl+Shift+P para abrir o menu de comandos do VSCode</li>
+<li>Selecione a opção &ldquo;TLA+: Check model with TLC&rdquo;</li>
+<li>No prompt que aparece, substitua o valor por <code>-deadlock</code> e aperte Enter. Como introduzimos um deadlock na nossa especificação (ela não progride quando o saldo fica maior que 50), precisamos pedir pro TLC ignorar deadlocks, e por isso passamos a flag <code>-deadlock</code>.</li>
+</ol>
+
+<p>
+Esse comando irá verificar todas as possíveis execuções, e deve retornar sucesso, o que significa que de fato consertamos o problema e não temos mais saldos negativos.
+</p></li>
+</ol>
+
+      </div>
+    </div>
+  </body>
+</html>

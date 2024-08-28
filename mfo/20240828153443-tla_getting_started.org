@@ -1,0 +1,117 @@
+:PROPERTIES:
+:ID:       ebb5c95a-e585-43c8-addf-c17b4b1f9c7e
+:END:
+#+title:     TLA+ Getting Started
+#+EMAIL:     gabrielamoreira05@gmail.com
+#+DATE:      28 de agosto de 2024
+#+LANGUAGE:  en
+#+OPTIONS:   num:t toc:nil author:nil date:nil
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
+#+LaTeX_CLASS: bugarela-article
+#+LATEX_COMPILER: pdflatex
+#+LATEX_HEADER: \input{header-latex.tex}
+#+LATEX_HEADER:  \usepackage[margin=2cm]{geometry} \usepackage{enumitem} \setlist{noitemsep, topsep=0pt}
+#+LATEX_HEADER: \setlength{\parindent}{0pt}
+#+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
+
+#+LATEX: \vspace{-2cm}
+
+Esse é um pequeno guia cobrindo desde a instalação até sua primeira verificação em TLA+. Baseado no [[https://quint-lang.org/docs/getting-started][Getting Started do Quint]].
+
+1. Instalar a extensão TLA+ Nightly no VSCode
+  Abra o painel de extensões (Ctrl+Shift+X ou clicando no ícone)
+  Procure por TLA+ Nightly e clique e instalar
+  - Se a extensão "TLA+" estiver instalada, desinstale-a, porque as duas não funcionam bem juntas. A versão Nightly tem mais features, e vamos precisar de uma delas logo.
+
+  PS: Se aparecer pra você que essa versão está depreciada e recomendar a nova "TLA+ (Temporal Logic of Actions)", pode instalar a nova. Na aula de segunda isso não apareceu pra mim, mas vi esse aviso no meu computador de casa agora. Eles acabaram de lançar essa versão, e ela parecer ter tudo o que vamos precisar pra disciplina, então tudo bem. Se instalarem essa, lembrem de desinstalar a TLA+/TLA+ Nightly.
+
+2. Escreva sua primeira especificação
+  Para rodar as ferramentas do TLA+, precisamos primeiro de uma especificação em TLA+. Vamos usar a seguinte especificação de um banco, que tem um bug:
+  #+begin_src tla
+-------------------------- MODULE bank --------------------------
+EXTENDS Integers
+
+\* A state variable to store the balance of each account
+VARIABLE balances
+
+ADDRESSES == { "alice", "bob", "charlie" }
+
+Deposit(account, amount) ==
+  \* Increment balance of account by amount
+  balances' = [balances EXCEPT ![account] = @ + amount]
+
+Withdraw(account, amount) ==
+  \* Decrement balance of account by amount
+  balances' = [balances EXCEPT ![account] = @ - amount]
+
+Init ==
+  \* At the initial state, all balances are zero
+  balances = [ addr \in ADDRESSES |-> 0 ]
+
+Next ==
+  \* Non-deterministically pick an address and an amount
+  \E account \in ADDRESSES, amount \in 1..100 :
+    \* Non-deterministically choose to either deposit or withdraw
+    \/ Deposit(account, amount)
+    \/ Withdraw(account, amount)
+
+NoNegatives == \A addr \in ADDRESSES : balances[addr] >= 0
+=================================================================
+  #+end_src
+
+  Crie um arquivo =bank.tla= com o conteúdo acima. O arquivo deve ter esse nome, porque em TLA+, o nome do modulo deve ser idêntico ao do arquivo. Vamos tentar checar a invariante =NoNegatives=, que diz que nenhum dos saldos (=balances=) pode ser negativo. Uma invariante é algo que precisa ser verdadeiro em todos os estados alcançáveis.
+
+  Adicionalmente, precisamos de um arquivo =bank.cfg= para configurar os parâmeros, com o conteúdo a seguir.
+  #+begin_src
+INIT
+Init
+
+NEXT
+Next
+
+INVARIANT
+NoNegatives
+  #+end_src
+
+3. Encontrando uma violação
+   Primeiro, vamos usar o modo de simulação para encontrar uma violação. Esse modo vai tentar várias (mas não todas) execuções.
+
+   a. Abra o arquivo =bank.tla= e use F1 ou Ctrl+Shift+P para abrir o menu de comandos do VSCode
+   b. Selecione a opção "TLA+: Check model with TLC"
+   c. No prompt que aparece, substitua o valor padrão =-coverage=1= por =-simulate num=10000= para rodar o TLC no modo de simulação com 10 mil amostras e aperte Enter.
+
+   Isso deve resultar em uma violação, mostrando uma execução onde alguém fica com saldo negativo.
+
+4. Consertando o bug
+  Atualize a definição =Withdraw= para previnir que esse cenário aconteça: usuários não deveriam poder sacar mais do que eles tem em saldo.
+
+  #+begin_src tla
+Withdraw(account, amount) ==
+  \* A precondition, there should be enough to withdraw
+  /\ balances[account] >= amount
+  \* Decrement balance of account by amount
+  /\ balances' = [balances EXCEPT ![account] = @ - amount]
+  #+end_src
+
+  Agora, podemos rodar o simulador novamente (repetir passo 3) e nenhuma violação deve ser encontrada.
+
+5. Verificando o resultado
+
+  Contudo, o simulador pode não ter considerado algumas execuções. Para ter certeza que o problema foi consertado, devemos rodar o /model checker/. O TLC não é um model checker limitado, e como essa especificação lida com inteiros arbitrários, ele vai ficar rodando até ficar sem memória. Então, precisamos antes restringir nosso espaço de busca. Vamos modificar nosso =Next= para que a execução só consiga progredir enquanto os saldos forem menor do que =50= (você pode diminuir esse número se o TLC ainda estiver demorando muito):
+  #+begin_src tla
+Next ==
+  \* Only continue if balance is small enough to avoid a big state space
+  /\ \A addr \in ADDRESSES : balances[addr] <= 50
+  \* Non-deterministically pick an address and an amount
+  /\ \E account \in ADDRESSES, amount \in 1..100 :
+      \* Non-deterministically choose to either deposit or withdraw
+      \/ Deposit(account, amount)
+      \/ Withdraw(account, amount)
+  #+end_src
+
+  Agora podemos rodar:
+     a. Abra o arquivo =bank.tla= e use F1 ou Ctrl+Shift+P para abrir o menu de comandos do VSCode
+     b. Selecione a opção "TLA+: Check model with TLC"
+     c. No prompt que aparece, substitua o valor por =-deadlock= e aperte Enter. Como introduzimos um deadlock na nossa especificação (ela não progride quando o saldo fica maior que 50), precisamos pedir pro TLC ignorar deadlocks, e por isso passamos a flag =-deadlock=.
+
+  Esse comando irá verificar todas as possíveis execuções, e deve retornar sucesso, o que significa que de fato consertamos o problema e não temos mais saldos negativos.

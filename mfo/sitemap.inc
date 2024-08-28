@@ -3,6 +3,8 @@
 * Links úteis
   - [[file:20240210123703-mfo_apresentacao.org][Apresentação]]
   - [[https://bugarela.com/mfo/cheatsheet_logica_temporal.pdf][Cheatsheet Lógica Temporal (PDF)]]
+  - [[https://quint-lang.org/docs/getting-started][Getting Started: Quint]]
+  - [[file:20240828153443-tla_getting_started.org][Getting Started: TLA+]]
   - [[file:20240525134648-mfo_exercicios_para_a_prova.org][Exercícios para a prova]]
 * Aulas
   - [[file:20240213151141-mfo_programacao_e_matematica_nao_sao_a_mesma_coisa.org][Programação e matemática não são a mesma coisa]]
