@@ -169,7 +169,7 @@ Escolha a forma que você acha mais fácil de ler!<br />
 Conjuntos, ou <i>Sets</i>, são a principal estrutura de dados em Quint em TLA+.<br />
 </p>
 <ul class="org-ul">
-<li>A não ser que a <b>ordem</b> dos elementos seja realmente importante, use conjuntos em vez de listas.<br /></li>
+<li>A não ser que a <b>ordem</b> dos elementos seja realmente importante, ou que seja necessário ter elementos repetidos, use conjuntos em vez de listas.<br /></li>
 <li>Importante! Isso é um ponto que vou avaliar no trabalho de vocês.<br /></li>
 </ul>
 
@@ -191,7 +191,7 @@ Criando conjuntos:<br />
 <h3 id="map-seu-novo-melhor-amigo-2"><span class="section-number-3">2.2.</span> map, seu novo melhor amigo</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
-Em linguagens funcionais, usamos muito a função <code>map</code>, que permite a aplicação deu uma função a cada elemento de um conjunto.<br />
+Em linguagens funcionais, usamos muito a função <code>map</code>, que permite a aplicação de uma função a cada elemento de um conjunto.<br />
 </p>
 
 <div class="org-src-container">
@@ -314,6 +314,14 @@ Exercício: Re-escreva nossos exemplos anteriores usando <code>fold</code> ao in
 <ol class="org-ol">
 <li>Dado um conjunto de números, retorne um conjunto do quadrado desses números.<br /></li>
 <li>Dado um conjunto de números, retorne um conjunto apenas com os números pares.<br /></li>
+</ol>
+
+<p>
+Você vai precisar usar:<br />
+</p>
+<ol class="org-ol">
+<li>União de conjuntos <code>s1</code> e <code>s2</code>: <code>s1.union(s2)</code><br /></li>
+<li>Condicional: <code>if (cond) bloco1 else bloco2</code><br /></li>
 </ol>
 </div>
 </div>
@@ -566,7 +574,7 @@ O tipo de um <i>record</i> é dado por <code>{ field0: t0, ..., fieldn: tn }</co
 r.nome
 <span style="color: #C18E76;">// </span><span style="color: #C18E76;">"Gabriela"</span>
 
-r.with(idade, 27)
+r.with(<span style="color: #98971a;">"idade"</span>, 27)
 <span style="color: #C18E76;">// </span><span style="color: #C18E76;">{ nome: "Gabriela", idade: 27 }</span>
 
 { ...r, idade: 27 }
@@ -675,7 +683,7 @@ l
 <h3 id="foldl-e-foldr-2"><span class="section-number-3">6.5.</span> foldl e foldr</h3>
 <div class="outline-text-3" id="text-6-5">
 <p>
-Diferente do <code>fold</code> pra conjuntos, a operação de <i>fold</i> sobre listas respeita uma ordem específica. <code>foldl</code> (<i>fold left</i>) vai iterar da esquerda pra direita, enquanto <code>foldl</code> (<i>fold right</i>) vai iterar da direita pra esquerda.<br />
+Diferente do <code>fold</code> pra conjuntos, a operação de <i>fold</i> sobre listas respeita uma ordem específica. <code>foldl</code> (<i>fold left</i>) vai iterar da esquerda pra direita, enquanto <code>foldr</code> (<i>fold right</i>) vai iterar da direita pra esquerda.<br />
 </p>
 <p>
 Atenção também para a ordem dos argumentos do operador dado como último argumento.<br />
@@ -760,7 +768,7 @@ Nomes de tipos devem sempre iniciar com letra maiúscula.<br />
 <h3 id="exerc-cios-2"><span class="section-number-3">7.4.</span> Exercícios</h3>
 <div class="outline-text-3" id="text-7-4">
 <ol class="org-ol">
-<li>Escreva um operador que recebe um conjunto de inteiros e retorna o maior valor.<br /></li>
+<li>Escreva um operador que recebe um conjunto de inteiros positivos e retorna o maior valor.<br /></li>
 <li>Dado um conjunto de <code>records</code> do tipo <code>{ nome: str, idade: int }</code>, escreva um operador que recebe esse conjunto e retorna a média de idade.<br /></li>
 <li>Defina um valor que contenha todos os conjuntos possíveis com valores inteiros de 1 a 10, que contenham o número 5 ou o 6.<br /></li>
 <li>Escreva um operador que recebe uma lista e retorna o reverso dela.<br /></li>

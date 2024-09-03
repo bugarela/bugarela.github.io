@@ -39,7 +39,7 @@ Escolha a forma que você acha mais fácil de ler!
 * Conjuntos
 ** Conjuntos!
 Conjuntos, ou /Sets/, são a principal estrutura de dados em Quint em TLA+.
-- A não ser que a *ordem* dos elementos seja realmente importante, use conjuntos em vez de listas.
+- A não ser que a *ordem* dos elementos seja realmente importante, ou que seja necessário ter elementos repetidos, use conjuntos em vez de listas.
 - Importante! Isso é um ponto que vou avaliar no trabalho de vocês.
 
 #+BEAMER: \pause
@@ -53,7 +53,7 @@ Set(1, 2, 3) // Set(1, 2, 3)
 #+end_src
 
 ** map, seu novo melhor amigo
-Em linguagens funcionais, usamos muito a função =map=, que permite a aplicação deu uma função a cada elemento de um conjunto.
+Em linguagens funcionais, usamos muito a função =map=, que permite a aplicação de uma função a cada elemento de um conjunto.
 
 #+begin_src quint
 Set(1, 2, 3).map(x => x * 2) // Set(2, 4, 6)
@@ -136,6 +136,11 @@ Set(1, 2, 3, 4).fold(0, (acc, i) => acc + i)
 Exercício: Re-escreva nossos exemplos anteriores usando =fold= ao invés de =map= e =filter=:
 1. Dado um conjunto de números, retorne um conjunto do quadrado desses números.
 2. Dado um conjunto de números, retorne um conjunto apenas com os números pares.
+
+#+BEAMER: \medskip
+Você vai precisar usar:
+1. União de conjuntos =s1= e =s2=: =s1.union(s2)=
+2. Condicional: =if (cond) bloco1 else bloco2=
 
 ** Operações de conjuntos
 1. União: =union=
@@ -298,7 +303,7 @@ val r = { nome: "Gabriela", idade: 26 }
 r.nome
 // "Gabriela"
 
-r.with(idade, 27)
+r.with("idade", 27)
 // { nome: "Gabriela", idade: 27 }
 
 { ...r, idade: 27 }
@@ -375,7 +380,7 @@ l
 #+end_src
 
 ** foldl e foldr
-Diferente do =fold= pra conjuntos, a operação de /fold/ sobre listas respeita uma ordem específica. =foldl= (/fold left/) vai iterar da esquerda pra direita, enquanto =foldl= (/fold right/) vai iterar da direita pra esquerda.
+Diferente do =fold= pra conjuntos, a operação de /fold/ sobre listas respeita uma ordem específica. =foldl= (/fold left/) vai iterar da esquerda pra direita, enquanto =foldr= (/fold right/) vai iterar da direita pra esquerda.
 #+BEAMER: \pause
 #+BEAMER: \medskip
 Atenção também para a ordem dos argumentos do operador dado como último argumento.
@@ -425,7 +430,7 @@ type Opcional[a] = Algum(a) | Nenhum
 - [[https://quint-lang.org/docs/lang][Manual do Quint]]
 
 ** Exercícios
-1. Escreva um operador que recebe um conjunto de inteiros e retorna o maior valor.
+1. Escreva um operador que recebe um conjunto de inteiros positivos e retorna o maior valor.
 2. Dado um conjunto de =records= do tipo ={ nome: str, idade: int }=, escreva um operador que recebe esse conjunto e retorna a média de idade.
 3. Defina um valor que contenha todos os conjuntos possíveis com valores inteiros de 1 a 10, que contenham o número 5 ou o 6.
 4. Escreva um operador que recebe uma lista e retorna o reverso dela.
