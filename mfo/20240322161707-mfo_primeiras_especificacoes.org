@@ -3,7 +3,7 @@
 :END:
 #+title: Primeiras Especificações
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      2024-03-27
+#+DATE:      04 de setembro de 2024
 #+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
@@ -23,25 +23,6 @@
 #+beamer: \end{frame}
 
 * Correção exercícios
-** Definições aninhadas
-Sempre podemos definir operadores, valores e ações dentro do próprio corpo de outra definição. Semelhante ao =let= do Haskell.
-- Para isso, basta escrever a(s) definição(ões) seguidas por fim da expressão final a ser retornada.
-  - Sem separar com vírgula!
-#+begin_src quint
-pure def f(x) = {
-  pure def quadrado(y) = y * y
-  pure def dobro(y) = 2 * y
-  quadrado(x) + dobro(x)
-}
-#+end_src
-
-#+BEAMER: \pause
-#+BEAMER: \medskip
-As chaves ={}= são opcionais, e você pode usar elas quando quiser pra deixar mais claro o escopo, por exemplo:
-#+begin_src quint
-val foo = pure def f(x) = 2 * x { f(5) }
-#+end_src
-
 ** Correção dos exercícios
 Vamos corrigir juntos usando a REPL.
 
@@ -66,6 +47,25 @@ true
 true
 >>> x
 2
+#+end_src
+
+** PS: Definições aninhadas
+Sempre podemos definir operadores, valores e ações dentro do próprio corpo de outra definição. Semelhante ao =let= do Haskell.
+- Para isso, basta escrever a(s) definição(ões) seguidas por fim da expressão final a ser retornada.
+  - Sem separar com vírgula!
+#+begin_src quint
+pure def f(x) = {
+  pure def quadrado(y) = y * y
+  pure def dobro(y) = 2 * y
+  quadrado(x) + dobro(x)
+}
+#+end_src
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+As chaves ={}= são opcionais, e você pode usar elas quando quiser pra deixar mais claro o escopo, por exemplo:
+#+begin_src quint
+val foo = pure def f(x) = 2 * x { f(5) }
 #+end_src
 
 * Ações em Quint
@@ -94,7 +94,7 @@ Os equivalentes em TLA+ são permitidos. Em Quint, somos forçados a escrever as
 
 #+BEAMER: \pause
 #+BEAMER: \medskip
-- Em vez de or, usamos any
+- Em vez de =or=, usamos =any=
   #+begin_src quint
   action incrementa_ou_decrementa_x = any {
     x' = x + 1,
@@ -111,7 +111,15 @@ Os equivalentes em TLA+ são permitidos. Em Quint, somos forçados a escrever as
   }
   #+end_src
 
-** =if= também pode ser usado em ações
+#+BEAMER: \pause
+#+BEAMER: \medskip
+- Importante: O =oneOf= só pode ser usado nesse cenário (dentro de uma ação, em uma definição do tipo =nondet=, sem operações adicionais sobre ele).
+  #+BEAMER: \pause
+  - A syntaxe em Quint é dessa forma para deixar o não-determinismo explícito, mas na lógica (TLA), isso ainda é um =exists=.
+  #+BEAMER: \pause
+  - Por exemplo, não é possível usar o =oneOf= na implementação de uma função, i.e. para encontrar o máximo em um conjunto.
+
+** if também pode ser usado em ações
 - O =if= não tem uma versão especial pra ações. Usamos ele normalmente.
   #+begin_src quint
   action incrementa_x_se_par = {
