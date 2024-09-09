@@ -15,7 +15,7 @@
   - [[file:20240319195624-mfo_logica_temporal_das_acoes.org][Introdução à Lógica Temporal das Ações]]
   - [[file:20240324195706-mfo_revisao_de_programacao_funcional.org][Revisão de programação funcional em Quint]]
   - [[file:20240322161707-mfo_primeiras_especificacoes.org][Primeiras Especificações]]
-#   - [[file:20240330105337-mfo_jogo_da_velha_em_quint.org][Jogo da Velha em Quint]]
+  - [[file:20240330105337-mfo_jogo_da_velha_em_quint.org][Jogo da Velha em Quint]]
 #   - [[file:20240331223036-mfo_introducao_ao_tla.org][Introdução ao TLA+]]
 #   - [[file:20240408201756-mfo_primeiras_especificacoes_em_tla.org][Primeiras Especificações em TLA+]]
 #   - [[file:20240415205323-mfo_exercicios_pokemon.org][Exercícios Pokemon]]

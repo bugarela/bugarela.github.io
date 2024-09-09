@@ -1,9 +1,9 @@
 :PROPERTIES:
 :ID:       2e70fcd6-d025-4432-93b0-146a29ad9a00
 :END:
-#+title:  Jogo da Velha em Quint
+#+title:     Jogo da Velha em Quint
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      2024-04-01
+#+DATE:      09 de setembro de 2024
 #+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
@@ -325,6 +325,8 @@ def canBlockWithPattern(pattern) = and {
 }
 #+end_src
 
+#+BEAMER: \end{frame}
+#+BEAMER: \begin{frame}[fragile]{Condições para as jogadas - definições auxiliares II}
 Dado um /winning pattern/, podemos *preparar uma vitória* com aquele /pattern/ sse uma das coordenadas tiver =X= e as outras duas estiverem vazias.
 #+begin_src quint
 def canSetupWinWithPattern(pattern) = and {
