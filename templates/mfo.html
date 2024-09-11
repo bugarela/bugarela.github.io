@@ -1,15 +1,16 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    {{:include "header.html"}}
-  </head>
-  <body>
-    <div id="layout" class="pure-g">
-      {{:include "sidebar_mfo.html"}}
-      <div class="content pure-u-1 pure-u-md-2-3">
-        {{:if with-title}}<h2>{{title}}</h2>{{:endif}}
-        {{contents}}
-      </div>
-    </div>
-  </body>
+    <head>
+        {{:include "header.html"}}
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            {{:include "sidebar_mfo.html"}}
+            <div class="content pure-u-1 pure-u-md-2-3">
+                {{:if with-title}}
+                <h1>{{title}}</h1>
+                {{:endif}} {{contents}}
+            </div>
+        </div>
+    </body>
 </html>

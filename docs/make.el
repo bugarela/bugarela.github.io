@@ -5,6 +5,8 @@
 (org-babel-tangle)
 ;; (org-publish-remove-all-timestamps)
 (setq org-html-html5-fancy t)
+(setq org-html-htmlize-output-type 'css)
+(setq org-html-htmlize-font-prefix "org-")
 
 (defvar personal-site-full-name "Gabriela Moreira"
   "A string with your full name.")
@@ -92,7 +94,7 @@
          :recursive t
          :language "pt_BR"
          :exclude "^\\(docs\\|templates\\).*"
-         :base-extension "\\(ico\\|jpg\\|gif\\|png\\|css\\|js\\|el\\|nb\\|ipynb\\|pdf\\|xml\\|zip\\)"
+         :base-extension "\\(ico\\|jpg\\|gif\\|png\\|css\\|js\\|el\\|nb\\|ipynb\\|pdf\\|xml\\|zip\\|ttf\\|woff2\\)"
          :publishing-function org-publish-attachment)
         ("homepage" :components ("lectures-mfo" "homepage-mfo" "homepage-pages"
                                  "homepage-assets"))

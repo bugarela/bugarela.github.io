@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Personal homepage exported with org-thtml">
 
@@ -24,41 +24,45 @@
     <meta name="twitter:description" content="Personal homepage exported with org-thtml">
   
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
 <link rel="stylesheet" href="../css/layouts/style.css">
 
-  </head>
-  <body>
-    <div id="layout" class="pure-g">
-      <div class="sidebar pure-u-1 pure-u-md-1-3">
-  <div class="pure-g">
-    <div class="pure-u-1 pure-u-lg-1-2">
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-5" style="text-align: center">
+    <div class="header">
+        <h2 class="brand-title">
+            <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
+        </h2>
     </div>
-    <div class="pure-u-1 pure-u-lg-1-2">
-      <div class="header">
-        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
-      </div>
-      <div class="centered">
+    <div class="centered">
         <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
         <h1 class="huge"><a href="./">MFO</a></h1>
         <h2 class="brand-title">Métodos Formais</h2>
         <h2 class="brand-tagline">Materiais da disciplina</h2>
-      </div>
-      <div class="footer">
-  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
-</div>
-
     </div>
-  </div>
+    <div class="footer">
+    <div>
+        Created using Emacs and
+        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
+        >.<br />
+        Style from
+        <a href="https://owickstrom.github.io/the-monospace-web/"
+            >The Monospace Web</a
+        >.
+    </div>
 </div>
 
-      <div class="content pure-u-1 pure-u-md-2-3">
-        <h2>Estruturas de Kripke</h2>
-        <a href="https://bugarela.com/mfo/slides/20240217142930-mfo_estruturas_de_kripke.pdf">Slides</a>
+</div>
+
+            <div class="content pure-u-1 pure-u-md-2-3">
+                
+                <h1>Estruturas de Kripke</h1>
+                 <a href="https://bugarela.com/mfo/slides/20240217142930-mfo_estruturas_de_kripke.pdf">Slides</a>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
@@ -286,16 +290,16 @@ Especificação completa no GitHub.<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">module</span> semaforos {
-  <span style="color: #e35b15;">type</span> Cor = Vermelho | Verde | Amarelo
-  <span style="color: #e35b15;">type</span> Semaforo = <span style="color: #d79921;">int</span>
+<pre class="src src-quint"><span class="org-builtin">module</span> semaforos {
+  <span class="org-builtin">type</span> Cor = Vermelho | Verde | Amarelo
+  <span class="org-builtin">type</span> Semaforo = <span class="org-type">int</span>
 
-  <span style="color: #e35b15;">var</span> cores: Semaforo -&gt; Cor
-  <span style="color: #e35b15;">var</span> proximo: Semaforo
+  <span class="org-builtin">var</span> cores: Semaforo -&gt; Cor
+  <span class="org-builtin">var</span> proximo: Semaforo
 
-  <span style="color: #e35b15;">const</span> SEMAFOROS: <span style="color: #d79921;">Set</span>[Semaforo]
+  <span class="org-builtin">const</span> SEMAFOROS: <span class="org-type">Set</span>[Semaforo]
 
-  <span style="color: #e35b15;">action</span> fica_verde(s: Semaforo): <span style="color: #d79921;">bool</span> = <span style="color: #66a4a4;">all</span> {
+  <span class="org-builtin">action</span> fica_verde(s: Semaforo): <span class="org-type">bool</span> = <span class="org-keyword">all</span> {
     proximo == s,
     SEMAFOROS.forall(s2 =&gt; cores.get(s2) == Vermelho),
 
@@ -520,7 +524,7 @@ Podemos ter não determinismo em cada estado. Nos casos listados, podemos ou nã
 </div>
 </div>
 
-      </div>
-    </div>
-  </body>
+            </div>
+        </div>
+    </body>
 </html>

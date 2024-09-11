@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Personal homepage exported with org-thtml">
 
@@ -20,41 +20,45 @@
     <meta name="twitter:description" content="Personal homepage exported with org-thtml">
   
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
 <link rel="stylesheet" href="../css/layouts/style.css">
 
-  </head>
-  <body>
-    <div id="layout" class="pure-g">
-      <div class="sidebar pure-u-1 pure-u-md-1-3">
-  <div class="pure-g">
-    <div class="pure-u-1 pure-u-lg-1-2">
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-5" style="text-align: center">
+    <div class="header">
+        <h2 class="brand-title">
+            <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
+        </h2>
     </div>
-    <div class="pure-u-1 pure-u-lg-1-2">
-      <div class="header">
-        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
-      </div>
-      <div class="centered">
+    <div class="centered">
         <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
         <h1 class="huge"><a href="./">MFO</a></h1>
         <h2 class="brand-title">Métodos Formais</h2>
         <h2 class="brand-tagline">Materiais da disciplina</h2>
-      </div>
-      <div class="footer">
-  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
-</div>
-
     </div>
-  </div>
+    <div class="footer">
+    <div>
+        Created using Emacs and
+        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
+        >.<br />
+        Style from
+        <a href="https://owickstrom.github.io/the-monospace-web/"
+            >The Monospace Web</a
+        >.
+    </div>
 </div>
 
-      <div class="content pure-u-1 pure-u-md-2-3">
-        <h2>Primeiras Especificações</h2>
-        <a href="https://bugarela.com/mfo/slides/20240322161707-mfo_primeiras_especificacoes.pdf">Slides</a><br />
+</div>
+
+            <div class="content pure-u-1 pure-u-md-2-3">
+                
+                <h1>Primeiras Especificações</h1>
+                 <a href="https://bugarela.com/mfo/slides/20240322161707-mfo_primeiras_especificacoes.pdf">Slides</a><br />
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
@@ -134,18 +138,18 @@ Vamos corrigir juntos usando a REPL.<br />
 x&rsquo; = x + 1 na REPL<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">&gt;&gt;&gt; <span style="color: #e35b15;">var</span> x: <span style="color: #d79921;">int</span>
+<pre class="src src-quint">&gt;&gt;&gt; <span class="org-builtin">var</span> x: <span class="org-type">int</span>
 
 &gt;&gt;&gt; x' = 0
-<span style="color: #805b87;">true</span>
+<span class="org-constant">true</span>
 &gt;&gt;&gt; x
 0
-&gt;&gt;&gt; <span style="color: #e35b15;">action</span> step = x' = x + 1
+&gt;&gt;&gt; <span class="org-builtin">action</span> step = x' = x + 1
 
 &gt;&gt;&gt; step
-<span style="color: #805b87;">true</span>
+<span class="org-constant">true</span>
 &gt;&gt;&gt; step
-<span style="color: #805b87;">true</span>
+<span class="org-constant">true</span>
 &gt;&gt;&gt; x
 2
 </pre>
@@ -165,9 +169,9 @@ Sempre podemos definir operadores, valores e ações dentro do próprio corpo de
 </ul></li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f(x) = {
-  <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> quadrado(y) = y * y
-  <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> dobro(y) = 2 * y
+<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">def</span> f(x) = {
+  <span class="org-builtin">pure</span> <span class="org-builtin">def</span> quadrado(y) = y * y
+  <span class="org-builtin">pure</span> <span class="org-builtin">def</span> dobro(y) = 2 * y
   quadrado(x) + dobro(x)
 }
 </pre>
@@ -177,7 +181,7 @@ Sempre podemos definir operadores, valores e ações dentro do próprio corpo de
 As chaves <code>{}</code> são opcionais, e você pode usar elas quando quiser pra deixar mais claro o escopo, por exemplo:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">val</span> foo = <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f(x) = 2 * x { f(5) }
+<pre class="src src-quint"><span class="org-builtin">val</span> foo = <span class="org-builtin">pure</span> <span class="org-builtin">def</span> f(x) = 2 * x { f(5) }
 </pre>
 </div>
 </div>
@@ -217,7 +221,7 @@ Os equivalentes em TLA+ são permitidos. Em Quint, somos forçados a escrever as
 Em vez de <code>and</code>, usamos <code>all</code><br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">  <span style="color: #e35b15;">action</span> incrementa_x_e_y = <span style="color: #66a4a4;">all</span> {
+<pre class="src src-quint">  <span class="org-builtin">action</span> incrementa_x_e_y = <span class="org-keyword">all</span> {
     x' = x + 1,
     y' = y + 1,
   }
@@ -230,7 +234,7 @@ Em vez de <code>and</code>, usamos <code>all</code><br />
 Em vez de <code>or</code>, usamos <code>any</code><br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">  <span style="color: #e35b15;">action</span> incrementa_ou_decrementa_x = <span style="color: #66a4a4;">any</span> {
+<pre class="src src-quint">  <span class="org-builtin">action</span> incrementa_ou_decrementa_x = <span class="org-keyword">any</span> {
     x' = x + 1,
     x' = x - 1,
   }
@@ -247,8 +251,8 @@ Em vez de <code>or</code>, usamos <code>any</code><br />
 Em vez de <code>exists</code>, usamos <code>nondet</code> e <code>oneOf</code><br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">  <span style="color: #e35b15;">action</span> x_recebe_algum_valor = {
-    <span style="color: #e35b15;">nondet</span> valor = <span style="color: #d79921;">Set</span>(1, 2, 3).oneOf()
+<pre class="src src-quint">  <span class="org-builtin">action</span> x_recebe_algum_valor = {
+    <span class="org-builtin">nondet</span> valor = <span class="org-type">Set</span>(1, 2, 3).oneOf()
     x' = valor
   }
 </pre>
@@ -276,10 +280,10 @@ Importante: O <code>oneOf</code> só pode ser usado nesse cenário (dentro de um
 O <code>if</code> não tem uma versão especial pra ações. Usamos ele normalmente.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">  <span style="color: #e35b15;">action</span> incrementa_x_se_par = {
-    <span style="color: #66a4a4;">if</span> (x % 2 == 0) {
+<pre class="src src-quint">  <span class="org-builtin">action</span> incrementa_x_se_par = {
+    <span class="org-keyword">if</span> (x % 2 == 0) {
       x' = x + 1
-    } <span style="color: #66a4a4;">else</span> {
+    } <span class="org-keyword">else</span> {
       x' = x
     }
   }
@@ -320,15 +324,15 @@ Essas restrições valem pra TLA+ também, mas em TLA+ isso só será detectado 
 Os exemplos a seguir <b>não</b> são permitidos no Quint. PS: Para vê-los no editor, você precisa declarar as variáveis (<code>var x: int</code> e <code>var y: int</code>).<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">action</span> any_desbalanceado = <span style="color: #66a4a4;">any</span> {
+<pre class="src src-quint"><span class="org-builtin">action</span> any_desbalanceado = <span class="org-keyword">any</span> {
   x' = 1,
   y' = 2,
 }
 
-<span style="color: #e35b15;">action</span> if_desbalanceado = {
-  <span style="color: #66a4a4;">if</span> (x &gt; 0) {
+<span class="org-builtin">action</span> if_desbalanceado = {
+  <span class="org-keyword">if</span> (x &gt; 0) {
     x' = 1
-  } <span style="color: #66a4a4;">else</span> {
+  } <span class="org-keyword">else</span> {
     y' = 2
   }
 }
@@ -343,14 +347,14 @@ Os exemplos a seguir <b>não</b> são permitidos no Quint. PS: Para vê-los no e
 Os exemplos a seguir <b>não</b> são permitidos no Quint.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">action</span> all_multiplas_atualizacoes = <span style="color: #66a4a4;">all</span> {
+<pre class="src src-quint"><span class="org-builtin">action</span> all_multiplas_atualizacoes = <span class="org-keyword">all</span> {
   x' = 1,
   x' = 2,
 }
 
-<span style="color: #e35b15;">action</span> a1 = x' = 1
-<span style="color: #e35b15;">action</span> a2 = x' = 2
-<span style="color: #e35b15;">action</span> all_multiplas_atualizacoes = <span style="color: #66a4a4;">all</span> { a1, a2 }
+<span class="org-builtin">action</span> a1 = x' = 1
+<span class="org-builtin">action</span> a2 = x' = 2
+<span class="org-builtin">action</span> all_multiplas_atualizacoes = <span class="org-keyword">all</span> { a1, a2 }
 </pre>
 </div>
 </div>
@@ -431,9 +435,9 @@ Além destes, temos alguns modos adicionais:<br />
 <h3 id="vari-veis-2"><span class="section-number-3">5.2.</span> Variáveis</h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">module</span> jarros {
-  <span style="color: #e35b15;">var</span> grande: <span style="color: #d79921;">int</span>
-  <span style="color: #e35b15;">var</span> pequeno: <span style="color: #d79921;">int</span>
+<pre class="src src-quint"><span class="org-builtin">module</span> jarros {
+  <span class="org-builtin">var</span> grande: <span class="org-type">int</span>
+  <span class="org-builtin">var</span> pequeno: <span class="org-type">int</span>
 
   ...
 }
@@ -448,12 +452,12 @@ Além destes, temos alguns modos adicionais:<br />
 Tente escrever as ações abaixo, definindo os valores para <code>grande</code> e <code>pequeno</code> em cada uma delas. Nenhuma dessas ações precisa de parâmetros.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">  <span style="color: #e35b15;">action</span> enche_grande
-  <span style="color: #e35b15;">action</span> enche_pequeno
-  <span style="color: #e35b15;">action</span> esvazia_grande
-  <span style="color: #e35b15;">action</span> esvazia_pequeno
-  <span style="color: #e35b15;">action</span> grande_pro_pequeno
-  <span style="color: #e35b15;">action</span> pequeno_pro_grande
+<pre class="src src-quint">  <span class="org-builtin">action</span> enche_grande
+  <span class="org-builtin">action</span> enche_pequeno
+  <span class="org-builtin">action</span> esvazia_grande
+  <span class="org-builtin">action</span> esvazia_pequeno
+  <span class="org-builtin">action</span> grande_pro_pequeno
+  <span class="org-builtin">action</span> pequeno_pro_grande
 </pre>
 </div>
 </div>
@@ -462,7 +466,7 @@ Tente escrever as ações abaixo, definindo os valores para <code>grande</code> 
 <h3 id="estado-inicial-2"><span class="section-number-3">5.4.</span> Estado inicial</h3>
 <div class="outline-text-3" id="text-5-4">
 <div class="org-src-container">
-<pre class="src src-quint">  <span style="color: #e35b15;">action</span> init = <span style="color: #66a4a4;">all</span> {
+<pre class="src src-quint">  <span class="org-builtin">action</span> init = <span class="org-keyword">all</span> {
     grande' = 0,
     pequeno' = 0,
   }
@@ -495,7 +499,7 @@ Agora, vamos usar o <i>model checker</i> para encontrar a solução. Para isso, 
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-quint">  <span style="color: #e35b15;">action</span> step = <span style="color: #66a4a4;">any</span> {
+<pre class="src src-quint">  <span class="org-builtin">action</span> step = <span class="org-keyword">any</span> {
     enche_grande,
     enche_pequeno,
     esvazia_grande,
@@ -504,7 +508,7 @@ Agora, vamos usar o <i>model checker</i> para encontrar a solução. Para isso, 
     pequeno_pro_grande,
   }
 
-  <span style="color: #e35b15;">val</span> inv = grande != 4
+  <span class="org-builtin">val</span> inv = grande != 4
 </pre>
 </div>
 </div>
@@ -588,9 +592,9 @@ Adicionando o <code>expect</code> no final, essa run também funciona como um te
 <pre class="src src-shell">quint test jarros.qnt --match solution
 
   jarros
-    ok solution passed <span style="color: #d79921; font-weight: bold;">1</span> test<span style="color: #66a4a4;">(</span>s<span style="color: #66a4a4;">)</span>
+    ok solution passed <span class="org-highlight-numbers-number">1</span> test<span class="org-rainbow-delimiters-depth-1">(</span>s<span class="org-rainbow-delimiters-depth-1">)</span>
 
-  <span style="color: #d79921; font-weight: bold;">1</span> passing <span style="color: #66a4a4;">(</span>12ms<span style="color: #66a4a4;">)</span>
+  <span class="org-highlight-numbers-number">1</span> passing <span class="org-rainbow-delimiters-depth-1">(</span>12ms<span class="org-rainbow-delimiters-depth-1">)</span>
 </pre>
 </div>
 </div>
@@ -601,7 +605,7 @@ Adicionando o <code>expect</code> no final, essa run também funciona como um te
 <div class="org-src-container">
 <pre class="src src-quint">$ quint -r jarros.qnt::jarros
 &gt;&gt;&gt; solution
-<span style="color: #805b87;">true</span>
+<span class="org-constant">true</span>
 &gt;&gt;&gt; grande
 4
 &gt;&gt;&gt; pequeno
@@ -617,7 +621,7 @@ Adicionando o <code>expect</code> no final, essa run também funciona como um te
 </div>
 </div>
 
-      </div>
-    </div>
-  </body>
+            </div>
+        </div>
+    </body>
 </html>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Personal homepage exported with org-thtml">
 
@@ -20,41 +20,45 @@
     <meta name="twitter:description" content="Personal homepage exported with org-thtml">
   
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
 <link rel="stylesheet" href="../css/layouts/style.css">
 
-  </head>
-  <body>
-    <div id="layout" class="pure-g">
-      <div class="sidebar pure-u-1 pure-u-md-1-3">
-  <div class="pure-g">
-    <div class="pure-u-1 pure-u-lg-1-2">
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-5" style="text-align: center">
+    <div class="header">
+        <h2 class="brand-title">
+            <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
+        </h2>
     </div>
-    <div class="pure-u-1 pure-u-lg-1-2">
-      <div class="header">
-        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
-      </div>
-      <div class="centered">
+    <div class="centered">
         <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
         <h1 class="huge"><a href="./">MFO</a></h1>
         <h2 class="brand-title">Métodos Formais</h2>
         <h2 class="brand-tagline">Materiais da disciplina</h2>
-      </div>
-      <div class="footer">
-  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
-</div>
-
     </div>
-  </div>
+    <div class="footer">
+    <div>
+        Created using Emacs and
+        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
+        >.<br />
+        Style from
+        <a href="https://owickstrom.github.io/the-monospace-web/"
+            >The Monospace Web</a
+        >.
+    </div>
 </div>
 
-      <div class="content pure-u-1 pure-u-md-2-3">
-        <h2>Introdução ao TLA+</h2>
-        <a href="https://bugarela.com/mfo/slides/20240331223036-mfo_introducao_ao_tla.pdf">Slides</a><br />
+</div>
+
+            <div class="content pure-u-1 pure-u-md-2-3">
+                
+                <h1>Introdução ao TLA+</h1>
+                 <a href="https://bugarela.com/mfo/slides/20240331223036-mfo_introducao_ao_tla.pdf">Slides</a><br />
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
@@ -129,12 +133,12 @@ TLA+ não tem tipos!<br />
 A linguagem em si não é tipada, mas o Apalache espera que os tipos sejam anotados nos comentários<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">    <span style="color: #66a4a4;">VARIABLES</span>
-      <span style="color: #C18E76;">\* @type: Int -&gt; Int;</span>
+<pre class="src src-tla">    <span class="org-keyword">VARIABLES</span>
+      <span class="org-comment">\* @type: Int -&gt; Int;</span>
       clock,
-      <span style="color: #C18E76;">\* @type: Int -&gt; (Int -&gt; Int);</span>
+      <span class="org-comment">\* @type: Int -&gt; (Int -&gt; Int);</span>
       req,
-      <span style="color: #C18E76;">\* @type: Int -&gt; Set(Int);</span>
+      <span class="org-comment">\* @type: Int -&gt; Set(Int);</span>
       ack,
 </pre>
 </div></li>
@@ -182,19 +186,19 @@ Opção 1 (com ou sem <code>sudo</code>, somente UNIX):<br />
 Instalar:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">  <span style="color: #d79921;">git</span> clone https://github.com/pmer/tla-bin.git
-  <span style="color: #d79921;">cd</span> tla-bin
+<pre class="src src-sh">  <span class="org-type">git</span> clone https://github.com/pmer/tla-bin.git
+  <span class="org-type">cd</span> tla-bin
   sh download_or_update_tla.sh --nightly
   sh install.sh ~/.local
-  <span style="color: #C18E76;"># </span><span style="color: #C18E76;">ou, se tiver sudo:</span>
-  <span style="color: #d79921;">sudo</span> install.sh
+  <span class="org-comment-delimiter"># </span><span class="org-comment">ou, se tiver sudo:</span>
+  <span class="org-type">sudo</span> install.sh
 </pre>
 </div></li>
 <li><p>
 Executar:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">  <span style="color: #d79921;">cd</span> ~/.local/bin
+<pre class="src src-sh">  <span class="org-type">cd</span> ~/.local/bin
   ./tlarepl
 </pre>
 </div></li>
@@ -228,10 +232,10 @@ Opção 3 (com <code>sudo</code>):<br />
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">const</span> MY_CONST: <span style="color: #d79921;">int</span>
+<pre class="src src-quint"><span class="org-builtin">const</span> MY_CONST: <span class="org-type">int</span>
 
-<span style="color: #e35b15;">var</span> x: <span style="color: #d79921;">str</span>
-<span style="color: #e35b15;">var</span> y: <span style="color: #d79921;">bool</span>
+<span class="org-builtin">var</span> x: <span class="org-type">str</span>
+<span class="org-builtin">var</span> y: <span class="org-type">bool</span>
 </pre>
 </div>
 
@@ -239,8 +243,8 @@ Em Quint:<br />
 Em TLA+:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla"><span style="color: #66a4a4;">CONSTANT</span> MY_CONST
-<span style="color: #66a4a4;">VARIABLES</span> x, y
+<pre class="src src-tla"><span class="org-keyword">CONSTANT</span> MY_CONST
+<span class="org-keyword">VARIABLES</span> x, y
 </pre>
 </div>
 
@@ -256,8 +260,8 @@ Temos as palavras-chave: <code>CONSTANT</code>, <code>CONSTANTS</code>, <code>VA
 Lembram nos semáforos, quando tínhamos a constante <code>SEMAFOROS</code>, e instanciávamos o módulo com:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">module</span> semaforos_3 {
-  <span style="color: #e35b15;">import</span> semaforos(SEMAFOROS=Set(0, 1, 2)).*
+<pre class="src src-quint"><span class="org-builtin">module</span> semaforos_3 {
+  <span class="org-builtin">import</span> semaforos(SEMAFOROS=Set(0, 1, 2)).*
 }
 </pre>
 </div>
@@ -266,7 +270,7 @@ Lembram nos semáforos, quando tínhamos a constante <code>SEMAFOROS</code>, e i
 Em TLA+, usaríamos o <code>INSTANCE</code>:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla"><span style="color: #66a4a4;">INSTANCE</span> semaforos <span style="color: #66a4a4;">WITH</span> SEMAFOROS &lt;- {<span style="color: #d79921; font-weight: bold;">0</span>, <span style="color: #d79921; font-weight: bold;">1</span> ,<span style="color: #d79921; font-weight: bold;">2</span>}
+<pre class="src src-tla"><span class="org-keyword">INSTANCE</span> semaforos <span class="org-keyword">WITH</span> SEMAFOROS &lt;- {<span class="org-highlight-numbers-number">0</span>, <span class="org-highlight-numbers-number">1</span> ,<span class="org-highlight-numbers-number">2</span>}
 </pre>
 </div>
 
@@ -286,9 +290,9 @@ PS: Constantes e Instâncias são um tanto complicadas. A utilização delas nos
 Em Quint, tempos os imports<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">import</span> meu_modulo.*
-<span style="color: #e35b15;">import</span> meu_modulo.minha_definicao
-<span style="color: #e35b15;">import</span> meu_modulo <span style="color: #e35b15;">as</span> M
+<pre class="src src-quint"><span class="org-builtin">import</span> meu_modulo.*
+<span class="org-builtin">import</span> meu_modulo.minha_definicao
+<span class="org-builtin">import</span> meu_modulo <span class="org-builtin">as</span> M
 </pre>
 </div>
 
@@ -296,7 +300,7 @@ Em Quint, tempos os imports<br />
 Em TLA+<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla"><span style="color: #66a4a4;">EXTENDS</span> meu_modulo
+<pre class="src src-tla"><span class="org-keyword">EXTENDS</span> meu_modulo
 </pre>
 </div>
 
@@ -304,7 +308,7 @@ Em TLA+<br />
 Inclusive, os interios não são <i>built-in</i> em TLA+. Temos que importar o módulo de inteiros com<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla"><span style="color: #66a4a4;">EXTENDS</span> Integers
+<pre class="src src-tla"><span class="org-keyword">EXTENDS</span> Integers
 </pre>
 </div>
 </div>
@@ -338,8 +342,8 @@ my_set.fold(0, (acc, i) =&gt; acc + i)
 Em TLA+, temos lambdas, de forma geral, como:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla"><span style="color: #66a4a4;">LAMBDA</span> x: x + <span style="color: #d79921; font-weight: bold;">1</span>
-<span style="color: #66a4a4;">LAMBDA</span> x, y: x + y
+<pre class="src src-tla"><span class="org-keyword">LAMBDA</span> x: x + <span class="org-highlight-numbers-number">1</span>
+<span class="org-keyword">LAMBDA</span> x, y: x + y
 </pre>
 </div>
 </div>
@@ -351,9 +355,9 @@ Em TLA+, temos lambdas, de forma geral, como:<br />
 Em Quint, podemos declarar varios operadores seguidos de uma expressão:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> a = {
-  <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> b = 1
-  <span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> c = b + 1
+<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">val</span> a = {
+  <span class="org-builtin">pure</span> <span class="org-builtin">val</span> b = 1
+  <span class="org-builtin">pure</span> <span class="org-builtin">val</span> c = b + 1
   c + 1
 }
 </pre>
@@ -363,9 +367,9 @@ Em Quint, podemos declarar varios operadores seguidos de uma expressão:<br />
 Em TLA+, fazemos o semelhante com:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">a == <span style="color: #66a4a4;">LET</span> b == <span style="color: #d79921; font-weight: bold;">1</span>
-         c == b + <span style="color: #d79921; font-weight: bold;">1</span>
-      <span style="color: #66a4a4;">IN</span> c + <span style="color: #d79921; font-weight: bold;">1</span>
+<pre class="src src-tla">a == <span class="org-keyword">LET</span> b == <span class="org-highlight-numbers-number">1</span>
+         c == b + <span class="org-highlight-numbers-number">1</span>
+      <span class="org-keyword">IN</span> c + <span class="org-highlight-numbers-number">1</span>
 </pre>
 </div>
 
@@ -385,8 +389,8 @@ Percebam que usamos duplo <code>=</code>  (<code>==</code>) para definições. P
 Conjunção em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> pred = a <span style="color: #66a4a4;">and</span> b
-<span style="color: #e35b15;">action</span> conj = <span style="color: #66a4a4;">all</span> {
+<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">val</span> pred = a <span class="org-keyword">and</span> b
+<span class="org-builtin">action</span> conj = <span class="org-keyword">all</span> {
   A,
   B,
   C,
@@ -413,8 +417,8 @@ conj ==
 Disjunção em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">val</span> pred = a <span style="color: #66a4a4;">or</span> b
-<span style="color: #e35b15;">action</span> disj = <span style="color: #66a4a4;">any</span> {
+<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">val</span> pred = a <span class="org-keyword">or</span> b
+<span class="org-builtin">action</span> disj = <span class="org-keyword">any</span> {
   A,
   B,
   C,
@@ -444,7 +448,7 @@ conj ==
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">pure</span> <span style="color: #e35b15;">def</span> f(x) = <span style="color: #66a4a4;">if</span> (x == 0) 10 <span style="color: #66a4a4;">else</span> 20
+<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">def</span> f(x) = <span class="org-keyword">if</span> (x == 0) 10 <span class="org-keyword">else</span> 20
 </pre>
 </div>
 
@@ -452,7 +456,7 @@ Em Quint:<br />
 Em TLA+:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">f(x) == <span style="color: #66a4a4;">IF</span> x = <span style="color: #d79921; font-weight: bold;">0</span> <span style="color: #66a4a4;">THEN</span> <span style="color: #d79921; font-weight: bold;">10</span> <span style="color: #66a4a4;">ELSE</span> <span style="color: #d79921; font-weight: bold;">20</span>
+<pre class="src src-tla">f(x) == <span class="org-keyword">IF</span> x = <span class="org-highlight-numbers-number">0</span> <span class="org-keyword">THEN</span> <span class="org-highlight-numbers-number">10</span> <span class="org-keyword">ELSE</span> <span class="org-highlight-numbers-number">20</span>
 </pre>
 </div>
 </div>
@@ -464,7 +468,7 @@ Em TLA+:<br />
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #d79921;">Set</span>(1, 2, 3)
+<pre class="src src-quint"><span class="org-type">Set</span>(1, 2, 3)
 </pre>
 </div>
 
@@ -472,7 +476,7 @@ Em Quint:<br />
 Em TLA+:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">{<span style="color: #d79921; font-weight: bold;">1</span>, <span style="color: #d79921; font-weight: bold;">2</span>, <span style="color: #d79921; font-weight: bold;">3</span>}
+<pre class="src src-tla">{<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">2</span>, <span class="org-highlight-numbers-number">3</span>}
 </pre>
 </div>
 </div>
@@ -484,8 +488,8 @@ Em TLA+:<br />
 Existe e para todo:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">\E x \in S: P <span style="color: #C18E76;">\* S.exists(x =&gt; P)</span>
-\A x \in S: P <span style="color: #C18E76;">\* S.forall(x =&gt; P)</span>
+<pre class="src src-tla">\E x \in S: P <span class="org-comment">\* S.exists(x =&gt; P)</span>
+\A x \in S: P <span class="org-comment">\* S.forall(x =&gt; P)</span>
 </pre>
 </div>
 
@@ -493,19 +497,19 @@ Existe e para todo:<br />
 <code>map</code> e <code>filter</code>:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">{ e: x \in S } <span style="color: #C18E76;">\* S.map(x =&gt; e)</span>
-{ x \in S: P } <span style="color: #C18E76;">\* S.filter(x =&gt; P)</span>
+<pre class="src src-tla">{ e: x \in S } <span class="org-comment">\* S.map(x =&gt; e)</span>
+{ x \in S: P } <span class="org-comment">\* S.filter(x =&gt; P)</span>
 </pre>
 </div>
 <p>
 Predicados:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">e \in S <span style="color: #C18E76;">\* e.in(S) ou S.contains(e)</span>
-S \union T <span style="color: #C18E76;">\* S.union(T)</span>
-S \intersect T <span style="color: #C18E76;">\* S.intersect(T)</span>
-S \ T <span style="color: #C18E76;">\* S.exclude(T)</span>
-S \subseteq T <span style="color: #C18E76;">\* S.subseteq(T)</span>
+<pre class="src src-tla">e \in S <span class="org-comment">\* e.in(S) ou S.contains(e)</span>
+S \union T <span class="org-comment">\* S.union(T)</span>
+S \intersect T <span class="org-comment">\* S.intersect(T)</span>
+S \ T <span class="org-comment">\* S.exclude(T)</span>
+S \subseteq T <span class="org-comment">\* S.subseteq(T)</span>
 </pre>
 </div>
 
@@ -513,10 +517,10 @@ S \subseteq T <span style="color: #C18E76;">\* S.subseteq(T)</span>
 Outros operadores:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla"><span style="color: #66a4a4;">SUBSET</span> S <span style="color: #C18E76;">\* S.powerset()</span>
-<span style="color: #66a4a4;">UNION</span> S <span style="color: #C18E76;">\* S.flatten()</span>
-Cardinality(S) <span style="color: #C18E76;">\* S.size()</span>
-a..b <span style="color: #C18E76;">\* a.to(b)</span>
+<pre class="src src-tla"><span class="org-keyword">SUBSET</span> S <span class="org-comment">\* S.powerset()</span>
+<span class="org-keyword">UNION</span> S <span class="org-comment">\* S.flatten()</span>
+Cardinality(S) <span class="org-comment">\* S.size()</span>
+a..b <span class="org-comment">\* a.to(b)</span>
 </pre>
 </div>
 
@@ -532,7 +536,7 @@ PS: Para usar <code>Cardinality</code>, precisamos fazer <code>EXTENDS FiniteSet
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #e35b15;">nondet</span> name = my_set.oneOf()
+<pre class="src src-quint"><span class="org-builtin">nondet</span> name = my_set.oneOf()
 x' = name
 </pre>
 </div>
@@ -561,14 +565,14 @@ Resolva usando os equivalentes a <code>map</code> e <code>filter</code> na REPL:
 Dado um conjunto de números, retorne um conjunto do quadrado desses números.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla"><span style="color: #66a4a4;">LET</span> quadrado(S) == resolucao <span style="color: #66a4a4;">IN</span> quadrado({<span style="color: #d79921; font-weight: bold;">1</span>, <span style="color: #d79921; font-weight: bold;">2</span>, <span style="color: #d79921; font-weight: bold;">3</span>, <span style="color: #d79921; font-weight: bold;">4</span>})
+<pre class="src src-tla"><span class="org-keyword">LET</span> quadrado(S) == resolucao <span class="org-keyword">IN</span> quadrado({<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">2</span>, <span class="org-highlight-numbers-number">3</span>, <span class="org-highlight-numbers-number">4</span>})
 </pre>
 </div></li>
 <li><p>
 Dado um conjunto de números, retorne um conjunto apenas com os números pares.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla"><span style="color: #66a4a4;">LET</span> pares(S) == resolucao <span style="color: #66a4a4;">IN</span> pares({<span style="color: #d79921; font-weight: bold;">1</span>, <span style="color: #d79921; font-weight: bold;">2</span>, <span style="color: #d79921; font-weight: bold;">3</span>, <span style="color: #d79921; font-weight: bold;">4</span>})
+<pre class="src src-tla"><span class="org-keyword">LET</span> pares(S) == resolucao <span class="org-keyword">IN</span> pares({<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">2</span>, <span class="org-highlight-numbers-number">3</span>, <span class="org-highlight-numbers-number">4</span>})
 </pre>
 </div></li>
 </ol>
@@ -610,7 +614,7 @@ Em TLA+:<br />
 Por exemplo, criando uma estrutura para guardar o saldo no banco de cada pessoa:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">[ pessoa \in { <span style="color: #98971a;">"alice"</span>, <span style="color: #98971a;">"bob"</span>, <span style="color: #98971a;">"charlie"</span> } |-&gt; <span style="color: #d79921; font-weight: bold;">0</span> ]
+<pre class="src src-tla">[ pessoa \in { <span class="org-string">"alice"</span>, <span class="org-string">"bob"</span>, <span class="org-string">"charlie"</span> } |-&gt; <span class="org-highlight-numbers-number">0</span> ]
 </pre>
 </div>
 
@@ -618,7 +622,7 @@ Por exemplo, criando uma estrutura para guardar o saldo no banco de cada pessoa:
 Se eu ainda não souber quem são as pessoas, aí sim preciso criar um mapa vazio:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">[ pessoa \in {} |-&gt; <span style="color: #d79921; font-weight: bold;">0</span> ]
+<pre class="src src-tla">[ pessoa \in {} |-&gt; <span class="org-highlight-numbers-number">0</span> ]
 </pre>
 </div>
 </div>
@@ -638,7 +642,7 @@ O equivalente a:<br />
 seria:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">[ x \in { a: &lt;&lt;a, b&gt;&gt; \in S } |-&gt; (<span style="color: #66a4a4;">CHOOSE</span> p \in S: p[<span style="color: #d79921; font-weight: bold;">1</span>] = x)[<span style="color: #d79921; font-weight: bold;">2</span>]]
+<pre class="src src-tla">[ x \in { a: &lt;&lt;a, b&gt;&gt; \in S } |-&gt; (<span class="org-keyword">CHOOSE</span> p \in S: p[<span class="org-highlight-numbers-number">1</span>] = x)[<span class="org-highlight-numbers-number">2</span>]]
 </pre>
 </div>
 
@@ -659,10 +663,10 @@ Podemos copiar o operador <code>SetAsFun</code> do Apalache e usá-lo. Primeiro,
 </p>
 <div class="org-src-container">
 <pre class="src src-tla">SetAsFun(S) ==
-    <span style="color: #66a4a4;">LET</span> Dom == { x: &lt;&lt;x, y&gt;&gt; \in S }
+    <span class="org-keyword">LET</span> Dom == { x: &lt;&lt;x, y&gt;&gt; \in S }
         Rng == { y: &lt;&lt;x, y&gt;&gt; \in S }
-    <span style="color: #66a4a4;">IN</span>
-    [ x \in Dom |-&gt; <span style="color: #66a4a4;">CHOOSE</span> y \in Rng: &lt;&lt;x, y&gt;&gt; \in S ]
+    <span class="org-keyword">IN</span>
+    [ x \in Dom |-&gt; <span class="org-keyword">CHOOSE</span> y \in Rng: &lt;&lt;x, y&gt;&gt; \in S ]
 </pre>
 </div>
 
@@ -682,7 +686,7 @@ E para utilizar, basta fornecer um conjundo de duplas do tipo <a></a> como parâ
 Para acessar uma chave <code>e</code> de um mapa <code>f</code>:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">f[e] <span style="color: #C18E76;">\* f.get(e)</span>
+<pre class="src src-tla">f[e] <span class="org-comment">\* f.get(e)</span>
 </pre>
 </div>
 
@@ -693,10 +697,10 @@ Um exemplo na REPL.<br />
 <li>PS: A REPL de TLA+ imprime somente os valores de um mapa quando imprime um mapa.<br /></li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-tla">(tla+) [ x \in {<span style="color: #d79921; font-weight: bold;">1</span>, <span style="color: #d79921; font-weight: bold;">2</span>} |-&gt; x + <span style="color: #d79921; font-weight: bold;">1</span> ]
-<span style="color: #C18E76;">\* &lt;&lt;2, 3&gt;&gt;</span>
-(tla+) <span style="color: #66a4a4;">LET</span> m == [ x \in {<span style="color: #d79921; font-weight: bold;">1</span>, <span style="color: #d79921; font-weight: bold;">2</span>} |-&gt; x + <span style="color: #d79921; font-weight: bold;">1</span> ] <span style="color: #66a4a4;">IN</span> m[<span style="color: #d79921; font-weight: bold;">1</span>]
-<span style="color: #C18E76;">\* 2</span>
+<pre class="src src-tla">(tla+) [ x \in {<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">2</span>} |-&gt; x + <span class="org-highlight-numbers-number">1</span> ]
+<span class="org-comment">\* &lt;&lt;2, 3&gt;&gt;</span>
+(tla+) <span class="org-keyword">LET</span> m == [ x \in {<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">2</span>} |-&gt; x + <span class="org-highlight-numbers-number">1</span> ] <span class="org-keyword">IN</span> m[<span class="org-highlight-numbers-number">1</span>]
+<span class="org-comment">\* 2</span>
 </pre>
 </div>
 </div>
@@ -708,7 +712,7 @@ Um exemplo na REPL.<br />
 Obtendo o conjunto com as chaves:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla"><span style="color: #66a4a4;">DOMAIN</span> f <span style="color: #C18E76;">\* f.keys()</span>
+<pre class="src src-tla"><span class="org-keyword">DOMAIN</span> f <span class="org-comment">\* f.keys()</span>
 </pre>
 </div>
 
@@ -716,7 +720,7 @@ Obtendo o conjunto com as chaves:<br />
 Obtendo todos os mapas possíveis:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">[ S -&gt; T ] <span style="color: #C18E76;">\* setOfMaps(S, T)</span>
+<pre class="src src-tla">[ S -&gt; T ] <span class="org-comment">\* setOfMaps(S, T)</span>
 </pre>
 </div>
 
@@ -724,12 +728,12 @@ Obtendo todos os mapas possíveis:<br />
 Atualizando e adicionando valores:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">[f <span style="color: #66a4a4;">EXCEPT</span> ![e1] = e2] <span style="color: #C18E76;">\* f.set(e1, e2)</span>
-[f <span style="color: #66a4a4;">EXCEPT</span> ![e1] = e2, ![e3] = e4]
-<span style="color: #C18E76;">\* f.set(e1, e2).set(e3, e4)</span>
-[f <span style="color: #66a4a4;">EXCEPT</span> ![e1] = @ + y]
-<span style="color: #C18E76;">\* f.setBy(e1, (old =&gt; old + y))</span>
-(k :&gt; v) @@ f <span style="color: #C18E76;">\* f.put(k, v)</span>
+<pre class="src src-tla">[f <span class="org-keyword">EXCEPT</span> ![e1] = e2] <span class="org-comment">\* f.set(e1, e2)</span>
+[f <span class="org-keyword">EXCEPT</span> ![e1] = e2, ![e3] = e4]
+<span class="org-comment">\* f.set(e1, e2).set(e3, e4)</span>
+[f <span class="org-keyword">EXCEPT</span> ![e1] = @ + y]
+<span class="org-comment">\* f.setBy(e1, (old =&gt; old + y))</span>
+(k :&gt; v) @@ f <span class="org-comment">\* f.put(k, v)</span>
 </pre>
 </div>
 </div>
@@ -742,7 +746,7 @@ Construtor:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-tla">[ f_1 |-&gt; e_1, ..., f_n |-&gt; e_n ]
-<span style="color: #C18E76;">\* { f_1: e_1, ..., f_n: e_n }</span>
+<span class="org-comment">\* { f_1: e_1, ..., f_n: e_n }</span>
 </pre>
 </div>
 
@@ -750,7 +754,7 @@ Construtor:<br />
 Acesso, idêntico ao Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">r.meu_campo <span style="color: #C18E76;">\* r.meu_campo</span>
+<pre class="src src-tla">r.meu_campo <span class="org-comment">\* r.meu_campo</span>
 </pre>
 </div>
 
@@ -758,9 +762,9 @@ Acesso, idêntico ao Quint:<br />
 Atualização:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">[r <span style="color: #66a4a4;">EXCEPT</span> !.f = e]
-<span style="color: #C18E76;">\* r.with("f", e) ou  { ...r, f: e }</span>
-[r <span style="color: #66a4a4;">EXCEPT</span> !.f1 = e1, !fN = eN] <span style="color: #C18E76;">\* N campos</span>
+<pre class="src src-tla">[r <span class="org-keyword">EXCEPT</span> !.f = e]
+<span class="org-comment">\* r.with("f", e) ou  { ...r, f: e }</span>
+[r <span class="org-keyword">EXCEPT</span> !.f1 = e1, !fN = eN] <span class="org-comment">\* N campos</span>
 </pre>
 </div>
 <p>
@@ -768,7 +772,7 @@ Obtendo todos os possíveis records:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-tla">[ f_1: S_1, ..., f_n: S_n ]
-<span style="color: #C18E76;">\* tuples(S_1, ..., S_n).map(((a_1, ..., a_n)) =&gt; { f_1: a_1, ..., f_n: a_n })</span>
+<span class="org-comment">\* tuples(S_1, ..., S_n).map(((a_1, ..., a_n)) =&gt; { f_1: a_1, ..., f_n: a_n })</span>
 </pre>
 </div>
 
@@ -776,7 +780,7 @@ Obtendo todos os possíveis records:<br />
 Obtendo os nomes dos campos:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla"><span style="color: #66a4a4;">DOMAIN</span> r <span style="color: #C18E76;">\* r.fieldNames()</span>
+<pre class="src src-tla"><span class="org-keyword">DOMAIN</span> r <span class="org-comment">\* r.fieldNames()</span>
 </pre>
 </div>
 </div>
@@ -788,7 +792,7 @@ Obtendo os nomes dos campos:<br />
 Construtor:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">&lt;&lt;e_1, ..., e_n&gt;&gt; <span style="color: #C18E76;">\* [ e_1, ..., e_n ]</span>
+<pre class="src src-tla">&lt;&lt;e_1, ..., e_n&gt;&gt; <span class="org-comment">\* [ e_1, ..., e_n ]</span>
 </pre>
 </div>
 
@@ -796,7 +800,7 @@ Construtor:<br />
 Acesso, sendo que os índices iniciam em 1:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">s[i] <span style="color: #C18E76;">\* l[i - 1]</span>
+<pre class="src src-tla">s[i] <span class="org-comment">\* l[i - 1]</span>
 </pre>
 </div>
 
@@ -804,7 +808,7 @@ Acesso, sendo que os índices iniciam em 1:<br />
 Atualização em um índice:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">[ s <span style="color: #66a4a4;">EXCEPT</span> ![i] = e ] <span style="color: #C18E76;">\* l.replaceAt(i - 1, e)</span>
+<pre class="src src-tla">[ s <span class="org-keyword">EXCEPT</span> ![i] = e ] <span class="org-comment">\* l.replaceAt(i - 1, e)</span>
 </pre>
 </div>
 
@@ -812,20 +816,20 @@ Atualização em um índice:<br />
 Adicionando elementos:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">Append(s, e) <span style="color: #C18E76;">\* l.append(e)</span>
-l \circ t <span style="color: #C18E76;">\* l.concat(t)</span>
+<pre class="src src-tla">Append(s, e) <span class="org-comment">\* l.append(e)</span>
+l \circ t <span class="org-comment">\* l.concat(t)</span>
 </pre>
 </div>
 <p>
 Outros operadores:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">Head(l) <span style="color: #C18E76;">\* l.head()</span>
-Tail(l) <span style="color: #C18E76;">\* l.tail()</span>
-Len(s) <span style="color: #C18E76;">\* l.length()</span>
-<span style="color: #66a4a4;">DOMAIN</span>  i <span style="color: #C18E76;">\* l.indices().map(i =&gt; i - 1)</span>
-SubSeq(lst, start, end) <span style="color: #C18E76;">\* l.slice(start - 1, end)</span>
-SelectSeq(s, Test) <span style="color: #C18E76;">\* select(l, Test)</span>
+<pre class="src src-tla">Head(l) <span class="org-comment">\* l.head()</span>
+Tail(l) <span class="org-comment">\* l.tail()</span>
+Len(s) <span class="org-comment">\* l.length()</span>
+<span class="org-keyword">DOMAIN</span>  i <span class="org-comment">\* l.indices().map(i =&gt; i - 1)</span>
+SubSeq(lst, start, end) <span class="org-comment">\* l.slice(start - 1, end)</span>
+SelectSeq(s, Test) <span class="org-comment">\* select(l, Test)</span>
 </pre>
 </div>
 </div>
@@ -844,7 +848,7 @@ Já que não temos tipos em TLA+, tuplas são nada mais do que uma lista.<br />
 Construtor:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">&lt;&lt; e_1, ..., e_n &gt;&gt; <span style="color: #C18E76;">\* (e_1, ..., e_n)</span>
+<pre class="src src-tla">&lt;&lt; e_1, ..., e_n &gt;&gt; <span class="org-comment">\* (e_1, ..., e_n)</span>
 </pre>
 </div>
 
@@ -852,7 +856,7 @@ Construtor:<br />
 Acesso:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">t[<span style="color: #d79921; font-weight: bold;">1</span>], t[<span style="color: #d79921; font-weight: bold;">2</span>], ... , t[<span style="color: #d79921; font-weight: bold;">50</span>] <span style="color: #C18E76;">\* t._1, t._2, ..., t._50</span>
+<pre class="src src-tla">t[<span class="org-highlight-numbers-number">1</span>], t[<span class="org-highlight-numbers-number">2</span>], ... , t[<span class="org-highlight-numbers-number">50</span>] <span class="org-comment">\* t._1, t._2, ..., t._50</span>
 </pre>
 </div>
 
@@ -860,7 +864,7 @@ Acesso:<br />
 Obtendo todas as possíveis tuplas:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">S_1 \X S_2 \X ... \X S_n <span style="color: #C18E76;">\* tuples(S_1, S_2, ..., S_n)</span>
+<pre class="src src-tla">S_1 \X S_2 \X ... \X S_n <span class="org-comment">\* tuples(S_1, S_2, ..., S_n)</span>
 </pre>
 </div>
 </div>
@@ -887,7 +891,7 @@ Podemos escrever:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-tla">MinhaAcao ==
-  <span style="color: #66a4a4;">UNCHANGED</span> &lt;&lt; a, b &gt;&gt;
+  <span class="org-keyword">UNCHANGED</span> &lt;&lt; a, b &gt;&gt;
 </pre>
 </div>
 </div>
@@ -915,7 +919,7 @@ Para usar o fold, precisamos de:<br />
 Em Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint"><span style="color: #d79921;">Set</span>(1, 2, 3, 4).fold(0, (acc, i) =&gt; acc + i)
+<pre class="src src-quint"><span class="org-type">Set</span>(1, 2, 3, 4).fold(0, (acc, i) =&gt; acc + i)
 </pre>
 </div>
 
@@ -923,7 +927,7 @@ Em Quint:<br />
 Em TLA+:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">FoldSet(<span style="color: #66a4a4;">LAMBDA</span> i, acc : acc + i, <span style="color: #d79921; font-weight: bold;">0</span>, S)
+<pre class="src src-tla">FoldSet(<span class="org-keyword">LAMBDA</span> i, acc : acc + i, <span class="org-highlight-numbers-number">0</span>, S)
 </pre>
 </div>
 </div>
@@ -952,14 +956,14 @@ Agora, resolva ambos usando <code>FoldSet</code>.<br />
 Dica: você vai precisar dos módulos importados pela expressão:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla"><span style="color: #66a4a4;">EXTENDS</span> FiniteSets, FiniteSetsExt, Integers, SequencesExt
+<pre class="src src-tla"><span class="org-keyword">EXTENDS</span> FiniteSets, FiniteSetsExt, Integers, SequencesExt
 </pre>
 </div>
 </div>
 </div>
 </div>
 
-      </div>
-    </div>
-  </body>
+            </div>
+        </div>
+    </body>
 </html>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Personal homepage exported with org-thtml">
 
@@ -20,41 +20,45 @@
     <meta name="twitter:description" content="Personal homepage exported with org-thtml">
   
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
 <link rel="stylesheet" href="../css/layouts/style.css">
 
-  </head>
-  <body>
-    <div id="layout" class="pure-g">
-      <div class="sidebar pure-u-1 pure-u-md-1-3">
-  <div class="pure-g">
-    <div class="pure-u-1 pure-u-lg-1-2">
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-5" style="text-align: center">
+    <div class="header">
+        <h2 class="brand-title">
+            <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
+        </h2>
     </div>
-    <div class="pure-u-1 pure-u-lg-1-2">
-      <div class="header">
-        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
-      </div>
-      <div class="centered">
+    <div class="centered">
         <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
         <h1 class="huge"><a href="./">MFO</a></h1>
         <h2 class="brand-title">Métodos Formais</h2>
         <h2 class="brand-tagline">Materiais da disciplina</h2>
-      </div>
-      <div class="footer">
-  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
-</div>
-
     </div>
-  </div>
+    <div class="footer">
+    <div>
+        Created using Emacs and
+        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
+        >.<br />
+        Style from
+        <a href="https://owickstrom.github.io/the-monospace-web/"
+            >The Monospace Web</a
+        >.
+    </div>
 </div>
 
-      <div class="content pure-u-1 pure-u-md-2-3">
-        <h2>TLA+ Getting Started</h2>
-        <p>
+</div>
+
+            <div class="content pure-u-1 pure-u-md-2-3">
+                
+                <h1>TLA+ Getting Started</h1>
+                 <p>
 Esse é um pequeno guia cobrindo desde a instalação até sua primeira verificação em TLA+. Baseado no <a href="https://quint-lang.org/docs/getting-started">Getting Started do Quint</a>.
 </p>
 
@@ -77,34 +81,34 @@ Escreva sua primeira especificação
 Para rodar as ferramentas do TLA+, precisamos primeiro de uma especificação em TLA+. Vamos usar a seguinte especificação de um banco, que tem um bug:
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">-------------------------- <span style="color: #66a4a4;">MODULE</span> bank --------------------------
-<span style="color: #66a4a4;">EXTENDS</span> Integers
+<pre class="src src-tla">-------------------------- <span class="org-keyword">MODULE</span> bank --------------------------
+<span class="org-keyword">EXTENDS</span> Integers
 
-<span style="color: #C18E76;">\* A state variable to store the balance of each account</span>
-<span style="color: #66a4a4;">VARIABLE</span> balances
+<span class="org-comment">\* A state variable to store the balance of each account</span>
+<span class="org-keyword">VARIABLE</span> balances
 
-ADDRESSES == { <span style="color: #98971a;">"alice"</span>, <span style="color: #98971a;">"bob"</span>, <span style="color: #98971a;">"charlie"</span> }
+ADDRESSES == { <span class="org-string">"alice"</span>, <span class="org-string">"bob"</span>, <span class="org-string">"charlie"</span> }
 
 Deposit(account, amount) ==
-  <span style="color: #C18E76;">\* Increment balance of account by amount</span>
-  balances' = [balances <span style="color: #66a4a4;">EXCEPT</span> ![account] = @ + amount]
+  <span class="org-comment">\* Increment balance of account by amount</span>
+  balances' = [balances <span class="org-keyword">EXCEPT</span> ![account] = @ + amount]
 
 Withdraw(account, amount) ==
-  <span style="color: #C18E76;">\* Decrement balance of account by amount</span>
-  balances' = [balances <span style="color: #66a4a4;">EXCEPT</span> ![account] = @ - amount]
+  <span class="org-comment">\* Decrement balance of account by amount</span>
+  balances' = [balances <span class="org-keyword">EXCEPT</span> ![account] = @ - amount]
 
 Init ==
-  <span style="color: #C18E76;">\* At the initial state, all balances are zero</span>
-  balances = [ addr \in ADDRESSES |-&gt; <span style="color: #d79921; font-weight: bold;">0</span> ]
+  <span class="org-comment">\* At the initial state, all balances are zero</span>
+  balances = [ addr \in ADDRESSES |-&gt; <span class="org-highlight-numbers-number">0</span> ]
 
 Next ==
-  <span style="color: #C18E76;">\* Non-deterministically pick an address and an amount</span>
-  \E account \in ADDRESSES, amount \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">100</span> :
-    <span style="color: #C18E76;">\* Non-deterministically choose to either deposit or withdraw</span>
+  <span class="org-comment">\* Non-deterministically pick an address and an amount</span>
+  \E account \in ADDRESSES, amount \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">100</span> :
+    <span class="org-comment">\* Non-deterministically choose to either deposit or withdraw</span>
     \/ Deposit(account, amount)
     \/ Withdraw(account, amount)
 
-NoNegatives == \A addr \in ADDRESSES : balances[addr] &gt;= <span style="color: #d79921; font-weight: bold;">0</span>
+NoNegatives == \A addr \in ADDRESSES : balances[addr] &gt;= <span class="org-highlight-numbers-number">0</span>
 =================================================================
 </pre>
 </div>
@@ -150,10 +154,10 @@ Atualize a definição <code>Withdraw</code> para previnir que esse cenário aco
 
 <div class="org-src-container">
 <pre class="src src-tla">Withdraw(account, amount) ==
-  <span style="color: #C18E76;">\* A precondition, there should be enough to withdraw</span>
+  <span class="org-comment">\* A precondition, there should be enough to withdraw</span>
   /\ balances[account] &gt;= amount
-  <span style="color: #C18E76;">\* Decrement balance of account by amount</span>
-  /\ balances' = [balances <span style="color: #66a4a4;">EXCEPT</span> ![account] = @ - amount]
+  <span class="org-comment">\* Decrement balance of account by amount</span>
+  /\ balances' = [balances <span class="org-keyword">EXCEPT</span> ![account] = @ - amount]
 </pre>
 </div>
 
@@ -170,11 +174,11 @@ Contudo, o simulador pode não ter considerado algumas execuções. Para ter cer
 </p>
 <div class="org-src-container">
 <pre class="src src-tla">Next ==
-  <span style="color: #C18E76;">\* Only continue if balance is small enough to avoid a big state space</span>
-  /\ \A addr \in ADDRESSES : balances[addr] &lt;= <span style="color: #d79921; font-weight: bold;">50</span>
-  <span style="color: #C18E76;">\* Non-deterministically pick an address and an amount</span>
-  /\ \E account \in ADDRESSES, amount \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">100</span> :
-      <span style="color: #C18E76;">\* Non-deterministically choose to either deposit or withdraw</span>
+  <span class="org-comment">\* Only continue if balance is small enough to avoid a big state space</span>
+  /\ \A addr \in ADDRESSES : balances[addr] &lt;= <span class="org-highlight-numbers-number">50</span>
+  <span class="org-comment">\* Non-deterministically pick an address and an amount</span>
+  /\ \E account \in ADDRESSES, amount \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">100</span> :
+      <span class="org-comment">\* Non-deterministically choose to either deposit or withdraw</span>
       \/ Deposit(account, amount)
       \/ Withdraw(account, amount)
 </pre>
@@ -194,7 +198,7 @@ Esse comando irá verificar todas as possíveis execuções, e deve retornar suc
 </p></li>
 </ol>
 
-      </div>
-    </div>
-  </body>
+            </div>
+        </div>
+    </body>
 </html>

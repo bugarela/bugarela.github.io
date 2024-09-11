@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Personal homepage exported with org-thtml">
 
@@ -20,41 +20,45 @@
     <meta name="twitter:description" content="Personal homepage exported with org-thtml">
   
 
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
 <link rel="stylesheet" href="../css/layouts/style.css">
 
-  </head>
-  <body>
-    <div id="layout" class="pure-g">
-      <div class="sidebar pure-u-1 pure-u-md-1-3">
-  <div class="pure-g">
-    <div class="pure-u-1 pure-u-lg-1-2">
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-5" style="text-align: center">
+    <div class="header">
+        <h2 class="brand-title">
+            <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
+        </h2>
     </div>
-    <div class="pure-u-1 pure-u-lg-1-2">
-      <div class="header">
-        <h2 class="brand-title"><a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a></h2>
-      </div>
-      <div class="centered">
+    <div class="centered">
         <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
         <h1 class="huge"><a href="./">MFO</a></h1>
         <h2 class="brand-title">Métodos Formais</h2>
         <h2 class="brand-tagline">Materiais da disciplina</h2>
-      </div>
-      <div class="footer">
-  <div>Created using Emacs and <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a></div>
-</div>
-
     </div>
-  </div>
+    <div class="footer">
+    <div>
+        Created using Emacs and
+        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
+        >.<br />
+        Style from
+        <a href="https://owickstrom.github.io/the-monospace-web/"
+            >The Monospace Web</a
+        >.
+    </div>
 </div>
 
-      <div class="content pure-u-1 pure-u-md-2-3">
-        <h2>Primeiras Especificações em TLA+</h2>
-        <a href="https://bugarela.com/mfo/slides/20240408201756-mfo_primeiras_especificacoes_em_tla.pdf">Slides</a><br />
+</div>
+
+            <div class="content pure-u-1 pure-u-md-2-3">
+                
+                <h1>Primeiras Especificações em TLA+</h1>
+                 <a href="https://bugarela.com/mfo/slides/20240408201756-mfo_primeiras_especificacoes_em_tla.pdf">Slides</a><br />
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
@@ -162,11 +166,11 @@ Até agora, vimos principalmente a parte funcional da linguagem.<br />
 <h3 id="especifica-o-para-os-sem-foros-2"><span class="section-number-3">3.1.</span> Especificação para os semáforos</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
-<pre class="src src-tla">----- <span style="color: #66a4a4;">MODULE</span> Semaforos ------
-<span style="color: #66a4a4;">EXTENDS</span> Integers, FiniteSets
-<span style="color: #66a4a4;">VARIABLE</span> cores, proximo
-<span style="color: #66a4a4;">CONSTANT</span> SEMAFOROS
-<span style="color: #C18E76;">\* ...</span>
+<pre class="src src-tla">----- <span class="org-keyword">MODULE</span> Semaforos ------
+<span class="org-keyword">EXTENDS</span> Integers, FiniteSets
+<span class="org-keyword">VARIABLE</span> cores, proximo
+<span class="org-keyword">CONSTANT</span> SEMAFOROS
+<span class="org-comment">\* ...</span>
 =============================
 </pre>
 </div>
@@ -176,12 +180,12 @@ PS: Consultei a <a href="https://github.com/tlaplus/tlaplus-standard/blob/main/g
 </p>
 
 <div class="org-src-container">
-<pre class="src src-tla">TLAPlusGrammar == <span style="color: #C18E76;">\* ...</span>
-  G.Module ::= AtLeast4(<span style="color: #98971a;">"-"</span>)
-    &amp; tok(<span style="color: #98971a;">"MODULE"</span>) &amp; Name &amp; AtLeast4(<span style="color: #98971a;">"-"</span>)
-    &amp; (Nil | (tok(<span style="color: #98971a;">"EXTENDS"</span>) &amp; CommaList(Name)))
+<pre class="src src-tla">TLAPlusGrammar == <span class="org-comment">\* ...</span>
+  G.Module ::= AtLeast4(<span class="org-string">"-"</span>)
+    &amp; tok(<span class="org-string">"MODULE"</span>) &amp; Name &amp; AtLeast4(<span class="org-string">"-"</span>)
+    &amp; (Nil | (tok(<span class="org-string">"EXTENDS"</span>) &amp; CommaList(Name)))
     &amp; (G.Unit)^*
-    &amp; AtLeast4(<span style="color: #98971a;">"="</span>) <span style="color: #C18E76;">\* ...</span>
+    &amp; AtLeast4(<span class="org-string">"="</span>) <span class="org-comment">\* ...</span>
 </pre>
 </div>
 </div>
@@ -191,8 +195,8 @@ PS: Consultei a <a href="https://github.com/tlaplus/tlaplus-standard/blob/main/g
 <div class="outline-text-3" id="text-3-2">
 <div class="org-src-container">
 <pre class="src src-tla">Init ==
-  /\ cores = [s \in SEMAFOROS |-&gt; <span style="color: #98971a;">"vermelho"</span>]
-  /\ proximo = <span style="color: #d79921; font-weight: bold;">0</span>
+  /\ cores = [s \in SEMAFOROS |-&gt; <span class="org-string">"vermelho"</span>]
+  /\ proximo = <span class="org-highlight-numbers-number">0</span>
 </pre>
 </div>
 </div>
@@ -203,9 +207,9 @@ PS: Consultei a <a href="https://github.com/tlaplus/tlaplus-standard/blob/main/g
 <div class="org-src-container">
 <pre class="src src-tla">FicaVerde(s) ==
   /\ proximo = s
-  /\ \A s2 \in SEMAFOROS : cores[s2] = <span style="color: #98971a;">"vermelho"</span>
-  /\ cores' = [cores <span style="color: #66a4a4;">EXCEPT</span> ![s] = <span style="color: #98971a;">"verde"</span>]
-  /\ proximo' = (s + <span style="color: #d79921; font-weight: bold;">1</span>) % Cardinality(SEMAFOROS)
+  /\ \A s2 \in SEMAFOROS : cores[s2] = <span class="org-string">"vermelho"</span>
+  /\ cores' = [cores <span class="org-keyword">EXCEPT</span> ![s] = <span class="org-string">"verde"</span>]
+  /\ proximo' = (s + <span class="org-highlight-numbers-number">1</span>) % Cardinality(SEMAFOROS)
 </pre>
 </div>
 
@@ -214,7 +218,7 @@ Qual a pré-condição dessa ação?<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-tla">/\ proximo = s
-/\ \A s2 \in SEMAFOROS : cores[s2] = <span style="color: #98971a;">"vermelho"</span>
+/\ \A s2 \in SEMAFOROS : cores[s2] = <span class="org-string">"vermelho"</span>
 </pre>
 </div>
 </div>
@@ -225,9 +229,9 @@ Qual a pré-condição dessa ação?<br />
 <div class="org-src-container">
 <pre class="src src-tla">FicaVerde(s) ==
   /\ proximo = s
-  /\ \A s2 \in SEMAFOROS : cores[s2] = <span style="color: #98971a;">"vermelho"</span>
-  /\ cores' = [cores <span style="color: #66a4a4;">EXCEPT</span> ![s] = <span style="color: #98971a;">"verde"</span>]
-  /\ proximo' = (s + <span style="color: #d79921; font-weight: bold;">1</span>) % Cardinality(SEMAFOROS)
+  /\ \A s2 \in SEMAFOROS : cores[s2] = <span class="org-string">"vermelho"</span>
+  /\ cores' = [cores <span class="org-keyword">EXCEPT</span> ![s] = <span class="org-string">"verde"</span>]
+  /\ proximo' = (s + <span class="org-highlight-numbers-number">1</span>) % Cardinality(SEMAFOROS)
 </pre>
 </div>
 
@@ -243,9 +247,9 @@ Qual a pré-condição dessa ação?<br />
 <div class="org-src-container">
 <pre class="src src-tla">FicaVerde(s) ==
   /\ proximo = s
-  /\ \A s2 \in SEMAFOROS : cores[s2] = <span style="color: #98971a;">"vermelho"</span>
-  /\ cores' = [cores <span style="color: #66a4a4;">EXCEPT</span> ![s] = <span style="color: #98971a;">"verde"</span>]
-  /\ proximo' = (s + <span style="color: #d79921; font-weight: bold;">1</span>) % Cardinality(SEMAFOROS)
+  /\ \A s2 \in SEMAFOROS : cores[s2] = <span class="org-string">"vermelho"</span>
+  /\ cores' = [cores <span class="org-keyword">EXCEPT</span> ![s] = <span class="org-string">"verde"</span>]
+  /\ proximo' = (s + <span class="org-highlight-numbers-number">1</span>) % Cardinality(SEMAFOROS)
 </pre>
 </div>
 
@@ -260,16 +264,16 @@ Qual a pré-condição dessa ação?<br />
 <div class="outline-text-3" id="text-3-6">
 <div class="org-src-container">
 <pre class="src src-tla">FicaAmarelo(s) ==
-  /\ cores[s] = <span style="color: #98971a;">"verde"</span>
-  /\ cores' = [cores <span style="color: #66a4a4;">EXCEPT</span> ![s] = <span style="color: #98971a;">"amarelo"</span>]
-  /\ <span style="color: #66a4a4;">UNCHANGED</span> &lt;&lt; proximo &gt;&gt;
+  /\ cores[s] = <span class="org-string">"verde"</span>
+  /\ cores' = [cores <span class="org-keyword">EXCEPT</span> ![s] = <span class="org-string">"amarelo"</span>]
+  /\ <span class="org-keyword">UNCHANGED</span> &lt;&lt; proximo &gt;&gt;
 </pre>
 </div>
 <p>
 Qual a pré-condição dessa ação?<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">cores[s] = <span style="color: #98971a;">"verde"</span>
+<pre class="src src-tla">cores[s] = <span class="org-string">"verde"</span>
 </pre>
 </div>
 </div>
@@ -279,16 +283,16 @@ Qual a pré-condição dessa ação?<br />
 <div class="outline-text-3" id="text-3-7">
 <div class="org-src-container">
 <pre class="src src-tla">FicaVermelho(s) ==
-  /\ cores[s] = <span style="color: #98971a;">"amarelo"</span>
-  /\ cores' = [cores <span style="color: #66a4a4;">EXCEPT</span> ![s] = <span style="color: #98971a;">"vermelho"</span>]
-  /\ <span style="color: #66a4a4;">UNCHANGED</span> &lt;&lt; proximo &gt;&gt;
+  /\ cores[s] = <span class="org-string">"amarelo"</span>
+  /\ cores' = [cores <span class="org-keyword">EXCEPT</span> ![s] = <span class="org-string">"vermelho"</span>]
+  /\ <span class="org-keyword">UNCHANGED</span> &lt;&lt; proximo &gt;&gt;
 </pre>
 </div>
 <p>
 Qual a pré-condição dessa ação?<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">cores[s] = <span style="color: #98971a;">"amarelo"</span>
+<pre class="src src-tla">cores[s] = <span class="org-string">"amarelo"</span>
 </pre>
 </div>
 </div>
@@ -313,7 +317,7 @@ Lembrando que TLA+ permite usarmos ações dentro de um <i>exists</i>, diferente
 Uma invariante para check de sanidade:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">Inv == cores[<span style="color: #d79921; font-weight: bold;">2</span>] /= <span style="color: #98971a;">"amarelo"</span>
+<pre class="src src-tla">Inv == cores[<span class="org-highlight-numbers-number">2</span>] /= <span class="org-string">"amarelo"</span>
 </pre>
 </div>
 
@@ -321,7 +325,7 @@ Uma invariante para check de sanidade:<br />
 Uma propriedade do sistema: para que os veículos não colidam, não podemos ter mais de um semáforo aberto ao mesmo tempo.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">SemColisao == Cardinality({s \in SEMAFOROS : cores[s] = <span style="color: #98971a;">"verde"</span>}) &lt;= <span style="color: #d79921; font-weight: bold;">1</span>
+<pre class="src src-tla">SemColisao == Cardinality({s \in SEMAFOROS : cores[s] = <span class="org-string">"verde"</span>}) &lt;= <span class="org-highlight-numbers-number">1</span>
 </pre>
 </div>
 </div>
@@ -350,11 +354,11 @@ Vamos ver a mesma especificação do jogo da velha, agora em TLA+<br />
 <h3 id="m-dulo-2"><span class="section-number-3">4.2.</span> Módulo</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
-<pre class="src src-tla">-------- <span style="color: #66a4a4;">MODULE</span> tictactoexwin ---------
+<pre class="src src-tla">-------- <span class="org-keyword">MODULE</span> tictactoexwin ---------
 
-<span style="color: #66a4a4;">EXTENDS</span> Naturals
+<span class="org-keyword">EXTENDS</span> Naturals
 
-<span style="color: #C18E76;">\* ...</span>
+<span class="org-comment">\* ...</span>
 
 =======================================
 </pre>
@@ -368,9 +372,9 @@ Vamos ver a mesma especificação do jogo da velha, agora em TLA+<br />
 Definimos as seguintes variáveis<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla"><span style="color: #66a4a4;">VARIABLES</span>
-  board, <span style="color: #C18E76;">\* board[1..3][1..3] A 3x3 tic-tac-toe board</span>
-  nextTurn <span style="color: #C18E76;">\* who goes next</span>
+<pre class="src src-tla"><span class="org-keyword">VARIABLES</span>
+  board, <span class="org-comment">\* board[1..3][1..3] A 3x3 tic-tac-toe board</span>
+  nextTurn <span class="org-comment">\* who goes next</span>
 </pre>
 </div>
 </div>
@@ -380,21 +384,21 @@ Definimos as seguintes variáveis<br />
 <div class="outline-text-3" id="text-4-4">
 <div class="org-src-container">
 <pre class="src src-tla">BoardIs(coordinate, player) ==
-    board[coordinate[<span style="color: #d79921; font-weight: bold;">1</span>]][coordinate[<span style="color: #d79921; font-weight: bold;">2</span>]] = player
+    board[coordinate[<span class="org-highlight-numbers-number">1</span>]][coordinate[<span class="org-highlight-numbers-number">2</span>]] = player
 
 BoardFilled ==
-    <span style="color: #C18E76;">\* There does not exist</span>
-    ~\E i \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">3</span>, j \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">3</span>:
-        <span style="color: #C18E76;">\* an empty space</span>
-        <span style="color: #66a4a4;">LET</span> space == board[i][j] <span style="color: #66a4a4;">IN</span>
-        space = <span style="color: #98971a;">"_"</span>
+    <span class="org-comment">\* There does not exist</span>
+    ~\E i \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">3</span>, j \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">3</span>:
+        <span class="org-comment">\* an empty space</span>
+        <span class="org-keyword">LET</span> space == board[i][j] <span class="org-keyword">IN</span>
+        space = <span class="org-string">"_"</span>
 
 BoardEmpty ==
-    <span style="color: #C18E76;">\* There does not exist</span>
-    \A i \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">3</span>, j \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">3</span>:
-        <span style="color: #C18E76;">\* an empty space</span>
-        <span style="color: #66a4a4;">LET</span> space == board[i][j] <span style="color: #66a4a4;">IN</span>
-        space = <span style="color: #98971a;">"_"</span>
+    <span class="org-comment">\* There does not exist</span>
+    \A i \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">3</span>, j \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">3</span>:
+        <span class="org-comment">\* an empty space</span>
+        <span class="org-keyword">LET</span> space == board[i][j] <span class="org-keyword">IN</span>
+        space = <span class="org-string">"_"</span>
 </pre>
 </div>
 </div>
@@ -408,15 +412,15 @@ BoardEmpty ==
 </ul>
 <div class="org-src-container">
 <pre class="src src-tla">WinningPositions == {
-    <span style="color: #C18E76;">\* Horizonal wins</span>
+    <span class="org-comment">\* Horizonal wins</span>
     &lt;&lt;&lt;&lt;1,1&gt;&gt;, &lt;&lt;1,2&gt;&gt;, &lt;&lt;1,3&gt;&gt;&gt;&gt;,
     &lt;&lt;&lt;&lt;2,1&gt;&gt;, &lt;&lt;2,2&gt;&gt;, &lt;&lt;2,3&gt;&gt;&gt;&gt;,
     &lt;&lt;&lt;&lt;3,1&gt;&gt;, &lt;&lt;3,2&gt;&gt;, &lt;&lt;3,3&gt;&gt;&gt;&gt;,
-    <span style="color: #C18E76;">\* Vertical wins</span>
+    <span class="org-comment">\* Vertical wins</span>
     &lt;&lt;&lt;&lt;1,1&gt;&gt;, &lt;&lt;2,1&gt;&gt;, &lt;&lt;3,1&gt;&gt;&gt;&gt;,
     &lt;&lt;&lt;&lt;1,2&gt;&gt;, &lt;&lt;2,2&gt;&gt;, &lt;&lt;3,2&gt;&gt;&gt;&gt;,
     &lt;&lt;&lt;&lt;1,3&gt;&gt;, &lt;&lt;2,3&gt;&gt;, &lt;&lt;3,3&gt;&gt;&gt;&gt;,
-    <span style="color: #C18E76;">\* Diagonal wins</span>
+    <span class="org-comment">\* Diagonal wins</span>
     &lt;&lt;&lt;&lt;1,1&gt;&gt;, &lt;&lt;2,2&gt;&gt;, &lt;&lt;3,3&gt;&gt;&gt;&gt;,
     &lt;&lt;&lt;&lt;3,1&gt;&gt;, &lt;&lt;2,2&gt;&gt;, &lt;&lt;1,3&gt;&gt;&gt;&gt;
 }
@@ -432,12 +436,12 @@ Usamos a definição para <code>winningPositions</code> para determinar se um jo
 </p>
 <div class="org-src-container">
 <pre class="src src-tla">Won(player) ==
-    <span style="color: #C18E76;">\* A player has won if there exists a winning position</span>
+    <span class="org-comment">\* A player has won if there exists a winning position</span>
     \E winningPosition \in WinningPositions:
-        <span style="color: #C18E76;">\* Where all the needed spaces</span>
-        \A i \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">3</span>:
-            <span style="color: #C18E76;">\* are occupied by one player</span>
-            board[winningPosition[i][<span style="color: #d79921; font-weight: bold;">1</span>]][winningPosition[i][<span style="color: #d79921; font-weight: bold;">2</span>]] = player
+        <span class="org-comment">\* Where all the needed spaces</span>
+        \A i \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">3</span>:
+            <span class="org-comment">\* are occupied by one player</span>
+            board[winningPosition[i][<span class="org-highlight-numbers-number">1</span>]][winningPosition[i][<span class="org-highlight-numbers-number">2</span>]] = player
 </pre>
 </div>
 </div>
@@ -453,9 +457,9 @@ Um dado jogador faz uma jogada (um <i>move</i>) em uma dada coordenada<br />
 </ul>
 <div class="org-src-container">
 <pre class="src src-tla">Move(player, coordinate) ==
-    /\ board[coordinate[<span style="color: #d79921; font-weight: bold;">1</span>]][coordinate[<span style="color: #d79921; font-weight: bold;">2</span>]] = <span style="color: #98971a;">"_"</span>
-    /\ board' = [board <span style="color: #66a4a4;">EXCEPT</span>
-                        ![coordinate[<span style="color: #d79921; font-weight: bold;">1</span>]][coordinate[<span style="color: #d79921; font-weight: bold;">2</span>]] = player]
+    /\ board[coordinate[<span class="org-highlight-numbers-number">1</span>]][coordinate[<span class="org-highlight-numbers-number">2</span>]] = <span class="org-string">"_"</span>
+    /\ board' = [board <span class="org-keyword">EXCEPT</span>
+                        ![coordinate[<span class="org-highlight-numbers-number">1</span>]][coordinate[<span class="org-highlight-numbers-number">2</span>]] = player]
 
 </pre>
 </div>
@@ -480,8 +484,8 @@ Um dado jogador faz uma jogada em <b>alguma</b> coordenada<br />
 </ul>
 <div class="org-src-container">
 <pre class="src src-tla">MoveToEmpty(player) ==
-  /\ \E i \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">3</span>: \E j \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">3</span>: <span style="color: #C18E76;">\* There exists a position on the board</span>
-    /\ board[i][j] = <span style="color: #98971a;">"_"</span> <span style="color: #C18E76;">\* Where the board is currently empty</span>
+  /\ \E i \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">3</span>: \E j \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">3</span>: <span class="org-comment">\* There exists a position on the board</span>
+    /\ board[i][j] = <span class="org-string">"_"</span> <span class="org-comment">\* Where the board is currently empty</span>
     /\ Move(player, &lt;&lt;i,j&gt;&gt;)
 </pre>
 </div>
@@ -506,10 +510,10 @@ Aonde temos não determinismo aqui?<br />
 <div class="outline-text-3" id="text-4-9">
 <div class="org-src-container">
 <pre class="src src-tla">MoveO ==
-  /\ nextTurn = <span style="color: #98971a;">"O"</span> <span style="color: #C18E76;">\* Only enabled on O's turn</span>
-  /\ ~Won(<span style="color: #98971a;">"X"</span>) <span style="color: #C18E76;">\* And X has not won</span>
-  /\ MoveToEmpty(<span style="color: #98971a;">"O"</span>) <span style="color: #C18E76;">\* O still tries every empty space</span>
-  /\ nextTurn' = <span style="color: #98971a;">"X"</span> <span style="color: #C18E76;">\* The future state of next turn is X</span>
+  /\ nextTurn = <span class="org-string">"O"</span> <span class="org-comment">\* Only enabled on O's turn</span>
+  /\ ~Won(<span class="org-string">"X"</span>) <span class="org-comment">\* And X has not won</span>
+  /\ MoveToEmpty(<span class="org-string">"O"</span>) <span class="org-comment">\* O still tries every empty space</span>
+  /\ nextTurn' = <span class="org-string">"X"</span> <span class="org-comment">\* The future state of next turn is X</span>
 </pre>
 </div>
 
@@ -518,8 +522,8 @@ Aonde temos não determinismo aqui?<br />
 Qual é a pré-condição pra essa ação?<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla">    /\ nextTurn = <span style="color: #98971a;">"O"</span> <span style="color: #C18E76;">\* Only enabled on O's turn</span>
-    /\ ~Won(<span style="color: #98971a;">"X"</span>) <span style="color: #C18E76;">\* And X has not won</span>
+<pre class="src src-tla">    /\ nextTurn = <span class="org-string">"O"</span> <span class="org-comment">\* Only enabled on O's turn</span>
+    /\ ~Won(<span class="org-string">"X"</span>) <span class="org-comment">\* And X has not won</span>
 </pre>
 </div>
 <ul class="org-ul">
@@ -560,7 +564,7 @@ Qual é a pré-condição pra essa ação?<br />
 
 StartInCorner ==
     \E corner \in Corners:
-        Move(<span style="color: #98971a;">"X"</span>, corner)
+        Move(<span class="org-string">"X"</span>, corner)
 </pre>
 </div>
 </div>
@@ -576,34 +580,34 @@ Para isso, nessa especificação, definimos as permutações, e fazemos um níve
 </p>
 <div class="org-src-container">
 <pre class="src src-tla">PartialWins == {
-    &lt;&lt;1,<span style="color: #d79921; font-weight: bold;">2</span>,3&gt;&gt;,
-    &lt;&lt;2,<span style="color: #d79921; font-weight: bold;">3</span>,1&gt;&gt;,
-    &lt;&lt;3,<span style="color: #d79921; font-weight: bold;">1</span>,2&gt;&gt;
+    &lt;&lt;1,<span class="org-highlight-numbers-number">2</span>,3&gt;&gt;,
+    &lt;&lt;2,<span class="org-highlight-numbers-number">3</span>,1&gt;&gt;,
+    &lt;&lt;3,<span class="org-highlight-numbers-number">1</span>,2&gt;&gt;
 }
 </pre>
 </div>
 
 <div class="org-src-container">
 <pre class="src src-tla">CanWin == \E winningPostion \in WinningPositions, partialWin \in PartialWins:
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">1</span>]],<span style="color: #98971a;">"X"</span>)
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">2</span>]],<span style="color: #98971a;">"X"</span>)
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">3</span>]],<span style="color: #98971a;">"_"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">1</span>]],<span class="org-string">"X"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">2</span>]],<span class="org-string">"X"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">3</span>]],<span class="org-string">"_"</span>)
 
 CanBlockWin == \E winningPostion \in WinningPositions, partialWin \in PartialWins:
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">1</span>]], <span style="color: #98971a;">"O"</span>)
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">2</span>]], <span style="color: #98971a;">"O"</span>)
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">3</span>]], <span style="color: #98971a;">"_"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">1</span>]], <span class="org-string">"O"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">2</span>]], <span class="org-string">"O"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">3</span>]], <span class="org-string">"_"</span>)
 
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-tla">CanTakeCenter == board[<span style="color: #d79921; font-weight: bold;">2</span>][<span style="color: #d79921; font-weight: bold;">2</span>] = <span style="color: #98971a;">"_"</span>
+<pre class="src src-tla">CanTakeCenter == board[<span class="org-highlight-numbers-number">2</span>][<span class="org-highlight-numbers-number">2</span>] = <span class="org-string">"_"</span>
 
 CanSetupWin == \E winningPostion \in WinningPositions, partialWin \in PartialWins:
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">1</span>]], <span style="color: #98971a;">"X"</span>)
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">2</span>]], <span style="color: #98971a;">"_"</span>)
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">3</span>]], <span style="color: #98971a;">"_"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">1</span>]], <span class="org-string">"X"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">2</span>]], <span class="org-string">"_"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">3</span>]], <span class="org-string">"_"</span>)
 </pre>
 </div>
 </div>
@@ -613,10 +617,10 @@ CanSetupWin == \E winningPostion \in WinningPositions, partialWin \in PartialWin
 <div class="outline-text-3" id="text-4-13">
 <div class="org-src-container">
 <pre class="src src-tla">Win == \E winningPostion \in WinningPositions, partialWin \in PartialWins:
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">1</span>]],<span style="color: #98971a;">"X"</span>)
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">2</span>]],<span style="color: #98971a;">"X"</span>)
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">3</span>]],<span style="color: #98971a;">"_"</span>)
-  /\ Move(<span style="color: #98971a;">"X"</span>, winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">3</span>]])
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">1</span>]],<span class="org-string">"X"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">2</span>]],<span class="org-string">"X"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">3</span>]],<span class="org-string">"_"</span>)
+  /\ Move(<span class="org-string">"X"</span>, winningPostion[partialWin[<span class="org-highlight-numbers-number">3</span>]])
 </pre>
 </div>
 
@@ -625,9 +629,9 @@ CanSetupWin == \E winningPostion \in WinningPositions, partialWin \in PartialWin
 </ul>
 <div class="org-src-container">
 <pre class="src src-tla">\E winningPostion \in WinningPositions, partialWin \in PartialWins:
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">1</span>]],<span style="color: #98971a;">"X"</span>)
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">2</span>]],<span style="color: #98971a;">"X"</span>)
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">3</span>]],<span style="color: #98971a;">"_"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">1</span>]],<span class="org-string">"X"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">2</span>]],<span class="org-string">"X"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">3</span>]],<span class="org-string">"_"</span>)
 
 </pre>
 </div>
@@ -645,10 +649,10 @@ De forma semelhante, <code>BlockWin</code>:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-tla">BlockWin == \E winningPostion \in WinningPositions, partialWin \in PartialWins:
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">1</span>]], <span style="color: #98971a;">"O"</span>)
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">2</span>]], <span style="color: #98971a;">"O"</span>)
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">3</span>]], <span style="color: #98971a;">"_"</span>)
-  /\ Move(<span style="color: #98971a;">"X"</span>, winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">3</span>]])
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">1</span>]], <span class="org-string">"O"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">2</span>]], <span class="org-string">"O"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">3</span>]], <span class="org-string">"_"</span>)
+  /\ Move(<span class="org-string">"X"</span>, winningPostion[partialWin[<span class="org-highlight-numbers-number">3</span>]])
 </pre>
 </div>
 </div>
@@ -658,14 +662,14 @@ De forma semelhante, <code>BlockWin</code>:<br />
 <div class="outline-text-3" id="text-4-15">
 <div class="org-src-container">
 <pre class="src src-tla">TakeCenter ==
-    /\ Move(<span style="color: #98971a;">"X"</span>, &lt;&lt;2,2&gt;&gt;)
+    /\ Move(<span class="org-string">"X"</span>, &lt;&lt;2,2&gt;&gt;)
 
 SetupWin == \E winningPostion \in WinningPositions, partialWin \in PartialWins:
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">1</span>]], <span style="color: #98971a;">"X"</span>)
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">2</span>]], <span style="color: #98971a;">"_"</span>)
-  /\ BoardIs(winningPostion[partialWin[<span style="color: #d79921; font-weight: bold;">3</span>]], <span style="color: #98971a;">"_"</span>)
-  /\ \E i \in <span style="color: #d79921; font-weight: bold;">2</span>..<span style="color: #d79921; font-weight: bold;">3</span>:
-    Move(<span style="color: #98971a;">"X"</span>, winningPostion[partialWin[i]])
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">1</span>]], <span class="org-string">"X"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">2</span>]], <span class="org-string">"_"</span>)
+  /\ BoardIs(winningPostion[partialWin[<span class="org-highlight-numbers-number">3</span>]], <span class="org-string">"_"</span>)
+  /\ \E i \in <span class="org-highlight-numbers-number">2</span>..<span class="org-highlight-numbers-number">3</span>:
+    Move(<span class="org-string">"X"</span>, winningPostion[partialWin[i]])
 </pre>
 </div>
 </div>
@@ -675,12 +679,12 @@ SetupWin == \E winningPostion \in WinningPositions, partialWin \in PartialWins:
 <div class="outline-text-3" id="text-4-16">
 <div class="org-src-container">
 <pre class="src src-tla">MoveX ==
-    /\ nextTurn = <span style="color: #98971a;">"X"</span> <span style="color: #C18E76;">\* Only enabled on X's turn</span>
-    /\ ~Won(<span style="color: #98971a;">"O"</span>) <span style="color: #C18E76;">\* And X has not won</span>
-    <span style="color: #C18E76;">\* This specifies the spots X will move on X's turn</span>
+    /\ nextTurn = <span class="org-string">"X"</span> <span class="org-comment">\* Only enabled on X's turn</span>
+    /\ ~Won(<span class="org-string">"O"</span>) <span class="org-comment">\* And X has not won</span>
+    <span class="org-comment">\* This specifies the spots X will move on X's turn</span>
     /\ \/ /\ BoardEmpty
           /\ StartInCorner
-       \/ /\ ~BoardEmpty <span style="color: #C18E76;">\* If its not the start</span>
+       \/ /\ ~BoardEmpty <span class="org-comment">\* If its not the start</span>
           /\ \/ /\ CanWin
                 /\ Win
              \/ /\ ~CanWin
@@ -693,8 +697,8 @@ SetupWin == \E winningPostion \in WinningPositions, partialWin \in PartialWins:
                              /\ \/ /\ CanSetupWin
                                    /\ SetupWin
                                 \/ /\ ~CanSetupWin
-                                  /\ MoveToEmpty(<span style="color: #98971a;">"X"</span>) <span style="color: #C18E76;">\* No more strategies. Pick spot</span>
-    /\ nextTurn' = <span style="color: #98971a;">"O"</span> <span style="color: #C18E76;">\* The future state of next turn is O</span>
+                                  /\ MoveToEmpty(<span class="org-string">"X"</span>) <span class="org-comment">\* No more strategies. Pick spot</span>
+    /\ nextTurn' = <span class="org-string">"O"</span> <span class="org-comment">\* The future state of next turn is O</span>
 </pre>
 </div>
 </div>
@@ -704,9 +708,9 @@ SetupWin == \E winningPostion \in WinningPositions, partialWin \in PartialWins:
 <div class="outline-text-3" id="text-estado-inicial-2-2">
 <div class="org-src-container">
 <pre class="src src-tla">Init ==
-  /\ nextTurn = <span style="color: #98971a;">"X"</span> <span style="color: #C18E76;">\* X always goes first</span>
-  <span style="color: #C18E76;">\* Every space in the board states blank</span>
-  /\ board = [i \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">3</span> |-&gt; [j \in <span style="color: #d79921; font-weight: bold;">1</span>..<span style="color: #d79921; font-weight: bold;">3</span> |-&gt; <span style="color: #98971a;">"_"</span>]]
+  /\ nextTurn = <span class="org-string">"X"</span> <span class="org-comment">\* X always goes first</span>
+  <span class="org-comment">\* Every space in the board states blank</span>
+  /\ board = [i \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">3</span> |-&gt; [j \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">3</span> |-&gt; <span class="org-string">"_"</span>]]
 </pre>
 </div>
 </div>
@@ -715,10 +719,10 @@ SetupWin == \E winningPostion \in WinningPositions, partialWin \in PartialWins:
 <h3 id="transi-es-2"><span class="section-number-3">4.18.</span> Transições</h3>
 <div class="outline-text-3" id="text-4-18">
 <div class="org-src-container">
-<pre class="src src-tla">GameOver == Won(<span style="color: #98971a;">"X"</span>) /\ Won(<span style="color: #98971a;">"O"</span>) /\ BoardFilled
+<pre class="src src-tla">GameOver == Won(<span class="org-string">"X"</span>) /\ Won(<span class="org-string">"O"</span>) /\ BoardFilled
 
-<span style="color: #C18E76;">\* Every state, X will move if X's turn, O will move on O's turn</span>
-Next == MoveX \/ MoveO \/ (GameOver /\ <span style="color: #66a4a4;">UNCHANGED</span> &lt;&lt; board, nextTurn &gt;&gt;)
+<span class="org-comment">\* Every state, X will move if X's turn, O will move on O's turn</span>
+Next == MoveX \/ MoveO \/ (GameOver /\ <span class="org-keyword">UNCHANGED</span> &lt;&lt; board, nextTurn &gt;&gt;)
 </pre>
 </div>
 
@@ -731,13 +735,13 @@ Next == MoveX \/ MoveO \/ (GameOver /\ <span style="color: #66a4a4;">UNCHANGED</
 <h3 id="invariantes-2"><span class="section-number-3">4.19.</span> Invariantes</h3>
 <div class="outline-text-3" id="text-4-19">
 <div class="org-src-container">
-<pre class="src src-tla">XHasNotWon == ~Won(<span style="color: #98971a;">"X"</span>)
-OHasNotWon == ~Won(<span style="color: #98971a;">"O"</span>)
+<pre class="src src-tla">XHasNotWon == ~Won(<span class="org-string">"X"</span>)
+OHasNotWon == ~Won(<span class="org-string">"O"</span>)
 
-<span style="color: #C18E76;">\* It's not a stalemate if one player has won or the board is not filled</span>
+<span class="org-comment">\* It's not a stalemate if one player has won or the board is not filled</span>
 NotStalemate ==
-    \/ Won(<span style="color: #98971a;">"X"</span>)
-    \/ Won(<span style="color: #98971a;">"O"</span>)
+    \/ Won(<span class="org-string">"X"</span>)
+    \/ Won(<span class="org-string">"O"</span>)
     \/ ~BoardFilled
 </pre>
 </div>
@@ -753,7 +757,7 @@ NotStalemate ==
 </div>
 </div>
 
-      </div>
-    </div>
-  </body>
+            </div>
+        </div>
+    </body>
 </html>
