@@ -3,7 +3,7 @@
 :END:
 #+title: Introdução ao TLA+
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      2024-04-08
+#+DATE:      11 de setembro de 2024
 #+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
@@ -25,7 +25,7 @@
 * Quint -> TLA+
 ** Quint -> TLA+
 Já aprendemos Quint, então vamos ver TLA+ pensando nas equivalencias com Quint.
-- O próprio [[https://github.com/informalsystems/quint/blob/main/doc/lang.md][Manual do Quint]] trás essas comparações entra TLA+ e Quint
+- O próprio [[https://quint-lang.org/docs/lang][Manual do Quint]] trás essas comparações entra TLA+ e Quint
 
 ** Tipos
 TLA+ não tem tipos!
@@ -52,13 +52,13 @@ TLA+ não tem tipos!
 - O TLA+ tem uma REPL que só funciona para expressões constantes
   - Não podemos usar ela para definir variáveis e avaliar transições
 - Só está disponível na pre-release do TLA+, então
-  - No VSCode, precisamos da extensão versão *Nightly*
+  - No VSCode, o novo plugin lançado já tem
   - No =.jar=, precisamos da versão 1.8.0
 
 #+BEAMER: \pause
 #+BEAMER: \medskip
 Atenção para como faremos pra rodar ela nos computadores da UDESC:
-1. No VSCode, baixar a extensão: *TLA+ Nightly*
+1. No VSCode, baixar a extensão: *TLA+ (Temporal Logic of Actions)*
 2. Aperte F1 e escolha: TLA+: Run REPL in Terminal.
 
 ** TLA+ REPL em qualquer terminal
@@ -575,7 +575,7 @@ Não consegui descobir um jeito de fazer =EXTENDS= pela REPL. Então, vamos usar
 #+BEAMER: \pause
 Para usar o fold, precisamos de:
 - =EXTENDS FiniteSetsExt= para =FoldSet=
-- =EXTENDS SequencesExt= para =FoldSeq=
+- =EXTENDS SequencesExt= para =FoldSeq=, =FoldRight= e =FoldLeft=
 
 #+BEAMER: \medskip
 #+BEAMER: \pause
@@ -595,17 +595,17 @@ Exercício: Re-escreva nossos exemplos anteriores usando =FoldSet=
 Agora, resolva ambos usando =FoldSet=.
 
 ** Exercícios TLA+
-1. Escreva um operador que recebe um conjunto e retorna a média dos valores.
-2. Dado um conjunto de =records= como =[ nome |-> "Gabriela", idade |-> 25 ]=, escreva um operador que recebe esse conjunto e retorna a diferença de idade entre o mais velho e o mais novo.
-3. Defina um valor que contenha todos os conjuntos possíveis com valores inteiros de 1 a 10, com tamanho maior que 2 e menor que 5.
-4. Escreva um operador que calcule o fatorial de um número. Recursão não é permitida.
+1. Escreva um operador que recebe um conjunto de inteiros positivos e retorna o maior valor.
+2. Dado um conjunto de =records= como =[ nome |-> "Gabriela", idade |-> 26 ]=, escreva um operador que recebe esse conjunto e retorna a média de idade.
+3. Defina um valor que contenha todos os conjuntos possíveis com valores inteiros de 1 a 10, que contenham o número 5 ou o 6.
+4. Escreva um operador que recebe uma lista e retorna o reverso dela.
 5. Escreva um operador que recebe uma lista e retorna um mapa onde as chaves são os elementos da lista, e os valores são inteiros representando a quantidade de ocorrências daquele elemento na lista.
 
 #+BEAMER: \medskip
 #+BEAMER: \pause
 Dica: você vai precisar dos módulos importados pela expressão:
 #+begin_src tla
-EXTENDS FiniteSets, FiniteSetsExt, Integers, SequencesExt
+EXTENDS FiniteSets, FiniteSetsExt, Integers, Sequences, SequencesExt
 #+end_src
 
 # SelectSeq(<<1,2>>, LAMBDA x: x > 1)

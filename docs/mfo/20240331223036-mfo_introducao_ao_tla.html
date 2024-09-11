@@ -109,7 +109,7 @@
 Já aprendemos Quint, então vamos ver TLA+ pensando nas equivalencias com Quint.<br />
 </p>
 <ul class="org-ul">
-<li>O próprio <a href="https://github.com/informalsystems/quint/blob/main/doc/lang.md">Manual do Quint</a> trás essas comparações entra TLA+ e Quint<br /></li>
+<li>O próprio <a href="https://quint-lang.org/docs/lang">Manual do Quint</a> trás essas comparações entra TLA+ e Quint<br /></li>
 </ul>
 </div>
 </div>
@@ -160,7 +160,7 @@ A linguagem em si não é tipada, mas o Apalache espera que os tipos sejam anota
 </ul></li>
 <li>Só está disponível na pre-release do TLA+, então<br />
 <ul class="org-ul">
-<li>No VSCode, precisamos da extensão versão <b>Nightly</b><br /></li>
+<li>No VSCode, o novo plugin lançado já tem<br /></li>
 <li>No <code>.jar</code>, precisamos da versão 1.8.0<br /></li>
 </ul></li>
 </ul>
@@ -169,7 +169,7 @@ A linguagem em si não é tipada, mas o Apalache espera que os tipos sejam anota
 Atenção para como faremos pra rodar ela nos computadores da UDESC:<br />
 </p>
 <ol class="org-ol">
-<li>No VSCode, baixar a extensão: <b>TLA+ Nightly</b><br /></li>
+<li>No VSCode, baixar a extensão: <b>TLA+ (Temporal Logic of Actions)</b><br /></li>
 <li>Aperte F1 e escolha: TLA+: Run REPL in Terminal.<br /></li>
 </ol>
 </div>
@@ -912,7 +912,7 @@ Para usar o fold, precisamos de:<br />
 </p>
 <ul class="org-ul">
 <li><code>EXTENDS FiniteSetsExt</code> para <code>FoldSet</code><br /></li>
-<li><code>EXTENDS SequencesExt</code> para <code>FoldSeq</code><br /></li>
+<li><code>EXTENDS SequencesExt</code> para <code>FoldSeq</code>, <code>FoldRight</code> e <code>FoldLeft</code><br /></li>
 </ul>
 
 <p>
@@ -945,10 +945,10 @@ Agora, resolva ambos usando <code>FoldSet</code>.<br />
 <h3 id="exerc-cios-tla-2"><span class="section-number-3">1.28.</span> Exercícios TLA+</h3>
 <div class="outline-text-3" id="text-1-28">
 <ol class="org-ol">
-<li>Escreva um operador que recebe um conjunto e retorna a média dos valores.<br /></li>
-<li>Dado um conjunto de <code>records</code> como <code>[ nome |-&gt; "Gabriela", idade |-&gt; 25 ]</code>, escreva um operador que recebe esse conjunto e retorna a diferença de idade entre o mais velho e o mais novo.<br /></li>
-<li>Defina um valor que contenha todos os conjuntos possíveis com valores inteiros de 1 a 10, com tamanho maior que 2 e menor que 5.<br /></li>
-<li>Escreva um operador que calcule o fatorial de um número. Recursão não é permitida.<br /></li>
+<li>Escreva um operador que recebe um conjunto de inteiros positivos e retorna o maior valor.<br /></li>
+<li>Dado um conjunto de <code>records</code> como <code>[ nome |-&gt; "Gabriela", idade |-&gt; 26 ]</code>, escreva um operador que recebe esse conjunto e retorna a média de idade.<br /></li>
+<li>Defina um valor que contenha todos os conjuntos possíveis com valores inteiros de 1 a 10, que contenham o número 5 ou o 6.<br /></li>
+<li>Escreva um operador que recebe uma lista e retorna o reverso dela.<br /></li>
 <li>Escreva um operador que recebe uma lista e retorna um mapa onde as chaves são os elementos da lista, e os valores são inteiros representando a quantidade de ocorrências daquele elemento na lista.<br /></li>
 </ol>
 
@@ -956,7 +956,7 @@ Agora, resolva ambos usando <code>FoldSet</code>.<br />
 Dica: você vai precisar dos módulos importados pela expressão:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-tla"><span class="org-keyword">EXTENDS</span> FiniteSets, FiniteSetsExt, Integers, SequencesExt
+<pre class="src src-tla"><span class="org-keyword">EXTENDS</span> FiniteSets, FiniteSetsExt, Integers, Sequences, SequencesExt
 </pre>
 </div>
 </div>
