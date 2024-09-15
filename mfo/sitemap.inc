@@ -3,21 +3,36 @@
 * Links úteis
   - [[file:20240210123703-mfo_apresentacao.org][Apresentação]]
   - [[https://bugarela.com/mfo/cheatsheet_logica_temporal.pdf][Cheatsheet Lógica Temporal (PDF)]]
-  - [[https://quint-lang.org/docs/getting-started][Getting Started: Quint]]
-  - [[file:20240828153443-tla_getting_started.org][Getting Started: TLA+]]
   - [[file:20240525134648-mfo_exercicios_para_a_prova.org][Exercícios para a prova]]
+** Quint
+:PROPERTIES:
+:CUSTOM_ID: quint-links
+:END:
+  - [[https://quint-lang.org/docs/getting-started][Getting Started: Quint]]
+  - [[https://github.com/informalsystems/quint/blob/main/examples/][Exemplos]]
+** TLA+
+:PROPERTIES:
+:CUSTOM_ID: tla-links
+:END:
+  - [[file:20240828153443-tla_getting_started.org][Getting Started: TLA+]]
+  - [[https://github.com/tlaplus/Examples][Exemplos]]
+
 * Aulas
+** Motivação
   - [[file:20240213151141-mfo_programacao_e_matematica_nao_sao_a_mesma_coisa.org][Programação e matemática não são a mesma coisa]]
+  - [[file:20240310185059-por_que_e_pra_que_metodos_formais.org][Por que e pra que métodos formais?]]
+** Lógica
   - [[file:20240217142930-mfo_estruturas_de_kripke.org][Estruturas de Kripke]]
   - [[file:20240303165631-mfo_logica_temporal.org][Checando propriedades com Lógica Temporal]]
   - [[file:20240306214020-mfo_logica_temporal_2.org][Checando propriedades com Lógica Temporal II]]
-  - [[file:20240310185059-por_que_e_pra_que_metodos_formais.org][Por que e pra que métodos formais?]]
   - [[file:20240319195624-mfo_logica_temporal_das_acoes.org][Introdução à Lógica Temporal das Ações]]
+** Quint
   - [[file:20240324195706-mfo_revisao_de_programacao_funcional.org][Revisão de programação funcional em Quint]]
   - [[file:20240322161707-mfo_primeiras_especificacoes.org][Primeiras Especificações]]
   - [[file:20240330105337-mfo_jogo_da_velha_em_quint.org][Jogo da Velha em Quint]]
+** TLA+
   - [[file:20240331223036-mfo_introducao_ao_tla.org][Introdução ao TLA+]]
-#   - [[file:20240408201756-mfo_primeiras_especificacoes_em_tla.org][Primeiras Especificações em TLA+]]
+  - [[file:20240408201756-mfo_primeiras_especificacoes_em_tla.org][Primeiras Especificações em TLA+]]
 #   - [[file:20240415205323-mfo_exercicios_pokemon.org][Exercícios Pokemon]]
 #   - [[file:20240422102646-mfo_especificar_vs_implementar.org][Especificar vs Implementar]]
 #   - [[file:20240507182006-mfo_efetivacao_em_duas_fases.org][Efetivação em Duas Fases]]

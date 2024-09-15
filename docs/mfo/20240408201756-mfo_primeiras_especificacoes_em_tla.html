@@ -432,7 +432,7 @@ BoardEmpty ==
 <h3 id="definindo-ganhar-operador-won-2"><span class="section-number-3">4.6.</span> Definindo &ldquo;ganhar&rdquo; - operador won</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
-Usamos a definição para <code>winningPositions</code> para determinar se um jogador venceu.<br />
+Usamos a definição <code>winningPositions</code> para determinar se um jogador venceu.<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-tla">Won(player) ==
@@ -727,8 +727,17 @@ Next == MoveX \/ MoveO \/ (GameOver /\ <span class="org-keyword">UNCHANGED</span
 </div>
 
 <ul class="org-ul">
-<li>Nota: isso está um pouco diferente na especificação inicial. Veremos isso na aula sobre fórmulas temporais em TLA+.<br /></li>
+<li>Nota: isso está um pouco diferente na especificação original, porque o autor usa a definição de <code>Spec</code> ao invés de somente <code>Init</code> e <code>Next</code>.<br /></li>
 </ul>
+<div class="org-src-container">
+<pre class="src src-tla"><span class="org-comment">\* Every state, X will move if X's turn, O will move on O's turn</span>
+Next == MoveX \/ MoveO
+
+<span class="org-comment">\* A description of every possible game of tic-tac-toe</span>
+<span class="org-comment">\* will play until the board fills up, even if someone won</span>
+Spec == Init /\ [][Next]_&lt;&lt;board,nextTurn&gt;&gt;
+</pre>
+</div>
 </div>
 </div>
 <div id="outline-container-invariantes-2" class="outline-3">

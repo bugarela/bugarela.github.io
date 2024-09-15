@@ -3,7 +3,7 @@
 :END:
 #+title:  Primeiras Especificações em TLA+
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      2024-04-10
+#+DATE:      16 de setembro de 2024
 #+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
@@ -237,7 +237,7 @@ WinningPositions == {
 #+end_src
 
 ** Definindo "ganhar" - operador won
-Usamos a definição para =winningPositions= para determinar se um jogador venceu.
+Usamos a definição =winningPositions= para determinar se um jogador venceu.
 #+begin_src tla
 Won(player) ==
     \* A player has won if there exists a winning position
@@ -449,7 +449,16 @@ GameOver == Won("X") /\ Won("O") /\ BoardFilled
 Next == MoveX \/ MoveO \/ (GameOver /\ UNCHANGED << board, nextTurn >>)
 #+end_src
 
-- Nota: isso está um pouco diferente na especificação inicial. Veremos isso na aula sobre fórmulas temporais em TLA+.
+#+BEAMER: \pause
+- Nota: isso está um pouco diferente na especificação original, porque o autor usa a definição de =Spec= ao invés de somente =Init= e =Next=.
+#+begin_src tla
+\* Every state, X will move if X's turn, O will move on O's turn
+Next == MoveX \/ MoveO
+
+\* A description of every possible game of tic-tac-toe
+\* will play until the board fills up, even if someone won
+Spec == Init /\ [][Next]_<<board,nextTurn>>
+#+end_src
 
 ** Invariantes
 #+begin_src tla
