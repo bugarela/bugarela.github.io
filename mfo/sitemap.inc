@@ -33,7 +33,6 @@
 ** TLA+
   - [[file:20240331223036-mfo_introducao_ao_tla.org][Introdução ao TLA+]]
   - [[file:20240408201756-mfo_primeiras_especificacoes_em_tla.org][Primeiras Especificações em TLA+]]
-#   - [[file:20240415205323-mfo_exercicios_pokemon.org][Exercícios Pokemon]]
 #   - [[file:20240422102646-mfo_especificar_vs_implementar.org][Especificar vs Implementar]]
 #   - [[file:20240507182006-mfo_efetivacao_em_duas_fases.org][Efetivação em Duas Fases]]
 #   - [[file:20240504145616-mfo_design_de_protocolos.org][Design de protocolos]]
@@ -41,11 +40,12 @@
 #   - [[file:20240520131408-mfo_testando_um_problema_da_maratona.org][Testando um problema da maratona]]
 #   - [[file:20240623102850-mfo_model_checking.org][Model Checking]]
 #   - [[file:20240625203536-mfo_tla_avancado.org][TLA+ Avançado]]
-# * Trabalho 1
+* Seminário
+  - [[file:20240531080208-mfo_seminario.org][Seminário]]
+* Trabalho 1
+  - [[file:20240415205323-mfo_exercicios_pokemon.org][Exercícios Pokemon]]
 #   - [[file:20240423183852-mfo_trabalho_1.org][Trabalho 1]]
 #   - [[file:20240517155753-mfo_faq_trabalho_1.org][FAQ Trabalho 1]]
 #   - [[file:20240424144115-mfo_dicas_trabalho_1.org][Dicas Trabalho 1]]
-* Seminário
-  - [[file:20240531080208-mfo_seminario.org][Seminário]]
 # * Trabalho 2
 #   - [[file:20240609214243-mfo_trabalho_2.org][Trabalho 2]]
