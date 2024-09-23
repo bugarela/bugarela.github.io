@@ -74,7 +74,8 @@
 <li><a href="#mas-por-que-s-n-o-implementar-e-simular-2">2.2. Mas por que só não implementar e simular?</a></li>
 <li><a href="#motiva-o-para-o-trabalho-2">2.3. Motivação para o trabalho</a></li>
 <li><a href="#protocolos-2">2.4. Protocolos</a></li>
-<li><a href="#fim-2">2.5. FIM</a></li>
+<li><a href="#outros-exemplos-de-jogos-2">2.5. Outros exemplos de jogos</a></li>
+<li><a href="#fim-2">2.6. FIM</a></li>
 </ul>
 </li>
 </ul>
@@ -123,8 +124,12 @@ Para analisar o balanceamento (i.e. Charmander ganha do Squirtle 40% das vezes)<
 </p>
 <ul class="org-ul">
 <li>Quint e TLA+ não fazem análise estatística<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Poderíamos checar que uma batalha é suficientemente balanceada (i.e. chance de vitória está entre 40 e 60%) com um model checker estatístico como o PRISM.<br /></li>
 </ul></li>
 </ul>
+
 
 <p>
 Para que ela <b>serve</b>:<br />
@@ -144,7 +149,7 @@ Verificar propriedades<br />
 </p>
 <ul class="org-ul">
 <li>Verificar que algo desejável pode acontecer (i.e. é possível um pokemon ficar zero ou menos de vida)<br /></li>
-<li>Verficar que algo importante é verdade <b>sempre</b> (i.e. usando uma estratégia, o Squirte sempre vence o Charmander)<br /></li>
+<li>Verficar que algo importante é verdade <b>sempre</b> (i.e. usando uma estratégia, o Squirtle sempre vence o Charmander)<br /></li>
 </ul></li>
 </ul>
 </div>
@@ -161,7 +166,10 @@ Porque:<br />
 </p>
 <ul class="org-ul">
 <li>Quint/TLA+ tem restrições para que seja possível fazer <i>model checking</i><br /></li>
-<li>O simulador é reutilizável, com toda a estratégia de simulação e interface<br /></li>
+<li>O simulador é reutilizável, com toda a estratégia de simulação e interface<br />
+<ul class="org-ul">
+<li>Blogpost do Andrew Helwer: <a href="https://ahelwer.ca/post/2024-09-18-tla-bfs-dsl/">TLA⁺ is more than a DSL for breadth-first search</a><br /></li>
+</ul></li>
 </ul>
 
 <p>
@@ -171,7 +179,10 @@ Ah, mas se eu fizer em [insira linguagem de programação], eu já posso usar o 
 <li>Para isso, seria necessário cuidar da distribuição/autorização dos jogadores<br />
 <ul class="org-ul">
 <li>Jogador 1 só pode escolher os ataques do time A, e jogador 2 só pode escolher os ataques do time B<br /></li>
-<li>Isso diminui o nível de abstração, e pode tornar aquilo que é mais importante mais difícil de compreender.<br /></li>
+<li>Isso diminui o nível de abstração, e pode tornar aquilo que é mais importante mais difícil de compreender.<br />
+<ul class="org-ul">
+<li>No caso dos pokemons, isso é uma mudança pequena. Em alguns sistemas, a tarefa de buscar quais as possíveis escolhas de usuários (e outras formas de não-determismo) no código é bem complexa.<br /></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
@@ -214,15 +225,32 @@ Exemplos de protocolos:<br />
 <p>
 Podemos entender protocolos como estratégias para garantir ou impedir que algo aconteça.<br />
 </p>
-
 <p>
 Podemos entender estratégias de jogo como um protocolo que leva à vitória.<br />
+</p>
+
+<p>
+Veremos mais sobre protocolos na próxima fase da disciplina<br />
+</p>
+</div>
+</div>
+<div id="outline-container-outros-exemplos-de-jogos-2" class="outline-3">
+<h3 id="outros-exemplos-de-jogos-2"><span class="section-number-3">2.5.</span> Outros exemplos de jogos</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li>Secret santa (amigo secreto)<br /></li>
+<li>Rock paper scissors (pedra, papel, tesoura)<br /></li>
+<li>Mafia/Werewolf (cidade dorme)<br /></li>
+</ul>
+
+<p>
+Link: <a href="https://github.com/informalsystems/quint/tree/main/examples/games">https://github.com/informalsystems/quint/tree/main/examples/games</a><br />
 </p>
 </div>
 </div>
 <div id="outline-container-fim-2" class="outline-3">
-<h3 id="fim-2"><span class="section-number-3">2.5.</span> FIM</h3>
-<div class="outline-text-3" id="text-2-5">
+<h3 id="fim-2"><span class="section-number-3">2.6.</span> FIM</h3>
+<div class="outline-text-3" id="text-2-6">
 </div>
 </div>
 </div>

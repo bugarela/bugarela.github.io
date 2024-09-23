@@ -3,7 +3,7 @@
 :END:
 #+title:  Especificar vs Implementar
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      2024-04-22
+#+DATE:      23 de setembro de 2024
 #+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
@@ -41,9 +41,12 @@ Para que a especificação *não* serve:
 - Para analisar o balanceamento (i.e. Charmander ganha do Squirtle 40% das vezes)
   #+BEAMER: \pause
   - Quint e TLA+ não fazem análise estatística
+  #+BEAMER: \pause
+  - Poderíamos checar que uma batalha é suficientemente balanceada (i.e. chance de vitória está entre 40 e 60%) com um model checker estatístico como o PRISM.
 
-#+BEAMER: \medskip
-#+BEAMER: \pause
+
+#+BEAMER: \end{frame}
+#+BEAMER: \begin{frame}{Por que estamos escrevendo uma especificação para um jogo de pokemon? II}
 Para que ela *serve*:
 - Explicar pokemon pra quem não conhece pokemon
   #+BEAMER: \pause
@@ -53,7 +56,7 @@ Para que ela *serve*:
 - Verificar propriedades
   #+BEAMER: \pause
   - Verificar que algo desejável pode acontecer (i.e. é possível um pokemon ficar zero ou menos de vida)
-  - Verficar que algo importante é verdade *sempre* (i.e. usando uma estratégia, o Squirte sempre vence o Charmander)
+  - Verficar que algo importante é verdade *sempre* (i.e. usando uma estratégia, o Squirtle sempre vence o Charmander)
    # Como isso pode ser importante? Disciplina: Estratégias de pokemon. Questão de prova: Use a estratégia X para derrotar o Charmander. A professora precisa garantir que isso sempre vai funcionar.
 
 ** Mas por que só não implementar e simular?
@@ -64,14 +67,16 @@ Por que só não fazemos isso em [insira linguagem de programação] e usamos um
 Porque:
 - Quint/TLA+ tem restrições para que seja possível fazer /model checking/
 - O simulador é reutilizável, com toda a estratégia de simulação e interface
+  - Blogpost do Andrew Helwer: [[https://ahelwer.ca/post/2024-09-18-tla-bfs-dsl/][TLA⁺ is more than a DSL for breadth-first search]]
 
-#+BEAMER: \medskip
-#+BEAMER: \pause
+#+BEAMER: \end{frame}
+#+BEAMER: \begin{frame}{Mas por que só não implementar e simular? II}
 Ah, mas se eu fizer em [insira linguagem de programação], eu já posso usar o programa para jogar também.
 #+BEAMER: \pause
 - Para isso, seria necessário cuidar da distribuição/autorização dos jogadores
   - Jogador 1 só pode escolher os ataques do time A, e jogador 2 só pode escolher os ataques do time B
   - Isso diminui o nível de abstração, e pode tornar aquilo que é mais importante mais difícil de compreender.
+    - No caso dos pokemons, isso é uma mudança pequena. Em alguns sistemas, a tarefa de buscar quais as possíveis escolhas de usuários (e outras formas de não-determismo) no código é bem complexa.
 
 ** Motivação para o trabalho
 #+BEAMER: \pause
@@ -95,10 +100,20 @@ Exemplos de protocolos:
 #+BEAMER: \medskip
 #+BEAMER: \pause
 Podemos entender protocolos como estratégias para garantir ou impedir que algo aconteça.
+#+BEAMER: \medskip
+Podemos entender estratégias de jogo como um protocolo que leva à vitória.
 
 #+BEAMER: \medskip
 #+BEAMER: \pause
-Podemos entender estratégias de jogo como um protocolo que leva à vitória.
+Veremos mais sobre protocolos na próxima fase da disciplina
+
+** Outros exemplos de jogos
+- Secret santa (amigo secreto)
+- Rock paper scissors (pedra, papel, tesoura)
+- Mafia/Werewolf (cidade dorme)
+
+#+BEAMER: \medskip
+Link: https://github.com/informalsystems/quint/tree/main/examples/games
 
 ** FIM
 #+BEAMER: \maketitle
