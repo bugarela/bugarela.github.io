@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Quint: Development and usage of a formal specification language</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="https://bugarela.com/sblp2024/index.html" />
+  <meta property="og:title" content="Quint: Development and usage of a formal specification language" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Quint: Development and usage of a formal specification language">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../css/layouts/style.css">
+
+  </head>
+  <body>
+    <div id="layout" class="pure-g">
+      <div class="sidebar pure-u-1 pure-u-md-1-3">
+    <div class="centered">
+        <a href="../"
+            ><img
+                class="portrait"
+                src="../images/me.jpeg"
+                alt="Gabriela Moreira"
+        /></a>
+        <h2 class="brand-title">Gabriela Moreira</h2>
+        <h2 class="brand-tagline">Formal methods & programming languages research engineer</h2>
+        
+
+        <nav class="nav">
+            <ul class="nav-list">
+                 
+                <li class="nav-item">
+                    <a
+                        class="button"
+                        href="https://github.com/bugarela"
+                        ><i class="fab fa-github big-icon"></i>@bugarela</a
+                    >
+                </li>
+                 
+                <li class="nav-item">
+                    <a
+                        class="button"
+                        href="https://www.linkedin.com/in/bugarela/"
+                        ><i class="fab fa-linkedin big-icon"></i>/bugarela</a
+                    >
+                </li>
+                 
+            </ul>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="button" href="https://bugarela.com/mfo"
+                        ><i class="fas fa-folder"></i> MFO</a
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <div class="footer">
+    <div>
+        Created using Emacs and
+        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
+        >.<br />
+        Style from
+        <a href="https://owickstrom.github.io/the-monospace-web/"
+            >The Monospace Web</a
+        >.
+    </div>
+</div>
+
+    </div>
+</div>
+
+      <div class="content pure-u-1 pure-u-md-2-3">
+        <h1>Quint: Development and usage of a formal specification language</h1>
+        <div id="outline-container-links-1" class="outline-2">
+<h2 id="links-1">Links</h2>
+<div class="outline-text-2" id="text-links-1">
+<ul class="org-ul">
+<li>Quint website: <a href="https://quint-lang.org/">quint-lang.org</a></li>
+<li>Quint GitHub repository: <a href="https://github.com/informalsystems/quint">informalsystems/quint</a>
+<ul class="org-ul">
+<li>Consider giving the repo a star</li>
+</ul></li>
+<li>Slides: <a href="https://docs.google.com/presentation/d/1K4bqseM7D5WhiQWOtplIgDodEMf2itLwScypHySG1OQ/edit?usp=sharing">on Google Drive</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-activities-1" class="outline-2">
+<h2 id="activities-1">Activities</h2>
+<div class="outline-text-2" id="text-activities-1">
+</div>
+<div id="outline-container-getting-started-2" class="outline-3">
+<h3 id="getting-started-2">Getting Started</h3>
+<div class="outline-text-3" id="text-getting-started-2">
+<ul class="org-ul">
+<li>Follow Quint's <a href="https://quint-lang.org/docs/getting-started">Getting Started</a> tutorial to install and test things on your machine.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-pokemon-battle-2" class="outline-3">
+<h3 id="pokemon-battle-2">Pokemon battle</h3>
+<div class="outline-text-3" id="text-pokemon-battle-2">
+<ul class="org-ul">
+<li>Download this <a href="https://bugarela.com/sblp2024/pokemon_activity.zip">Zip file</a> with the base spec (and its dependencies)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-adding-a-new-operator-2" class="outline-3">
+<h3 id="adding-a-new-operator-2">Adding a new operator</h3>
+<div class="outline-text-3" id="text-adding-a-new-operator-2">
+<ul class="org-ul">
+<li>Uninstall the binary from npm to avoid conflicts: <code>npm uninstall @informalsystems/quint -g</code></li>
+<li>Clone Quint: <code>git clone git@github.com:informalsystems/quint.git</code></li>
+<li>Install with: <code>make</code></li>
+<li><code>cd</code> into the <code>quint</code> folder and make your changes
+<ul class="org-ul">
+<li>To recompile, run: <code>npm run compile</code></li>
+<li>To run unit tests: <code>npm test</code></li>
+<li>To run integration tests: <code>npm run integration</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-operator-3" class="outline-4">
+<h4 id="operator-3">Operator</h4>
+<div class="outline-text-4" id="text-operator-3">
+<p>
+Name: <code>getOnlyElement</code>
+Behavior:
+</p>
+<ul class="org-ul">
+<li>Take a set of any type of elements.
+<ul class="org-ul">
+<li>If the set is a singleton (it has exactly one element), return its element.</li>
+<li>Else, return an error message.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-files-to-change-3" class="outline-4">
+<h4 id="files-to-change-3">Files to change</h4>
+<div class="outline-text-4" id="text-files-to-change-3">
+<ul class="org-ul">
+<li>quint/src/names/base.ts</li>
+<li>quint/src/types/builtinSignatures.ts</li>
+<li>quint/src/effects/builtinSignatures.ts</li>
+<li>quint/src/runtime/impl/builtins.ts</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-tests-3" class="outline-4">
+<h4 id="tests-3">Tests</h4>
+<div class="outline-text-4" id="text-tests-3">
+<ul class="org-ul">
+<li>quint/test/runtime/compile.test.ts</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-hints-click-to-expand-3" class="outline-4">
+<h4 id="hints-click-to-expand-3">Hints (click to expand)</h4>
+<div class="outline-text-4" id="text-hints-click-to-expand-3">
+<p>
+These are the answers to this activity. Try it on your own before looking, but feel free to look if you get stuck!
+</p>
+
+<details>
+<summary><b>[General Hint]</b></summary>
+
+<p>
+Take another operator, such as <code>allListsUpTo</code>, and look for it in the files to change. You can copy whatever we do for <code>allListsUpTo</code> and only change the parts that are specific to the operator's behavior.
+</p>
+</details>
+
+<details>
+<summary><b>[Type signature]</b></summary>
+
+<p>
+(Set[a]) =&gt; a
+</p>
+</details>
+
+<details>
+<summary><b>[Effect signature]</b></summary>
+
+<p>
+standardPropagation(1)
+</p>
+</details>
+
+<details>
+<summary><b>[Evaluation]</b></summary>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span class="org-keyword">case</span> <span class="org-string">'getOnlyElement'</span>:
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Get the only element of a set, or an error if the set is empty or has more than one element.</span>
+  <span class="org-keyword">return</span> <span class="org-rainbow-delimiters-depth-1">(</span><span class="org-variable-name">_</span>, <span class="org-variable-name">args</span><span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-keyword">=&gt;</span> <span class="org-rainbow-delimiters-depth-1">{</span>
+    <span class="org-keyword">const</span> <span class="org-keyword">set</span> = args<span class="org-rainbow-delimiters-depth-2">[</span><span class="org-highlight-numbers-number">0</span><span class="org-rainbow-delimiters-depth-2">]</span>.<span class="org-function-name">toSet</span><span class="org-rainbow-delimiters-depth-2">()</span>
+    <span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">set</span>.size !== <span class="org-highlight-numbers-number">1</span><span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">{</span>
+      <span class="org-keyword">return</span> <span class="org-function-name">left</span><span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">{</span>
+        code: <span class="org-string">'QNT505'</span>,
+        message: <span class="org-string">`Called 'getOnlyElement' on a set with ${set.size} elements. Make sure the set has exactly one element.`</span>,
+      <span class="org-rainbow-delimiters-depth-4">}</span><span class="org-rainbow-delimiters-depth-3">)</span>
+    <span class="org-rainbow-delimiters-depth-2">}</span>
+
+    <span class="org-keyword">return</span> <span class="org-function-name">right</span><span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">set</span>.<span class="org-function-name">first</span><span class="org-rainbow-delimiters-depth-3">()</span><span class="org-rainbow-delimiters-depth-2">)</span>
+  <span class="org-rainbow-delimiters-depth-1">}</span>
+</pre>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+
+      </div>
+    </div>
+  </body>
+</html>

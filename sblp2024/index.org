@@ -1,0 +1,82 @@
+#+title: Quint: Development and usage of a formal specification language
+#+date: <2024-10-01 Tue>
+#+OPTIONS:  num:nil toc:nil html5-fancy:t
+#+HTML_DOCTYPE: html5
+
+* Links
+- Quint website: [[https://quint-lang.org/][quint-lang.org]]
+- Quint GitHub repository: [[https://github.com/informalsystems/quint][informalsystems/quint]]
+   - Consider giving the repo a star
+- Slides: [[https://docs.google.com/presentation/d/1K4bqseM7D5WhiQWOtplIgDodEMf2itLwScypHySG1OQ/edit?usp=sharing][on Google Drive]]
+
+* Activities
+** Getting Started
+- Follow Quint's [[https://quint-lang.org/docs/getting-started][Getting Started]] tutorial to install and test things on your machine.
+
+** Pokemon battle
+- Download this [[https://bugarela.com/sblp2024/pokemon_activity.zip][Zip file]] with the base spec (and its dependencies)
+
+** Adding a new operator
+- Uninstall the binary from npm to avoid conflicts: =npm uninstall @informalsystems/quint -g=
+- Clone Quint: =git clone git@github.com:informalsystems/quint.git=
+- Install with: =make=
+- =cd= into the =quint= folder and make your changes
+  - To recompile, run: =npm run compile=
+  - To run unit tests: =npm test=
+  - To run integration tests: =npm run integration=
+
+*** Operator
+Name: =getOnlyElement=
+Behavior:
+  - Take a set of any type of elements.
+     - If the set is a singleton (it has exactly one element), return its element.
+     - Else, return an error message.
+
+*** Files to change
+- quint/src/names/base.ts
+- quint/src/types/builtinSignatures.ts
+- quint/src/effects/builtinSignatures.ts
+- quint/src/runtime/impl/builtins.ts
+*** Tests
+- quint/test/runtime/compile.test.ts
+
+*** Hints (click to expand)
+These are the answers to this activity. Try it on your own before looking, but feel free to look if you get stuck!
+
+#+begin_details
+#+html:<summary><b>[General Hint]</b></summary>
+
+Take another operator, such as =allListsUpTo=, and look for it in the files to change. You can copy whatever we do for =allListsUpTo= and only change the parts that are specific to the operator's behavior.
+#+end_details
+
+#+begin_details
+#+html:<summary><b>[Type signature]</b></summary>
+
+(Set[a]) => a
+#+end_details
+
+#+begin_details
+#+html:<summary><b>[Effect signature]</b></summary>
+
+standardPropagation(1)
+#+end_details
+
+#+begin_details
+#+html:<summary><b>[Evaluation]</b></summary>
+
+#+begin_src typescript
+case 'getOnlyElement':
+  // Get the only element of a set, or an error if the set is empty or has more than one element.
+  return (_, args) => {
+    const set = args[0].toSet()
+    if (set.size !== 1) {
+      return left({
+        code: 'QNT505',
+        message: `Called 'getOnlyElement' on a set with ${set.size} elements. Make sure the set has exactly one element.`,
+      })
+    }
+
+    return right(set.first())
+  }
+#+end_src
+#+end_details

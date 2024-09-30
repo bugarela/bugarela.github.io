@@ -78,7 +78,7 @@
          :base-directory ,(expand-file-name "./")
          ;; :recursive t
          :base-extension "org"
-         ;; :include ("blog/index.org")
+         :include ("sblp2024/index.org")
          :exclude ,(regexp-opt '("mfo"))
          :publishing-directory ,(expand-file-name "./docs")
          :section-numbers nil
