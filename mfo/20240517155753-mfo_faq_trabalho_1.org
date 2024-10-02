@@ -1,9 +1,9 @@
 :PROPERTIES:
 :ID:       64460010-fda5-4609-9da9-41715e7a0a5a
 :END:
-#+title: FAQ Trabalho 1
+#+title:     FAQ Trabalho 1
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      2024-05-17
+#+DATE:      02 de outubro de 2024
 #+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
@@ -79,12 +79,12 @@ action Foo == {
 Não recebi nenhuma dúvida de TLA+ ainda.
 
 * Geral
-** Erro ao remover o taunt após o ataque
+** Erro ao remover o blind após o ataque
 
-Lembre-se que não é possível atualizar a mesma variável mais de uma vez na mesma ação/transição. É necessário que as duas modificações (aplicação do dano de ataque e remoção do taunt) sejam feitos na mesma atualização da variável de estado. É possível encadear os =setBy= (Quint) ou =EXCEPT= (TLA+) para isso:
+Lembre-se que não é possível atualizar a mesma variável mais de uma vez na mesma ação/transição. É necessário que as duas modificações (aplicação do dano de ataque e remoção do blind) sejam feitos na mesma atualização da variável de estado. É possível encadear os =setBy= (Quint) ou =EXCEPT= (TLA+) para isso:
 Quint:
 #+begin_src quint
-creatures.setBy(<dar dano no alvo>).setBy(<remover taunt do atacante>)
+creatures.setBy(<dar dano no alvo>).setBy(<remover blind do atacante>)
 #+end_src
 
 TLA+:

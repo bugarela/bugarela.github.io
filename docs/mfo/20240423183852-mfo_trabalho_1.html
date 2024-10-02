@@ -67,8 +67,9 @@
 <ul>
 <li><a href="#ataques-2">Ataques</a></li>
 <li><a href="#paralisia-2">Paralisia</a></li>
-<li><a href="#provoca-o-taunt-2">Provocação (<i>taunt</i>)</a></li>
-<li><a href="#imunidade-2">Imunidade</a></li>
+<li><a href="#cegueira-blind-2">Cegueira (<i>blind</i>)</a></li>
+<li><a href="#transforma-o-selvagem-wild-shape-2">Transformação selvagem (<i>Wild Shape</i>)</a></li>
+<li><a href="#ilus-o-2">Ilusão</a></li>
 <li><a href="#criaturas-2">Criaturas</a>
 <ul>
 <li><a href="#monstros-3">Monstros</a></li>
@@ -94,7 +95,7 @@
 <h2 id="informa-es-importantes-1">Informações importantes</h2>
 <div class="outline-text-2" id="text-informa-es-importantes-1">
 <ul class="org-ul">
-<li>Data de entrega: 22 de maio (quarta-feira)</li>
+<li>Data de entrega: 30 de outubro (quarta-feira)</li>
 <li>Trabalho individual ou em dupla</li>
 <li>Especificações a serem entregues em TLA+ ou Quint.</li>
 <li>Formato de apresentação: Explicação breve do código (somente para a professora) + implementação de uma pequena modificação por membro.</li>
@@ -129,27 +130,46 @@ Uma criatura morre quando seus pontos de vida chegam a zero.
 Criaturas podem ser paralisadas. Criaturas paralisadas não podem fazer nada em seu turno.
 </p>
 <ul class="org-ul">
-<li>A paralisia infringida por monstros é permanente, e só pode ser removida se um personagem (não paralisado) usar seu turno para isso, ajudando um jogador paralisado e assim removendo sua paralisia.</li>
-<li>A paralisia infringida por personagens dura apenas um turno. Após perder um turno por paralisia, a criatura deixa de estar paralisada.</li>
+<li>A paralisia é permanente, e só pode ser removida se um personagem (não paralisado) usar seu turno para isso, ajudando um jogador paralisado e assim removendo sua paralisia.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-provoca-o-taunt-2" class="outline-3">
-<h3 id="provoca-o-taunt-2">Provocação (<i>taunt</i>)</h3>
-<div class="outline-text-3" id="text-provoca-o-taunt-2">
+<div id="outline-container-cegueira-blind-2" class="outline-3">
+<h3 id="cegueira-blind-2">Cegueira (<i>blind</i>)</h3>
+<div class="outline-text-3" id="text-cegueira-blind-2">
 <p>
-Personagens da classe bárbaro tem habilidade de provocar um monstro para que ele passe a somente atacar o bárbaro, ignorando os outros personagens.
-Uma criatura provocada ataca somente quem a provocou.
-A provocação dura um turno, de forma que a criatura provocada deixa de estar provocada ao terminar seu turno.
+Personagens da classe caçador tem habilidade de cegar um monstro. Ataques de um monstro cego causam 0 de dano.
+A cegueira dura um turno, de forma que o monstro deixa de estar cego ao terminar seu turno.
 </p>
 </div>
 </div>
-<div id="outline-container-imunidade-2" class="outline-3">
-<h3 id="imunidade-2">Imunidade</h3>
-<div class="outline-text-3" id="text-imunidade-2">
+<div id="outline-container-transforma-o-selvagem-wild-shape-2" class="outline-3">
+<h3 id="transforma-o-selvagem-wild-shape-2">Transformação selvagem (<i>Wild Shape</i>)</h3>
+<div class="outline-text-3" id="text-transforma-o-selvagem-wild-shape-2">
 <p>
-Personagens da classe clérigo tem habilidade de melhorar a defesa dos seus aliados, deixando-os imunes. Ao usar essa habilidade, todos os aliados, incluindo o clérigo em si, recebem imunidade, que dura até o início do próximo turno do clérigo.
-Criaturas imunes não podem receber dano. Todo dano infringido a elas é reduzido a zero.
+Personagens da classe druida tem habilidade de se transformar em urso. Ao se transformar em urso, o druida passa a, temporariamente, ter 60 pontos de vida. Se o urso morrer, o druida volta a ter a quantidade de pontos de vida que tinha antes de se transformar.
+A transformação selvagem dura até o início do próximo turno do druida, onde ele pode escolher se transformar novamente ou fazer outra ação.
+</p>
+<ul class="org-ul">
+<li>Note que o urso nunca tem um turno. Quando chega a vez do druida, a transformação expira. Logo, ele não consegue fazer nenhuma ação como urso.</li>
+</ul>
+<p>
+<b>Monstros tem medo de animais</b>: A ameaça (<i>threat</i>) que um urso causa nos monstros é maior, de forma que monstros sempre atacam o urso se ele estiver presente.
+</p>
+</div>
+</div>
+<div id="outline-container-ilus-o-2" class="outline-3">
+<h3 id="ilus-o-2">Ilusão</h3>
+<div class="outline-text-3" id="text-ilus-o-2">
+<p>
+Personagens da classe mago tem habilidade de criar uma ilusão de uma ovelha com 1 ponto de vida. A ilusão não pode atacar, mas pode ser atacada.
+A ilusão dura até o início do próximo turno do mago, onde ele pode escolher recriar a ilusão ou fazer outra ação.
+</p>
+<ul class="org-ul">
+<li>A ilusão não tem um turno.</li>
+</ul>
+<p>
+<b>Monstros tem medo de animais</b>: A ameaça (<i>threat</i>) que uma ilusão causa nos monstros é a mesma do urso, de forma que os montros vão sempre preferir atacar ovelhas e ursos se esses estiverem presentes.
 </p>
 </div>
 </div>
@@ -193,43 +213,34 @@ Um monstro pode paralizar um personagem. Essa paralisia é permanente, e só é 
 <h4 id="personagens-3">Personagens</h4>
 <div class="outline-text-4" id="text-personagens-3">
 <p>
-Os ataques de personagem causam 10 de dano, independente da classe.
+Os ataques de personagem causam 10 de dano e tem 20 pontos de vida iniciais, independente da classe. Eles podem executar uma das seguintes ações em seu turno:
 </p>
 </div>
 <ul class="org-ul">
 <li><a id="mago-4"></a>Mago<br />
 <div class="outline-text-5" id="text-mago-4">
-<p>
-Um mago tem 20 pontos de vida iniciais e pode executar uma das seguintes ações em seu turno:
-</p>
 <ul class="org-ul">
 <li>Atacar um monstro</li>
 <li>Remover paralisia de um personagem</li>
-<li>Paralizar um monstro</li>
+<li>Criar uma ilusão</li>
 </ul>
 </div>
 </li>
-<li><a id="cl-rigo-4"></a>Clérigo<br />
-<div class="outline-text-5" id="text-cl-rigo-4">
-<p>
-Um clérigo tem 20 pontos de vida iniciais e pode executar uma das seguintes ações em seu turno:
-</p>
+<li><a id="ca-ador-4"></a>Caçador<br />
+<div class="outline-text-5" id="text-ca-ador-4">
 <ul class="org-ul">
 <li>Atacar um monstro</li>
 <li>Remover paralisia de um personagem</li>
-<li>Imunizar todos os personagens</li>
+<li>Cegar um monstro</li>
 </ul>
 </div>
 </li>
-<li><a id="b-rbaro-4"></a>Bárbaro<br />
-<div class="outline-text-5" id="text-b-rbaro-4">
-<p>
-Um bárbaro tem 150 pontos de vida iniciais e pode executar uma das seguintes ações em seu turno:
-</p>
+<li><a id="druida-4"></a>Druida<br />
+<div class="outline-text-5" id="text-druida-4">
 <ul class="org-ul">
 <li>Atacar um monstro</li>
 <li>Remover paralisia de um personagem</li>
-<li>Provocar um monstro</li>
+<li>Se transformar em urso</li>
 </ul>
 </div>
 </li>
@@ -259,7 +270,7 @@ Após todas as criaturas jogarem uma vez, o ciclo reinicia seguindo as mesmas re
 Primeiramente, escreva uma especificação descrevendo o que pode acontecer nesse jogo. Considere que exista um único monstro, e um personagem de cada classe. Nessa versão, deve ser possível tanto que o monstro quanto que algum dos jogadores morra.
 </p>
 <ul class="org-ul">
-<li>Inclua uma (ou mains) variável(is) que registre informações relevantes sobre o que aconteceu no último turno, assim como fizemos para o exemplo do pokemon.</li>
+<li>Inclua uma (ou mais) variável(is) que registre informações relevantes sobre o que aconteceu no último turno, assim como fizemos para o exemplo do pokemon.</li>
 </ul>
 </div>
 </div>

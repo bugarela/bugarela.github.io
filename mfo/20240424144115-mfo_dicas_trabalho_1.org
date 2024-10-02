@@ -1,10 +1,9 @@
 :PROPERTIES:
 :ID:       c617ae02-f58f-4885-8180-991c4d728a8c
 :END:
-#+title:  Dicas Trabalho 1
+#+title:     Dicas Trabalho 1
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      24 de abril de 2024
-#+DATE:      2024-04-24
+#+DATE:      02 de outubro de 2024
 #+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
@@ -38,7 +37,7 @@ Se tivermos dúvida se nossa soma está correta, podemos envolve-la em uma chama
 4
 #+end_src
 
-Isso é o mais próximo que temos de =printf= para debugar :)
+Isso é o mais próximo que temos de =printf= para debugar :). Você também pode tentar usar a flag =--verbosity=5= para ver em mais detalhes o que está sendo executado.
 
 ** [TLA+] Print
 De forma semelhante, temos o operator =Print= em TLA+, definido no módulo TLC
@@ -271,11 +270,9 @@ Mapas mapeiam um conjunto de chaves para seus valores.
   #+BEAMER: \pause
   - Nesse caso, usamos time ao invés de nome por isso facilitar o acesso ao "pokemon adversário" (=pokemons.get(other_team(next_team))=)
 
-
-
 ** [TLA+] Modo simulação do TLC
 Como indicado no enunciado do trabalho, devemos usar simuladores. Para usar o TLC no seu modo de simulação:
-1. Garanta que está na versão *nigthly* da extensão do TLA+ no VSCode.
+1. Instale a extensão do TLA+ no VSCode.
 2. Aperte F1 e escolha: TLA+: Check model with TLC
   - Você deve ver um prompt para inserir opções adicionais para o TLC.
 
@@ -313,13 +310,6 @@ O operador =oneOf()= só pode ser usado nessa forma!
 - Sem mais operadores aplicados acima dele
   - (i.e. =nondet valor = Set(1, 2, 3).oneOf() + 1=)
 
-#+BEAMER: \medskip
-#+BEAMER: \pause
-Essas regras ainda não são validadas pelo compilador, mas serão!
-- Devo lançar a alteração essa semana
-- Os trabalhos de vocês devem obedecer essas regras.
-  - Assim que a alteração for lançada, aviso para que atualizem
-
 ** [Quint] nondet e oneOf II
 
 Por que isso é importante?
@@ -333,7 +323,7 @@ Atenção: isso significa que não é possível definir "role um d20 para cada c
 #+begin_src quint
 action init = all {
   nondet d20_mago = // ...
-  nondet d20_clerigo = // ...
+  nondet d20_druida = // ...
   // ...
 }
 #+end_src

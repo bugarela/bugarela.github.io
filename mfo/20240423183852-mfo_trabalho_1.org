@@ -4,7 +4,7 @@
 #+title: Trabalho 1
 #+author: Métodos Formais
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      2024-04-23
+#+DATE:      30 de setembro de 2024
 #+LANGUAGE:  en
 #+OPTIONS:    toc:t
 #+LaTeX_CLASS: bugarela-article
@@ -14,7 +14,7 @@
 #+HTML: <a href="https://bugarela.com/mfo/slides/20240423183852-mfo_trabalho_1.pdf">PDF</a><br />
 
 * Informações importantes
-- Data de entrega: 22 de maio (quarta-feira)
+- Data de entrega: 30 de outubro (quarta-feira)
 - Trabalho individual ou em dupla
 - Especificações a serem entregues em TLA+ ou Quint.
 - Formato de apresentação: Explicação breve do código (somente para a professora) + implementação de uma pequena modificação por membro.
@@ -31,17 +31,23 @@ Uma criatura morre quando seus pontos de vida chegam a zero.
 
 ** Paralisia
 Criaturas podem ser paralisadas. Criaturas paralisadas não podem fazer nada em seu turno.
-- A paralisia infringida por monstros é permanente, e só pode ser removida se um personagem (não paralisado) usar seu turno para isso, ajudando um jogador paralisado e assim removendo sua paralisia.
-- A paralisia infringida por personagens dura apenas um turno. Após perder um turno por paralisia, a criatura deixa de estar paralisada.
+- A paralisia é permanente, e só pode ser removida se um personagem (não paralisado) usar seu turno para isso, ajudando um jogador paralisado e assim removendo sua paralisia.
 
-** Provocação (/taunt/)
-Personagens da classe bárbaro tem habilidade de provocar um monstro para que ele passe a somente atacar o bárbaro, ignorando os outros personagens.
-Uma criatura provocada ataca somente quem a provocou.
-A provocação dura um turno, de forma que a criatura provocada deixa de estar provocada ao terminar seu turno.
+** Cegueira (/blind/)
+Personagens da classe caçador tem habilidade de cegar um monstro. Ataques de um monstro cego causam 0 de dano.
+A cegueira dura um turno, de forma que o monstro deixa de estar cego ao terminar seu turno.
 
-** Imunidade
-Personagens da classe clérigo tem habilidade de melhorar a defesa dos seus aliados, deixando-os imunes. Ao usar essa habilidade, todos os aliados, incluindo o clérigo em si, recebem imunidade, que dura até o início do próximo turno do clérigo.
-Criaturas imunes não podem receber dano. Todo dano infringido a elas é reduzido a zero.
+** Transformação selvagem (/Wild Shape/)
+Personagens da classe druida tem habilidade de se transformar em urso. Ao se transformar em urso, o druida passa a, temporariamente, ter 60 pontos de vida. Se o urso morrer, o druida volta a ter a quantidade de pontos de vida que tinha antes de se transformar.
+A transformação selvagem dura até o início do próximo turno do druida, onde ele pode escolher se transformar novamente ou fazer outra ação.
+- Note que o urso nunca tem um turno. Quando chega a vez do druida, a transformação expira. Logo, ele não consegue fazer nenhuma ação como urso.
+*Monstros tem medo de animais*: A ameaça (/threat/) que um urso causa nos monstros é maior, de forma que monstros sempre atacam o urso se ele estiver presente.
+
+** Ilusão
+Personagens da classe mago tem habilidade de criar uma ilusão de uma ovelha com 1 ponto de vida. A ilusão não pode atacar, mas pode ser atacada.
+A ilusão dura até o início do próximo turno do mago, onde ele pode escolher recriar a ilusão ou fazer outra ação.
+- A ilusão não tem um turno.
+*Monstros tem medo de animais*: A ameaça (/threat/) que uma ilusão causa nos monstros é a mesma do urso, de forma que os montros vão sempre preferir atacar ovelhas e ursos se esses estiverem presentes.
 
 ** Criaturas
 Essa batalha tem várias criaturas lutando entre si, entre elas monstros e personagens
@@ -57,22 +63,19 @@ Os ataques de monstro sempre dão 20 de dano, exceto se esse for o primeiro turn
 Um monstro pode paralizar um personagem. Essa paralisia é permanente, e só é removida quando outro personagem usa sua ação para remover a paralisia de um jogador específico.
 
 *** Personagens
-Os ataques de personagem causam 10 de dano, independente da classe.
+Os ataques de personagem causam 10 de dano e tem 20 pontos de vida iniciais, independente da classe. Eles podem executar uma das seguintes ações em seu turno:
 **** Mago
-Um mago tem 20 pontos de vida iniciais e pode executar uma das seguintes ações em seu turno:
 - Atacar um monstro
 - Remover paralisia de um personagem
-- Paralizar um monstro
-**** Clérigo
-Um clérigo tem 20 pontos de vida iniciais e pode executar uma das seguintes ações em seu turno:
+- Criar uma ilusão
+**** Caçador
 - Atacar um monstro
 - Remover paralisia de um personagem
-- Imunizar todos os personagens
-**** Bárbaro
-Um bárbaro tem 150 pontos de vida iniciais e pode executar uma das seguintes ações em seu turno:
+- Cegar um monstro
+**** Druida
 - Atacar um monstro
 - Remover paralisia de um personagem
-- Provocar um monstro
+- Se transformar em urso
 
 ** Iniciativa
 No início da batalha, cada criatura roda um d20 (dado com 20 faces, de 1 até 20) para determinar sua iniciativa. Aqueles com maior iniciativa jogam primeiro, e os com menor iniciativa jogam por último.
@@ -83,7 +86,7 @@ Após todas as criaturas jogarem uma vez, o ciclo reinicia seguindo as mesmas re
 * Atividades do trabalho
 ** Especificação com as regras do jogo
 Primeiramente, escreva uma especificação descrevendo o que pode acontecer nesse jogo. Considere que exista um único monstro, e um personagem de cada classe. Nessa versão, deve ser possível tanto que o monstro quanto que algum dos jogadores morra.
-- Inclua uma (ou mains) variável(is) que registre informações relevantes sobre o que aconteceu no último turno, assim como fizemos para o exemplo do pokemon.
+- Inclua uma (ou mais) variável(is) que registre informações relevantes sobre o que aconteceu no último turno, assim como fizemos para o exemplo do pokemon.
 
 ** Invariantes
 Escreva duas invariantes:

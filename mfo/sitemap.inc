@@ -44,8 +44,8 @@
 * Trabalho 1
   - [[file:20240415205323-mfo_exercicios_pokemon.org][Exercícios Pokemon]]
   - [[file:20240422102646-mfo_especificar_vs_implementar.org][Especificar vs Implementar]]
-#   - [[file:20240423183852-mfo_trabalho_1.org][Trabalho 1]]
-#   - [[file:20240517155753-mfo_faq_trabalho_1.org][FAQ Trabalho 1]]
-#   - [[file:20240424144115-mfo_dicas_trabalho_1.org][Dicas Trabalho 1]]
+  - [[file:20240423183852-mfo_trabalho_1.org][Trabalho 1]]
+  - [[file:20240517155753-mfo_faq_trabalho_1.org][FAQ Trabalho 1]]
+  - [[file:20240424144115-mfo_dicas_trabalho_1.org][Dicas Trabalho 1]]
 # * Trabalho 2
 #   - [[file:20240609214243-mfo_trabalho_2.org][Trabalho 2]]

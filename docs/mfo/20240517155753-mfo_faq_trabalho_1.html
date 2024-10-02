@@ -71,7 +71,7 @@
 <li><a href="#tla-1">2. TLA+</a></li>
 <li><a href="#geral-1">3. Geral</a>
 <ul>
-<li><a href="#erro-ao-remover-o-taunt-ap-s-o-ataque-2">3.1. Erro ao remover o taunt após o ataque</a></li>
+<li><a href="#erro-ao-remover-o-blind-ap-s-o-ataque-2">3.1. Erro ao remover o blind após o ataque</a></li>
 </ul>
 </li>
 </ul>
@@ -178,15 +178,15 @@ Não recebi nenhuma dúvida de TLA+ ainda.<br />
 <h2 id="geral-1"><span class="section-number-2">3.</span> Geral</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-erro-ao-remover-o-taunt-ap-s-o-ataque-2" class="outline-3">
-<h3 id="erro-ao-remover-o-taunt-ap-s-o-ataque-2"><span class="section-number-3">3.1.</span> Erro ao remover o taunt após o ataque</h3>
+<div id="outline-container-erro-ao-remover-o-blind-ap-s-o-ataque-2" class="outline-3">
+<h3 id="erro-ao-remover-o-blind-ap-s-o-ataque-2"><span class="section-number-3">3.1.</span> Erro ao remover o blind após o ataque</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
-Lembre-se que não é possível atualizar a mesma variável mais de uma vez na mesma ação/transição. É necessário que as duas modificações (aplicação do dano de ataque e remoção do taunt) sejam feitos na mesma atualização da variável de estado. É possível encadear os <code>setBy</code> (Quint) ou <code>EXCEPT</code> (TLA+) para isso:<br />
+Lembre-se que não é possível atualizar a mesma variável mais de uma vez na mesma ação/transição. É necessário que as duas modificações (aplicação do dano de ataque e remoção do blind) sejam feitos na mesma atualização da variável de estado. É possível encadear os <code>setBy</code> (Quint) ou <code>EXCEPT</code> (TLA+) para isso:<br />
 Quint:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-quint">creatures.setBy(&lt;dar dano no alvo&gt;).setBy(&lt;remover taunt do atacante&gt;)
+<pre class="src src-quint">creatures.setBy(&lt;dar dano no alvo&gt;).setBy(&lt;remover blind do atacante&gt;)
 </pre>
 </div>
 
