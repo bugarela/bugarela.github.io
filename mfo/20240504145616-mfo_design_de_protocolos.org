@@ -1,10 +1,10 @@
 :PROPERTIES:
 :ID:       119e9d23-d6e7-462e-a091-2889bc354553
 :END:
-#+title: Design de protocolos
+#+title:     Design de protocolos
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      2024-05-06
-#+LANGUAGE:  pt
+#+DATE:      16 de outubro de 2024
+#+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
 #+BEAMER_FRAME_LEVEL: 2
@@ -16,7 +16,6 @@
 #+LATEX_COMPILER: pdflatex
 #+bibliography: references.bib
 #+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
-#+PROPERTY: header-args :tangle tictactoe.tla
 #+HTML: <a href="https://bugarela.com/mfo/slides/20240504145616-mfo_design_de_protocolos.pdf">Slides</a><br />
 #+beamer: \begin{frame}{Conteúdo}
 #+TOC: headlines 3
@@ -52,7 +51,7 @@ Suposições são extremamente importantes para protocolos, e é necessário faz
   - Na decolagem/pouso de um avião, precisamos abrir as janelas e levantar as mesinhas
     #+BEAMER: \pause
     - Nesse caso, o protocolo não é suficiente para garantir que os passageiros sobrevivam à uma emergência.
-    - É uma medidad de prevenção, não uma garantia.
+    - É uma medida de prevenção, não uma garantia.
     - Para que fornecesse uma garantia, teríamos que assumir que estar com as janelas abertas e mesinhas levantadas faça com que todos os passageiros possam desembarcar com segurança em qualquer emergência - o que não é verdade.
 ** O que precisamos assumir nos nossos exemplos? - Trocas
   - Sistemas de trocas em jogos ou, semelhantemente, sistemas de pagamento estilo mercado pago
@@ -124,7 +123,7 @@ Um sistema de computadores confiável deve ser capaz de lidar com a falha de um 
 Recurso em vídeo: [cite:@chris-colohan-video]
 
 ** O problema dos generais bizantinos
-Várias divisões do exército bizantino estão acampadas ao redor de uma cidade inimiga, cada divisão comandade por um general.
+Várias divisões do exército bizantino estão acampadas ao redor de uma cidade inimiga, cada divisão é comandada por um general.
 #+BEAMER: \pause
 - Os generais se comunicam entre si somente através de mensageiros
 #+BEAMER: \pause
