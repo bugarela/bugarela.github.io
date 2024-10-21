@@ -7,6 +7,8 @@
 (setq org-html-html5-fancy t)
 (setq org-html-htmlize-output-type 'css)
 (setq org-html-htmlize-font-prefix "org-")
+(org-html-stable-ids-add)
+(setq org-html-stable-ids t)
 
 (defvar personal-site-full-name "Gabriela Moreira"
   "A string with your full name.")

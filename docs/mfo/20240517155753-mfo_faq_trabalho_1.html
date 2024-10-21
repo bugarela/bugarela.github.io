@@ -72,6 +72,7 @@
 <li><a href="#geral-1">3. Geral</a>
 <ul>
 <li><a href="#erro-ao-remover-o-blind-ap-s-o-ataque-2">3.1. Erro ao remover o blind após o ataque</a></li>
+<li><a href="#como-fazer-pra-rodar-um-dado-por-criatura-2">3.2. Como fazer pra rodar um dado por criatura?</a></li>
 </ul>
 </li>
 </ul>
@@ -200,6 +201,24 @@ TLA+:<br />
 
 <p>
 De forma mais geral, precisamos <a href="https://bugarela.com/mfo/20240424144115-mfo_dicas_trabalho_1.html#composi-o-2">compor</a> as duas atualizações, salvando o resultado da primeira em algum valor temporário e usando esse valor como base para computar o resultado da segunda, que então pode ser salvo na variável de estado (<code>creatures</code>, no exemplo acima).<br />
+</p>
+</div>
+</div>
+<div id="outline-container-como-fazer-pra-rodar-um-dado-por-criatura-2" class="outline-3">
+<h3 id="como-fazer-pra-rodar-um-dado-por-criatura-2"><span class="section-number-3">3.2.</span> Como fazer pra rodar um dado por criatura?</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Não é possível, nesse caso, escrever algo do tipo &ldquo;para cada criatura, rode um dado&rdquo;.<br />
+</p>
+<ul class="org-ul">
+<li>O Apalache tem uma extensão para TLA+ que possibilitaria isso (<a href="https://apalache-mc.org/docs/lang/apalache-operators.html?highlight=generator#value-generators">Gen</a>)<br />
+<ul class="org-ul">
+<li>Não conheço nada semelhante no TLC.<br /></li>
+<li>Ainda não temos um equivalente no Quint, mas isso está em discussão e deve ser implementado logo.<br /></li>
+</ul></li>
+</ul>
+<p>
+Para o trabalho, podem fazer da forma repetitiva e declarar um valor para cada dado de cada criatura.<br />
 </p>
 </div>
 </div>

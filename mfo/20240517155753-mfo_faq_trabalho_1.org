@@ -93,3 +93,10 @@ TLA+:
 #+end_src
 
 De forma mais geral, precisamos [[https://bugarela.com/mfo/20240424144115-mfo_dicas_trabalho_1.html#composi-o-2][compor]] as duas atualizações, salvando o resultado da primeira em algum valor temporário e usando esse valor como base para computar o resultado da segunda, que então pode ser salvo na variável de estado (=creatures=, no exemplo acima).
+
+** Como fazer pra rodar um dado por criatura?
+Não é possível, nesse caso, escrever algo do tipo "para cada criatura, rode um dado".
+- O Apalache tem uma extensão para TLA+ que possibilitaria isso ([[https://apalache-mc.org/docs/lang/apalache-operators.html?highlight=generator#value-generators][Gen]])
+  - Não conheço nada semelhante no TLC.
+  - Ainda não temos um equivalente no Quint, mas isso está em discussão e deve ser implementado logo.
+Para o trabalho, podem fazer da forma repetitiva e declarar um valor para cada dado de cada criatura.

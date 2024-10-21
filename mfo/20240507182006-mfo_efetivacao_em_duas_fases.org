@@ -1,10 +1,10 @@
 :PROPERTIES:
 :ID:       825c34ed-bbc5-4dee-ab8c-f436b239ed77
 :END:
-#+title: Efetivação em Duas Fases
+#+title:     Efetivação em Duas Fases
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      2024-05-08
-#+LANGUAGE:  pt
+#+DATE:      21 de outubro de 2024
+#+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
 #+BEAMER_FRAME_LEVEL: 2
