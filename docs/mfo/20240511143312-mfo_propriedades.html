@@ -14,8 +14,8 @@
   <meta property="og:description" content="Personal homepage exported with org-thtml" />
   
     <meta property="og:image" content="https://bugarela.com/mfo/figures/lupa_invariante.png" />
-    <meta property="og:image:width" content="1569" />
-    <meta property="og:image:height" content="1438" />
+    <meta property="og:image:width" content="1566" />
+    <meta property="og:image:height" content="1435" />
   
   
     <meta name="twitter:card" content="summary_large_image">
@@ -112,7 +112,7 @@ Propriedades podem ser propriedades de <b>segurança</b> (<i>safety properties</
 <h3 id="seguran-a-2"><span class="section-number-3">1.2.</span> Segurança</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-<i>"Algo ruim <b>não</b> acontece"</i><br />
+<i>&ldquo;Algo ruim <b>não</b> acontece&rdquo;</i><br />
 </p>
 
 <p>
@@ -123,9 +123,9 @@ Descreve algo específico. Basta esse algo acontecer uma única vez para que a p
 <b>Exemplos</b>:<br />
 </p>
 <ul class="org-ul">
-<li>"O saque não deve ser autorizado, a menos que uma senha correta tenha sido digitada"<br /></li>
-<li>"Dois processos não devem estar na seção crítica ao mesmo tempo"<br /></li>
-<li>"Ao receber um saque, eu fico com mais dinheiro do que eu tinha antes"<br /></li>
+<li>&ldquo;O saque não deve ser autorizado, a menos que uma senha correta tenha sido digitada&rdquo;<br /></li>
+<li>&ldquo;Dois processos não devem estar na seção crítica ao mesmo tempo&rdquo;<br /></li>
+<li>&ldquo;Ao receber um saque, eu fico com mais dinheiro do que eu tinha antes&rdquo;<br /></li>
 </ul>
 </div>
 </div>
@@ -141,7 +141,7 @@ Invariantes são um tipo de propriedade de segurança.<br />
 </p>
 
 <p>
-Uma invariante é uma propriedade sobre um <b>estado</b>, <i>não sobre uma execução</i>. Uma invariante não consegue "ver além" de um único estado.<br />
+Uma invariante é uma propriedade sobre um <b>estado</b>, <i>não sobre uma execução</i>. Uma invariante não consegue &ldquo;ver além&rdquo; de um único estado.<br />
 </p>
 
 <p>
@@ -165,7 +165,7 @@ Uma <b>estrutura de Kripke</b> satisfaz uma invariante sse cada estado alcançá
 <h3 id="vivacidade-2"><span class="section-number-3">1.4.</span> Vivacidade</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-<i>"Algo bom eventualmente acontece"</i><br />
+<i>&ldquo;Algo bom eventualmente acontece&rdquo;</i><br />
 </p>
 
 <p>
@@ -176,8 +176,8 @@ Uma <b>estrutura de Kripke</b> satisfaz uma invariante sse cada estado alcançá
 <b>Exemplos</b>:<br />
 </p>
 <ul class="org-ul">
-<li>"Se um processo pediu pra entrar na seção crítica, ele eventualmente deve conseguir"<br /></li>
-<li>"Cada sinaleiro deve sempre eventualmente ficar verde"<br /></li>
+<li>&ldquo;Se um processo pediu pra entrar na seção crítica, ele eventualmente deve conseguir&rdquo;<br /></li>
+<li>&ldquo;Cada sinaleiro deve sempre eventualmente ficar verde&rdquo;<br /></li>
 </ul>
 
 <p>
@@ -189,7 +189,7 @@ Lembrando que em Quint e TLA+ usamos LTL, não CTL. Portanto, as fórmulas devem
 <h3 id="vivacidade-propriedade-de-persist-ncia-2"><span class="section-number-3">1.5.</span> Vivacidade - propriedade de persistência</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
-<i>"Eventualmente, algo é satisfeito pra sempre"</i><br />
+<i>&ldquo;Eventualmente, algo é satisfeito pra sempre&rdquo;</i><br />
 </p>
 
 <p>
@@ -211,7 +211,7 @@ Lembrando que em Quint e TLA+ usamos LTL, não CTL. Portanto, as fórmulas devem
 <h3 id="demonstrando-vivacidade-com-runs-em-quint-2"><span class="section-number-3">1.6.</span> Demonstrando vivacidade com runs em Quint</h3>
 <div class="outline-text-3" id="text-1-6">
 <p>
-Uma forma alternativa de mostrar que "coisas boas acontecem" em Quint é através de runs.<br />
+Uma forma alternativa de mostrar que &ldquo;coisas boas acontecem&rdquo; em Quint é através de runs.<br />
 </p>
 <ul class="org-ul">
 <li>Uma <code>run</code> pode definir uma ou mais execuções onde algo acontece.<br />
@@ -226,10 +226,10 @@ Por exemplo, se queremos saber se é possível, em algum cenário, chegar em con
 </p>
 <ol class="org-ol">
 <li>Estado inicial<br /></li>
-<li>Processo 1 propõe "A"<br /></li>
-<li>Processo 2 propõe "A"<br /></li>
+<li>Processo 1 propõe &ldquo;A&rdquo;<br /></li>
+<li>Processo 2 propõe &ldquo;A&rdquo;<br /></li>
 <li>Trocas de mensagens seguindo protocolo de consenso<br /></li>
-<li>Processos 1 e 2 decidem "A"<br /></li>
+<li>Processos 1 e 2 decidem &ldquo;A&rdquo;<br /></li>
 </ol>
 </div>
 </div>
@@ -241,13 +241,13 @@ Propriedades de razoabilidade (<i>Fairness properties</i>)<br />
 </p>
 <ul class="org-ul">
 <li><p>
-Razoabilidade incondicional (<i>Unconditional fairness</i>): "Algo acontece com frequência infinita"<br />
+Razoabilidade incondicional (<i>Unconditional fairness</i>): &ldquo;Algo acontece com frequência infinita&rdquo;<br />
 </p>
 <ul class="org-ul">
-<li>Razoabilidade <b>forte</b> (<i>Strong fairness</i>): "Algo acontece com frequência infinita <b>se é habilitado com frequência infinita</b>"<br /></li>
+<li>Razoabilidade <b>forte</b> (<i>Strong fairness</i>): &ldquo;Algo acontece com frequência infinita <b>se é habilitado com frequência infinita</b>&rdquo;<br /></li>
 </ul>
 <ul class="org-ul">
-<li>Razoabilidade <b>fraca</b> (<i>Weak fairness</i>): "Algo acontece com frequência infinita <b>se é continuamente habilitado a partir de um certo momento</b>"<br /></li>
+<li>Razoabilidade <b>fraca</b> (<i>Weak fairness</i>): &ldquo;Algo acontece com frequência infinita <b>se é continuamente habilitado a partir de um certo momento</b>&rdquo;<br /></li>
 </ul></li>
 </ul>
 
@@ -294,7 +294,7 @@ A razoabilidade fraca para uma fórmula de estado \(f\) e uma ação \(A\) é es
 </p>
 <ul class="org-ul">
 <li>É satisfeita por um comportamento sse \(A \land (f' \neq f)\) é infinitamente não ativável (\textsc{enabled}) ou infinitos passos  \(A \land (f' \neq f)\) ocorrem.<br /></li>
-<li>Garante que \(A\) não possa permanecer continuamente ativável para sempre sem que um passo \(A\) ocorra. Essa condição pode ser escrita de forma equivalente como<br />
+<li>Garante que \(A\) não possa permanecer <b>continuamente</b> ativável para sempre sem que um passo \(A\) ocorra. Essa condição pode ser escrita de forma equivalente como<br />
 <ul class="org-ul">
 <li>\(\square (\ENABLED  A \implies \Diamond\langle A\rangle_f)\)<br /></li>
 </ul></li>
@@ -304,7 +304,7 @@ A razoabilidade fraca para uma fórmula de estado \(f\) e uma ação \(A\) é es
 A conjunção com \((f' \neq f)\), expressada com a notação \(\langle A\rangle_f\), se deve ao fato de não ser desejável exigir que passos balbuciantes eventualmente ocorram.<br />
 </p>
 <ul class="org-ul">
-<li>\(A \land (f' \neq f)\) pode ser lido como "todos os passos não balbuciantes que satisfazem \(A\)".<br /></li>
+<li>\(A \land (f' \neq f)\) pode ser lido como &ldquo;todos os passos não balbuciantes que satisfazem \(A\)&rdquo;.<br /></li>
 </ul>
 </div>
 </div>
@@ -312,10 +312,10 @@ A conjunção com \((f' \neq f)\), expressada com a notação \(\langle A\rangle
 <h3 id="strong-fairness-defini-o-precisa-2"><span class="section-number-3">1.10.</span> Strong fairness - definição precisa</h3>
 <div class="outline-text-3" id="text-1-10">
 <p>
-A razoabilidade fraca recebe a denominação "fraca" porque exige que uma ação permaneça continuamente ativável para garantir a ocorrência de um passo que a satisfaça.<br />
+A razoabilidade fraca recebe a denominação &ldquo;fraca&rdquo; porque exige que uma ação permaneça <b>continuamente</b> ativável para garantir a ocorrência de um passo que a satisfaça.<br />
 </p>
 <ul class="org-ul">
-<li>Se um comportamento repetidamente tornar a ação ativável e em seguida não ativável, a razoabilidade fraca não garante nada sobre a ocorrência da ação neste comportamento.<br /></li>
+<li>Se um comportamento <b>repetidamente</b> tornar a ação ativável e em seguida não ativável, a razoabilidade fraca não garante nada sobre a ocorrência da ação neste comportamento.<br /></li>
 <li>Para tal, é necessário garantir a propriedade de razoabilidade forte (\textit{strong fairness}).<br /></li>
 </ul>
 
@@ -324,7 +324,7 @@ A razoabilidade forte para uma fórmula de estado \(f\) e uma ação \(A\) é es
 </p>
 <ul class="org-ul">
 <li>É satisfeita por um comportamento sse \(A \land (f' \neq f)\) ocorre finitas vezes ou infinitos passos  \(A \land (f' \neq f)\) ocorrem.<br /></li>
-<li>Garante que \(A\) não possa ser repetidamente ativável para sempre sem que um passo \(A\) ocorra.<br /></li>
+<li>Garante que \(A\) não possa ser <b>repetidamente</b> ativável para sempre sem que um passo \(A\) ocorra.<br /></li>
 </ul>
 </div>
 </div>
@@ -332,10 +332,10 @@ A razoabilidade forte para uma fórmula de estado \(f\) e uma ação \(A\) é es
 <h3 id="fairness-na-pr-tica-2"><span class="section-number-3">1.11.</span> Fairness na prática</h3>
 <div class="outline-text-3" id="text-1-11">
 <p>
-Usamos fairness para "excluir" cenários que não são realistas mas podem causar loops no modelo.<br />
+Usamos fairness para &ldquo;excluir&rdquo; cenários que não são realistas mas podem causar loops no modelo.<br />
 </p>
 <ul class="org-ul">
-<li>"loops irrealistas não ocorrem" implica em "coisa boa eventualmente acontece"<br /></li>
+<li>&ldquo;loops irrealistas não ocorrem&rdquo; implica em &ldquo;coisa boa eventualmente acontece&rdquo;<br /></li>
 </ul>
 </div>
 </div>

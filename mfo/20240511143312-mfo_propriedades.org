@@ -1,10 +1,10 @@
 :PROPERTIES:
 :ID:       c93b1182-0b80-4d21-8631-f1aa54c2c015
 :END:
-#+title:   Propriedades
-#+EMAIL:   gabrielamoreira05@gmail.com
-#+DATE:    2024-05-13
-#+LANGUAGE:  pt
+#+title:     Propriedades
+#+EMAIL:     gabrielamoreira05@gmail.com
+#+DATE:      23 de outubro de 2024
+#+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
 #+BEAMER_FRAME_LEVEL: 2
@@ -128,7 +128,7 @@ Seguem definições precisas copiadas do meu TCC (traduzidas do livro do Lamport
 ** Weak fairness - definição precisa
 A razoabilidade fraca para uma fórmula de estado $f$ e uma ação $A$ é escrita como $WF_f (A)$.
 - É satisfeita por um comportamento sse $A \land (f' \neq f)$ é infinitamente não ativável (\textsc{enabled}) ou infinitos passos  $A \land (f' \neq f)$ ocorrem.
-- Garante que $A$ não possa permanecer continuamente ativável para sempre sem que um passo $A$ ocorra. Essa condição pode ser escrita de forma equivalente como
+- Garante que $A$ não possa permanecer *continuamente* ativável para sempre sem que um passo $A$ ocorra. Essa condição pode ser escrita de forma equivalente como
   - $\square (\ENABLED  A \implies \Diamond\langle A\rangle_f)$
 
 #+BEAMER: \medskip\pause
@@ -136,14 +136,14 @@ A conjunção com $(f' \neq f)$, expressada com a notação $\langle A\rangle_f$
 - $A \land (f' \neq f)$ pode ser lido como "todos os passos não balbuciantes que satisfazem $A$".
 
 ** Strong fairness - definição precisa
-A razoabilidade fraca recebe a denominação "fraca" porque exige que uma ação permaneça continuamente ativável para garantir a ocorrência de um passo que a satisfaça.
-- Se um comportamento repetidamente tornar a ação ativável e em seguida não ativável, a razoabilidade fraca não garante nada sobre a ocorrência da ação neste comportamento.
+A razoabilidade fraca recebe a denominação "fraca" porque exige que uma ação permaneça *continuamente* ativável para garantir a ocorrência de um passo que a satisfaça.
+- Se um comportamento *repetidamente* tornar a ação ativável e em seguida não ativável, a razoabilidade fraca não garante nada sobre a ocorrência da ação neste comportamento.
 - Para tal, é necessário garantir a propriedade de razoabilidade forte (\textit{strong fairness}).
 
 #+BEAMER: \medskip\pause
 A razoabilidade forte para uma fórmula de estado $f$ e uma ação $A$ é escrita como $SF_f (A)$.
 - É satisfeita por um comportamento sse $A \land (f' \neq f)$ ocorre finitas vezes ou infinitos passos  $A \land (f' \neq f)$ ocorrem.
-- Garante que $A$ não possa ser repetidamente ativável para sempre sem que um passo $A$ ocorra.
+- Garante que $A$ não possa ser *repetidamente* ativável para sempre sem que um passo $A$ ocorra.
 
 ** Fairness na prática
 Usamos fairness para "excluir" cenários que não são realistas mas podem causar loops no modelo.
