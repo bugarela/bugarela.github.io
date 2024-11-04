@@ -78,31 +78,28 @@
 <li><a href="#quest-o-4-2">Questão 4</a></li>
 </ul>
 </li>
-<li><a href="#propriedades-1">Propriedades</a>
+<li><a href="#propriedades-e-suposi-es-1">Propriedades e Suposições</a>
 <ul>
 <li><a href="#quest-o-5-2">Questão 5</a></li>
-</ul>
-</li>
-<li><a href="#assumptions-1">Assumptions</a>
-<ul>
 <li><a href="#quest-o-6-2">Questão 6</a></li>
+<li><a href="#quest-o-7-2">Questão 7</a></li>
 </ul>
 </li>
 <li><a href="#perguntas-gerais-1">Perguntas gerais</a>
 <ul>
-<li><a href="#quest-o-7-2">Questão 7</a></li>
+<li><a href="#quest-o-8-2">Questão 8</a></li>
 </ul>
 </li>
 <li><a href="#tla-e-quint-1">TLA+ e Quint</a>
 <ul>
-<li><a href="#quest-o-8-2">Questão 8</a>
+<li><a href="#quest-o-9-2">Questão 9</a>
 <ul>
 <li><a href="#especifica-o-a-3">Especificação A</a></li>
 <li><a href="#especifica-o-b-3">Especificação B</a></li>
 </ul>
 </li>
-<li><a href="#quest-o-9-2">Questão 9</a></li>
 <li><a href="#quest-o-10-2">Questão 10</a></li>
+<li><a href="#quest-o-11-2">Questão 11</a></li>
 </ul>
 </li>
 </ul>
@@ -255,15 +252,15 @@ A representação de árvore da CTL permite que usemos quantificações existenc
 </div>
 </div>
 </div>
-<div id="outline-container-propriedades-1" class="outline-2">
-<h2 id="propriedades-1">Propriedades</h2>
-<div class="outline-text-2" id="text-propriedades-1">
+<div id="outline-container-propriedades-e-suposi-es-1" class="outline-2">
+<h2 id="propriedades-e-suposi-es-1">Propriedades e Suposições</h2>
+<div class="outline-text-2" id="text-propriedades-e-suposi-es-1">
 </div>
 <div id="outline-container-quest-o-5-2" class="outline-3">
 <h3 id="quest-o-5-2">Questão 5</h3>
 <div class="outline-text-3" id="text-quest-o-5-2">
 <p>
-Assinale as fórmulas abaixo com [I] - Invariante ou [V] - Vivacidade (Propriedade de Vivacidade ou <i>Liveness Property</i>). Lembre-se que não importa se a fórmula é verdadeira ou falsa.
+Assinale as fórmulas abaixo com [V] (verdadeiro) se a propriedade pode ser espressa com uma invariante ou [F] (falso) caso seja preciso uma fórmua temporal. Lembre-se que não importa se a fórmula é verdadeira ou falsa.
 </p>
 <ul class="org-ul">
 <li class="off"><code>[&#xa0;]</code> Para cada compra no cartão de crédito, vem uma cobrança na fatura ao final do mês.</li>
@@ -276,24 +273,57 @@ Assinale as fórmulas abaixo com [I] - Invariante ou [V] - Vivacidade (Proprieda
 <details>
 <summary><b>[Resposta]</b></summary>
 <ul class="org-ul">
-<li>[V] Para cada compra no cartão de crédito, vem uma cobrança na fatura ao final do mês.</li>
-<li>[I] Nunca vou para a academia sem meus fones de ouvido</li>
-<li>[V] Em algum momento vou terminar de pagar as parcelas do meu apartamento</li>
-<li>[I] Sempre uso óculos para dirigir</li>
-<li>[I] Não é possível estar na aula e no shopping ao mesmo tempo</li>
-<li>[V] Todos os códigos em C++ serão migrados para Rust</li>
+<li>[F] Para cada compra no cartão de crédito, vem uma cobrança na fatura ao final do mês.</li>
+<li>[V] Nunca vou para a academia sem meus fones de ouvido</li>
+<li>[F] Em algum momento vou terminar de pagar as parcelas do meu apartamento</li>
+<li>[V] Sempre uso óculos para dirigir</li>
+<li>[V] Não é possível estar na aula e no shopping ao mesmo tempo</li>
+<li>[F] Todos os códigos em C++ serão migrados para Rust</li>
 </ul>
 </details>
 </div>
 </div>
-</div>
-<div id="outline-container-assumptions-1" class="outline-2">
-<h2 id="assumptions-1">Assumptions</h2>
-<div class="outline-text-2" id="text-assumptions-1">
-</div>
 <div id="outline-container-quest-o-6-2" class="outline-3">
 <h3 id="quest-o-6-2">Questão 6</h3>
 <div class="outline-text-3" id="text-quest-o-6-2">
+<p>
+Leia a contextualização e responda:
+</p>
+<blockquote>
+<p>
+Estou vendendo peças de computador e contrato uma transportadora para fazer as entregas. Essas peças são frágeis, e podem quebrar se não forem transportadas de maneira adequada. A caixa não pode ser virada (a mesma face deve permanecer para cima durante todo o transporte), e não pode se mover no baú do caminhão. Para ter certeza de que a transportadora está fazendo seu serviço corretamente, instalei câmeras internas nos baús dos caminhões que me enviam fotos a cada 5 minutos. Agora, só preciso analisar essas fotos e determinar se a transportadora cumpre os requisitos.
+</p>
+</blockquote>
+
+<p>
+Considerando uma execução dada pela sequência de fotos enviadas, escreva propriedades de segurança e vivacidade que digam sobre a qualidade do serviço da transportadora. Informe o tipo (invariante/temporal e segurança/vivacidade) de cada propriedade. Liste também que tipo de suposições estão sendo feitas para viabilizar essa análise.
+</p>
+
+<details>
+<summary><b>[Resposta]</b></summary>
+<p>
+Propriedades:
+</p>
+<ul class="org-ul">
+<li>Invariante de segurança: a face de cima da caixa está para cima</li>
+<li>Temporal de segurança: sempre (a posição da caixa no próximo estado é a mesma que no estado atual ou ela é retirada pra entrega)</li>
+<li>Temporal de vivacidade: eventualmente a caixa é retirada para entrega</li>
+</ul>
+
+<p>
+Suposições:
+</p>
+<ul class="org-ul">
+<li>é possível determinar a posição da caixa em cada foto</li>
+<li>é possível determinar se a face correta da caixa está pra cima</li>
+<li>se a caixa for retirada, é por conta de uma entrega</li>
+</ul>
+</details>
+</div>
+</div>
+<div id="outline-container-quest-o-7-2" class="outline-3">
+<h3 id="quest-o-7-2">Questão 7</h3>
+<div class="outline-text-3" id="text-quest-o-7-2">
 <p>
 Alice e Bob estavam combinando de se encontrar e Alice mandou a seguinte mensagem para Bob: &ldquo;Encontre-me as 15h na cafeteria Café Quentinho&rdquo;. Ao fazer essa comunicação, Alice estava supondo algumas coisas. Descreva qual suposição de Alice estava errada para cada um dos cenários a seguir.
 </p>
@@ -339,9 +369,9 @@ Alice assumiu que o relógio de Bob estava no mesmo horário que o dela.
 <h2 id="perguntas-gerais-1">Perguntas gerais</h2>
 <div class="outline-text-2" id="text-perguntas-gerais-1">
 </div>
-<div id="outline-container-quest-o-7-2" class="outline-3">
-<h3 id="quest-o-7-2">Questão 7</h3>
-<div class="outline-text-3" id="text-quest-o-7-2">
+<div id="outline-container-quest-o-8-2" class="outline-3">
+<h3 id="quest-o-8-2">Questão 8</h3>
+<div class="outline-text-3" id="text-quest-o-8-2">
 <p>
 Suponha que temos um modelo e uma propriedade que é violada numa execução de 5 passos. Considere que estamos usando um simulador aleatório com até 10.000 amostras e 10 passos, e um <i>model checker</i> com até 10 passos. Assinale com verdadeiro ou falso <b>e justifque sua resposta</b>.
 </p>
@@ -373,9 +403,9 @@ Suponha que temos um modelo e uma propriedade que é violada numa execução de 
 <h2 id="tla-e-quint-1">TLA+ e Quint</h2>
 <div class="outline-text-2" id="text-tla-e-quint-1">
 </div>
-<div id="outline-container-quest-o-8-2" class="outline-3">
-<h3 id="quest-o-8-2">Questão 8</h3>
-<div class="outline-text-3" id="text-quest-o-8-2">
+<div id="outline-container-quest-o-9-2" class="outline-3">
+<h3 id="quest-o-9-2">Questão 9</h3>
+<div class="outline-text-3" id="text-quest-o-9-2">
 <p>
 Dada uma especificação simples, escreva uma breve descrição do que ela faz. Observe o seguinte exemplo:
 Quint:
@@ -504,9 +534,9 @@ Um modelo onde x começa em 1 e a cada passo recebe um novo valor, diferente do 
 </div>
 </div>
 </div>
-<div id="outline-container-quest-o-9-2" class="outline-3">
-<h3 id="quest-o-9-2">Questão 9</h3>
-<div class="outline-text-3" id="text-quest-o-9-2">
+<div id="outline-container-quest-o-10-2" class="outline-3">
+<h3 id="quest-o-10-2">Questão 10</h3>
+<div class="outline-text-3" id="text-quest-o-10-2">
 <p>
 Considere o modelo a seguir:
 </p>
@@ -575,9 +605,9 @@ Para cada execução a seguir, assinale verdadeiro se o modelo permite a execuç
 </details>
 </div>
 </div>
-<div id="outline-container-quest-o-10-2" class="outline-3">
-<h3 id="quest-o-10-2">Questão 10</h3>
-<div class="outline-text-3" id="text-quest-o-10-2">
+<div id="outline-container-quest-o-11-2" class="outline-3">
+<h3 id="quest-o-11-2">Questão 11</h3>
+<div class="outline-text-3" id="text-quest-o-11-2">
 <p>
 O operador primed (<code>'</code>) permite que escrevamos predicados sobre o próximo estado. Assinale verdadeiro se o operador primed está sendo usado corretamente, ou falso se o uso resultará em um erro. Caso responder falso, <b>justifique sua resposta</b>. Considere que x e y são variáveis. As respostas para Quint ou TLA+ são as mesmas, responda apenas uma delas.
 </p>
