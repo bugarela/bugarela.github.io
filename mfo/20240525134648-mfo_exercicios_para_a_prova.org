@@ -59,7 +59,7 @@ Defina uma estrutura de Kripke para um sistema de caixa da água com as seguinte
    #+begin_details
    #+html:<summary><b>[Resposta]</b></summary>
      - $S = \{vazia, enchendo, cheia, esvaziando\}$
-     - $\rightarrow = \{vazia \rightarrow enchendo, enchendo \rightarrow esvaziando, enchendo \rightarrow cheia, cheia \rightarrow esvaziando, esvaziando \rightarrow enchendo, enchendo \rightarrow vazia\}$
+     - $\rightarrow = \{vazia \rightarrow enchendo, enchendo \rightarrow esvaziando, enchendo \rightarrow cheia, cheia \rightarrow esvaziando, esvaziando \rightarrow enchendo, esvaziando \rightarrow vazia\}$
      - $I = \{vazia\}$
    #+end_details
 
@@ -303,7 +303,7 @@ action init = x' = 10
 action step = any {
   all {
     x < 20,
-    x % 2 = 0,
+    x % 2 == 0,
     x' = x + 3
   },
   all {
@@ -317,11 +317,14 @@ TLA+:
 #+begin_src tla
 VARIABLE x
 
-Init == x = 1
+Init == x = 10
 
-Next == \E v \in 1..10:
-  /\ x /= v
-  /\ x' = v
+Next ==
+  \/ /\ x < 20
+     /\ x % 2 = 0
+     /\ x' = x + 3
+  \/ /\ x > 5
+     /\ x' = x - 1
 #+end_src
 
 Para cada execução a seguir, assinale verdadeiro se o modelo permite a execução e falso caso contrário. Quando responder falso, *justifique sua resposta*.
@@ -375,6 +378,22 @@ TLA+:
 - [F] =x' = 1 \/ y' = 2=
   - atualização desbalanceada: em uma das ramificações apenas x é atualizado, e em outra apenas y
 
+#+end_details
+
+** Questão 12
+ Agora escreva a propriedade em Quint ou em TLA+ para:
+
+   a) "Não é possível estar na aula e no shopping ao mesmo tempo". Considere que existam duas variáveis de estado do tipo =bool=: =na_aula= e =no_shopping=.
+   b) "Sempre uso óculos para dirigir". Considere que existam duas variáveis de estado do tipo =bool=: =estou_dirigindo= e =estou_de_oculos=.
+   c) "Em algum momento vou terminar de pagar as parcelas do meu apartamento". Considere que exista uma variável de estado do tipo =int= para o número restante de parcelas: =parcelas_restantes=.
+   d) "Todos os códigos em C++ serão migrados para Rust". Considere que exista uma variável =codigos= do tipo =int -> { codigo: str, linguagem: str }= sendo a chave (domínio) um identificador único daquele código e o campo =linguagem= pode conter ="c++"=, ="haskell"= ou ="rust"=.
+
+#+begin_details
+#+html:<summary><b>[Resposta]</b></summary>
+  a) =not(na_aula) or not(no_shopping)=
+  b) =estou_dirigindo implies estou_de_oculos=
+  c) src_quint[:exports code]{eventually(parcelas_restantes == 0)}
+  d) src_quint[:exports code]{codigos.keys().forall(k => codigos.get(k).linguagem == "c++" implies eventually(codigos.get(k).linguagem == "rust"))}
 #+end_details
 
 # - Dada uma definição/especificação, onde há não-determinismo?

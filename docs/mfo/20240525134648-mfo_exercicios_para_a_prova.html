@@ -14,8 +14,8 @@
   <meta property="og:description" content="Personal homepage exported with org-thtml" />
   
     <meta property="og:image" content="https://bugarela.com/mfo/1a.png" />
-    <meta property="og:image:width" content="1696" />
-    <meta property="og:image:height" content="439" />
+    <meta property="og:image:width" content="2083" />
+    <meta property="og:image:height" content="539" />
   
   
     <meta name="twitter:card" content="summary_large_image">
@@ -100,6 +100,7 @@
 </li>
 <li><a href="#quest-o-10-2">Questão 10</a></li>
 <li><a href="#quest-o-11-2">Questão 11</a></li>
+<li><a href="#quest-o-12-2">Questão 12</a></li>
 </ul>
 </li>
 </ul>
@@ -171,7 +172,7 @@ PS: Tente usar o mínimo de estados e transições necessários para representar
 <summary><b>[Resposta]</b></summary>
 <ul class="org-ul">
 <li>\(S = \{vazia, enchendo, cheia, esvaziando\}\)</li>
-<li>\(\rightarrow = \{vazia \rightarrow enchendo, enchendo \rightarrow esvaziando, enchendo \rightarrow cheia, cheia \rightarrow esvaziando, esvaziando \rightarrow enchendo, enchendo \rightarrow vazia\}\)</li>
+<li>\(\rightarrow = \{vazia \rightarrow enchendo, enchendo \rightarrow esvaziando, enchendo \rightarrow cheia, cheia \rightarrow esvaziando, esvaziando \rightarrow enchendo, esvaziando \rightarrow vazia\}\)</li>
 <li>\(I = \{vazia\}\)</li>
 </ul>
 </details>
@@ -552,7 +553,7 @@ Quint:
 <span class="org-builtin">action</span> step = <span class="org-keyword">any</span> {
   <span class="org-keyword">all</span> {
     x &lt; 20,
-    x % 2 = 0,
+    x % 2 == 0,
     x' = x + 3
   },
   <span class="org-keyword">all</span> {
@@ -569,11 +570,14 @@ TLA+:
 <div class="org-src-container">
 <pre class="src src-tla"><span class="org-keyword">VARIABLE</span> x
 
-Init == x = <span class="org-highlight-numbers-number">1</span>
+Init == x = <span class="org-highlight-numbers-number">10</span>
 
-Next == \E v \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">10</span>:
-  /\ x /= v
-  /\ x' = v
+Next ==
+  \/ /\ x &lt; <span class="org-highlight-numbers-number">20</span>
+     /\ x % <span class="org-highlight-numbers-number">2</span> = <span class="org-highlight-numbers-number">0</span>
+     /\ x' = x + <span class="org-highlight-numbers-number">3</span>
+  \/ /\ x &gt; <span class="org-highlight-numbers-number">5</span>
+     /\ x' = x - <span class="org-highlight-numbers-number">1</span>
 </pre>
 </div>
 
@@ -666,6 +670,31 @@ TLA+:
 <li>atualização desbalanceada: em uma das ramificações apenas x é atualizado, e em outra apenas y</li>
 </ul></li>
 </ul>
+</details>
+</div>
+</div>
+<div id="outline-container-quest-o-12-2" class="outline-3">
+<h3 id="quest-o-12-2">Questão 12</h3>
+<div class="outline-text-3" id="text-quest-o-12-2">
+<p>
+Agora escreva a propriedade em Quint ou em TLA+ para:
+</p>
+
+<ol class="org-ol">
+<li>&ldquo;Não é possível estar na aula e no shopping ao mesmo tempo&rdquo;. Considere que existam duas variáveis de estado do tipo <code>bool</code>: <code>na_aula</code> e <code>no_shopping</code>.</li>
+<li>&ldquo;Sempre uso óculos para dirigir&rdquo;. Considere que existam duas variáveis de estado do tipo <code>bool</code>: <code>estou_dirigindo</code> e <code>estou_de_oculos</code>.</li>
+<li>&ldquo;Em algum momento vou terminar de pagar as parcelas do meu apartamento&rdquo;. Considere que exista uma variável de estado do tipo <code>int</code> para o número restante de parcelas: <code>parcelas_restantes</code>.</li>
+<li>&ldquo;Todos os códigos em C++ serão migrados para Rust&rdquo;. Considere que exista uma variável <code>codigos</code> do tipo <code>int -&gt; { codigo: str, linguagem: str }</code> sendo a chave (domínio) um identificador único daquele código e o campo <code>linguagem</code> pode conter <code>"c++"</code>, <code>"haskell"</code> ou <code>"rust"</code>.</li>
+</ol>
+
+<details>
+<summary><b>[Resposta]</b></summary>
+<ol class="org-ol">
+<li><code>not(na_aula) or not(no_shopping)</code></li>
+<li><code>estou_dirigindo implies estou_de_oculos</code></li>
+<li><code class="src src-quint">eventually(parcelas_restantes == 0)</code></li>
+<li><code class="src src-quint">codigos.keys().forall(k =&gt; codigos.get(k).linguagem == <span class="org-string">"c++"</span> <span class="org-keyword">implies</span> eventually(codigos.get(k).linguagem == <span class="org-string">"rust"</span>))</code></li>
+</ol>
 </details>
 </div>
 </div>
