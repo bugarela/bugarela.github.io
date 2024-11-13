@@ -38,7 +38,6 @@
   - [[file:20240507182006-mfo_efetivacao_em_duas_fases.org][Efetivação em Duas Fases]]
 ** Model checking
   - [[file:20240511143312-mfo_propriedades.org][Propriedades]]
-#   - [[file:20240520131408-mfo_testando_um_problema_da_maratona.org][Testando um problema da maratona]]
 #   - [[file:20240623102850-mfo_model_checking.org][Model Checking]]
 #   - [[file:20240625203536-mfo_tla_avancado.org][TLA+ Avançado]]
 * Seminário
@@ -49,5 +48,6 @@
   - [[file:20240423183852-mfo_trabalho_1.org][Trabalho 1]]
   - [[file:20240517155753-mfo_faq_trabalho_1.org][FAQ Trabalho 1]]
   - [[file:20240424144115-mfo_dicas_trabalho_1.org][Dicas Trabalho 1]]
-# * Trabalho 2
+* Trabalho 2
+  - [[file:20240520131408-mfo_testando_um_problema_da_maratona.org][Testes]]
 #   - [[file:20240609214243-mfo_trabalho_2.org][Trabalho 2]]

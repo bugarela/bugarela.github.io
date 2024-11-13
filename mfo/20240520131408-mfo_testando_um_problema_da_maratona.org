@@ -1,9 +1,9 @@
 :PROPERTIES:
 :ID:       b4f81962-5f0a-4196-b1a1-0a76e0195bec
 :END:
-#+title:     Testando um problema da maratona
+#+title:     Testes
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      2024-05-20
+#+DATE:      13 de novembro de 2024
 #+LANGUAGE:  en
 #+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
@@ -22,10 +22,11 @@
 #+beamer: \end{frame}
 
 
-* AAATestes
+* Exemplo: Um problema da maratona
 ** Problema D: Desvio de rota
 [[./figures/problema-maratona-D.png]]
 
+* Testes
 ** Testes comuns
 - Vão testar um caso específico
 - Podem ser unitários, de integração, etc
@@ -66,6 +67,7 @@ Program testing can be used to show the presence of bugs, but never to show thei
   -- Edsger Dijkstra
 #+end_quote
 
+* Testes baseados em modelos
 ** Testes baseados em modelos
 Verificação garante que não existem bugs!
 
@@ -105,3 +107,6 @@ Alguns métodos formais, como Coq, permitem extração automática da implementa
 Nosso trabalho 2 será sobre testes baseados em modelos!
 - É o maior ponto de contato entre métodos formais e indústria.
 - Eu vou fazer boa parte do trabalho, vocês só vão precisar encaixar as pecinhas e ver funcionando.
+
+** FIM
+#+BEAMER: \maketitle
