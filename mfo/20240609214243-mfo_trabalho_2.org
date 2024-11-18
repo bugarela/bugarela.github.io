@@ -1,10 +1,10 @@
 :PROPERTIES:
 :ID:       8320c0f0-5769-48b9-95da-f5fc1e9a2bc9
 :END:
-#+title: Trabalho 2
-#+author: Métodos Formais
+#+title:     Trabalho 2
+#+author:    Métodos Formais
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      10 de junho de 2024
+#+DATE:      18 de novembro de 2024
 #+LANGUAGE:  en
 #+OPTIONS:    toc:t
 #+LaTeX_CLASS: bugarela-article
@@ -14,7 +14,7 @@
 #+HTML: <a href="https://bugarela.com/mfo/slides/20240609214243-mfo_trabalho_2.pdf">PDF</a><br />
 
 * Informações importantes
-- Data de entrega: 01 de julho (segunda-feira)
+- Data de entrega: 02 de dezembro (segunda-feira)
 - Trabalho individual ou em dupla
 - Formato de entrega: Código + relatório
 - Formato de apresentação: Breve explicação + demonstração (somente para a professora)
@@ -39,7 +39,8 @@ Você recebe:
    - Compilar passando a pasta =lib=: =g++ -I lib test.cpp=
 
 ** Procedimento para execução
-*Atenção*: É necessária a versão v0.21.0 do Quint para usar o =--n-traces=, atualizem!
+*Atenção*: Atualizem a versão do Quint! A mais recente é v0.22.4
+Para atualizar: =npm install -g @informalsystems/quint@latest=
 
 1. Obter 10 mil execuções a partir do simulador: =quint run bank.qnt --mbt --out-itf=traces/out.itf.json --n-traces=10000=
    - PS: crie a pasta =traces= para que todos os arquivos JSON sejam escritos nela.
@@ -71,6 +72,6 @@ Seu relatório deve conter uma seção explicando brevemente como seu teste est�
 
 Para cada modificação, você deve apresentar:
 1. Qual informação do teste levou você a identificar o /bug/. Pode ser uma captura de tela do terminal ou cópia do output, com uma breve descrição.
-2. A modificação que você fez. Pode ser uma captura de tela ou cópia do código inserido. Necessário que fique claro o que foi modificado (não coloquem uma imagem do código inteiro). Alternativamente, podem informar a /hash/ do /commit/ do GitHub, de forma que o commit contenha apenas a modificação em questão.
+2. A modificação que você fez. Pode ser uma captura de tela ou cópia do código inserido. Necessário que fique claro o que foi modificado (não coloque uma imagem do código inteiro). Alternativamente, podem informar a /hash/ do /commit/ do GitHub, de forma que o commit contenha apenas a modificação em questão.
 
-A princípio, seu relatório pode conter apenas a descrição o teste e das modificações, sem necessidade de mais seções como introdução e conclusão. Se houverem mais informações relevantes, podem acrescentar.
+A princípio, seu relatório pode conter apenas a descrição do teste e das modificações, sem necessidade de mais seções como introdução e conclusão. Se houverem mais informações relevantes, podem acrescentar.
