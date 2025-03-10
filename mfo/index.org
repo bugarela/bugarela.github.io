@@ -2,4 +2,62 @@
 #+date: <2024-02-25 Sun>
 #+OPTIONS:  num:nil toc:nil
 
+#+begin_export html
+<input type="text" id="search-bar" placeholder="Search..." />
+<div id="search-results"></div>
+<script>
+  let searchIndex;
+  let docs;
+
+  fetch('/search-index.json')
+    .then(response => response.json())
+    .then(data => {
+      docs = data;
+      searchIndex = lunr(function () {
+        this.use(lunr.pt)
+        this.ref('url');
+        this.field('title');
+        this.field('content');
+
+        data.forEach(item => this.add(item));
+      });
+    });
+
+  // Function to get relevant lines containing the search term
+  function getRelevantLines(text, searchTerm) {
+    const lines = text.split('\n');
+    const regex = new RegExp(`(${searchTerm})`, 'gi');
+    const relevantLines = lines
+      .filter(line => regex.test(line)) // Find lines containing the search term
+      .map(line => line.replace(regex, '<span class="highlight">$1</span>')); // Highlight the search term
+    return relevantLines.join('<br>'); // Join lines with <br> for display
+  }
+
+  document.getElementById('search-bar').addEventListener('input', function (e) {
+    const searchTerm = e.target.value.toLowerCase();
+    const resultsContainer = document.getElementById('search-results');
+    resultsContainer.innerHTML = '';
+
+    if (searchTerm.length === 0) return;
+
+    const results = searchIndex.search(searchTerm);
+
+    if (results.length > 0) {
+      results.forEach(result => {
+        const doc = docs.find(item => item.url === result.ref);
+        const highlightedContent = getRelevantLines(doc.content, searchTerm);
+        const resultElement = document.createElement('div');
+        resultElement.innerHTML = `
+        <h3><a href="${doc.url}">${doc.title}</a></h3>
+        <p>${highlightedContent}</p>
+        `;
+        resultsContainer.appendChild(resultElement);
+      });
+    } else {
+      resultsContainer.innerHTML = '<div>No results found.</div>';
+    }
+  });
+</script>
+#+end_export
+
 #+include: sitemap.inc

@@ -107,3 +107,39 @@
   (org-publish "homepage" t))
 
 (ox-thtml-create-sitemap-xml "docs/sitemap.xml" "docs" ox-thtml-site-url)
+(require 'dom) ; For parsing HTML
+(require 'json) ; For generating JSON
+
+(defun clean-text (text)
+  "Remove extra whitespace and newlines from TEXT."
+  text)
+;; (replace-regexp-in-string "[ \t\n]+" " " text))
+
+(defun extract-title-and-content (file)
+  "Extract the title and content from an HTML file."
+  (with-temp-buffer
+    (insert-file-contents file)
+    (let* ((dom (libxml-parse-html-region (point-min) (point-max))))
+      (message "Processing file: %s" file) ; Debug: Print the file being processed
+      (let ((title (clean-text (dom-texts (dom-by-tag dom 'title) " "))) ; Concatenate title text
+            (content (clean-text (dom-texts (dom-by-tag dom 'body) " ")))) ; Concatenate body text
+        (message "Title: %s" title) ; Debug: Print the title
+        `((title . ,title)
+          (content . ,content)
+          (url . ,(file-name-nondirectory file)))))))
+
+(defun generate-search-index (html-folder output-file)
+  "Generate a search index for all HTML files in HTML-FOLDER and save it to OUTPUT-FILE."
+  (let ((files (directory-files html-folder t "\\.html$"))
+        (index '()))
+    (message "Found %d HTML files in folder: %s" (length files) html-folder) ; Debug: Print number of files
+    (dolist (file files)
+      (message "Extracting data from file: %s" file) ; Debug: Print the file being processed
+      (let ((data (extract-title-and-content file)))
+        (push data index)))
+    (with-temp-file output-file
+      (insert (json-encode index)))
+    (message "Search index saved to: %s" output-file))) ; Debug: Confirm where the index is saved
+
+;; Example usage:
+(generate-search-index "./docs/mfo" "./docs/search-index.json")

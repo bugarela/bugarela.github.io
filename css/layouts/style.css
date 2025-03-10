@@ -733,3 +733,8 @@ code {
         max-width: 70%;
     }
 }
+
+.highlight {
+  background-color: #ab70f1;
+  font-weight: bold;
+}

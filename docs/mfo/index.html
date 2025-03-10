@@ -21,6 +21,9 @@
   
 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.stemmer.support.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.pt.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
@@ -58,7 +61,62 @@
             <div class="content pure-u-1 pure-u-md-2-3">
                 
                 <h1>Métodos Formais </h1>
-                 <div id="outline-container-links-teis-1" class="outline-2">
+                 <input type="text" id="search-bar" placeholder="Search..." />
+<div id="search-results"></div>
+<script>
+  let searchIndex;
+  let docs;
+
+  fetch('/search-index.json')
+    .then(response => response.json())
+    .then(data => {
+      docs = data;
+      searchIndex = lunr(function () {
+        this.use(lunr.pt)
+        this.ref('url');
+        this.field('title');
+        this.field('content');
+
+        data.forEach(item => this.add(item));
+      });
+    });
+
+  // Function to get relevant lines containing the search term
+  function getRelevantLines(text, searchTerm) {
+    const lines = text.split('\n');
+    const regex = new RegExp(`(${searchTerm})`, 'gi');
+    const relevantLines = lines
+      .filter(line => regex.test(line)) // Find lines containing the search term
+      .map(line => line.replace(regex, '<span class="highlight">$1</span>')); // Highlight the search term
+    return relevantLines.join('<br>'); // Join lines with <br> for display
+  }
+
+  document.getElementById('search-bar').addEventListener('input', function (e) {
+    const searchTerm = e.target.value.toLowerCase();
+    const resultsContainer = document.getElementById('search-results');
+    resultsContainer.innerHTML = '';
+
+    if (searchTerm.length === 0) return;
+
+    const results = searchIndex.search(searchTerm);
+
+    if (results.length > 0) {
+      results.forEach(result => {
+        const doc = docs.find(item => item.url === result.ref);
+        const highlightedContent = getRelevantLines(doc.content, searchTerm);
+        const resultElement = document.createElement('div');
+        resultElement.innerHTML = `
+        <h3><a href="${doc.url}">${doc.title}</a></h3>
+        <p>${highlightedContent}</p>
+        `;
+        resultsContainer.appendChild(resultElement);
+      });
+    } else {
+      resultsContainer.innerHTML = '<div>No results found.</div>';
+    }
+  });
+</script>
+<div id="outline-container-links-teis-1" class="outline-2">
 <h2 id="links-teis-1">Links úteis</h2>
 <div class="outline-text-2" id="text-links-teis-1">
 <ul class="org-ul">

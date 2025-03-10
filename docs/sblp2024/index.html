@@ -21,6 +21,9 @@
   
 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.stemmer.support.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.pt.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
@@ -212,7 +215,7 @@ standardPropagation(1)
     <span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">set</span>.size !== <span class="org-highlight-numbers-number">1</span><span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">{</span>
       <span class="org-keyword">return</span> <span class="org-function-name">left</span><span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">{</span>
         code: <span class="org-string">'QNT505'</span>,
-        message: <span class="org-string">`Called 'getOnlyElement' on a set with ${set.size} elements. Make sure the set has exactly one element.`</span>,
+        message: <span class="org-string">`Called 'getOnlyElement' on a set with </span><span class="org-keyword">${</span><span class="org-default">set.size</span><span class="org-keyword">}</span><span class="org-string"> elements. Make sure the set has exactly one element.`</span>,
       <span class="org-rainbow-delimiters-depth-4">}</span><span class="org-rainbow-delimiters-depth-3">)</span>
     <span class="org-rainbow-delimiters-depth-2">}</span>
 

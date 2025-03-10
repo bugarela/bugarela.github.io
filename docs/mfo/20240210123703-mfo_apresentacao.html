@@ -21,6 +21,9 @@
   
 
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.stemmer.support.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.pt.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
@@ -97,8 +100,9 @@
 <li><a href="#sistema-de-avalia-o-2">2.2. Sistema de avaliação</a>
 <ul>
 <li><a href="#do-desempenho-do-aluno-3">2.2.1. Do desempenho do aluno</a></li>
-<li><a href="#exame-3">2.2.2. Exame</a></li>
-<li><a href="#do-desempenho-da-disciplina-e-da-professora-3">2.2.3. Do desempenho da disciplina e da professora</a></li>
+<li><a href="#off-guia-para-navegar-as-avalia-es-3">2.2.2. OFF: guia para navegar as avaliações</a></li>
+<li><a href="#exame-3">2.2.3. Exame</a></li>
+<li><a href="#do-desempenho-da-disciplina-e-da-professora-3">2.2.4. Do desempenho da disciplina e da professora</a></li>
 </ul>
 </li>
 <li><a href="#bibliografia-2">2.3. Bibliografia</a>
@@ -201,7 +205,7 @@ Indústria:<br />
 </ul>
 <ul class="org-ul">
 <li><p>
-Entrei na Informal Systems devido a pesquisa ativa (minha e deles) em TLA+<br />
+Entrei na Informal Systems devido à pesquisa ativa (minha e deles) em TLA+<br />
 </p>
 <ul class="org-ul">
 <li>Muitos engenheiros com dificuldade em aprender e usar TLA+<br /></li>
@@ -300,11 +304,12 @@ Desenvolver habilidades para reconhecimento de cenários, em sistemas computacio
 <ul class="org-ul">
 <li>Introdução: Programação e matemática não são a mesma coisa<br /></li>
 <li>Estruturas de Kripke<br /></li>
-<li>Linguagens de especificação formal<br /></li>
 <li>Lógica Temporal<br /></li>
 <li>Exemplo com semáforos<br /></li>
 <li>Motivação para o uso de métodos formais<br /></li>
+<li>Linguagens de especificação formal<br /></li>
 <li>Lógica Temporal de Ações: TLA+ e Quint<br /></li>
+<li>Exemplo com Jogo da Velha<br /></li>
 <li>Formulas temporais em TLA+ e Quint<br /></li>
 <li>Métodos formais no design de protocolos<br /></li>
 <li>Especificações para sistemas distribuídos<br /></li>
@@ -325,10 +330,6 @@ Desenvolver habilidades para reconhecimento de cenários, em sistemas computacio
 <p>
 A disciplina será desenvolvida através de aulas expositivo-dialogadas, com exercícios e trabalhos práticos, e seminários. O conteúdo da disciplina poderá ser ministrado na modalidade de ensino a distância em até 20% do total de sua Carga Horária (MEC PORTARIA No 4.059, DE 10 DE DEZEMBRO DE 2004 publicado no DOU de 13/12/2004, Seção 1, p. 34).<br />
 </p>
-
-<p>
-As aulas do dias 7, 9 e 14 de outubro serão na modalidade de ensino a distância porque tenho uma viagem de trabalho agendada.<br />
-</p>
 </div>
 </div>
 </div>
@@ -345,28 +346,52 @@ A qualidade do desempenho do aluno será avaliada com base em:<br />
 <ol class="org-ol">
 <li>Uma prova individual (P) - 30%<br /></li>
 <li>Dois trabalhos práticos (T1 e T2) - 25% cada<br /></li>
-<li>Um seminário (S) - 20%<br /></li>
+<li>Um seminário (S) - 10%<br /></li>
+<li>Exercícios (E) - 10%<br /></li>
 </ol>
 
 <p>
 Assim, a Média Semestral (MS) será calculada pela fórmula<br />
 </p>
 <p>
-MS = (30 * P + 25 * T1 + 25 * T2 + 20 * S)/100<br />
+MS = (30 * P + 25 * T1 + 25 * T2 + 10 * S + 10 * E)/100<br />
 </p>
 </div>
 </div>
-<div id="outline-container-exame-3" class="outline-4">
-<h4 id="exame-3"><span class="section-number-4">2.2.2.</span> Exame</h4>
+<div id="outline-container-off-guia-para-navegar-as-avalia-es-3" class="outline-4">
+<h4 id="off-guia-para-navegar-as-avalia-es-3"><span class="section-number-4">2.2.2.</span> OFF: guia para navegar as avaliações</h4>
 <div class="outline-text-4" id="text-2-2-2">
+<ul class="org-ul">
+<li>O trabalho 1 é o mais trabalhoso e importante<br /></li>
+</ul>
+<ul class="org-ul">
+<li>O seminário é bem simples, mas não deixem de fazer porque depois a nota faz falta<br />
+<ul class="org-ul">
+<li>É também mais no início do semestre onde vocês tem mais tempo livre<br /></li>
+</ul></li>
+</ul>
+<ul class="org-ul">
+<li>Os exercícios existem exclusivamente para prepará-los para o primeiro trabalho.<br />
+<ul class="org-ul">
+<li>Eu não estava cobrando até semestre passado, mas decidi cobrar para incentivá-los a não chegarem despreparados para o trabalho.<br /></li>
+</ul></li>
+</ul>
+<ul class="org-ul">
+<li>O trabalho 2 é bem tranquilo. Pensem nele como um impulso extra para passar (e não como um motivo de desistir).<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-exame-3" class="outline-4">
+<h4 id="exame-3"><span class="section-number-4">2.2.3.</span> Exame</h4>
+<div class="outline-text-4" id="text-2-2-3">
 <p>
 Caso o discente não obtenha média MS igual ou superior a 7,0, um exame escrito será aplicado objetivando aferir o conhecimento teórico do estudante. Não há recuperação das provas por não comparecimento, exceto nos casos previstos no regulamento da UDESC na resolução 0392015 - CONSEPE.<br />
 </p>
 </div>
 </div>
 <div id="outline-container-do-desempenho-da-disciplina-e-da-professora-3" class="outline-4">
-<h4 id="do-desempenho-da-disciplina-e-da-professora-3"><span class="section-number-4">2.2.3.</span> Do desempenho da disciplina e da professora</h4>
-<div class="outline-text-4" id="text-2-2-3">
+<h4 id="do-desempenho-da-disciplina-e-da-professora-3"><span class="section-number-4">2.2.4.</span> Do desempenho da disciplina e da professora</h4>
+<div class="outline-text-4" id="text-2-2-4">
 <p>
 Os estudantes terão, igualmente, a oportunidade de fazer uma avaliação do desempenho da professora e da disciplina. As informações sobre esta atividade serão fornecidas pelo coordenador do curso.<br />
 </p>

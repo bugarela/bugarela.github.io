@@ -4,7 +4,7 @@
 #+title:     Apresentação
 #+AUTHOR:    Gabriela Moreira
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      05 de agosto de 2024
+#+DATE:      09 de março de 2025
 #+KEYWORDS:
 #+LANGUAGE:  en
 #+OPTIONS:   H:3 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
@@ -62,7 +62,7 @@ Indústria:
 *** Meu envolvimento com Métodos Formais
 - Aprendi TLA+ na graduação para fazer meu TCC, e continuei estudando TLA+ no mestrado
 #+BEAMER: \pause
-- Entrei na Informal Systems devido a pesquisa ativa (minha e deles) em TLA+
+- Entrei na Informal Systems devido à pesquisa ativa (minha e deles) em TLA+
   #+BEAMER: \pause
   - Muitos engenheiros com dificuldade em aprender e usar TLA+
   #+BEAMER: \pause
@@ -116,11 +116,12 @@ Desenvolver habilidades para reconhecimento de cenários, em sistemas computacio
 :END:
 - Introdução: Programação e matemática não são a mesma coisa
 - Estruturas de Kripke
-- Linguagens de especificação formal
 - Lógica Temporal
 - Exemplo com semáforos
 - Motivação para o uso de métodos formais
+- Linguagens de especificação formal
 - Lógica Temporal de Ações: TLA+ e Quint
+- Exemplo com Jogo da Velha
 - Formulas temporais em TLA+ e Quint
 - Métodos formais no design de protocolos
 - Especificações para sistemas distribuídos
@@ -136,21 +137,30 @@ Desenvolver habilidades para reconhecimento de cenários, em sistemas computacio
 *** Metodologia
 A disciplina será desenvolvida através de aulas expositivo-dialogadas, com exercícios e trabalhos práticos, e seminários. O conteúdo da disciplina poderá ser ministrado na modalidade de ensino a distância em até 20% do total de sua Carga Horária (MEC PORTARIA No 4.059, DE 10 DE DEZEMBRO DE 2004 publicado no DOU de 13/12/2004, Seção 1, p. 34).
 
-#+BEAMER: \pause
-#+BEAMER: \medskip
-As aulas do dias 7, 9 e 14 de outubro serão na modalidade de ensino a distância porque tenho uma viagem de trabalho agendada.
-
 ** Sistema de avaliação
 *** Do desempenho do aluno
 A qualidade do desempenho do aluno será avaliada com base em:
 a) Uma prova individual (P) - 30%
 b) Dois trabalhos práticos (T1 e T2) - 25% cada
-c) Um seminário (S) - 20%
+c) Um seminário (S) - 10%
+d) Exercícios (E) - 10%
 
 #+beamer: \medskip
 Assim, a Média Semestral (MS) será calculada pela fórmula
 #+beamer: \smallskip
-MS = (30 * P + 25 * T1 + 25 * T2 + 20 * S)/100
+MS = (30 * P + 25 * T1 + 25 * T2 + 10 * S + 10 * E)/100
+
+*** OFF: guia para navegar as avaliações
+
+- O trabalho 1 é o mais trabalhoso e importante
+#+BEAMER: \pause
+- O seminário é bem simples, mas não deixem de fazer porque depois a nota faz falta
+  - É também mais no início do semestre onde vocês tem mais tempo livre
+#+BEAMER: \pause
+- Os exercícios existem exclusivamente para prepará-los para o primeiro trabalho.
+  - Eu não estava cobrando até semestre passado, mas decidi cobrar para incentivá-los a não chegarem despreparados para o trabalho.
+#+BEAMER: \pause
+- O trabalho 2 é bem tranquilo. Pensem nele como um impulso extra para passar (e não como um motivo de desistir).
 
 *** Exame
 Caso o discente não obtenha média MS igual ou superior a 7,0, um exame escrito será aplicado objetivando aferir o conhecimento teórico do estudante. Não há recuperação das provas por não comparecimento, exceto nos casos previstos no regulamento da UDESC na resolução 0392015 - CONSEPE.
