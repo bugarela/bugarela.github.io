@@ -1,0 +1,132 @@
+:PROPERTIES:
+:ID:       20fc7ea6-514e-468b-8565-ff90631a6fca
+:END:
+#+title: Checando propriedades com Lógica Temporal II
+#+AUTHOR:    Gabriela Moreira
+#+EMAIL:     gabrielamoreira05@gmail.com
+#+DATE:      26 de março de 2025
+#+LANGUAGE:  en
+#+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
+#+BEAMER_FRAME_LEVEL: 2
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [smaller]
+#+BEAMER_THEME: udesc
+#+BEAMER_HEADER: \input{header.tex} \subtitle{Aula para disciplina de Métodos Formais} \institute{Departamento de Ciência da Computação - DCC\\Universidade do Estado de Santa Catarina - UDESC}
+#+LATEX_COMPILER: pdflatex
+#+bibliography: references.bib
+#+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
+
+#+begin_src elisp :exports none
+(setq org-ref-default-citation-link "citeauthor")
+#+end_src
+
+#+HTML: <a href="https://bugarela.com/mfo/slides/20240306214020-mfo_logica_temporal_2.pdf">Slides</a>
+#+beamer: \begin{frame}{Conteúdo}
+#+TOC: headlines 3
+#+beamer: \end{frame}
+
+* Revisão & Cheatsheet
+** $\square$ ou *G*: /Globally/, sempre
+*G* $\phi$: $\phi$ deve ser verdadeiro por toda a execução a partir de agora.
+
+*G* $\phi$ é verdadeiro num momento $t$ se...
+#+LATEX:\hspace*{1cm}
+...$\phi$ é verdadeiro em *todos* os momentos $t' \geq t$.
+
+Exemplo: Comida sacia a fome.
+
+[[./figures/LTL_globally.png]]
+
+** $\Diamond$ ou *F*: Finally, eventualmente, no Futuro
+*F* $\phi$: eventualmente (na execução a partir de agora), $\phi$ deve ser verdadeiro.
+
+*F* $\phi$ é verdadeiro num momento $t$ se...
+#+LATEX:\hspace*{1cm}
+...$\phi$ é verdadeiro em *algum* o momento $t' \geq t$.
+
+Exemplo: Eventualmente, terei fome.
+
+[[./figures/LTL_finally.png]]
+
+#+LATEX:\vspace*{-1cm}
+** $\bigcirc$ ou *X*: /Ne(*x*)t/, próximo
+*X* $\phi$: $\phi$ deve ser verdadeiro no próximo estado.
+
+*X* $\phi$ é verdadeiro num momento $t$ se...
+#+LATEX:\hspace*{1cm}
+...$\phi$ é verdadeiro no momento $t + 1$.
+
+Exemplo: Logo após comer, tenho sede.
+
+[[./figures/LTL_next.png]]
+
+#+LATEX: \vfill\eject
+
+** *U*: /Until/, até
+$\psi$ *U* $\phi$: $\psi$ deve ser verdade até que $\phi$ seja verdade, sendo que $\phi$ deve ser verdade no presente ou no futuro.
+
+$\psi$ *U* $\phi$ é verdadeiro num momento $t$ se...
+#+LATEX:\hspace*{1cm}
+...$\phi$ é verdadeiro em algum momento $t' \geq t$ e, para todo tempo $t''$ (tal que $t \leq t'' < t'$), $\psi$ é verdadeiro.
+
+Exemplo: Eu tenho fome até eu comer alguma coisa.
+
+[[./figures/LTL_until.png]]
+
+** *R*: /Release/, libera
+$\psi$ *R* $\phi$: $\phi$ deve ser verdade até e incluindo o momento que $\psi$ se torna verdadeiro. Se $\psi$ nunca ficar verdadeiro, $\phi$ deve permanecer verdadeiro para sempre.
+
+$\psi$ *R* $\phi$ é verdadeiro num momento $t$ se...
+#+LATEX:\hspace*{1cm}
+...$\phi$ é verdadeiro em todos os momentos $t' \geq t$ até e incluindo o momento $t''$ onde $\psi$ também é verdadeiro. Alternativamente, pode ser que $\psi$ nunca seja verdadeiro, e nesse caso $\phi$ deve ser verdadeiro para todo momento $t' \geq t$.
+
+Exemplo: Ao comer chocolate, deixo de ter vontade de comer doce.
+
+[[./figures/LTL_release.png]]
+
+* Exemplos
+** Ônibus
+Normalmente, Joãozinho pega ônibus pra udesc e de volta pra casa. Às vezes, Joãozinho erra o ônibus e vai parar em Pirabeiraba.
+#+BEAMER: \center{\scalebox{1}{\begin{minipage}{\textwidth}
+#+begin_src mermaid :file onibus.png :theme neutral :scale 2 :background-color transparent
+stateDiagram
+  direction LR
+  udesc --> casa
+  casa --> udesc
+  udesc --> pirabeiraba
+  pirabeiraba --> casa
+#+end_src
+#+BEAMER: \end{minipage}}}
+
+- =F casa=: true
+
+** Ar condicionado da sala de aula
+#+BEAMER: \center{\scalebox{1}{\begin{minipage}{\textwidth}
+#+begin_src mermaid :file ar_condicionado.png :theme neutral :scale 2 :background-color transparent
+stateDiagram
+  direction LR
+  aula_acontecendo,ar_ligado --> aula_acontecendo,ar_ligado
+  aula_acontecendo,ar_ligado --> sem_aula,ar_ligado
+  sem_aula,ar_ligado --> sem_aula,ar_ligado
+  sem_aula,ar_ligado --> aula_acontecendo,ar_ligado
+  sem_aula,ar_ligado --> sem_aula,ar_desligado
+  sem_aula,ar_desligado --> sem_aula,ar_desligado
+  sem_aula,ar_desligado --> sem_aula,ar_ligado
+#+end_src
+#+BEAMER: \end{minipage}}}
+
+- =aula_acontecendo -> sem_aula V ar_ligado=: true
+- =aula_acontecendo -> ar_ligado U sem_aula=: false, porque podemos ficar em aula pra sempre :)
+
+* Exercício prático
+** Exercício prático
+Vamos escrever um avaliador de operadores para operadores temporais
+- Isso não é um /model checker/, porque não vamos considerar todas as possíveis execuções de um sistema
+- Dado uma única execução e uma fórmula temporal, a fórmula é verdadeira para essa execução?
+
+** Tarefa de casa
+Ler página 10 de https://www.whitehouse.gov/wp-content/uploads/2024/02/Final-ONCD-Technical-Report.pdf
+** FIM
+#+BEAMER: \maketitle

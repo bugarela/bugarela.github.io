@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Checando propriedades com Lógica Temporal II</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="https://bugarela.com/mfo/20240306214020-mfo_logica_temporal_2.html" />
+  <meta property="og:title" content="Checando propriedades com Lógica Temporal II" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+    <meta property="og:image" content="https://bugarela.com/mfo/figures/LTL_globally.png" />
+    <meta property="og:image:width" content="4125" />
+    <meta property="og:image:height" content="641" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Checando propriedades com Lógica Temporal II">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.stemmer.support.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.pt.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../css/layouts/style.css">
+
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-5" style="text-align: center">
+    <div class="header">
+        <h2 class="brand-title">
+            <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
+        </h2>
+    </div>
+    <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+    </div>
+    <div class="footer">
+    <div>
+        Created using Emacs and
+        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
+        >.<br />
+        Style from
+        <a href="https://owickstrom.github.io/the-monospace-web/"
+            >The Monospace Web</a
+        >.
+    </div>
+</div>
+
+</div>
+
+            <div class="content pure-u-1 pure-u-md-2-3">
+                
+                <h1>Checando propriedades com Lógica Temporal II</h1>
+                 <a href="https://bugarela.com/mfo/slides/20240306214020-mfo_logica_temporal_2.pdf">Slides</a>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#revis-o-cheatsheet-1">1. Revisão &amp; Cheatsheet</a>
+<ul>
+<li><a href="#square-ou-g-globally-sempre-2">1.1. \(\square\) ou <b>G</b>: <i>Globally</i>, sempre</a></li>
+<li><a href="#diamond-ou-f-finally-eventualmente-no-futuro-2">1.2. \(\Diamond\) ou <b>F</b>: Finally, eventualmente, no Futuro</a></li>
+<li><a href="#bigcirc-ou-x-ne-x-t-pr-ximo-2">1.3. \(\bigcirc\) ou <b>X</b>: <i>Ne(<b>x</b>)t</i>, próximo</a></li>
+<li><a href="#u-until-at-2">1.4. <b>U</b>: <i>Until</i>, até</a></li>
+<li><a href="#r-release-libera-2">1.5. <b>R</b>: <i>Release</i>, libera</a></li>
+</ul>
+</li>
+<li><a href="#exemplos-1">2. Exemplos</a>
+<ul>
+<li><a href="#nibus-2">2.1. Ônibus</a></li>
+<li><a href="#ar-condicionado-da-sala-de-aula-2">2.2. Ar condicionado da sala de aula</a></li>
+</ul>
+</li>
+<li><a href="#exerc-cio-pr-tico-1">3. Exercício prático</a>
+<ul>
+<li><a href="#exerc-cio-pr-tico-2">3.1. Exercício prático</a></li>
+<li><a href="#tarefa-de-casa-2">3.2. Tarefa de casa</a></li>
+<li><a href="#fim-2">3.3. FIM</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-revis-o-cheatsheet-1" class="outline-2">
+<h2 id="revis-o-cheatsheet-1"><span class="section-number-2">1.</span> Revisão &amp; Cheatsheet</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-square-ou-g-globally-sempre-2" class="outline-3">
+<h3 id="square-ou-g-globally-sempre-2"><span class="section-number-3">1.1.</span> \(\square\) ou <b>G</b>: <i>Globally</i>, sempre</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+<b>G</b> \(\phi\): \(\phi\) deve ser verdadeiro por toda a execução a partir de agora.<br />
+</p>
+
+<p>
+<b>G</b> \(\phi\) é verdadeiro num momento \(t\) se&#x2026;<br />
+</p>
+<p>
+&#x2026;\(\phi\) é verdadeiro em <b>todos</b> os momentos \(t' \geq t\).<br />
+</p>
+
+<p>
+Exemplo: Comida sacia a fome.<br />
+</p>
+
+
+<div class="figure">
+<p><img src="./figures/LTL_globally.png" alt="LTL_globally.png" /><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-diamond-ou-f-finally-eventualmente-no-futuro-2" class="outline-3">
+<h3 id="diamond-ou-f-finally-eventualmente-no-futuro-2"><span class="section-number-3">1.2.</span> \(\Diamond\) ou <b>F</b>: Finally, eventualmente, no Futuro</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+<b>F</b> \(\phi\): eventualmente (na execução a partir de agora), \(\phi\) deve ser verdadeiro.<br />
+</p>
+
+<p>
+<b>F</b> \(\phi\) é verdadeiro num momento \(t\) se&#x2026;<br />
+</p>
+<p>
+&#x2026;\(\phi\) é verdadeiro em <b>algum</b> o momento \(t' \geq t\).<br />
+</p>
+
+<p>
+Exemplo: Eventualmente, terei fome.<br />
+</p>
+
+
+<div class="figure">
+<p><img src="./figures/LTL_finally.png" alt="LTL_finally.png" /><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-bigcirc-ou-x-ne-x-t-pr-ximo-2" class="outline-3">
+<h3 id="bigcirc-ou-x-ne-x-t-pr-ximo-2"><span class="section-number-3">1.3.</span> \(\bigcirc\) ou <b>X</b>: <i>Ne(<b>x</b>)t</i>, próximo</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+<b>X</b> \(\phi\): \(\phi\) deve ser verdadeiro no próximo estado.<br />
+</p>
+
+<p>
+<b>X</b> \(\phi\) é verdadeiro num momento \(t\) se&#x2026;<br />
+</p>
+<p>
+&#x2026;\(\phi\) é verdadeiro no momento \(t + 1\).<br />
+</p>
+
+<p>
+Exemplo: Logo após comer, tenho sede.<br />
+</p>
+
+
+<div class="figure">
+<p><img src="./figures/LTL_next.png" alt="LTL_next.png" /><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-u-until-at-2" class="outline-3">
+<h3 id="u-until-at-2"><span class="section-number-3">1.4.</span> <b>U</b>: <i>Until</i>, até</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+\(\psi\) <b>U</b> \(\phi\): \(\psi\) deve ser verdade até que \(\phi\) seja verdade, sendo que \(\phi\) deve ser verdade no presente ou no futuro.<br />
+</p>
+
+<p>
+\(\psi\) <b>U</b> \(\phi\) é verdadeiro num momento \(t\) se&#x2026;<br />
+</p>
+<p>
+&#x2026;\(\phi\) é verdadeiro em algum momento \(t' \geq t\) e, para todo tempo \(t''\) (tal que \(t \leq t'' < t'\)), \(\psi\) é verdadeiro.<br />
+</p>
+
+<p>
+Exemplo: Eu tenho fome até eu comer alguma coisa.<br />
+</p>
+
+
+<div class="figure">
+<p><img src="./figures/LTL_until.png" alt="LTL_until.png" /><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-r-release-libera-2" class="outline-3">
+<h3 id="r-release-libera-2"><span class="section-number-3">1.5.</span> <b>R</b>: <i>Release</i>, libera</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+\(\psi\) <b>R</b> \(\phi\): \(\phi\) deve ser verdade até e incluindo o momento que \(\psi\) se torna verdadeiro. Se \(\psi\) nunca ficar verdadeiro, \(\phi\) deve permanecer verdadeiro para sempre.<br />
+</p>
+
+<p>
+\(\psi\) <b>R</b> \(\phi\) é verdadeiro num momento \(t\) se&#x2026;<br />
+</p>
+<p>
+&#x2026;\(\phi\) é verdadeiro em todos os momentos \(t' \geq t\) até e incluindo o momento \(t''\) onde \(\psi\) também é verdadeiro. Alternativamente, pode ser que \(\psi\) nunca seja verdadeiro, e nesse caso \(\phi\) deve ser verdadeiro para todo momento \(t' \geq t\).<br />
+</p>
+
+<p>
+Exemplo: Ao comer chocolate, deixo de ter vontade de comer doce.<br />
+</p>
+
+
+<div class="figure">
+<p><img src="./figures/LTL_release.png" alt="LTL_release.png" /><br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-exemplos-1" class="outline-2">
+<h2 id="exemplos-1"><span class="section-number-2">2.</span> Exemplos</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-nibus-2" class="outline-3">
+<h3 id="nibus-2"><span class="section-number-3">2.1.</span> Ônibus</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Normalmente, Joãozinho pega ônibus pra udesc e de volta pra casa. Às vezes, Joãozinho erra o ônibus e vai parar em Pirabeiraba.<br />
+</p>
+
+<div class="figure">
+<p><img src="onibus.png" alt="onibus.png" /><br />
+</p>
+</div>
+
+<ul class="org-ul">
+<li><code>F casa</code>: true<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-ar-condicionado-da-sala-de-aula-2" class="outline-3">
+<h3 id="ar-condicionado-da-sala-de-aula-2"><span class="section-number-3">2.2.</span> Ar condicionado da sala de aula</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<div class="figure">
+<p><img src="ar_condicionado.png" alt="ar_condicionado.png" /><br />
+</p>
+</div>
+
+<ul class="org-ul">
+<li><code>aula_acontecendo -&gt; sem_aula V ar_ligado</code>: true<br /></li>
+<li><code>aula_acontecendo -&gt; ar_ligado U sem_aula</code>: false, porque podemos ficar em aula pra sempre :)<br /></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-exerc-cio-pr-tico-1" class="outline-2">
+<h2 id="exerc-cio-pr-tico-1"><span class="section-number-2">3.</span> Exercício prático</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-exerc-cio-pr-tico-2" class="outline-3">
+<h3 id="exerc-cio-pr-tico-2"><span class="section-number-3">3.1.</span> Exercício prático</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Vamos escrever um avaliador de operadores para operadores temporais<br />
+</p>
+<ul class="org-ul">
+<li>Isso não é um <i>model checker</i>, porque não vamos considerar todas as possíveis execuções de um sistema<br /></li>
+<li>Dado uma única execução e uma fórmula temporal, a fórmula é verdadeira para essa execução?<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-tarefa-de-casa-2" class="outline-3">
+<h3 id="tarefa-de-casa-2"><span class="section-number-3">3.2.</span> Tarefa de casa</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Ler página 10 de <a href="https://www.whitehouse.gov/wp-content/uploads/2024/02/Final-ONCD-Technical-Report.pdf">https://www.whitehouse.gov/wp-content/uploads/2024/02/Final-ONCD-Technical-Report.pdf</a><br />
+</p>
+</div>
+</div>
+<div id="outline-container-fim-2" class="outline-3">
+<h3 id="fim-2"><span class="section-number-3">3.3.</span> FIM</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+</div>
+</div>
+
+            </div>
+        </div>
+    </body>
+</html>
