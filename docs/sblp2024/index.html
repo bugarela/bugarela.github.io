@@ -211,15 +211,15 @@ standardPropagation(1)
 <pre class="src src-typescript"><span class="org-keyword">case</span> <span class="org-string">'getOnlyElement'</span>:
   <span class="org-comment-delimiter">// </span><span class="org-comment">Get the only element of a set, or an error if the set is empty or has more than one element.</span>
   <span class="org-keyword">return</span> <span class="org-rainbow-delimiters-depth-1">(</span><span class="org-variable-name">_</span>, <span class="org-variable-name">args</span><span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-keyword">=&gt;</span> <span class="org-rainbow-delimiters-depth-1">{</span>
-    <span class="org-keyword">const</span> <span class="org-keyword">set</span> = args<span class="org-rainbow-delimiters-depth-2">[</span><span class="org-highlight-numbers-number">0</span><span class="org-rainbow-delimiters-depth-2">]</span>.<span class="org-function-name">toSet</span><span class="org-rainbow-delimiters-depth-2">()</span>
+    <span class="org-keyword">const</span> <span class="org-keyword">set</span> = args<span class="org-rainbow-delimiters-depth-2">[</span><span class="org-highlight-numbers-number">0</span><span class="org-rainbow-delimiters-depth-2">]</span>.<span class="org-function-call">toSet</span><span class="org-rainbow-delimiters-depth-2">()</span>
     <span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">set</span>.size !== <span class="org-highlight-numbers-number">1</span><span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">{</span>
-      <span class="org-keyword">return</span> <span class="org-function-name">left</span><span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">{</span>
+      <span class="org-keyword">return</span> <span class="org-function-call">left</span><span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">{</span>
         code: <span class="org-string">'QNT505'</span>,
         message: <span class="org-string">`Called 'getOnlyElement' on a set with </span><span class="org-keyword">${</span><span class="org-default">set.size</span><span class="org-keyword">}</span><span class="org-string"> elements. Make sure the set has exactly one element.`</span>,
       <span class="org-rainbow-delimiters-depth-4">}</span><span class="org-rainbow-delimiters-depth-3">)</span>
     <span class="org-rainbow-delimiters-depth-2">}</span>
 
-    <span class="org-keyword">return</span> <span class="org-function-name">right</span><span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">set</span>.<span class="org-function-name">first</span><span class="org-rainbow-delimiters-depth-3">()</span><span class="org-rainbow-delimiters-depth-2">)</span>
+    <span class="org-keyword">return</span> <span class="org-function-call">right</span><span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">set</span>.<span class="org-function-call">first</span><span class="org-rainbow-delimiters-depth-3">()</span><span class="org-rainbow-delimiters-depth-2">)</span>
   <span class="org-rainbow-delimiters-depth-1">}</span>
 </pre>
 </div>
