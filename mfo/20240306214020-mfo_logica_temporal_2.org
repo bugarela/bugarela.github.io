@@ -127,6 +127,6 @@ Vamos escrever um avaliador de operadores para operadores temporais
 - Dado uma única execução e uma fórmula temporal, a fórmula é verdadeira para essa execução?
 
 ** Tarefa de casa
-Ler página 10 de https://www.whitehouse.gov/wp-content/uploads/2024/02/Final-ONCD-Technical-Report.pdf
+Ler página 10 de https://bidenwhitehouse.archives.gov/wp-content/uploads/2024/02/Final-ONCD-Technical-Report.pdf
 ** FIM
 #+BEAMER: \maketitle
