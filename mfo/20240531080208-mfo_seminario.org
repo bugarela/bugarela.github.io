@@ -1,0 +1,65 @@
+:PROPERTIES:
+:ID:       21b32326-b6c0-45d4-a7f6-e40e6288fd40
+:END:
+#+title:     Seminário - Outros métodos formais
+#+EMAIL:     gabrielamoreira05@gmail.com
+#+DATE:      02 de abril de 2025
+#+LANGUAGE:  en
+#+OPTIONS:   num:t toc:nil author:nil date:nil
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
+#+LaTeX_CLASS: bugarela-article
+#+LATEX_COMPILER: pdflatex
+#+LATEX_HEADER: \input{header-latex.tex}
+#+LATEX_HEADER:  \usepackage[margin=2cm]{geometry} \usepackage{enumitem} \setlist{noitemsep, topsep=0pt}
+#+LATEX_HEADER: \setlength{\parindent}{0pt}
+#+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
+#+HTML: <a href="https://bugarela.com/mfo/slides/20240531080208-mfo_seminario.pdf">PDF</a><br />
+
+#+LATEX: \vspace{-2cm}
+* Informações importantes
+- Data de apresentação: 05 e 07 de maio
+- Trabalho individual ou em dupla
+- Enviar slides no moodle (em PDF)
+- Tempo de apresentação: 15 minutos (dupla) ou 10 minutos (individual)
+
+* Introdução
+Existe uma variedade de técnicas e ferramentas de métodos formais, e seria inviável aprender várias delas nesta disciplina. O objetivo deste seminário é explorar superficialmente outras técinas/ferramentas para a compreensão dessa variedade e das possíveis alternativas.
+
+* Sugestões de Tópicos
+Dentro da técnica de /model checking/ que temos estudado, existem várias outras ferramentas (além de TLA+ e Quint):
+   - PlusCal (versão "imperativa" de TLA+)
+   - Alloy
+   - NuSMV
+   - Spin
+   - Redes de Petri
+   - PRISM
+   - P
+   - Mais na _[[https://en.wikipedia.org/wiki/List_of_model_checking_tools][lista do Wikipedia]]_
+
+Uma técnica que já mencionamos na disciplina algumas vezes é a de assistentes de provas. Seguem algumas ferramentas:
+   - Coq
+   - Isabelle
+   - Agda
+   - Lean (brasileiro!)
+   - Idris
+   - Dafny
+   - F*
+   - Mais na _[[https://en.wikipedia.org/wiki/Proof_assistant][lista do Wikipedia]]_
+
+Ferramentas para verificação de programas escritos em linguagens de programação:
+   - Dafny
+   - Viper
+   - Prusti (para Rust)
+   - Gobra (para Go)
+   - Nagini (para Python)
+
+Outras técnicas (além de /model checking/ e assistentes de provas):
+   - Máquina de estado abstrata (/Abstract State Machine/ - ASM)
+   - Calculo $\pi$ (\pi-calculus)
+   - /Continuation Passing Style/ (CSP)
+   - Lógica de Hoare
+   - Método de desenvolvimento Viena (/Vienna Development Method/ - VDM)
+
+* Estrutura
+O enfoque da apresentação deve ser a técnica/ferramenta em si: como usá-la, para que é boa, para que é ruim, em que(ais) área(s) é mais aplicada. Desejável: casos de uso (i.e. empresa X usou pra verificar Y). Indesejável: Detalhes históricos.
+- Mostre ao menos um exemplo (código/fórmula)

@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Introdução à Lógica Temporal das Ações</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="https://bugarela.com/mfo/20240319195624-mfo_logica_temporal_das_acoes.html" />
+  <meta property="og:title" content="Introdução à Lógica Temporal das Ações" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Introdução à Lógica Temporal das Ações">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.stemmer.support.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.pt.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../css/layouts/style.css">
+
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-5" style="text-align: center">
+    <div class="header">
+        <h2 class="brand-title">
+            <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
+        </h2>
+    </div>
+    <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+    </div>
+    <div class="footer">
+    <div>
+        Created using Emacs and
+        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
+        >.<br />
+        Style from
+        <a href="https://owickstrom.github.io/the-monospace-web/"
+            >The Monospace Web</a
+        >.
+    </div>
+</div>
+
+</div>
+
+            <div class="content pure-u-1 pure-u-md-2-3">
+                
+                <h1>Introdução à Lógica Temporal das Ações</h1>
+                 <a href="https://bugarela.com/mfo/slides/20240319195624-mfo_logica_temporal_das_acoes.pdf">Slides</a><br />
+<a href="https://bugarela.com/mfo/specs/semaforos.zip">Specs</a>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#l-gica-temporal-das-a-es-tla-1">1. Lógica Temporal das Ações (TLA)</a>
+<ul>
+<li><a href="#introdu-o-2">1.1. Introdução</a></li>
+<li><a href="#operador-primed-2">1.2. Operador <i>primed</i></a></li>
+<li><a href="#exemplos-operador-primed-2">1.3. Exemplos: operador <i>primed</i></a></li>
+<li><a href="#a-es-definem-transi-es-2">1.4. Ações definem Transições</a></li>
+<li><a href="#uma-f-rmula-temporal-define-o-modelo-2">1.5. Uma fórmula temporal define o modelo!</a></li>
+</ul>
+</li>
+<li><a href="#tla-e-quint-1">2. TLA+ e Quint</a>
+<ul>
+<li><a href="#tla-e-quint-2">2.1. TLA+ e Quint</a></li>
+<li><a href="#tlc-e-apalache-2">2.2. TLC e Apalache</a></li>
+<li><a href="#model-checking-tla-2">2.3. <i>Model checking</i> TLA+</a></li>
+<li><a href="#model-checking-quint-2">2.4. <i>Model checking</i> Quint</a></li>
+<li><a href="#instalando-as-ferramentas-depend-ncias-2">2.5. Instalando as ferramentas - Dependências</a></li>
+<li><a href="#quint-2">2.6. Quint</a></li>
+<li><a href="#tlc-2">2.7. TLC</a></li>
+<li><a href="#apalache-2">2.8. Apalache</a></li>
+</ul>
+</li>
+<li><a href="#exemplos-1">3. Exemplos</a>
+<ul>
+<li><a href="#sem-foros-2">3.1. Semáforos</a></li>
+<li><a href="#testando-as-ferramentas-2">3.2. Testando as ferramentas</a></li>
+<li><a href="#refer-ncias-2">3.3. Referências</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-l-gica-temporal-das-a-es-tla-1" class="outline-2">
+<h2 id="l-gica-temporal-das-a-es-tla-1"><span class="section-number-2">1.</span> Lógica Temporal das Ações (TLA)</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-introdu-o-2" class="outline-3">
+<h3 id="introdu-o-2"><span class="section-number-3">1.1.</span> Introdução</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+A Lógica Temporal das Ações (<i>Temporal Logic of Actions</i> - TLA) foi proposta em (<a href="#citeproc_bib_item_1">LAMPORT, 1994</a>).<br />
+</p>
+
+<p>
+Seu principal conceito são <b>ações</b>. Uma ação é uma expressão booleana composta de variáveis, variáveis <i>primed</i> e constantes.<br />
+</p>
+
+<p>
+Nessa aula, vamos focar em como usar ações, com o operador <i>primed</i> (<code>'</code>), para definir estruturas de Kripke. Mais adiante, em outra aula, falaremos sobre outros conceitos.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-operador-primed-2" class="outline-3">
+<h3 id="operador-primed-2"><span class="section-number-3">1.2.</span> Operador <i>primed</i></h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+\(f'\) (f <i>primed</i>) para uma função de estado \(f\) é o valor de \(f\) no <b>final de um passo</b>.<br />
+</p>
+
+<p>
+Em outras palavras, para um passo composto por uma <b>dupla de estados</b> \((s, t)\), \(f'\) é o valor de \(f\) para \(t\).<br />
+</p>
+
+<p>
+De forma semelhante, \(P'\) para um predicado \(P\) é o valor de \(P\) para o estado final de um passo. Assim, na avaliação da valoração de uma ação para um passo, predicados e variáveis <b>sem</b> o operador <i>primed</i> se referem aos seus respectivos valores no <b>primeiro estado</b> do passo, e sempre que <b>forem marcados</b> com o operador, fazem referência aos valores no <b>segundo</b> estado do passo.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-exemplos-operador-primed-2" class="outline-3">
+<h3 id="exemplos-operador-primed-2"><span class="section-number-3">1.3.</span> Exemplos: operador <i>primed</i></h3>
+<div class="outline-text-3" id="text-1-3">
+<ol class="org-ol">
+<li>\(x' = x + 1\)<br /></li>
+<li>\(x + 1 = x'\)<br /></li>
+<li>\(x = x' - 1\)<br /></li>
+</ol>
+
+<p>
+Outros exemplos:<br />
+</p>
+<ul class="org-ul">
+<li>\(x' > x\)<br /></li>
+<li>\(x' /= x + 1\)<br /></li>
+</ul>
+
+<p>
+PS: É necessário muito cuidado ao usar formas diferentes de (1).<br />
+</p>
+</div>
+</div>
+<div id="outline-container-a-es-definem-transi-es-2" class="outline-3">
+<h3 id="a-es-definem-transi-es-2"><span class="section-number-3">1.4.</span> Ações definem Transições</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Combinando operações <i>primed</i> e predicados comuns, podemos definir as transições do modelo.<br />
+</p>
+<ul class="org-ul">
+<li>Uma transição é permitida no modelo definido por uma ação sse a avaliação da ação pro passo da transição é verdadeiro.<br />
+<ul class="org-ul">
+<li>Exemplo:<br />
+<ul class="org-ul">
+<li>Ação \(x' = x + 1\)<br /></li>
+<li>Transição \(1 \rightarrow 2\)<br /></li>
+<li>Substituindo \(x\) por \(1\) e \(x'\) por \(2\), a igualdade é satisfeita<br /></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>
+Note que <b>1</b> ação define <b>N</b> transições. Assim, uma única ação pode definir todas as transições de um modelo!<br />
+</p>
+</div>
+</div>
+<div id="outline-container-uma-f-rmula-temporal-define-o-modelo-2" class="outline-3">
+<h3 id="uma-f-rmula-temporal-define-o-modelo-2"><span class="section-number-3">1.5.</span> Uma fórmula temporal define o modelo!</h3>
+<div class="outline-text-3" id="text-1-5">
+<ol class="org-ol">
+<li>Um predicado comum define o(s) estado(s) inicial(is).<br />
+<ul class="org-ul">
+<li>Geralmente, chamamos de \(Init\) ou <code>init</code>.<br /></li>
+<li>Exemplo: \(Init \triangleq x = 0\)<br /></li>
+</ul></li>
+</ol>
+<ol class="org-ol">
+<li>Uma ação define as transições.<br />
+<ul class="org-ul">
+<li>Geralmente, chamamos de \(Next\) ou <code>step</code>.<br /></li>
+<li>Exemplo: \(Next \triangleq x' = x + 1\)<br /></li>
+</ul></li>
+</ol>
+<ol class="org-ol">
+<li>Uma fórmula temporal define o modelo.<br />
+<ul class="org-ul">
+<li>\(Spec \triangleq Init \land \square Next\)<br /></li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-tla-e-quint-1" class="outline-2">
+<h2 id="tla-e-quint-1"><span class="section-number-2">2.</span> TLA+ e Quint</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-tla-e-quint-2" class="outline-3">
+<h3 id="tla-e-quint-2"><span class="section-number-3">2.1.</span> TLA+ e Quint</h3>
+<div class="outline-text-3" id="text-tla-e-quint-2">
+<ul class="org-ul">
+<li>TLA+ (<i>Temporal Logic of Actions+</i>) combina a lógica de TLA com teoria de conjuntos, definindo uma linguagem de especificação formal.<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Quint é uma syntaxe alternativa à TLA+, que pode ser transpilada para TLA+, e portanto pode usar as mesmas ferramentas.<br />
+<ul class="org-ul">
+<li>Quint tem alguns recursos adicionais que não existem em TLA+, com definições de testes e execuções (<i>runs</i>).<br /></li>
+<li>Quint (ainda) não suporta algumas coisas de TLA+ que serão vistas no final da disciplina, como refinamento.<br /></li>
+<li>No geral, Quint é <b>intencionalmente</b> mais restrito que TLA+.<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-tlc-e-apalache-2" class="outline-3">
+<h3 id="tlc-e-apalache-2"><span class="section-number-3">2.2.</span> TLC e Apalache</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Temos dois <i>model checkers</i> disponíveis para TLA+ e Quint.<br />
+</p>
+<ul class="org-ul">
+<li>TLC<br />
+<ul class="org-ul">
+<li>Primeiro <i>model checker</i> para TLA+. Faz enumeração explícita de estados.<br /></li>
+<li>Funciona apenas com TLA+, então especificações em Quint precisam ser transpiladas<br /></li>
+<li>Open source, mantido pela Microsoft Research<br /></li>
+</ul></li>
+</ul>
+<ul class="org-ul">
+<li>Apalache<br />
+<ul class="org-ul">
+<li><i>Model checker</i> limitado simbólico. Traduz a especificação para restrições SMT e resolve-as usando o <i>solver</i> Z3.<br /></li>
+<li>Exige anotações de tipo para variáveis e constantes<br /></li>
+<li>Suporte nativo a TLA+ e Quint<br /></li>
+<li>Open source, desenvolvido majoritariamente pela Informal Systems<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-model-checking-tla-2" class="outline-3">
+<h3 id="model-checking-tla-2"><span class="section-number-3">2.3.</span> <i>Model checking</i> TLA+</h3>
+<div class="outline-text-3" id="text-2-3">
+<ol class="org-ol">
+<li>Apalache<br />
+<ul class="org-ul">
+<li>Lembre-se de anotar os tipos<br /></li>
+<li>Use a linha de comando<br /></li>
+</ul></li>
+</ol>
+<ol class="org-ol">
+<li>TLC<br />
+<ul class="org-ul">
+<li>Crie um arquivo <code>.cfg</code><br /></li>
+<li>Use a linha de comando ou a extensão para VSCode<br /></li>
+</ul></li>
+</ol>
+<ol class="org-ol">
+<li>Toolbox (TLC)<br />
+<ul class="org-ul">
+<li>A IDE cria as configurações para você, porém você fica dependente da IDE para rodar o <i>model checker.</i><br /></li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-model-checking-quint-2" class="outline-3">
+<h3 id="model-checking-quint-2"><span class="section-number-3">2.4.</span> <i>Model checking</i> Quint</h3>
+<div class="outline-text-3" id="text-2-4">
+<ol class="org-ol">
+<li>Linha de comando: <code>quint verify spec.qnt</code><br />
+<ul class="org-ul">
+<li>Isso vai baixar e usar o Apalache por baixo<br /></li>
+<li>Suporte a fórmulas temporais é limitado<br /></li>
+</ul></li>
+</ol>
+<ol class="org-ol">
+<li>TLC:<br />
+<ul class="org-ul">
+<li>Ainda não há suporte completo, mas há um script pra ajudar: <code>tlc/check_with_tlc.sh</code>.<br /></li>
+<li>O script tem várias dependências, não recomendo usar ainda nesse estado.<br /></li>
+</ul></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-instalando-as-ferramentas-depend-ncias-2" class="outline-3">
+<h3 id="instalando-as-ferramentas-depend-ncias-2"><span class="section-number-3">2.5.</span> Instalando as ferramentas - Dependências</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li><a href="https://nodejs.org/en/download">NodeJS &gt;= 18</a><br /></li>
+<li><a href="https://adoptium.net">Java Development Kit &gt;= 17</a><br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-quint-2" class="outline-3">
+<h3 id="quint-2"><span class="section-number-3">2.6.</span> Quint</h3>
+<div class="outline-text-3" id="text-2-6">
+<ol class="org-ol">
+<li>Com acesso de administrador<br />
+<ul class="org-ul">
+<li>Instalar: <code>npm i @informalsystems/quint -g</code><br /></li>
+<li>Executar: <code>quint --help</code><br /></li>
+</ul></li>
+
+<li>Sem acesso de administrador<br />
+<ul class="org-ul">
+<li>Instalar: <code>npm i @informalsystems/quint --user</code><br /></li>
+<li>Executar: <code>npx quint --help</code><br /></li>
+<li>Essa instalação é local, então você vai precisar instalar de novo se trocar de pasta<br /></li>
+</ul></li>
+</ol>
+<p>
+Também temos binários para download direto na <a href="https://github.com/informalsystems/quint/releases/latest">release do GitHub</a><br />
+</p>
+<ul class="org-ul">
+<li>Isso é novo e não foi muito testado ainda, mas deve ser tranquilo usar<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-tlc-2" class="outline-3">
+<h3 id="tlc-2"><span class="section-number-3">2.7.</span> TLC</h3>
+<div class="outline-text-3" id="text-2-7">
+<ul class="org-ul">
+<li><a href="https://lamport.azurewebsites.net/tla/standalone-tools.html">TLC para linha de comando</a><br />
+<ul class="org-ul">
+<li>Opcional, se quiser usar pela linha de comando<br /></li>
+</ul></li>
+<li>Extensão no VSCode (TLA+ Nightly)<br />
+<ul class="org-ul">
+<li>Após instalar, abra um arquivo <code>.tla</code>, aperte F1 e procure o comando &ldquo;TLA+: Check model with TLC&rdquo;<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-apalache-2" class="outline-3">
+<h3 id="apalache-2"><span class="section-number-3">2.8.</span> Apalache</h3>
+<div class="outline-text-3" id="text-2-8">
+<ul class="org-ul">
+<li><a href="https://github.com/informalsystems/apalache/releases">Apalache para linha de comando</a><br /></li>
+<li>É usado internamente pelo Quint quando invocamos <code>quint verify</code>. Só precisa baixar separadamente se quiser utilizar com TLA+.<br />
+<ul class="org-ul">
+<li>Se não funcionar (comando ficar &ldquo;travado&rdquo; e não termina nunca), abra outra terminal e execute:<br /></li>
+</ul></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-sh"> ~/.quint/apalache-dist-0.47.2/apalache/bin/apalache-mc server
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-exemplos-1" class="outline-2">
+<h2 id="exemplos-1"><span class="section-number-2">3.</span> Exemplos</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-sem-foros-2" class="outline-3">
+<h3 id="sem-foros-2"><span class="section-number-3">3.1.</span> Semáforos</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Vamos ver novamente o exemplo dos semáforos e verificar propriedades em Quint e TLA+<br />
+</p>
+<ul class="org-ul">
+<li>Arquivo no moodle/site da disciplina<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-testando-as-ferramentas-2" class="outline-3">
+<h3 id="testando-as-ferramentas-2"><span class="section-number-3">3.2.</span> Testando as ferramentas</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Atividade EaD valendo presença na aula do dia 24/03<br />
+</p>
+
+<p>
+Descrição no moodle: Usando as ferramentas: TLA+ e Quint<br />
+</p>
+</div>
+</div>
+<div id="outline-container-refer-ncias-2" class="outline-3">
+<h3 id="refer-ncias-2"><span class="section-number-3">3.3.</span> Referências</h3>
+<div class="outline-text-3" id="text-3-3">
+<div class="csl-bib-body">
+  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>LAMPORT, L. The temporal logic of actions. <b>ACM trans. program. lang. syst.</b>, v. 16, n. 3, p. 872–923, 1994. </div>
+</div>
+</div>
+</div>
+</div>
+
+            </div>
+        </div>
+    </body>
+</html>

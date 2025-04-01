@@ -25,7 +25,7 @@
   - [[file:20240217142930-mfo_estruturas_de_kripke.org][Estruturas de Kripke]]
   - [[file:20240303165631-mfo_logica_temporal.org][Checando propriedades com Lógica Temporal]]
   - [[file:20240306214020-mfo_logica_temporal_2.org][Checando propriedades com Lógica Temporal II]]
-#   - [[file:20240319195624-mfo_logica_temporal_das_acoes.org][Introdução à Lógica Temporal das Ações]]
+  - [[file:20240319195624-mfo_logica_temporal_das_acoes.org][Introdução à Lógica Temporal das Ações]]
 # ** Quint
 #   - [[file:20240324195706-mfo_revisao_de_programacao_funcional.org][Revisão de programação funcional em Quint]]
 #   - [[file:20240322161707-mfo_primeiras_especificacoes.org][Primeiras Especificações]]
@@ -40,8 +40,8 @@
 #   - [[file:20240511143312-mfo_propriedades.org][Propriedades]]
 #   - [[file:20240623102850-mfo_model_checking.org][Model Checking]]
 #   - [[file:20240625203536-mfo_tla_avancado.org][TLA+ Avançado]]
-# * Seminário
-#   - [[file:20240531080208-mfo_seminario.org][Seminário]]
+* Seminário
+  - [[file:20240531080208-mfo_seminario.org][Seminário]]
 # * Trabalho 1
 #   - [[file:20240415205323-mfo_exercicios_pokemon.org][Exercícios Pokemon]]
 #   - [[file:20240422102646-mfo_especificar_vs_implementar.org][Especificar vs Implementar]]
