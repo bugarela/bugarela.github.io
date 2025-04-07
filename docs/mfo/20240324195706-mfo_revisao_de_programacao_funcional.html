@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Revisão de programação funcional em Quint</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="https://bugarela.com/mfo/20240324195706-mfo_revisao_de_programacao_funcional.html" />
+  <meta property="og:title" content="Revisão de programação funcional em Quint" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Revisão de programação funcional em Quint">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.stemmer.support.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.pt.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../css/layouts/style.css">
+
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-5" style="text-align: center">
+    <div class="header">
+        <h2 class="brand-title">
+            <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
+        </h2>
+    </div>
+    <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+    </div>
+    <div class="footer">
+    <div>
+        Created using Emacs and
+        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
+        >.<br />
+        Style from
+        <a href="https://owickstrom.github.io/the-monospace-web/"
+            >The Monospace Web</a
+        >.
+    </div>
+</div>
+
+</div>
+
+            <div class="content pure-u-1 pure-u-md-2-3">
+                
+                <h1>Revisão de programação funcional em Quint</h1>
+                 <a href="https://bugarela.com/mfo/slides/20240324195706-mfo_revisao_de_programacao_funcional.pdf">Slides</a><br />
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#introdu-o-1">1. Introdução</a>
+<ul>
+<li><a href="#restri-es-de-quint-e-tla-2">1.1. Restrições de Quint e TLA+</a></li>
+<li><a href="#forma-dos-operadores-em-quint-2">1.2. Forma dos operadores em Quint</a></li>
+</ul>
+</li>
+<li><a href="#conjuntos-1">2. Conjuntos</a>
+<ul>
+<li><a href="#conjuntos-2">2.1. Conjuntos!</a></li>
+<li><a href="#map-seu-novo-melhor-amigo-2">2.2. map, seu novo melhor amigo</a></li>
+<li><a href="#map-com-operadores-de-m-ltiplos-argumentos-2">2.3. map com operadores de múltiplos argumentos</a></li>
+<li><a href="#map-com-operadores-que-esperam-uma-dupla-2">2.4. map com operadores que esperam uma dupla</a></li>
+<li><a href="#map-n-o-resolve-tudo-2">2.5. map não resolve tudo!</a></li>
+<li><a href="#filter-permite-filtrar-o-conjunto-2">2.6. filter permite filtrar o conjunto</a></li>
+<li><a href="#fold-permite-acumular-um-valor-ao-percorrer-o-conjunto-2">2.7. fold permite acumular um valor ao percorrer o conjunto</a></li>
+<li><a href="#exerc-cio-map-e-filter-com-fold-2">2.8. Exercício: map e filter com fold</a></li>
+<li><a href="#opera-es-de-conjuntos-2">2.9. Operações de conjuntos</a></li>
+<li><a href="#operadores-booleanos-para-conjuntos-2">2.10. Operadores booleanos para conjuntos</a></li>
+<li><a href="#powerset-conjunto-das-partes-2">2.11. Powerset - Conjunto das partes</a></li>
+<li><a href="#flatten-para-conjuntos-de-conjuntos-2">2.12. flatten, para conjuntos de conjuntos</a></li>
+</ul>
+</li>
+<li><a href="#maps-1">3. Maps</a>
+<ul>
+<li><a href="#maps-2">3.1. Maps</a></li>
+<li><a href="#chaves-e-valores-2">3.2. Chaves e valores</a></li>
+<li><a href="#acessando-e-atualizando-2-2">3.3. Acessando e atualizando</a></li>
+<li><a href="#atualizando-com-setby-2">3.4. Atualizando com setBy</a></li>
+<li><a href="#criando-todos-os-maps-poss-veis-2">3.5. Criando todos os Maps possíveis</a></li>
+</ul>
+</li>
+<li><a href="#tuplas-1">4. Tuplas</a>
+<ul>
+<li><a href="#tuplas-2">4.1. Tuplas</a></li>
+<li><a href="#acessando-itens-2">4.2. Acessando itens</a></li>
+<li><a href="#criando-todas-as-tuplas-poss-veis-2">4.3. Criando todas as tuplas possíveis</a></li>
+</ul>
+</li>
+<li><a href="#records-1">5. Records</a>
+<ul>
+<li><a href="#records-2">5.1. Records</a></li>
+<li><a href="#acessando-e-atualizando-2">5.2. Acessando e atualizando</a></li>
+</ul>
+</li>
+<li><a href="#listas-1">6. Listas</a>
+<ul>
+<li><a href="#listas-2">6.1. Listas</a></li>
+<li><a href="#acessando-2">6.2. Acessando</a></li>
+<li><a href="#atualizando-2">6.3. Atualizando</a></li>
+<li><a href="#filtrando-listas-2">6.4. Filtrando listas</a></li>
+<li><a href="#foldl-e-foldr-2">6.5. foldl e foldr</a></li>
+<li><a href="#use-indices-para-fazer-um-map-2">6.6. Use indices para fazer um map</a></li>
+</ul>
+</li>
+<li><a href="#tipos-1">7. Tipos</a>
+<ul>
+<li><a href="#definindo-tipos-aliases-2">7.1. Definindo tipos (<i>aliases</i>)</a></li>
+<li><a href="#tipos-soma-2">7.2. Tipos soma</a></li>
+<li><a href="#recursos-2">7.3. Recursos</a></li>
+<li><a href="#exerc-cios-2">7.4. Exercícios</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-introdu-o-1" class="outline-2">
+<h2 id="introdu-o-1"><span class="section-number-2">1.</span> Introdução</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-restri-es-de-quint-e-tla-2" class="outline-3">
+<h3 id="restri-es-de-quint-e-tla-2"><span class="section-number-3">1.1.</span> Restrições de Quint e TLA+</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Não há recursão*<br />
+<ul class="org-ul">
+<li>*Existe recursão em TLA+, mas foi adicionado posteriormente. Não suportado pelo Apalache.<br /></li>
+</ul></li>
+<li>Não há laços de repetição (<code>for</code>, <code>while</code>)<br /></li>
+<li>Não há manipulação de <code>string</code><br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-forma-dos-operadores-em-quint-2" class="outline-3">
+<h3 id="forma-dos-operadores-em-quint-2"><span class="section-number-3">1.2.</span> Forma dos operadores em Quint</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Todos os operadores (exceto os com símbolos, como <code>+</code>) podem ser aplicados de duas formas em Quint:<br />
+</p>
+<ol class="org-ol">
+<li><code>operador(arg0, ..., argn)</code><br /></li>
+<li><code>arg0.operador(arg1, ..., argn)</code><br /></li>
+</ol>
+
+<p>
+Escolha a forma que você acha mais fácil de ler!<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-conjuntos-1" class="outline-2">
+<h2 id="conjuntos-1"><span class="section-number-2">2.</span> Conjuntos</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-conjuntos-2" class="outline-3">
+<h3 id="conjuntos-2"><span class="section-number-3">2.1.</span> Conjuntos!</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Conjuntos, ou <i>Sets</i>, são a principal estrutura de dados em Quint em TLA+.<br />
+</p>
+<ul class="org-ul">
+<li>A não ser que a <b>ordem</b> dos elementos seja realmente importante, ou que seja necessário ter elementos repetidos, use conjuntos em vez de listas.<br /></li>
+<li>Importante! Isso é um ponto que vou avaliar no trabalho de vocês.<br /></li>
+</ul>
+
+<p>
+O tipo de um conjunto é dado por <code>Set[&lt;elemento&gt;]</code>. Ou seja, um conjunto de inteiros tem tipo <code>Set[int]</code>.<br />
+</p>
+
+<p>
+Criando conjuntos:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-type">Set</span>(1, 2, 3) <span class="org-comment-delimiter">// </span><span class="org-comment">Set(1, 2, 3)</span>
+1.to(3) <span class="org-comment-delimiter">// </span><span class="org-comment">Set(1, 2, 3)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-map-seu-novo-melhor-amigo-2" class="outline-3">
+<h3 id="map-seu-novo-melhor-amigo-2"><span class="section-number-3">2.2.</span> map, seu novo melhor amigo</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Em linguagens funcionais, usamos muito a função <code>map</code>, que permite a aplicação de uma função a cada elemento de um conjunto.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-type">Set</span>(1, 2, 3).map(x =&gt; x * 2) <span class="org-comment-delimiter">// </span><span class="org-comment">Set(2, 4, 6)</span>
+</pre>
+</div>
+
+<p>
+Pode ser usado com lambdas (operadores anônimos), como acima, ou com operadores nomeados:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">def</span> quadrado(x: <span class="org-type">int</span>): <span class="org-type">int</span> = x * x
+
+<span class="org-type">Set</span>(1, 2, 3).map(quadrado) <span class="org-comment-delimiter">// </span><span class="org-comment">Set(1, 4, 9)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-map-com-operadores-de-m-ltiplos-argumentos-2" class="outline-3">
+<h3 id="map-com-operadores-de-m-ltiplos-argumentos-2"><span class="section-number-3">2.3.</span> map com operadores de múltiplos argumentos</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Dado um conjunto de duplas, podemos aplicar um operador em cada uma das duplas. Mas cuidado! Se o operador espera dois argumentos, temos que fazer o <code>unpacking</code> das duplas, utilizando parênteses duplos.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">def</span> soma(x: <span class="org-type">int</span>, y: <span class="org-type">int</span>): <span class="org-type">int</span> = x + y
+
+<span class="org-type">Set</span>((1, 1), (2, 3)).map(soma)
+<span class="org-comment-delimiter">// </span><span class="org-comment">static analysis error: error: [QNT000] Expected 1 arguments, got 2</span>
+
+<span class="org-type">Set</span>((1, 1), (2, 3)).map(((a, b)) =&gt; soma(a, b))
+<span class="org-comment-delimiter">// </span><span class="org-comment">Set(2, 5)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-map-com-operadores-que-esperam-uma-dupla-2" class="outline-3">
+<h3 id="map-com-operadores-que-esperam-uma-dupla-2"><span class="section-number-3">2.4.</span> map com operadores que esperam uma dupla</h3>
+<div class="outline-text-3" id="text-2-4">
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">def</span> somaDupla(t: (<span class="org-type">int</span>, <span class="org-type">int</span>)): <span class="org-type">int</span> = t._1 + t._2
+
+<span class="org-type">Set</span>((1, 1), (2, 3)).map(somaDupla)
+<span class="org-comment-delimiter">// </span><span class="org-comment">Set(2, 5)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-map-n-o-resolve-tudo-2" class="outline-3">
+<h3 id="map-n-o-resolve-tudo-2"><span class="section-number-3">2.5.</span> map não resolve tudo!</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+O <code>map</code> só nos ajuda quando queremos um conjunto como retorno.<br />
+</p>
+<ul class="org-ul">
+<li>Dado um conjunto de números, retorne um conjunto do quadrado desses números.<br /></li>
+<li>Dado um conjunto de pessoas, retorne um conjunto com as idades das pessoas.<br /></li>
+</ul>
+
+<p>
+<code>map</code> não pode ser usado para as seguintes operações:<br />
+</p>
+<ul class="org-ul">
+<li>Dado um conjunto de números, retorne a soma de todos esses números.<br /></li>
+<li>Dado um conjunto de números, retorne um conjunto apenas com os números pares.<br /></li>
+</ul>
+
+<p>
+Lembram quais funções podem ajudar com esses casos?<br />
+</p>
+</div>
+</div>
+<div id="outline-container-filter-permite-filtrar-o-conjunto-2" class="outline-3">
+<h3 id="filter-permite-filtrar-o-conjunto-2"><span class="section-number-3">2.6.</span> filter permite filtrar o conjunto</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+Exemplo: Dado um conjunto de números, retorne um conjunto apenas com os números pares.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-type">Set</span>(1, 2, 3, 4).filter(x =&gt; x % 2 == 0)
+<span class="org-comment-delimiter">// </span><span class="org-comment">Set(2, 4)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-fold-permite-acumular-um-valor-ao-percorrer-o-conjunto-2" class="outline-3">
+<h3 id="fold-permite-acumular-um-valor-ao-percorrer-o-conjunto-2"><span class="section-number-3">2.7.</span> fold permite acumular um valor ao percorrer o conjunto</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+Argumentos do <code>fold</code><br />
+</p>
+<ol class="org-ol">
+<li>O conjunto sobre o qual iterar<br /></li>
+<li>Um valor inicial para o acumulador<br /></li>
+<li>Um operador que recebe dois argumentos (o acumulador, e o elemento iterado), e retorna o novo valor para o acumulador<br /></li>
+</ol>
+
+<p>
+Exemplo: Dado um conjunto de números, retorne a soma de todos esses números.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-type">Set</span>(1, 2, 3, 4).fold(0, (acc, i) =&gt; acc + i)
+<span class="org-comment-delimiter">// </span><span class="org-comment">10</span>
+</pre>
+</div>
+<p>
+<b>Atenção</b>: Não assumir nada sobre a ordem em que os elementos são iterados.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-exerc-cio-map-e-filter-com-fold-2" class="outline-3">
+<h3 id="exerc-cio-map-e-filter-com-fold-2"><span class="section-number-3">2.8.</span> Exercício: map e filter com fold</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+Exercício: Re-escreva nossos exemplos anteriores usando <code>fold</code> ao invés de <code>map</code> e <code>filter</code>:<br />
+</p>
+<ol class="org-ol">
+<li>Dado um conjunto de números, retorne um conjunto do quadrado desses números.<br /></li>
+<li>Dado um conjunto de números, retorne um conjunto apenas com os números pares.<br /></li>
+</ol>
+
+<p>
+Você vai precisar usar:<br />
+</p>
+<ol class="org-ol">
+<li>União de conjuntos <code>s1</code> e <code>s2</code>: <code>s1.union(s2)</code><br /></li>
+<li>Condicional: <code>if (cond) bloco1 else bloco2</code><br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-opera-es-de-conjuntos-2" class="outline-3">
+<h3 id="opera-es-de-conjuntos-2"><span class="section-number-3">2.9.</span> Operações de conjuntos</h3>
+<div class="outline-text-3" id="text-2-9">
+<ol class="org-ol">
+<li>União: <code>union</code><br /></li>
+<li>Intersecção: <code>intersect</code><br /></li>
+<li>Diferença: <code>exclude</code><br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-operadores-booleanos-para-conjuntos-2" class="outline-3">
+<h3 id="operadores-booleanos-para-conjuntos-2"><span class="section-number-3">2.10.</span> Operadores booleanos para conjuntos</h3>
+<div class="outline-text-3" id="text-2-10">
+<ol class="org-ol">
+<li>Pertence, \(\in\): <code>in</code>, <code>contains</code><br />
+<code>e.in(S)</code> é equivalente a <code>S.contains(e)</code><br /></li>
+<li>Contido, \(\subseteq\): <code>subseteq</code><br /></li>
+<li>Para todo, \(\forall\): <code>forall</code><br /></li>
+<li>Existe, \(\exists\): <code>exists</code><br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-powerset-conjunto-das-partes-2" class="outline-3">
+<h3 id="powerset-conjunto-das-partes-2"><span class="section-number-3">2.11.</span> Powerset - Conjunto das partes</h3>
+<div class="outline-text-3" id="text-2-11">
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-type">Set</span>(1, 2).powerset()
+<span class="org-comment-delimiter">// </span><span class="org-comment">Set(Set(), Set(1), Set(2), Set(1, 2))</span>
+</pre>
+</div>
+
+<p>
+Útil quando queremos gerar várias possibilidades para escolher dentre elas.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-flatten-para-conjuntos-de-conjuntos-2" class="outline-3">
+<h3 id="flatten-para-conjuntos-de-conjuntos-2"><span class="section-number-3">2.12.</span> flatten, para conjuntos de conjuntos</h3>
+<div class="outline-text-3" id="text-2-12">
+<p>
+Um conjunto de conjuntos de elementos to tipo <code>t</code> pode ser convertido em um conjunto de elementos do tipo <code>t</code> com o operador <code>flatten</code>.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-type">Set</span>(<span class="org-type">Set</span>(1, 2), <span class="org-type">Set</span>(1, 3)).flatten()
+<span class="org-comment-delimiter">// </span><span class="org-comment">Set(1, 2, 3)</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-maps-1" class="outline-2">
+<h2 id="maps-1"><span class="section-number-2">3.</span> Maps</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-maps-2" class="outline-3">
+<h3 id="maps-2"><span class="section-number-3">3.1.</span> Maps</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Map é a estrutura de dicionário em Quint. Em TLA+, essa mesma estrutura tem nome de função.<br />
+</p>
+
+<p>
+O tipo de um mapa é dado por <code>&lt;chave&gt; -&gt; &lt;valor&gt;</code>. Ou seja, um mapa de inteiros para strings tem tipo <code>int -&gt; str</code>.<br />
+</p>
+
+<p>
+Criando <code>Maps</code>:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">Map(1 -&gt; <span class="org-string">"a"</span>, 2 -&gt; <span class="org-string">"b"</span>)
+<span class="org-comment-delimiter">// </span><span class="org-comment">Map(1 -&gt; "a", 2 -&gt; "b")</span>
+
+<span class="org-type">Set</span>((1, <span class="org-string">"a"</span>), (2, <span class="org-string">"b"</span>)).setToMap()
+<span class="org-comment-delimiter">// </span><span class="org-comment">Map(1 -&gt; "a", 2 -&gt; "b")</span>
+
+<span class="org-type">Set</span>(1, 2).mapBy(x =&gt; <span class="org-keyword">if</span> (x &lt; 2) <span class="org-string">"a"</span> <span class="org-keyword">else</span> <span class="org-string">"b"</span>)
+<span class="org-comment-delimiter">// </span><span class="org-comment">Map(1 -&gt; "a", 2 -&gt; "b")</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-chaves-e-valores-2" class="outline-3">
+<h3 id="chaves-e-valores-2"><span class="section-number-3">3.2.</span> Chaves e valores</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Para obter todas as chaves:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">Map(1 -&gt; <span class="org-string">"a"</span>, 2 -&gt; <span class="org-string">"b"</span>).keys()
+<span class="org-comment-delimiter">// </span><span class="org-comment">Set(1, 2)</span>
+</pre>
+</div>
+
+<p>
+E os valores?<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">val</span> m = Map(1 -&gt; <span class="org-string">"a"</span>, 2 -&gt; <span class="org-string">"b"</span>)
+m.keys().map(k =&gt; m.get(k))
+<span class="org-comment-delimiter">// </span><span class="org-comment">Set("a", "b")</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-acessando-e-atualizando-2-2" class="outline-3">
+<h3 id="acessando-e-atualizando-2-2"><span class="section-number-3">3.3.</span> Acessando e atualizando</h3>
+<div class="outline-text-3" id="text-acessando-e-atualizando-2-2">
+<p>
+<code>set</code> atualiza um elemento existente, e <code>put</code> pode criar um novo par chave-valor.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">val</span> m = Map(1 -&gt; <span class="org-string">"a"</span>, 2 -&gt; <span class="org-string">"b"</span>)
+
+m.get(1)
+<span class="org-comment-delimiter">// </span><span class="org-comment">"a"</span>
+
+m.set(1, <span class="org-string">"c"</span>)
+<span class="org-comment-delimiter">// </span><span class="org-comment">Map(1 -&gt; "c", 2 -&gt; "b")</span>
+
+m.set(3, <span class="org-string">"c"</span>)
+<span class="org-comment-delimiter">// </span><span class="org-comment">runtime error: error: [QNT507] Called 'set' with a non-existing key</span>
+
+m.put(3, <span class="org-string">"c"</span>)
+<span class="org-comment-delimiter">// </span><span class="org-comment">Map(1 -&gt; "a", 2 -&gt; "b", 3 -&gt; "c")</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-atualizando-com-setby-2" class="outline-3">
+<h3 id="atualizando-com-setby-2"><span class="section-number-3">3.4.</span> Atualizando com setBy</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+<code>setBy</code> é uma utilidade para quando queremos fazer uma operação sobre um valor existente no mapa.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">val</span> m = Map(<span class="org-string">"a"</span> -&gt; 1, <span class="org-string">"b"</span> -&gt; 2)
+
+m.set(<span class="org-string">"a"</span>, m.get(<span class="org-string">"a"</span>) + 1)
+<span class="org-comment-delimiter">// </span><span class="org-comment">Map("a" -&gt; 2, "b" -&gt; 2)</span>
+
+m.setBy(<span class="org-string">"a"</span>, x =&gt; x + 1)
+<span class="org-comment-delimiter">// </span><span class="org-comment">Map("a" -&gt; 2, "b" -&gt; 2)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-criando-todos-os-maps-poss-veis-2" class="outline-3">
+<h3 id="criando-todos-os-maps-poss-veis-2"><span class="section-number-3">3.5.</span> Criando todos os Maps possíveis</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+Para criar todos os <code>Maps</code> possíveis dado um domínio e um co-domínio, podemos usar o <code>setOfMaps</code>:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-type">Set</span>(1, 2).setOfMaps(<span class="org-type">Set</span>(<span class="org-string">"a"</span>, <span class="org-string">"b"</span>))
+<span class="org-comment-delimiter">// </span><span class="org-comment">Set(Map(1 -&gt; "a", 2 -&gt; "a"), Map(1 -&gt; "b", 2 -&gt; "a"),</span>
+<span class="org-comment-delimiter">//     </span><span class="org-comment">Map(1 -&gt; "a", 2 -&gt; "b"), Map(1 -&gt; "b", 2 -&gt; "b"))</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-tuplas-1" class="outline-2">
+<h2 id="tuplas-1"><span class="section-number-2">4.</span> Tuplas</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-tuplas-2" class="outline-3">
+<h3 id="tuplas-2"><span class="section-number-3">4.1.</span> Tuplas</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Tuplas são combinações de tipos diferentes em um mesmo valor, onde a ordem dos elementos é o que define o tipo esperado.<br />
+</p>
+
+<p>
+O tipo de uma tupla é dado por <code>(t0, ..., tn)</code>. Uma tupla com tipo <code>(int, str, bool)</code> permite valores como <code>(1, "a", true)</code>.<br />
+</p>
+
+<p>
+Existe um único jeito de criar uma tupla:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">(1, <span class="org-string">"a"</span>, <span class="org-constant">true</span>)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-acessando-itens-2" class="outline-3">
+<h3 id="acessando-itens-2"><span class="section-number-3">4.2.</span> Acessando itens</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Itens de tuplas são acessados com <code>._1</code>, <code>._2</code>, <code>._3</code>, &#x2026;<br />
+</p>
+<p>
+Não existe <code>._0</code>, a contagem inicia do 1.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">val</span> t = (1, <span class="org-string">"a"</span>, <span class="org-constant">true</span>)
+
+t._1
+<span class="org-comment-delimiter">// </span><span class="org-comment">1</span>
+
+t._3
+<span class="org-comment-delimiter">// </span><span class="org-comment">true</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-criando-todas-as-tuplas-poss-veis-2" class="outline-3">
+<h3 id="criando-todas-as-tuplas-poss-veis-2"><span class="section-number-3">4.3.</span> Criando todas as tuplas possíveis</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Para criar um conjunto com todas as tuplas possíveis com elementos em dados conjuntos, usamos o <code>tuples</code>:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">tuples(<span class="org-type">Set</span>(1, 2), <span class="org-type">Set</span>(<span class="org-string">"a"</span>, <span class="org-string">"b"</span>))
+<span class="org-comment-delimiter">// </span><span class="org-comment">Set((1, "a"), (2, "a"), (1, "b"), (2, "b"))</span>
+
+tuples(<span class="org-type">Set</span>(1), <span class="org-type">Set</span>(<span class="org-string">"a"</span>, <span class="org-string">"b"</span>), <span class="org-type">Set</span>(<span class="org-constant">false</span>))
+<span class="org-comment-delimiter">// </span><span class="org-comment">Set((1, "a", false), (1, "b", false))</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-records-1" class="outline-2">
+<h2 id="records-1"><span class="section-number-2">5.</span> Records</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-records-2" class="outline-3">
+<h3 id="records-2"><span class="section-number-3">5.1.</span> Records</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+<code>Records</code> são combinações de tipos diferentes em um mesmo valor, onde os elementos são nomeados.<br />
+</p>
+
+<p>
+O tipo de um <i>record</i> é dado por <code>{ field0: t0, ..., fieldn: tn }</code>. Um <i>record</i> com tipo <code>{ nome: str, idade: int }</code> permite valores como <code>{ nome: "Gabriela", idade: 26 }</code>.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-acessando-e-atualizando-2" class="outline-3">
+<h3 id="acessando-e-atualizando-2"><span class="section-number-3">5.2.</span> Acessando e atualizando</h3>
+<div class="outline-text-3" id="text-5-2">
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">val</span> r = { nome: <span class="org-string">"Gabriela"</span>, idade: 26 }
+
+r.nome
+<span class="org-comment-delimiter">// </span><span class="org-comment">"Gabriela"</span>
+
+r.with(<span class="org-string">"idade"</span>, 27)
+<span class="org-comment-delimiter">// </span><span class="org-comment">{ nome: "Gabriela", idade: 27 }</span>
+
+{ ...r, idade: 27 }
+<span class="org-comment-delimiter">// </span><span class="org-comment">{ nome: "Gabriela", idade: 27 }</span>
+
+r
+<span class="org-comment-delimiter">// </span><span class="org-comment">{ nome: "Gabriela", idade: 26 }</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-listas-1" class="outline-2">
+<h2 id="listas-1"><span class="section-number-2">6.</span> Listas</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-listas-2" class="outline-3">
+<h3 id="listas-2"><span class="section-number-3">6.1.</span> Listas</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Listas são como conjuntos, porém com uma ordem definida e, possivelmente, com elementos repetidos. Em TLA+, essa mesma estrutura tem nome de sequência.<br />
+</p>
+
+<p>
+O tipo de uma lista é dado por <code>List[&lt;elemento&gt;]</code>. Ou seja, uma lista de inteiros tem tipo <code>List[int]</code>.<br />
+</p>
+
+<p>
+Criando listas:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">[1, 2, 3]
+<span class="org-comment-delimiter">// </span><span class="org-comment">[1, 2, 3]</span>
+
+<span class="org-type">List</span>(1, 2, 3)
+<span class="org-comment-delimiter">// </span><span class="org-comment">[1, 2, 3]</span>
+
+range(1, 4)
+<span class="org-comment-delimiter">// </span><span class="org-comment">[1, 2, 3]</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-acessando-2" class="outline-3">
+<h3 id="acessando-2"><span class="section-number-3">6.2.</span> Acessando</h3>
+<div class="outline-text-3" id="text-6-2">
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">val</span> l = [1, 2, 3]
+
+l[1]
+<span class="org-comment-delimiter">// </span><span class="org-comment">2</span>
+
+l.head()
+<span class="org-comment-delimiter">// </span><span class="org-comment">1</span>
+
+l.tail()
+<span class="org-comment-delimiter">// </span><span class="org-comment">[2, 3]</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-atualizando-2" class="outline-3">
+<h3 id="atualizando-2"><span class="section-number-3">6.3.</span> Atualizando</h3>
+<div class="outline-text-3" id="text-6-3">
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">val</span> l = [1, 2, 3]
+
+l.replaceAt(0, 5)
+<span class="org-comment-delimiter">// </span><span class="org-comment">[5, 2, 3]</span>
+
+l.concat([4, 5])
+<span class="org-comment-delimiter">// </span><span class="org-comment">[1, 2, 3, 4, 5]</span>
+
+l.append(4)
+<span class="org-comment-delimiter">// </span><span class="org-comment">[1, 2, 3, 4]</span>
+
+l
+<span class="org-comment-delimiter">// </span><span class="org-comment">[1, 2, 3]</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-filtrando-listas-2" class="outline-3">
+<h3 id="filtrando-listas-2"><span class="section-number-3">6.4.</span> Filtrando listas</h3>
+<div class="outline-text-3" id="text-6-4">
+<p>
+<code>slice</code> retorna uma nova lista com um intervalo de elementos da lista original.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">[1, 2, 3].slice(0, 1)
+<span class="org-comment-delimiter">// </span><span class="org-comment">[1]</span>
+</pre>
+</div>
+
+<p>
+<code>select</code> é semelhante ao <code>filter</code> (de conjuntos).<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">[1, 2, 3, 4, 5].select(x =&gt; x &gt; 3)
+<span class="org-comment-delimiter">// </span><span class="org-comment">[4, 5]</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-foldl-e-foldr-2" class="outline-3">
+<h3 id="foldl-e-foldr-2"><span class="section-number-3">6.5.</span> foldl e foldr</h3>
+<div class="outline-text-3" id="text-6-5">
+<p>
+Diferente do <code>fold</code> pra conjuntos, a operação de <i>fold</i> sobre listas respeita uma ordem específica. <code>foldl</code> (<i>fold left</i>) vai iterar da esquerda pra direita, enquanto <code>foldr</code> (<i>fold right</i>) vai iterar da direita pra esquerda.<br />
+</p>
+<p>
+Atenção também para a ordem dos argumentos do operador dado como último argumento.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">[1, 2, 3].foldl([], (acc, i) =&gt; acc.append(i))
+<span class="org-comment-delimiter">// </span><span class="org-comment">[1, 2, 3]</span>
+
+[1, 2, 3].foldr([], (i, acc) =&gt; acc.append(i))
+<span class="org-comment-delimiter">// </span><span class="org-comment">[3, 2, 1]</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-use-indices-para-fazer-um-map-2" class="outline-3">
+<h3 id="use-indices-para-fazer-um-map-2"><span class="section-number-3">6.6.</span> Use indices para fazer um map</h3>
+<div class="outline-text-3" id="text-6-6">
+<p>
+O operador <code>map</code> não funciona pra listas. Conseguimos reproduzir essa funcionalidade usando o operador <code>indices</code>, que returna o índices de uma lista (isso é, \(0\) até \(length(l) - 1\)).<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">val</span> l = [1, 2, 3]
+<span class="org-builtin">def</span> f(x) = x + 1
+
+l.indices().map(i =&gt; f(l[i]))
+<span class="org-comment-delimiter">// </span><span class="org-comment">Set(2, 3, 4)</span>
+</pre>
+</div>
+
+<p>
+Perceba que o resultado aqui é um conjunto. Para que o resultado seja uma lista, temos que usar <code>foldl</code> ou <code>foldr</code>.<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-tipos-1" class="outline-2">
+<h2 id="tipos-1"><span class="section-number-2">7.</span> Tipos</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-definindo-tipos-aliases-2" class="outline-3">
+<h3 id="definindo-tipos-aliases-2"><span class="section-number-3">7.1.</span> Definindo tipos (<i>aliases</i>)</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+Nomes de tipos devem sempre iniciar com letra maiúscula.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">type</span> Idade = <span class="org-type">int</span>
+
+<span class="org-builtin">val</span> a: Idade = 1
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-tipos-soma-2" class="outline-3">
+<h3 id="tipos-soma-2"><span class="section-number-3">7.2.</span> Tipos soma</h3>
+<div class="outline-text-3" id="text-7-2">
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">type</span> Periodo = Manha | Tarde | Noite
+
+<span class="org-builtin">type</span> EstadoLogin = Logado(<span class="org-type">str</span>) | Deslogado
+
+<span class="org-builtin">type</span> Opcional[a] = Algum(a) | Nenhum
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-recursos-2" class="outline-3">
+<h3 id="recursos-2"><span class="section-number-3">7.3.</span> Recursos</h3>
+<div class="outline-text-3" id="text-7-3">
+<ul class="org-ul">
+<li><a href="https://github.com/informalsystems/quint/blob/main/docs/public/quint-cheatsheet.pdf">Cheatsheet Quint</a><br /></li>
+<li><a href="https://quint-lang.org/docs/builtin">Documentação dos builtins</a><br /></li>
+<li><a href="https://github.com/informalsystems/quint/tree/main/examples/spells">Spells</a> - bibliotecas auxiliares<br />
+<ul class="org-ul">
+<li>PS: Quer contribuir pra opensource? Esse é um ótimo local pra começar<br /></li>
+</ul></li>
+<li><a href="https://quint-lang.org/docs/lang">Manual do Quint</a><br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-exerc-cios-2" class="outline-3">
+<h3 id="exerc-cios-2"><span class="section-number-3">7.4.</span> Exercícios</h3>
+<div class="outline-text-3" id="text-7-4">
+<ol class="org-ol">
+<li>Escreva um operador que recebe um conjunto de inteiros positivos e retorna o maior valor.<br /></li>
+<li>Dado um conjunto de <code>records</code> do tipo <code>{ nome: str, idade: int }</code>, escreva um operador que recebe esse conjunto e retorna a diferença de idade entre o mais velho e o mais novo.<br /></li>
+<li>Defina um valor que contenha todos os conjuntos possíveis com valores inteiros de 1 a 10, com tamanho maior que 2 e menor que 5.<br /></li>
+<li>Escreva um operador que calcule o fatorial de um número. Lembre-se que recursão não é permitida.<br /></li>
+<li>Escreva um operador que recebe uma lista e retorna um mapa onde as chaves são os elementos da lista, e os valores são inteiros representando a quantidade de ocorrências daquele elemento na lista.<br /></li>
+</ol>
+<p>
+Atenção aos tipos!<br />
+</p>
+</div>
+</div>
+</div>
+
+            </div>
+        </div>
+    </body>
+</html>
