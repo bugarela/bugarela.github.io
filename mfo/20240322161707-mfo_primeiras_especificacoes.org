@@ -1,0 +1,346 @@
+:PROPERTIES:
+:ID:       cab6973d-bb75-49d8-8abc-70f4ba04953c
+:END:
+#+title:     Primeiras Especificações
+#+EMAIL:     gabrielamoreira05@gmail.com
+#+DATE:      09 de abril de 2025
+#+LANGUAGE:  en
+#+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
+#+BEAMER_FRAME_LEVEL: 2
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [smaller]
+#+BEAMER_THEME: udesc
+#+BEAMER_HEADER: \input{header.tex} \subtitle{Aula para disciplina de Métodos Formais} \institute{Departamento de Ciência da Computação - DCC\\Universidade do Estado de Santa Catarina - UDESC}
+#+LATEX_COMPILER: pdflatex
+#+bibliography: references.bib
+#+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
+
+#+HTML: <a href="https://bugarela.com/mfo/slides/20240322161707-mfo_primeiras_especificacoes.pdf">Slides</a><br />
+#+beamer: \begin{frame}{Conteúdo}
+#+TOC: headlines 3
+#+beamer: \end{frame}
+
+* REPL
+** Usando a REPL
+x' = x + 1 na REPL
+#+BEAMER: \pause
+#+BEAMER: \medskip
+
+#+begin_src quint
+>>> var x: int
+
+>>> x' = 0
+true
+>>> x
+0
+>>> action step = x' = x + 1
+
+>>> step
+true
+>>> step
+true
+>>> x
+2
+#+end_src
+
+** PS: Definições aninhadas
+Sempre podemos definir operadores, valores e ações dentro do próprio corpo de outra definição. Semelhante ao =let= do Haskell.
+- Para isso, basta escrever a(s) definição(ões) seguidas por fim da expressão final a ser retornada.
+  - Sem separar com vírgula!
+#+begin_src quint
+pure def f(x) = {
+  pure def quadrado(y) = y * y
+  pure def dobro(y) = 2 * y
+  quadrado(x) + dobro(x)
+}
+#+end_src
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+As chaves ={}= são opcionais, e você pode usar elas quando quiser pra deixar mais claro o escopo, por exemplo:
+#+begin_src quint
+val foo = pure def f(x) = 2 * x { f(5) }
+#+end_src
+
+* Ações em Quint
+** Ações
+Ações são expressões booleanas que podem incluir o operador /primed/ (='=).
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Contudo, não podemos usar os operadores booleanos normais sobre essa expressão. Quint não permite isso para evitar possíveis confusões. Por exemplo, as seguintes operações *não* são permitidas:
+- =not(x' = 1)=
+- =x' = 1 or x' = 2=
+- =x' > 1 and x' < 2=
+- =Set(1, 2, 3).exists(i ==> x' = i)=
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Os equivalentes em TLA+ são permitidos. Em Quint, somos forçados a escrever as ações de um jeito específico, de uma forma que elas não possam ser confundidas com não-ações.
+** all e any
+- Em vez de =and=, usamos =all=
+  #+begin_src quint
+  action incrementa_x_e_y = all {
+    x' = x + 1,
+    y' = y + 1,
+  }
+  #+end_src
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+- Em vez de =or=, usamos =any=
+  #+begin_src quint
+  action incrementa_ou_decrementa_x = any {
+    x' = x + 1,
+    x' = x - 1,
+  }
+  #+end_src
+
+** nondet e oneOf
+- Em vez de =exists=, usamos =nondet= e =oneOf=
+  #+begin_src quint
+  action x_recebe_algum_valor = {
+    nondet valor = Set(1, 2, 3).oneOf()
+    x' = valor
+  }
+  #+end_src
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+- Importante: O =oneOf= só pode ser usado nesse cenário (dentro de uma ação, em uma definição do tipo =nondet=, sem operações adicionais sobre ele).
+  #+BEAMER: \pause
+  - A syntaxe em Quint é dessa forma para deixar o não-determinismo explícito, mas na lógica (TLA), isso ainda é um =exists=.
+  #+BEAMER: \pause
+  - Por exemplo, não é possível usar o =oneOf= na implementação de uma função, i.e. para encontrar o máximo em um conjunto.
+
+** if também pode ser usado em ações
+- O =if= não tem uma versão especial pra ações. Usamos ele normalmente.
+  #+begin_src quint
+  action incrementa_x_se_par = {
+    if (x % 2 == 0) {
+      x' = x + 1
+    } else {
+      x' = x
+    }
+  }
+  #+end_src
+
+** Balanceamento de atualizações
+Todas as ações em Quint devem ser devidamente balanceadas, e uma variável nunca pode ser atualizada mais de uma vez em uma mesma ação.
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Isso significa que:
+- Todas as ações em um =any= devem atualizar as mesmas variáveis
+#+BEAMER: \pause
+- Em um =if=, os blocos =then= e =else= devem atualizar as mesmas variáveis
+#+BEAMER: \pause
+- Em um =all=, as variáveis atualizadas por cada ação não podem se repetir
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Essas restrições valem pra TLA+ também, mas em TLA+ isso só será detectado na hora de rodar o /model checker/. Em Quint, vocês vão ver sublinhados vermelhos no editor.
+
+** Exemplos desbalanceados
+Os exemplos a seguir *não* são permitidos no Quint. PS: Para vê-los no editor, você precisa declarar as variáveis (=var x: int= e =var y: int=).
+#+begin_src quint
+action any_desbalanceado = any {
+  x' = 1,
+  y' = 2,
+}
+
+action if_desbalanceado = {
+  if (x > 0) {
+    x' = 1
+  } else {
+    y' = 2
+  }
+}
+#+end_src
+
+** Exemplos com múltiplas atualizações da mesma variável
+Os exemplos a seguir *não* são permitidos no Quint.
+#+begin_src quint
+action all_multiplas_atualizacoes = all {
+  x' = 1,
+  x' = 2,
+}
+
+action a1 = x' = 1
+action a2 = x' = 2
+action all_multiplas_atualizacoes = all { a1, a2 }
+#+end_src
+
+* Modos de Quint
+** Modos de Quint
+:PROPERTIES:
+:CUSTOM_ID: modos-de-quint-2
+:END:
+Percebam como nas últimas aulas conversamos sobre coisas um tanto diferentes:
+- Aula passada, definimos
+    - *operadores* com =def= e =pure def=
+    - *valores* com =val= e =pure val=
+- Nessa aula, usaremos ações com =action=
+
+** Definição dos modos
+Primeiramente, temos a diferença entre =val= e =def=
+- =val= (ou =pure val=): Valores, onde não há nenhum parâmetro.
+- =def= (ou =pure def=): Operadores, onde há pelo menos um parâmetro.
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Esses são os *modos* das definições. Eles definem o tanto de acesso que as definições tem às variáveis.
+- =pure def= e =pure val=: Nenhum acesso. Como funções puras, onde o mesmo input vai sempre gerar o mesmo output.
+- =def= e =val=: Leitura.
+- =action=: Escrita e Leitura.
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Além destes, temos alguns modos adicionais:
+- =nondet=: Para declarações com não determinismo (que usam =oneOf=).
+- =temporal=: Para fórmulas temporais.
+- =run=: Para execuções mais específicas, permitindo operadores que ajudam a definir o passo a passo esperado.
+
+* Jarros de Água
+** Exercício - Jarros de Água
+- Você tem dois jarros:
+  1. um grande, com capacidade de 5 litros
+  2. um pequeno, com capacidade de 3 litros
+
+- Você tem uma torneira de água com capacidade infinita
+- Você pode descartar água a qualquer momento
+- É possível, com precisão, ter uma medida de 4 litros de água?
+
+** Variáveis
+#+begin_src quint
+module jarros {
+  var grande: int
+  var pequeno: int
+
+  ...
+}
+#+end_src
+
+** Ações
+  :PROPERTIES:
+  :CUSTOM_ID: acoes-2-2
+  :END:
+Tente escrever as ações abaixo, definindo os valores para =grande= e =pequeno= em cada uma delas. Nenhuma dessas ações precisa de parâmetros.
+#+begin_src quint
+  action enche_grande
+  action enche_pequeno
+  action esvazia_grande
+  action esvazia_pequeno
+  action grande_pro_pequeno
+  action pequeno_pro_grande
+#+end_src
+
+** Estado inicial
+#+begin_src quint
+  action init = all {
+    grande' = 0,
+    pequeno' = 0,
+  }
+#+end_src
+
+** Tentando resolver na REPL
+#+begin_src shell
+quint -r jarros.qnt::jarros
+#+end_src
+
+Comece com =init=, e verifique os valores de =grande= e =pequeno=. Depois, tente invocar as outras ações, lembrando que o objetivo é chegar em um estado onde um dos jarros tem 4 litros.
+
+** Ação de próximo estado e invariante
+Agora, vamos usar o /model checker/ para encontrar a solução. Para isso, vamos definir:
+- =step=, a ação de próximo estado. A cada passo, podemos tomar qualquer uma das ações definidas.
+- =inv=, nossa invariante. Nesse caso, esperamos que a invariante seja quebrada, para obter nossa solução como contraexemplo.
+
+#+begin_src quint
+  action step = any {
+    enche_grande,
+    enche_pequeno,
+    esvazia_grande,
+    esvazia_pequeno,
+    grande_pro_pequeno,
+    pequeno_pro_grande,
+  }
+
+  val inv = grande != 4
+#+end_src
+
+** Encontrando um contraexemplo
+#+begin_src quint
+$ quint verify jarros.qnt --invariant=inv
+An example execution:
+
+[State 0] { grande: 0, pequeno: 0 }
+[State 1] { grande: 5, pequeno: 0 }
+[State 2] { grande: 2, pequeno: 3 }
+[State 3] { grande: 2, pequeno: 0 }
+[State 4] { grande: 0, pequeno: 2 }
+[State 5] { grande: 5, pequeno: 2 }
+[State 6] { grande: 4, pequeno: 3 }
+
+[violation] Found an issue (156ms).
+error: found a counterexample
+#+end_src
+
+* Runs
+** Runs
+- Representação de uma *execução* finita.
+  - Pode ser uma execução concreta, ou
+  - Pode ter não determinismo, representando mais de uma execução
+- Descreve como reproduzir uma ou mais execuções, se possível
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Essa é uma feature exclusiva do Quint, e não há uma representação equivalente em TLA+.
+- Em TLA+, só podemos usar o estado em si para determinar cada passo a ser dado.
+- Em Quint, as runs permitem definir isso externamente, sem necessidade de manipular o estado.
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+O propósito de runs está relacionado a testes, e não tem função alguma para o /model checker/.
+
+** Definindo uma run para a solução dos jarros
+#+begin_src quint
+  run solution =
+    init
+      .then(enche_grande)
+      .then(grande_pro_pequeno)
+      .then(esvazia_pequeno)
+      .then(grande_pro_pequeno)
+      .then(enche_grande)
+      .then(grande_pro_pequeno)
+      .expect(grande == 4)
+#+end_src
+
+#+BEAMER: \pause
+#+BEAMER: \medskip
+Adicionando o =expect= no final, essa run também funciona como um teste
+
+** Rodando runs como testes
+#+begin_src shell
+quint test jarros.qnt --match solution
+
+  jarros
+    ok solution passed 1 test(s)
+
+  1 passing (12ms)
+#+end_src
+
+** Invocando runs na REPL
+#+begin_src quint
+$ quint -r jarros.qnt::jarros
+>>> solution
+true
+>>> grande
+4
+>>> pequeno
+3
+#+end_src
+
+** FIM
+#+BEAMER: \maketitle
