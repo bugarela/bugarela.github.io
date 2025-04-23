@@ -1,0 +1,975 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Introdução ao TLA+</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="https://bugarela.com/mfo/20240331223036-mfo_introducao_ao_tla.html" />
+  <meta property="og:title" content="Introdução ao TLA+" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Introdução ao TLA+">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.stemmer.support.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.pt.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../css/layouts/style.css">
+
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-5" style="text-align: center">
+    <div class="header">
+        <h2 class="brand-title">
+            <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
+        </h2>
+    </div>
+    <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+    </div>
+    <div class="footer">
+    <div>
+        Created using Emacs and
+        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
+        >.<br />
+        Style from
+        <a href="https://owickstrom.github.io/the-monospace-web/"
+            >The Monospace Web</a
+        >.
+    </div>
+</div>
+
+</div>
+
+            <div class="content pure-u-1 pure-u-md-2-3">
+                
+                <h1>Introdução ao TLA+</h1>
+                 <a href="https://bugarela.com/mfo/slides/20240331223036-mfo_introducao_ao_tla.pdf">Slides</a><br />
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#quint-tla-1">1. Quint -&gt; TLA+</a>
+<ul>
+<li><a href="#quint-tla-2">1.1. Quint -&gt; TLA+</a></li>
+<li><a href="#tipos-2">1.2. Tipos</a></li>
+<li><a href="#tla-repl-2">1.3. TLA+ REPL</a></li>
+<li><a href="#tla-repl-em-qualquer-terminal-2">1.4. TLA+ REPL em qualquer terminal</a></li>
+<li><a href="#constantes-e-vari-veis-2">1.5. Constantes e variáveis</a></li>
+<li><a href="#instanciando-m-dulos-2">1.6. Instanciando módulos</a></li>
+<li><a href="#imports-2">1.7. Imports</a></li>
+<li><a href="#literais-2">1.8. Literais</a></li>
+<li><a href="#lambdas-operadores-an-nimos-2">1.9. Lambdas (Operadores Anônimos)</a></li>
+<li><a href="#let-in-2">1.10. LET &#x2026; IN &#x2026;</a></li>
+<li><a href="#conjun-o-e-disjun-o-2">1.11. Conjunção e Disjunção</a></li>
+<li><a href="#condicional-2">1.12. Condicional</a></li>
+<li><a href="#sets-2">1.13. Sets!</a></li>
+<li><a href="#operadores-sobre-sets-2">1.14. Operadores sobre sets</a></li>
+<li><a href="#n-o-determinismo-2">1.15. Não-determinismo</a></li>
+<li><a href="#exerc-cios-sets-2">1.16. Exercícios Sets</a></li>
+<li><a href="#maps-2">1.17. Maps</a></li>
+<li><a href="#maps-construtor-2">1.18. Maps - construtor</a></li>
+<li><a href="#maps-construtor-como-em-quint-2">1.19. Maps - construtor como em Quint</a></li>
+<li><a href="#maps-acesso-2">1.20. Maps - acesso</a></li>
+<li><a href="#operadores-sobre-maps-2">1.21. Operadores sobre Maps</a></li>
+<li><a href="#records-2">1.22. Records</a></li>
+<li><a href="#listas-ou-sequ-ncias-2">1.23. Listas (ou Sequências)</a></li>
+<li><a href="#tuplas-2">1.24. Tuplas</a></li>
+<li><a href="#unchanged-2">1.25. Unchanged</a></li>
+<li><a href="#folds-2">1.26. Folds</a></li>
+<li><a href="#exerc-cios-fold-2">1.27. Exercícios Fold</a></li>
+<li><a href="#exerc-cios-tla-2">1.28. Exercícios TLA+</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-quint-tla-1" class="outline-2">
+<h2 id="quint-tla-1"><span class="section-number-2">1.</span> Quint -&gt; TLA+</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-quint-tla-2" class="outline-3">
+<h3 id="quint-tla-2"><span class="section-number-3">1.1.</span> Quint -&gt; TLA+</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Já aprendemos Quint, então vamos ver TLA+ pensando nas equivalencias com Quint.<br />
+</p>
+<ul class="org-ul">
+<li>O próprio <a href="https://quint-lang.org/docs/lang">Manual do Quint</a> trás essas comparações entra TLA+ e Quint<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-tipos-2" class="outline-3">
+<h3 id="tipos-2"><span class="section-number-3">1.2.</span> Tipos</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+TLA+ não tem tipos!<br />
+</p>
+<ul class="org-ul">
+<li>No TLC, erros de tipo serão detectados em runtime<br />
+<ul class="org-ul">
+<li>Se seu modelo tiver <code>1 + "bla"</code> no sétimo estado da execução, o TLC só vai perceber o problema quando chegar nesse estado em sua exploração<br /></li>
+</ul></li>
+</ul>
+<ul class="org-ul">
+<li>No Apalache, é preciso traduzir o modelo para fórmulas SMT, que precisam ser tipadas<br />
+<ul class="org-ul">
+<li>TLA+ para o Apalache é tipado<br /></li>
+<li><p>
+A linguagem em si não é tipada, mas o Apalache espera que os tipos sejam anotados nos comentários<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">    <span class="org-keyword">VARIABLES</span>
+      <span class="org-comment">\* @type: Int -&gt; Int;</span>
+      clock,
+      <span class="org-comment">\* @type: Int -&gt; (Int -&gt; Int);</span>
+      req,
+      <span class="org-comment">\* @type: Int -&gt; Set(Int);</span>
+      ack,
+</pre>
+</div></li>
+<li>Mais informações no <a href="https://apalache.informal.systems/docs/tutorials/snowcat-tutorial.html">Manual do Apalache</a><br />
+<ul class="org-ul">
+<li>Não vamos nos aprofundar nisso na disciplina!<br /></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-tla-repl-2" class="outline-3">
+<h3 id="tla-repl-2"><span class="section-number-3">1.3.</span> TLA+ REPL</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>O TLA+ tem uma REPL que só funciona para expressões constantes<br />
+<ul class="org-ul">
+<li>Não podemos usar ela para definir variáveis e avaliar transições<br /></li>
+</ul></li>
+<li>Só está disponível na pre-release do TLA+, então<br />
+<ul class="org-ul">
+<li>No VSCode, o novo plugin lançado já tem<br /></li>
+<li>No <code>.jar</code>, precisamos da versão 1.8.0<br /></li>
+</ul></li>
+</ul>
+
+<p>
+Atenção para como faremos pra rodar ela nos computadores da UDESC:<br />
+</p>
+<ol class="org-ol">
+<li>No VSCode, baixar a extensão: <b>TLA+ (Temporal Logic of Actions)</b><br /></li>
+<li>Aperte F1 e escolha: TLA+: Run REPL in Terminal.<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-tla-repl-em-qualquer-terminal-2" class="outline-3">
+<h3 id="tla-repl-em-qualquer-terminal-2"><span class="section-number-3">1.4.</span> TLA+ REPL em qualquer terminal</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Opção 1 (com ou sem <code>sudo</code>, somente UNIX):<br />
+</p>
+<ul class="org-ul">
+<li><a href="https://github.com/pmer/tla-bin">https://github.com/pmer/tla-bin</a><br /></li>
+<li><p>
+Instalar:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">  <span class="org-type">git</span> clone https://github.com/pmer/tla-bin.git
+  <span class="org-type">cd</span> tla-bin
+  sh download_or_update_tla.sh --nightly
+  sh install.sh ~/.local
+  <span class="org-comment-delimiter"># </span><span class="org-comment">ou, se tiver sudo:</span>
+  <span class="org-type">sudo</span> install.sh
+</pre>
+</div></li>
+<li><p>
+Executar:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">  <span class="org-type">cd</span> ~/.local/bin
+  ./tlarepl
+</pre>
+</div></li>
+</ul>
+<p>
+Opção 2 (sem <code>sudo)</code>:<br />
+</p>
+<ol class="org-ol">
+<li>Baixar o <code>tla2tools.jar</code> versão 1.8.0. Duas opções:<br />
+<ul class="org-ul">
+<li>Do GitHub: <a href="https://github.com/tlaplus/tlaplus/releases/download/v1.8.0/tla2tools.jar">https://github.com/tlaplus/tlaplus/releases/download/v1.8.0/tla2tools.jar</a><br /></li>
+<li>Ou, se você já instalou a extensão do VSCode, esse arquivo já existe em <code>~/.vscode/extensions/alygin.vscode-tlaplus-nightly-&lt;versao&gt;/tools/tla2tools.jar</code><br /></li>
+</ul></li>
+<li>Executar o <code>jar</code>:<br />
+<code>java -cp tla2tools.jar tlc2.REPL</code><br /></li>
+</ol>
+
+<p>
+Opção 3 (com <code>sudo</code>):<br />
+</p>
+<ul class="org-ul">
+<li>Seguir as instruções em <a href="https://lamport.azurewebsites.net/tla/standalone-tools.html">https://lamport.azurewebsites.net/tla/standalone-tools.html</a><br /></li>
+<li>Executar com <code>java tlc2.REPL</code><br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-constantes-e-vari-veis-2" class="outline-3">
+<h3 id="constantes-e-vari-veis-2"><span class="section-number-3">1.5.</span> Constantes e variáveis</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+Em Quint:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">const</span> MY_CONST: <span class="org-type">int</span>
+
+<span class="org-builtin">var</span> x: <span class="org-type">str</span>
+<span class="org-builtin">var</span> y: <span class="org-type">bool</span>
+</pre>
+</div>
+
+<p>
+Em TLA+:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span class="org-keyword">CONSTANT</span> MY_CONST
+<span class="org-keyword">VARIABLES</span> x, y
+</pre>
+</div>
+
+<p>
+Temos as palavras-chave: <code>CONSTANT</code>, <code>CONSTANTS</code>, <code>VARIABLE</code> e <code>VARIABLES</code>.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-instanciando-m-dulos-2" class="outline-3">
+<h3 id="instanciando-m-dulos-2"><span class="section-number-3">1.6.</span> Instanciando módulos</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Lembram nos semáforos, quando tínhamos a constante <code>SEMAFOROS</code>, e instanciávamos o módulo com:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">module</span> semaforos_3 {
+  <span class="org-builtin">import</span> semaforos(SEMAFOROS=Set(0, 1, 2)).*
+}
+</pre>
+</div>
+
+<p>
+Em TLA+, usaríamos o <code>INSTANCE</code>:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span class="org-keyword">INSTANCE</span> semaforos <span class="org-keyword">WITH</span> SEMAFOROS &lt;- {<span class="org-highlight-numbers-number">0</span>, <span class="org-highlight-numbers-number">1</span> ,<span class="org-highlight-numbers-number">2</span>}
+</pre>
+</div>
+
+<p>
+Inclusive, em TLA+ podemos atribuir <b>variáveis</b> nas instâncias também, o que não é permitido em Quint.<br />
+</p>
+
+<p>
+PS: Constantes e Instâncias são um tanto complicadas. A utilização delas nos trabalhos da disciplina é totalmente opcional.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-imports-2" class="outline-3">
+<h3 id="imports-2"><span class="section-number-3">1.7.</span> Imports</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+Em Quint, tempos os imports<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">import</span> meu_modulo.*
+<span class="org-builtin">import</span> meu_modulo.minha_definicao
+<span class="org-builtin">import</span> meu_modulo <span class="org-builtin">as</span> M
+</pre>
+</div>
+
+<p>
+Em TLA+<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span class="org-keyword">EXTENDS</span> meu_modulo
+</pre>
+</div>
+
+<p>
+Inclusive, os interios não são <i>built-in</i> em TLA+. Temos que importar o módulo de inteiros com<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span class="org-keyword">EXTENDS</span> Integers
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-literais-2" class="outline-3">
+<h3 id="literais-2"><span class="section-number-3">1.8.</span> Literais</h3>
+<div class="outline-text-3" id="text-1-8">
+<ul class="org-ul">
+<li><code>false</code> em Quint é <code>FALSE</code> em TLA+<br /></li>
+<li><code>true</code> em Quint é <code>TRUE</code> em TLA+<br /></li>
+<li>inteiros e strings são a mesma coisa<br />
+<ul class="org-ul">
+<li>Divisão de inteiros é feita com <code>\div</code><br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-lambdas-operadores-an-nimos-2" class="outline-3">
+<h3 id="lambdas-operadores-an-nimos-2"><span class="section-number-3">1.9.</span> Lambdas (Operadores Anônimos)</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+Em Quint, temos lambdas como o a seguir. Contudo (por hora), lambdas só podem ser usados como argumentos pra outros operadores, como para o <code>map</code> e <code>fold</code>:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">my_set.map(x =&gt; x + 1)
+my_set.fold(0, (acc, i) =&gt; acc + i)
+</pre>
+</div>
+
+<p>
+Em TLA+, temos lambdas, de forma geral, como:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span class="org-keyword">LAMBDA</span> x: x + <span class="org-highlight-numbers-number">1</span>
+<span class="org-keyword">LAMBDA</span> x, y: x + y
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-let-in-2" class="outline-3">
+<h3 id="let-in-2"><span class="section-number-3">1.10.</span> LET &#x2026; IN &#x2026;</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+Em Quint, podemos declarar varios operadores seguidos de uma expressão:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">val</span> a = {
+  <span class="org-builtin">pure</span> <span class="org-builtin">val</span> b = 1
+  <span class="org-builtin">pure</span> <span class="org-builtin">val</span> c = b + 1
+  c + 1
+}
+</pre>
+</div>
+
+<p>
+Em TLA+, fazemos o semelhante com:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">a == <span class="org-keyword">LET</span> b == <span class="org-highlight-numbers-number">1</span>
+         c == b + <span class="org-highlight-numbers-number">1</span>
+      <span class="org-keyword">IN</span> c + <span class="org-highlight-numbers-number">1</span>
+</pre>
+</div>
+
+<p>
+Percebam que usamos duplo <code>=</code>  (<code>==</code>) para definições. Para o predicado de igualdade, usamos um único <code>=</code>, diferente de linguagens de programação. Basicamente, o oposto de Quint.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-conjun-o-e-disjun-o-2" class="outline-3">
+<h3 id="conjun-o-e-disjun-o-2"><span class="section-number-3">1.11.</span> Conjunção e Disjunção</h3>
+<div class="outline-text-3" id="text-1-11">
+</div>
+<ol class="org-ol">
+<li><a id="conjun-o-3"></a>Conjunção<br />
+<div class="outline-text-4" id="text-1-11-1">
+<p>
+Conjunção em Quint:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">val</span> pred = a <span class="org-keyword">and</span> b
+<span class="org-builtin">action</span> conj = <span class="org-keyword">all</span> {
+  A,
+  B,
+  C,
+}
+</pre>
+</div>
+
+<p>
+Conjunção em TLA+:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">pred == a /\ b
+conj ==
+   /\ A
+   /\ B
+   /\ C
+</pre>
+</div>
+</div>
+</li>
+<li><a id="disjun-o-3"></a>Disjunção<br />
+<div class="outline-text-4" id="text-1-11-2">
+<p>
+Disjunção em Quint:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">val</span> pred = a <span class="org-keyword">or</span> b
+<span class="org-builtin">action</span> disj = <span class="org-keyword">any</span> {
+  A,
+  B,
+  C,
+}
+</pre>
+</div>
+
+<p>
+Disjunção em TLA+:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">pred == a \/ b
+conj ==
+   \/ A
+   \/ B
+   \/ C
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-condicional-2" class="outline-3">
+<h3 id="condicional-2"><span class="section-number-3">1.12.</span> Condicional</h3>
+<div class="outline-text-3" id="text-1-12">
+<p>
+Em Quint:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">def</span> f(x) = <span class="org-keyword">if</span> (x == 0) 10 <span class="org-keyword">else</span> 20
+</pre>
+</div>
+
+<p>
+Em TLA+:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">f(x) == <span class="org-keyword">IF</span> x = <span class="org-highlight-numbers-number">0</span> <span class="org-keyword">THEN</span> <span class="org-highlight-numbers-number">10</span> <span class="org-keyword">ELSE</span> <span class="org-highlight-numbers-number">20</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sets-2" class="outline-3">
+<h3 id="sets-2"><span class="section-number-3">1.13.</span> Sets!</h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+Em Quint:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-type">Set</span>(1, 2, 3)
+</pre>
+</div>
+
+<p>
+Em TLA+:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">{<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">2</span>, <span class="org-highlight-numbers-number">3</span>}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-operadores-sobre-sets-2" class="outline-3">
+<h3 id="operadores-sobre-sets-2"><span class="section-number-3">1.14.</span> Operadores sobre sets</h3>
+<div class="outline-text-3" id="text-1-14">
+<p>
+Existe e para todo:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">\E x \in S: P <span class="org-comment">\* S.exists(x =&gt; P)</span>
+\A x \in S: P <span class="org-comment">\* S.forall(x =&gt; P)</span>
+</pre>
+</div>
+
+<p>
+<code>map</code> e <code>filter</code>:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">{ e: x \in S } <span class="org-comment">\* S.map(x =&gt; e)</span>
+{ x \in S: P } <span class="org-comment">\* S.filter(x =&gt; P)</span>
+</pre>
+</div>
+<p>
+Predicados:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">e \in S <span class="org-comment">\* e.in(S) ou S.contains(e)</span>
+S \union T <span class="org-comment">\* S.union(T)</span>
+S \intersect T <span class="org-comment">\* S.intersect(T)</span>
+S \ T <span class="org-comment">\* S.exclude(T)</span>
+S \subseteq T <span class="org-comment">\* S.subseteq(T)</span>
+</pre>
+</div>
+
+<p>
+Outros operadores:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span class="org-keyword">SUBSET</span> S <span class="org-comment">\* S.powerset()</span>
+<span class="org-keyword">UNION</span> S <span class="org-comment">\* S.flatten()</span>
+Cardinality(S) <span class="org-comment">\* S.size()</span>
+a..b <span class="org-comment">\* a.to(b)</span>
+</pre>
+</div>
+
+<p>
+PS: Para usar <code>Cardinality</code>, precisamos fazer <code>EXTENDS FiniteSets</code><br />
+</p>
+</div>
+</div>
+<div id="outline-container-n-o-determinismo-2" class="outline-3">
+<h3 id="n-o-determinismo-2"><span class="section-number-3">1.15.</span> Não-determinismo</h3>
+<div class="outline-text-3" id="text-1-15">
+<p>
+Em Quint:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">nondet</span> name = my_set.oneOf()
+x' = name
+</pre>
+</div>
+
+<p>
+Em TLA+, é apenas um <i>exists</i> normal:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">\E name \in my_set: x' = name
+</pre>
+</div>
+
+<p>
+Lembrando que o equivalente ao <i>exists</i> (<code>my_set.exists(name =&gt; x' = name)</code>) não é permitido em Quint, pois não podemos usar <b>ações</b> como argumentos do <code>exists</code>.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-exerc-cios-sets-2" class="outline-3">
+<h3 id="exerc-cios-sets-2"><span class="section-number-3">1.16.</span> Exercícios Sets</h3>
+<div class="outline-text-3" id="text-1-16">
+<p>
+Resolva usando os equivalentes a <code>map</code> e <code>filter</code> na REPL:<br />
+</p>
+<ol class="org-ol">
+<li><p>
+Dado um conjunto de números, retorne um conjunto do quadrado desses números.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span class="org-keyword">LET</span> quadrado(S) == resolucao <span class="org-keyword">IN</span> quadrado({<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">2</span>, <span class="org-highlight-numbers-number">3</span>, <span class="org-highlight-numbers-number">4</span>})
+</pre>
+</div></li>
+<li><p>
+Dado um conjunto de números, retorne um conjunto apenas com os números pares.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span class="org-keyword">LET</span> pares(S) == resolucao <span class="org-keyword">IN</span> pares({<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">2</span>, <span class="org-highlight-numbers-number">3</span>, <span class="org-highlight-numbers-number">4</span>})
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-maps-2" class="outline-3">
+<h3 id="maps-2"><span class="section-number-3">1.17.</span> Maps</h3>
+<div class="outline-text-3" id="text-1-17">
+<ul class="org-ul">
+<li>Chamados funções em TLA+, mas podemos continuar chamando de mapas para não confundir.<br /></li>
+<li>Contudo, a perspectiva aqui é a de funções. Não temos uma boa forma de expressar um mapa que começa vazio e vai crescendo conforme o sistema evolui.<br />
+<ul class="org-ul">
+<li>Geralmente inicializamos o mapa com as chaves já definidas, e algum valor inicial.<br /></li>
+<li>Isso é uma boa prática para Quint também!<br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-maps-construtor-2" class="outline-3">
+<h3 id="maps-construtor-2"><span class="section-number-3">1.18.</span> Maps - construtor</h3>
+<div class="outline-text-3" id="text-1-18">
+<p>
+Em Quint:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">S.mapBy(x =&gt; e)
+</pre>
+</div>
+
+<p>
+Em TLA+:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">[ x \in S |-&gt; e ]
+</pre>
+</div>
+
+<p>
+Por exemplo, criando uma estrutura para guardar o saldo no banco de cada pessoa:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">[ pessoa \in { <span class="org-string">"alice"</span>, <span class="org-string">"bob"</span>, <span class="org-string">"charlie"</span> } |-&gt; <span class="org-highlight-numbers-number">0</span> ]
+</pre>
+</div>
+
+<p>
+Se eu ainda não souber quem são as pessoas, aí sim preciso criar um mapa vazio:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">[ pessoa \in {} |-&gt; <span class="org-highlight-numbers-number">0</span> ]
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-maps-construtor-como-em-quint-2" class="outline-3">
+<h3 id="maps-construtor-como-em-quint-2"><span class="section-number-3">1.19.</span> Maps - construtor como em Quint</h3>
+<div class="outline-text-3" id="text-1-19">
+<p>
+O equivalente a:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">Map(k_1 -&gt; v_1, k_2 -&gt; v_2, k_3 -&gt; v_3)
+</pre>
+</div>
+
+<p>
+seria:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">[ x \in { a: &lt;&lt;a, b&gt;&gt; \in S } |-&gt; (<span class="org-keyword">CHOOSE</span> p \in S: p[<span class="org-highlight-numbers-number">1</span>] = x)[<span class="org-highlight-numbers-number">2</span>]]
+</pre>
+</div>
+
+<p>
+O <code>CHOOSE</code> é um operador um tanto complicado<br />
+</p>
+<ul class="org-ul">
+<li>Ele parece não determinístico, mas é completamente determinístico<br /></li>
+<li>Vamos evitar ele por agora. Talvez voltamos nisso no final da disciplina.<br /></li>
+</ul>
+
+<p>
+Solução: <code>SetAsFun</code><br />
+</p>
+
+<p>
+Podemos copiar o operador <code>SetAsFun</code> do Apalache e usá-lo. Primeiro, copie e cole a seguinte definição<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">SetAsFun(S) ==
+    <span class="org-keyword">LET</span> Dom == { x: &lt;&lt;x, y&gt;&gt; \in S }
+        Rng == { y: &lt;&lt;x, y&gt;&gt; \in S }
+    <span class="org-keyword">IN</span>
+    [ x \in Dom |-&gt; <span class="org-keyword">CHOOSE</span> y \in Rng: &lt;&lt;x, y&gt;&gt; \in S ]
+</pre>
+</div>
+
+<p>
+E para utilizar, basta fornecer um conjundo de duplas do tipo <a></a> como parâmetro:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">MeuMapa == SetAsFun({ &lt;&lt;k_1, v_1&gt;&gt;, &lt;&lt;k_2, v_2&gt;&gt;, &lt;&lt;k_3, v_3&gt;&gt; })
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-maps-acesso-2" class="outline-3">
+<h3 id="maps-acesso-2"><span class="section-number-3">1.20.</span> Maps - acesso</h3>
+<div class="outline-text-3" id="text-1-20">
+<p>
+Para acessar uma chave <code>e</code> de um mapa <code>f</code>:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">f[e] <span class="org-comment">\* f.get(e)</span>
+</pre>
+</div>
+
+<p>
+Um exemplo na REPL.<br />
+</p>
+<ul class="org-ul">
+<li>PS: A REPL de TLA+ imprime somente os valores de um mapa quando imprime um mapa.<br /></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-tla">(tla+) [ x \in {<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">2</span>} |-&gt; x + <span class="org-highlight-numbers-number">1</span> ]
+<span class="org-comment">\* &lt;&lt;2, 3&gt;&gt;</span>
+(tla+) <span class="org-keyword">LET</span> m == [ x \in {<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">2</span>} |-&gt; x + <span class="org-highlight-numbers-number">1</span> ] <span class="org-keyword">IN</span> m[<span class="org-highlight-numbers-number">1</span>]
+<span class="org-comment">\* 2</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-operadores-sobre-maps-2" class="outline-3">
+<h3 id="operadores-sobre-maps-2"><span class="section-number-3">1.21.</span> Operadores sobre Maps</h3>
+<div class="outline-text-3" id="text-1-21">
+<p>
+Obtendo o conjunto com as chaves:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span class="org-keyword">DOMAIN</span> f <span class="org-comment">\* f.keys()</span>
+</pre>
+</div>
+
+<p>
+Obtendo todos os mapas possíveis:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">[ S -&gt; T ] <span class="org-comment">\* setOfMaps(S, T)</span>
+</pre>
+</div>
+
+<p>
+Atualizando e adicionando valores:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">[f <span class="org-keyword">EXCEPT</span> ![e1] = e2] <span class="org-comment">\* f.set(e1, e2)</span>
+[f <span class="org-keyword">EXCEPT</span> ![e1] = e2, ![e3] = e4]
+<span class="org-comment">\* f.set(e1, e2).set(e3, e4)</span>
+[f <span class="org-keyword">EXCEPT</span> ![e1] = @ + y]
+<span class="org-comment">\* f.setBy(e1, (old =&gt; old + y))</span>
+(k :&gt; v) @@ f <span class="org-comment">\* f.put(k, v)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-records-2" class="outline-3">
+<h3 id="records-2"><span class="section-number-3">1.22.</span> Records</h3>
+<div class="outline-text-3" id="text-1-22">
+<p>
+Construtor:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">[ f_1 |-&gt; e_1, ..., f_n |-&gt; e_n ]
+<span class="org-comment">\* { f_1: e_1, ..., f_n: e_n }</span>
+</pre>
+</div>
+
+<p>
+Acesso, idêntico ao Quint:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">r.meu_campo <span class="org-comment">\* r.meu_campo</span>
+</pre>
+</div>
+
+<p>
+Atualização:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">[r <span class="org-keyword">EXCEPT</span> !.f = e]
+<span class="org-comment">\* r.with("f", e) ou  { ...r, f: e }</span>
+[r <span class="org-keyword">EXCEPT</span> !.f1 = e1, !fN = eN] <span class="org-comment">\* N campos</span>
+</pre>
+</div>
+<p>
+Obtendo todos os possíveis records:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">[ f_1: S_1, ..., f_n: S_n ]
+<span class="org-comment">\* tuples(S_1, ..., S_n).map(((a_1, ..., a_n)) =&gt; { f_1: a_1, ..., f_n: a_n })</span>
+</pre>
+</div>
+
+<p>
+Obtendo os nomes dos campos:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span class="org-keyword">DOMAIN</span> r <span class="org-comment">\* r.fieldNames()</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-listas-ou-sequ-ncias-2" class="outline-3">
+<h3 id="listas-ou-sequ-ncias-2"><span class="section-number-3">1.23.</span> Listas (ou Sequências)</h3>
+<div class="outline-text-3" id="text-1-23">
+<p>
+Construtor:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">&lt;&lt;e_1, ..., e_n&gt;&gt; <span class="org-comment">\* [ e_1, ..., e_n ]</span>
+</pre>
+</div>
+
+<p>
+Acesso, sendo que os índices iniciam em 1:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">s[i] <span class="org-comment">\* l[i - 1]</span>
+</pre>
+</div>
+
+<p>
+Atualização em um índice:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">[ s <span class="org-keyword">EXCEPT</span> ![i] = e ] <span class="org-comment">\* l.replaceAt(i - 1, e)</span>
+</pre>
+</div>
+
+<p>
+Adicionando elementos:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">Append(s, e) <span class="org-comment">\* l.append(e)</span>
+l \circ t <span class="org-comment">\* l.concat(t)</span>
+</pre>
+</div>
+<p>
+Outros operadores:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">Head(l) <span class="org-comment">\* l.head()</span>
+Tail(l) <span class="org-comment">\* l.tail()</span>
+Len(s) <span class="org-comment">\* l.length()</span>
+<span class="org-keyword">DOMAIN</span>  i <span class="org-comment">\* l.indices().map(i =&gt; i - 1)</span>
+SubSeq(lst, start, end) <span class="org-comment">\* l.slice(start - 1, end)</span>
+SelectSeq(s, Test) <span class="org-comment">\* select(l, Test)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-tuplas-2" class="outline-3">
+<h3 id="tuplas-2"><span class="section-number-3">1.24.</span> Tuplas</h3>
+<div class="outline-text-3" id="text-1-24">
+<p>
+Já que não temos tipos em TLA+, tuplas são nada mais do que uma lista.<br />
+</p>
+<ul class="org-ul">
+<li>elementos podem ter tipos distintos em ambas (heterogenindade).<br /></li>
+</ul>
+
+<p>
+Construtor:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">&lt;&lt; e_1, ..., e_n &gt;&gt; <span class="org-comment">\* (e_1, ..., e_n)</span>
+</pre>
+</div>
+
+<p>
+Acesso:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">t[<span class="org-highlight-numbers-number">1</span>], t[<span class="org-highlight-numbers-number">2</span>], ... , t[<span class="org-highlight-numbers-number">50</span>] <span class="org-comment">\* t._1, t._2, ..., t._50</span>
+</pre>
+</div>
+
+<p>
+Obtendo todas as possíveis tuplas:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">S_1 \X S_2 \X ... \X S_n <span class="org-comment">\* tuples(S_1, S_2, ..., S_n)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-unchanged-2" class="outline-3">
+<h3 id="unchanged-2"><span class="section-number-3">1.25.</span> Unchanged</h3>
+<div class="outline-text-3" id="text-1-25">
+<p>
+TLA+ fornece um operador para o caso especial onde uma variável se mantém com o mesmo valor em uma ação:<br />
+</p>
+
+<p>
+Ao invés de escrevermos:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">MinhaAcao ==
+  /\ a' = a
+  /\ b' = b
+</pre>
+</div>
+
+<p>
+Podemos escrever:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">MinhaAcao ==
+  <span class="org-keyword">UNCHANGED</span> &lt;&lt; a, b &gt;&gt;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-folds-2" class="outline-3">
+<h3 id="folds-2"><span class="section-number-3">1.26.</span> Folds</h3>
+<div class="outline-text-3" id="text-1-26">
+<p>
+Não consegui descobir um jeito de fazer <code>EXTENDS</code> pela REPL. Então, vamos usar o VSCode com a funcionalidade de avaliação:<br />
+</p>
+<ul class="org-ul">
+<li>Selecione o texto de uma <b>expressão</b><br /></li>
+<li>Aperte F1 e selecione TLA+: Evaluate selected expression<br /></li>
+</ul>
+
+<p>
+Para usar o fold, precisamos de:<br />
+</p>
+<ul class="org-ul">
+<li><code>EXTENDS FiniteSetsExt</code> para <code>FoldSet</code><br /></li>
+<li><code>EXTENDS SequencesExt</code> para <code>FoldSeq</code>, <code>FoldRight</code> e <code>FoldLeft</code><br /></li>
+</ul>
+
+<p>
+Em Quint:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-type">Set</span>(1, 2, 3, 4).fold(0, (acc, i) =&gt; acc + i)
+</pre>
+</div>
+
+<p>
+Em TLA+:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">FoldSet(<span class="org-keyword">LAMBDA</span> i, acc : acc + i, <span class="org-highlight-numbers-number">0</span>, S)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-exerc-cios-fold-2" class="outline-3">
+<h3 id="exerc-cios-fold-2"><span class="section-number-3">1.27.</span> Exercícios Fold</h3>
+<div class="outline-text-3" id="text-1-27">
+<p>
+Exercício: Re-escreva nossos exemplos anteriores usando <code>FoldSet</code><br />
+Agora, resolva ambos usando <code>FoldSet</code>.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-exerc-cios-tla-2" class="outline-3">
+<h3 id="exerc-cios-tla-2"><span class="section-number-3">1.28.</span> Exercícios TLA+</h3>
+<div class="outline-text-3" id="text-1-28">
+<ol class="org-ol">
+<li>Escreva um operador que recebe um conjunto de inteiros positivos e retorna o maior valor.<br /></li>
+<li>Dado um conjunto de <code>records</code> como <code>[ nome |-&gt; "Gabriela", idade |-&gt; 26 ]</code>, escreva um operador que recebe esse conjunto e retorna a diferença de idade entre o mais velho e o mais novo.<br /></li>
+<li>Defina um valor que contenha todos os conjuntos possíveis com valores inteiros de 1 a 10, que contenham o número 5 ou o 6.<br /></li>
+<li>Escreva um operador que calcule o fatorial de um número. Lembre-se que recursão não é permitida.<br /></li>
+<li>Escreva um operador que recebe uma lista e retorna um mapa onde as chaves são os elementos da lista, e os valores são inteiros representando a quantidade de ocorrências daquele elemento na lista.<br /></li>
+</ol>
+
+<p>
+Atenção aos tipos!<br />
+</p>
+<p>
+Dica: você vai precisar dos módulos importados pela expressão:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-tla"><span class="org-keyword">EXTENDS</span> FiniteSets, FiniteSetsExt, Integers, Sequences, SequencesExt
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+            </div>
+        </div>
+    </body>
+</html>
