@@ -42,8 +42,8 @@
 #   - [[file:20240625203536-mfo_tla_avancado.org][TLA+ Avançado]]
 * Seminário
   - [[file:20240531080208-mfo_seminario.org][Seminário]]
-# * Trabalho 1
-#   - [[file:20240415205323-mfo_exercicios_pokemon.org][Exercícios Pokemon]]
+* Trabalho 1
+  - [[file:20240415205323-mfo_exercicios_pokemon.org][Exercícios Pokemon]]
 #   - [[file:20240422102646-mfo_especificar_vs_implementar.org][Especificar vs Implementar]]
 #   - [[file:20240423183852-mfo_trabalho_1.org][Trabalho 1]]
 #   - [[file:20240517155753-mfo_faq_trabalho_1.org][FAQ Trabalho 1]]
