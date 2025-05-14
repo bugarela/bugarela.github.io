@@ -1,0 +1,105 @@
+:PROPERTIES:
+:ID:       795c228b-5529-4015-85c2-cd5ccde019eb
+:END:
+#+title: Trabalho 1
+#+author: Métodos Formais
+#+EMAIL:     gabrielamoreira05@gmail.com
+#+DATE:      14 de maio de 2025
+#+LANGUAGE:  en
+#+OPTIONS:    toc:t
+#+LaTeX_CLASS: bugarela-article
+#+LATEX_COMPILER: pdflatex
+#+LATEX_HEADER:  \usepackage[margin=2cm]{geometry} \usepackage{enumitem} \setlist{noitemsep, topsep=0pt}
+#+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
+#+HTML: <a href="https://bugarela.com/mfo/slides/20240423183852-mfo_trabalho_1.pdf">PDF</a><br />
+
+* Informações importantes
+- Data de entrega: 02 de junho (segunda-feira)
+- Trabalho individual ou em dupla
+- Especificações a serem entregues em TLA+ ou Quint.
+- Formato de apresentação: Explicação breve do código (somente para a professora) + implementação de uma pequena modificação por membro.
+- Nota: código entregue + apresentação.
+
+* Uma batalha vencível
+De forma semelhante aos exemplos de jogo da velha e pokemons, você deve especificar um jogo onde as partes fazem jogadas aleatórias, mostrando que assim ambas as partes podem vencer; e então especificar uma versão desse jogo onde os personagens usam uma estratégia que garante que eles não percam.
+
+As regras dessa batalha são inspiradas em jogo de RPG, porém um tanto exageradas para que possamos explorar algumas correspondências interessantes com problemas e soluções reais.
+
+** Ataques
+Ataques são a forma de dar dano em criaturas. O dano é determinado por um inteiro, e ao receber um ataque, uma criatura perde uma quantidade de pontos de vida (HP - /Health Points/) igual ao dano do ataque.
+Uma criatura morre quando seus pontos de vida chegam a zero.
+
+** Paralisia
+Criaturas podem ser paralisadas. Criaturas paralisadas não podem fazer nada em seu turno.
+- A paralisia é permanente, e só pode ser removida se um personagem (não paralisado) usar seu turno para isso, ajudando um jogador paralisado e assim removendo sua paralisia.
+
+** Cura do sacerdote
+Personagens da classe sacerdote tem habilidade de curar seus aliados, restaurando 10 pontos de vida de todos os aliados, incluindo ele mesmo. A cura não pode fazer com que a criatura fique com mais vida do que sua vida inicial. Considerando que os personagens começam com 20 pontos de vida, um personagem com 15 pontos de vida que recebe cura ficará com 20 pontos de vida.
+
+** Canto do bardo
+Personagens da classe bardo tem habilidade de cantar para inspirar outras criaturas. O primeiro ataque feito após o bardo começar a cantar dá o triplo de dano, e o bardo imediatamente para de cantar. Até mesmo inimigos podem se inspirar no canto do bardo.
+
+** Lança de sangue
+Personagens da classe necromante tem um ataque especial. Eles podem usar o próprio sangue para causar dano extra num inimigo, recebendo 10 de dano e causando 20 de dano em seu alvo. O dano causado no alvo pode ser afetado pelo canto do bardo.
+
+** Criaturas
+Essa batalha tem várias criaturas lutando entre si, entre elas inimigos e personagens
+- Inimigos não atacam outros inimigos
+- Personagens não atacam outros personagens
+- Podemos assumir que há somente um personagem de cada classe
+
+*** Inimigos
+Todos os inimigos são iguais. Inimigos tem 90 pontos de vida iniciais.
+
+No primeiro turno, um inimigo inicia um ritual (somente um deles, se tiverem múltiplos inimigos). No terceiro turno desse inimigo após o ínicio do ritual (sem contar o turno de início do ritual), o inimigo finaliza o ritual e todos os personagens morrem. Evidentemente, o ritual não pode ser finalizado se o inimigo estiver morto.
+
+Nos demais turnos, podem fazer as seguintes ações (uma ação por turno):
+**** *Atacar um personagem*:
+Os ataques de inimigo dão 10 de dano, e podem ser afetados pelo canto do bardo
+**** *Paralizar um personagem*:
+Um inimigo pode paralizar um personagem. Essa paralisia é permanente, e só é removida quando outro personagem usa sua ação para remover a paralisia de um jogador específico.
+
+*** Personagens
+Os ataques de personagem causam 10 de dano e tem 20 pontos de vida iniciais, independente da classe. Eles podem executar uma das seguintes ações em seu turno:
+**** Sacerdote
+- Atacar um inimigo
+- Remover paralisia de um personagem
+- Curar seus aliados
+**** Bardo
+- Atacar um inimigo
+- Remover paralisia de um personagem
+- Cantar
+**** Necromante
+- Atacar um inimigo
+- Remover paralisia de um personagem
+- Atacar usando uma lança de sangue
+
+** Iniciativa
+No início da batalha, cada criatura roda um d20 (dado com 20 faces, de 1 até 20) para determinar sua iniciativa. Aqueles com maior iniciativa jogam primeiro, e os com menor iniciativa jogam por último.
+Se duas ou mais criaturas tiverem a mesma iniciativa, a ordem que elas jogam entre si não importa. Nesse caso, fica a critério de vocês qual o comportamento exato.
+Se uma criatura A tem iniciativa maior que a criatura B, A deve jogar antes de B.
+Após todas as criaturas jogarem uma vez, o ciclo reinicia seguindo as mesmas regras e a mesma iniciativa.
+
+* Atividades do trabalho
+** Especificação com as regras do jogo
+Primeiramente, escreva uma especificação descrevendo o que pode acontecer nesse jogo. Considere que exista um único inimigo, e um personagem de cada classe. Nessa versão, deve ser possível tanto que o inimigo quanto que algum dos jogadores morra.
+- Inclua uma (ou mais) variável(is) que registre informações relevantes sobre o que aconteceu no último turno, assim como fizemos para o exemplo do pokemon.
+
+** Invariantes
+Escreva duas invariantes:
+1. O inimigo não morre
+2. Nenhum personagem morre
+
+Nenhuma delas deve ser verdadeira nessa versão.
+
+Adicionalmente, se quiser conferir que seu ritual está funcionando como deveria, escreva uma invariante para "algum personagem sobrevive" (ou a equivalente "não é verdade que todos os personagens morrem"). Ela não deve ser verdadeira nessa versão.
+
+Você pode usar simuladores ao invés de /model checkers/ para testar as invariantes em todas as etapas deste trabalho. Idealmente, devíamos usar /model checkers/, mas o modelo deste trabalho tem estados demais e execuções muito longas para uso de /model checkers/. Usaremos /model checkers/ nos exemplos reais de sistemas distribuídos que veremos na disciplina.
+
+** Especificação com estratégia
+Agora, modifique a especificação (mas salve o arquivo! Você precisa entregar as duas) para que os personagens utilizem uma estratégia, ao escolher suas ações, de forma que a invariante "nenhum personagem morre" seja verdadeira.
+
+** Especificação com dois inimigos
+Por último, modifique a especificação anterior (com estratégia) para que a batalha seja contra dois inimigos. Você pode escolher entregar um arquivo a mais com essa versão, ou simplesmente entregar com essa parte comentada, já que pode ser uma modificação de apenas uma linha.
+
+Essa batalha é impossível, mesmo com as estratégias empregadas. Assim, a invariante "nenhum personagem morre" deve ser violada. Se os personagens estiverem sobrevivendo na sua versão, pode ser que alguma regra não esteja definida corretamente.
