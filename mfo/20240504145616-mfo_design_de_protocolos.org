@@ -1,0 +1,251 @@
+:PROPERTIES:
+:ID:       119e9d23-d6e7-462e-a091-2889bc354553
+:END:
+#+title:     Design de protocolos
+#+EMAIL:     gabrielamoreira05@gmail.com
+#+DATE:      19 de maio de 2025
+#+LANGUAGE:  en
+#+OPTIONS:   H:2 num:t toc:nil \n:t @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:nil pri:nil tags:not-in-toc
+#+BEAMER_FRAME_LEVEL: 2
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [smaller]
+#+BEAMER_THEME: udesc
+#+BEAMER_HEADER: \input{header.tex} \subtitle{Aula para disciplina de Métodos Formais} \institute{Departamento de Ciência da Computação - DCC\\Universidade do Estado de Santa Catarina - UDESC}
+#+LATEX_COMPILER: pdflatex
+#+bibliography: references.bib
+#+cite_export: csl ~/MEGA/csl/associacao-brasileira-de-normas-tecnicas.csl
+#+HTML: <a href="https://bugarela.com/mfo/slides/20240504145616-mfo_design_de_protocolos.pdf">Slides</a><br />
+#+beamer: \begin{frame}{Conteúdo}
+#+TOC: headlines 3
+#+beamer: \end{frame}
+
+
+# https://www.ncsc.gov.uk/files/Protocol-Design-Principles-white-paper.pdf
+* Design de protocolos
+** Design de protocolos
+A área de design de protocolos (/protocol design/) é possívelmente onde métodos formais que usam /model checking/, como Quint e TLA+, mais tem valor.
+
+** Protocolos
+Já vimos alguns exemplos de protocolos:
+  #+BEAMER: \pause
+  - Entregar a prova de cabeça pra baixo e pedir que todos desvirem no mesmo momento é uma forma de garantir que todos tem o mesmo tempo de prova
+  #+BEAMER: \pause
+  - Na decolagem/pouso de um avião, precisamos abrir as janelas e levantar as mesinhas
+  #+BEAMER: \pause
+  - Sistemas de trocas em jogos ou, semelhantemente, sistemas de pagamento estilo mercado pago
+
+** Suposições (/Assumptions/)
+Uma suposição é algo que é aceito como verdadeiro, sem provas.
+#+BEAMER: \pause\medskip
+Suposições são extremamente importantes para protocolos, e é necessário fazê-las explícitas.
+- Quando alguém for implementar esse protocolo, deve garantir que as suposições valem para seu ambiente também
+
+** O que precisamos assumir nos nossos exemplos? - Provas
+  - Entregar a prova de cabeça pra baixo e pedir que todos desvirem no mesmo momento é uma forma de garantir que todos tem o mesmo tempo de prova
+    #+BEAMER: \pause
+    - Assumimos que alunos não conseguem ler as questões de uma folha de papel virada.
+    - Assumimos que os alunos são vão desobedecer e desvirar antes da hora
+** O que precisamos assumir nos nossos exemplos? - Aviões
+  - Na decolagem/pouso de um avião, precisamos abrir as janelas e levantar as mesinhas
+    #+BEAMER: \pause
+    - Nesse caso, o protocolo não é suficiente para garantir que os passageiros sobrevivam à uma emergência.
+    - É uma medida de prevenção, não uma garantia.
+    - Para que fornecesse uma garantia, teríamos que assumir que estar com as janelas abertas e mesinhas levantadas faça com que todos os passageiros possam desembarcar com segurança em qualquer emergência - o que não é verdade.
+** O que precisamos assumir nos nossos exemplos? - Trocas
+  - Sistemas de trocas em jogos ou, semelhantemente, sistemas de pagamento estilo mercado pago
+    #+BEAMER: \pause
+    - Assumimos que uma pessoa não pode fazer escolhas pela outra
+      - Cada um só tem acesso e controle de sua própria conta
+
+* Problema dos dois generais
+** O problema dos dois generais - Contexto
+Com imagens de [cite:@two-generals-blogpost]
+#+BEAMER: \medskip
+
+- 2 generais e seus exércitos acampam em montanhas ao redor de uma cidade inimiga
+- O único jeito dos generais comunicarem entre si é enviando mensageiros
+  - Os mensageiros podem ser capturados pelo inimigo sem que os generais saibam!
+- Para que a batalha seja vencida, os dois precisam atacar ao mesmo tempo. O ataque de um deles não é suficiente.
+
+** O problema dos dois generais
+#+CAPTION: Fonte [cite:@two-generals-blogpost]
+[[./figures/two-generals/2-armies.png]]
+
+** O problema dos dois generais - protocolo
+Como podemos definir um protocolo de troca de mensagens que garanta que ambos ataquem juntos?
+
+** Primeira mensagem
+#+CAPTION: Fonte [cite:@two-generals-blogpost]
+[[./figures/two-generals/attack_maybe.png]]
+
+** Segunda mensagem
+#+CAPTION: Fonte [cite:@two-generals-blogpost]
+[[./figures/two-generals/lets_do_it.png]]
+
+** Terceira mensagem
+#+CAPTION: Fonte [cite:@two-generals-blogpost]
+[[./figures/two-generals/really.png]]
+
+** Quarta mensagem
+#+CAPTION: Fonte [cite:@two-generals-blogpost]
+[[./figures/two-generals/really_really.png]]
+
+** Tentando algo como TCP/IP
+#+begin_src mermaid :file 2generals.png :theme neutral :scale 2 :background-color transparent
+sequenceDiagram
+    Alice->>Bob: Se você responder, eu ataco
+    Bob->>Alice: Ok. Se você responder, eu ataco
+    Alice->>Bob: Ok. Se você responder, eu ataco
+    Bob->>Alice: Ok. Se você responder, eu ataco
+#+end_src
+
+#+RESULTS:
+[[file:2generals.png]]
+
+
+** Dois generais - Impossibilidade
+O problema dos dois generais não tem solução!
+- O melhor que podemos fazer é uma solução *estatística*: Envio uma mensagem de atacar amanhã as 9:00 e vou mandando mais mensageiros de hora em hora até receber uma confirmação.
+
+* O problema dos generais bizantinos
+** Histórico e motivação
+Introduzido por Lamport em [cite:@lamport-byzantine]
+  #+BEAMER: \pause
+  - sim, o mesmo Lamport criador de TLA+, uma década antes dele criar o TLA+.
+
+#+BEAMER: \pause\medskip
+Um sistema de computadores confiável deve ser capaz de lidar com a falha de um ou mais de seus componentes. Um componente com falhas pode ser capaz de enviar *informações conflitantes* para diferentes partes do sistema.
+#+BEAMER: \pause
+- Lidar com esse tipo de falha é definido de forma abstrata pelo problema dos generais bizantinos
+#+BEAMER: \pause
+- A capacidade de lidar com esse problema é chamada de /Byzantine Fault Tolerance/ (BFT).
+
+#+BEAMER: \pause\medskip
+Recurso em vídeo: [cite:@chris-colohan-video]
+
+** O problema dos generais bizantinos
+Várias divisões do exército bizantino estão acampadas ao redor de uma cidade inimiga, cada divisão é comandada por um general.
+#+BEAMER: \pause
+- Os generais se comunicam entre si somente através de mensageiros
+#+BEAMER: \pause
+- Após observar o inimigo, eles devem decidir um plano de ação (i.e. atacar ou recuar)
+  - Assim como no problema dos dois generais, um ataque com poucas divisões pode falhar
+#+BEAMER: \pause
+- Alguns generais podem ser traidores!
+  - Traidores querem impedir os generais leais de entrarem em acordo sobre o plano de ação
+
+#+BEAMER: \pause\medskip
+Precisamos de um algoritmo que garanta:
+- A: Todos os generais leais devem decidir o mesmo plano de ação
+- B: Um pequeno número de traidores não podem fazer com que os generais adotem um plano de ação ruim
+
+** Ilustração
+#+BEAMER: \vspace*{-2cm}
+[[./figures/byzantine-generals/1.png]]
+
+#+BEAMER: \end{frame}
+#+BEAMER: \begin{frame}{Ilustração II}
+#+BEAMER: \vspace*{-2cm}
+[[./figures/byzantine-generals/2.png]]
+
+#+BEAMER: \end{frame}
+#+BEAMER: \begin{frame}{Ilustração III}
+#+BEAMER: \vspace*{-2cm}
+[[./figures/byzantine-generals/3.png]]
+
+#+BEAMER: \end{frame}
+#+BEAMER: \begin{frame}{Ilustração IV}
+#+BEAMER: \vspace*{-2cm}
+[[./figures/byzantine-generals/4.png]]
+
+#+BEAMER: \end{frame}
+#+BEAMER: \begin{frame}{Ilustração V}
+#+BEAMER: \vspace*{-2cm}
+[[./figures/byzantine-generals/5.png]]
+
+#+BEAMER: \end{frame}
+#+BEAMER: \begin{frame}{Ilustração VI}
+#+BEAMER: \vspace*{-2cm}
+[[./figures/byzantine-generals/6.png]]
+
+** Impossibilidades
+Mesmo se os generais leais souberem que há um traidor, não há como determinar qual mensagem vem de um traidor.
+#+BEAMER: \pause\medskip
+
+Segundo [cite:@lamport-byzantine], mesmo que o problema pareça simples, sua dificuldade é indicada pelo fato de que, se os generais puderem apenas enviar mensagens orais, nenhuma solução funciona sem que *mais de 2/3* dos generais seja leal.
+#+BEAMER: \pause
+- Nenhuma solução com menos de $3m + 1$ generais no total consegue lidar com $m$ traidores.
+#+BEAMER: \pause
+- Prova por contradição, mostrando que se houvesse uma solução pra esse caso, poderíamos usá-la para resolver a instância com três generais, o que é impossível.
+
+#+BEAMER: \pause\medskip
+Se considerarmos mensagens assinadas (i.e. com criptografia) que não podem ser forjadas, o problema se torna mais simples e temos solução para o caso de três generais.
+
+** Modelos com diferentes parâmetros
+Quando tempos esse tipo de dependência do comportamento em uma suposição, é interessante checar/simular nosso modelo com diferentes parâmetros, que obedecem ou não a suposição.
+
+#+BEAMER: \pause
+#+begin_src quint
+module TendermintModels {
+  import TendermintTest(
+    Corr = Set("p1", "p2", "p3"),
+    Faulty = Set("p4"),
+    // ...
+  ) as n4_f1 from "./TendermintTest"
+
+  import TendermintTest(
+    Corr = Set("p1", "p2"),
+    Faulty = Set("p3", "p4"),
+    // ...
+  ) as n4_f2 from "./TendermintTest"
+
+  import TendermintTest(
+    Corr = Set("p1", "p2", "p3"),
+    Faulty = Set("p4", "p5"),
+    // ...
+  ) as n5_f2 from "./TendermintTest"
+}
+#+end_src
+
+** Relação com nosso trabalho 1
+No trabalho 1, podemos garantir que os personagens sempre sobrevivem se houver um único inimigo.
+- Poderíamos tentar encontrar o número mínimo de inimigos para que os personagens sempre morram.
+
+#+BEAMER: \pause\medskip
+Assim, nosso protocolo (estratégia) para o trabalho funciona para batalhas contra um inimigo.
+#+BEAMER: \pause
+- O fato de haver apenas um inimigo é uma suposição
+#+BEAMER: \pause
+- Se formos apresentar esse protocolo (estratégia) para alguém, precisamos deixar clara essa suposição
+#+BEAMER: \pause
+- Simular/checar o protocolo (estratégia) em um ambiente onde a suposição não é satisfeita nos ajuda a entender por que ela existe.
+
+** Relações do trabalho 1 com sistemas distribuídos
+:PROPERTIES:
+:BEAMER_opt: allowframebreaks=0.95,label=
+:END:
+1. Inimigos são como generais bizantinos.
+   - Podemos controlar o que os personagens fazem, mas não podemos controlar os inimigos.
+   - Não podemos assumir que generais bizantinos estão seguindo um protocolo, assim como não podemos assumir que inimigos seguem uma estratégia.
+2. Protocolos funcionam a partir de suposições, como a suposição de que há somente um inimigo.
+   - Até 1 inimigo, propriedade garantida
+   - 2 ou mais inimigos, propriedade não é garantida
+3. Em muitas situações, um protocolo deve funcionar independentemente da ordem de chegada das mensagens.
+   - Assim como a estratégia do trabalho deve funcionar para todas as possíveis ordens (iniciativas).
+4. Em protocolos, é comum identificarmos um "caminho feliz". Uma ordem em que as coisas acontecem onde não é necessário usar as partes mais complicadas do protocolo.
+   - No nosso jogo, a ordem "bardo, necromante, sacerdote, monstro" é um caminho feliz.
+5. Em muitos (senão todos) protocolos de sistemas distribuídos, temos /timeouts/: ações que são disparadas após certo tempo para previnir problemas como /deadlocks/ por mensagens perdidas.
+   - Esses /timeouts/ são parecidos com o ritual do inimigo no nosso trabalho: ou as coisas acontecem dentro de um certo tempo, ou a ação tomada será aquela do /timeout/ (todos os personagens morrem).
+
+* Consenso
+** Consenso
+De forma mais geral, esses são problemas de consenso.
+#+BEAMER: \pause\medskip
+Não fiz figurinhas pra esse, vamos ver as imagens do vídeo da Heidi Howard pro Computerphile [cite:@consensus-heidi-howard].
+
+** Referências
+#+print_bibliography:
+
+#+beamer: \end{frame} \maketitle
