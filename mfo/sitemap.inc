@@ -35,9 +35,9 @@
   - [[file:20240408201756-mfo_primeiras_especificacoes_em_tla.org][Primeiras Especificações em TLA+]]
 ** Aplicação
   - [[file:20240504145616-mfo_design_de_protocolos.org][Design de protocolos]]
-#   - [[file:20240507182006-mfo_efetivacao_em_duas_fases.org][Efetivação em Duas Fases]]
-# ** Model checking
-#   - [[file:20240511143312-mfo_propriedades.org][Propriedades]]
+  - [[file:20240507182006-mfo_efetivacao_em_duas_fases.org][Efetivação em Duas Fases]]
+** Model checking
+  - [[file:20240511143312-mfo_propriedades.org][Propriedades]]
 #   - [[file:20240623102850-mfo_model_checking.org][Model Checking]]
 #   - [[file:20240625203536-mfo_tla_avancado.org][TLA+ Avançado]]
 * Seminário
