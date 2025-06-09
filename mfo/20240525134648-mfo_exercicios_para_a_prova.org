@@ -3,7 +3,7 @@
 :END:
 #+title:     Exercícios para a prova
 #+EMAIL:     gabrielamoreira05@gmail.com
-#+DATE:      27 de maio de 2024
+#+DATE:      09 de junho de 2024
 #+LANGUAGE:  en
 #+OPTIONS:    toc:t html5-fancy:t
 #+LaTeX_CLASS: bugarela-article
@@ -17,7 +17,7 @@
  Identifique em quais estruturas de Kripke a seguir tem não-determinismo e *justifique sua resposta*.
    a) Semáforos. Considere o conjunto de estados inicial $I = \{vermelho\}$
         #+ATTR_HTML: :width 600px :center nil
-        #+begin_src mermaid :file 1a.png :theme neutral :width 400px :background-color transparent
+        #+begin_src mermaid :file 1a.png :theme neutral :scale 2 :width 400px :background-color transparent
         stateDiagram
             direction LR
             vermelho --> verde
@@ -32,7 +32,7 @@
 
    b) Chaleira. Considere o conjunto de estados inicial $I = \{temperatura\_ambiente\}$
         #+ATTR_HTML: :width 600px :center nil
-       #+begin_src mermaid :file 2b.png :theme neutral :width 400px :background-color transparent
+       #+begin_src mermaid :file 2b.png :theme neutral :scale 2 :width 400px :background-color transparent
        stateDiagram
          direction LR
          temperatura_ambiente --> esquentando
