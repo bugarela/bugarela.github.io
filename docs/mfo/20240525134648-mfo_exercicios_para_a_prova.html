@@ -104,6 +104,8 @@
 <li><a href="#quest-o-10-2">Questão 10</a></li>
 <li><a href="#quest-o-11-2">Questão 11</a></li>
 <li><a href="#quest-o-12-2">Questão 12</a></li>
+<li><a href="#quest-o-13-2">Questão 13</a></li>
+<li><a href="#quest-o-14-2">Questão 14</a></li>
 </ul>
 </li>
 </ul>
@@ -687,7 +689,7 @@ Agora escreva a propriedade em Quint ou em TLA+ para:
 <li>&ldquo;Não é possível estar na aula e no shopping ao mesmo tempo&rdquo;. Considere que existam duas variáveis de estado do tipo <code>bool</code>: <code>na_aula</code> e <code>no_shopping</code>.</li>
 <li>&ldquo;Sempre uso óculos para dirigir&rdquo;. Considere que existam duas variáveis de estado do tipo <code>bool</code>: <code>estou_dirigindo</code> e <code>estou_de_oculos</code>.</li>
 <li>&ldquo;Em algum momento vou terminar de pagar as parcelas do meu apartamento&rdquo;. Considere que exista uma variável de estado do tipo <code>int</code> para o número restante de parcelas: <code>parcelas_restantes</code>.</li>
-<li>&ldquo;Todos os códigos em C++ serão migrados para Rust&rdquo;. Considere que exista uma variável <code>codigos</code> do tipo <code>int -&gt; { codigo: str, linguagem: str }</code> sendo a chave (domínio) um identificador único daquele código e o campo <code>linguagem</code> pode conter <code>"c++"</code>, <code>"haskell"</code> ou <code>"rust"</code>.</li>
+<li>[desafio] &ldquo;Todos os códigos em C++ serão migrados para Rust&rdquo;. Considere que exista uma variável <code>codigos</code> do tipo <code>int -&gt; { codigo: str, linguagem: str }</code> sendo a chave (domínio) um identificador único daquele código e o campo <code>linguagem</code> pode conter <code>"c++"</code>, <code>"haskell"</code> ou <code>"rust"</code>.</li>
 </ol>
 
 <details>
@@ -699,6 +701,276 @@ Agora escreva a propriedade em Quint ou em TLA+ para:
 <li><code class="src src-quint">codigos.keys().forall(k =&gt; codigos.get(k).linguagem == <span class="org-string">"c++"</span> <span class="org-keyword">implies</span> eventually(codigos.get(k).linguagem == <span class="org-string">"rust"</span>))</code></li>
 </ol>
 </details>
+</div>
+</div>
+<div id="outline-container-quest-o-13-2" class="outline-3">
+<h3 id="quest-o-13-2">Questão 13</h3>
+<div class="outline-text-3" id="text-quest-o-13-2">
+<p>
+Considere um simples jogo de maior dado com dois jogadores, em que cada um rola um dado de 6 faces. Se o dado do jogador 1 for maior do que o do jogador 2, o jogador 1 vence e o jogador 2 perde - e vice versa. Se os dados são iguais, eles jogam novamente até desempatar. Responda às seguintes questões:
+</p>
+
+<div class="minipage">
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">type</span> Status =
+  Pendente | Venceu(<span class="org-type">int</span>)
+
+<span class="org-builtin">var</span> dado1: <span class="org-type">int</span>
+<span class="org-builtin">var</span> dado2: <span class="org-type">int</span>
+<span class="org-builtin">var</span> status: Status
+
+<span class="org-builtin">action</span> init = {
+  <span class="org-builtin">nondet</span> d1 = 1.to(6).oneOf()
+  <span class="org-builtin">nondet</span> d2 = 1.to(6).oneOf()
+  <span class="org-keyword">all</span> {
+    dado1' = d1,
+    dado2' = d2,
+    status' = (???)
+  }
+}
+
+<span class="org-builtin">action</span> step = {
+  <span class="org-keyword">if</span> (status == Pendente) {
+    init
+  } <span class="org-keyword">else</span> {
+    <span class="org-keyword">all</span> {
+      dado1' = dado1,
+      dado2' = dado2,
+      status' = status,
+    }
+  }
+}
+</pre>
+</div>
+
+</div>
+<div class="minipage">
+<div class="org-src-container">
+<pre class="src src-tla"><span class="org-keyword">EXTENDS</span> Integers, FiniteSets
+<span class="org-keyword">VARIABLES</span> dado1, dado2, status
+
+Init ==
+  \E d1 \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">6</span>:
+     \E d2 \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">6</span>:
+       /\ dado1 = d1
+       /\ dado2 = d2
+       /\ status = (???)
+
+Next ==
+  <span class="org-keyword">IF</span> (status = <span class="org-string">"pendente"</span>) <span class="org-keyword">THEN</span>
+    \E d1 \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">6</span>:
+       \E d2 \in <span class="org-highlight-numbers-number">1</span>..<span class="org-highlight-numbers-number">6</span>:
+         /\ dado1' = d1
+         /\ dado2' = d2
+         /\ status' = (???)
+  <span class="org-keyword">ELSE</span>
+    /\ dado1' = dado1
+    /\ dado2' = dado2
+    /\ status' = status
+</pre>
+</div>
+
+</div>
+
+<ol class="org-ol">
+<li><p>
+Escreva a expressão que deveria estar em <code>(???)</code>. PS: Em TLA+, ele aparece duas vezes, mas a expressão em ambos os casos é a mesma.
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+<p>
+Quint: <code>if (d1 &gt; d2) Venceu(1) else if (d2 &gt; d1) Venceu(2) else Pendente</code>
+ou
+TLA+: <code>IF d1 &gt; d1 THEN "1 venceu" ELSE IF d2 &gt; d1 THEN "2 venceu" ELSE "pendente"</code>
+</p>
+</details></li>
+
+<li><p>
+Escreva uma invariante para &ldquo;O jogador 1 não perde&rdquo;. Essa invariante é satisfeita nesse modelo? <b>Justifique</b>.
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+
+<p>
+<code class="src src-quint">dado1 &gt;= dado2</code>
+ou
+<code class="src src-quint">status != Venceu(2)</code> (Quint) / <code>status # "2 venceu"</code> (TLA+)
+</p>
+</details></li>
+<li><p>
+Escreva outras duas invariantes quaisquer sobre as variáveis desse modelo. Uma delas deve ser satisfeita nesse modelo, e outra não. Indique qual é satisfeita e qual não é.
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+<p>
+Satisfeita: <code class="src src-quint">dado1 + dado2 &lt; 20</code>
+Insatisfeita: <code class="src src-quint">dado1 &gt; 2</code>
+</p>
+</details></li>
+
+<li><p>
+Escreva uma propriedade temporal de vivacidade para esse jogo. Ela deve ser satisfeita. Considere que razoabilidade já foi devidamente assumida.
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+<p>
+<code class="src src-quint">eventually(dado1 != dado2)</code> / <code>&lt;&gt;(dado1 # dado2)</code>
+</p>
+</details></li>
+<li><p>
+Esse modelo se classifica como uma estrutura de Kripke? <b>Justifique</b>.
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+<p>
+Sim. Só há um estado inicial, e cada estado só tem uma possível transição.
+</p>
+</details></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-quest-o-14-2" class="outline-3">
+<h3 id="quest-o-14-2">Questão 14</h3>
+<div class="outline-text-3" id="text-quest-o-14-2">
+<p>
+Observe as epecificações a seguir e responda às perguntas.
+</p>
+
+<div class="minipage">
+<div class="org-src-container">
+<pre class="src src-quint"><span class="org-builtin">var</span> x: <span class="org-type">int</span>
+
+<span class="org-builtin">action</span> init = {
+  <span class="org-builtin">nondet</span> v = <span class="org-type">Set</span>(1, 5).oneOf()
+  x' = v
+}
+
+<span class="org-builtin">action</span> step = <span class="org-keyword">any</span> {
+  <span class="org-keyword">all</span> {
+    x == 5,
+    x' = 4,
+  },
+  <span class="org-keyword">all</span> {
+    x &lt; 3,
+    x' = 2,
+  },
+  <span class="org-keyword">all</span> {
+    x &lt; 5,
+    x' = x,
+  }
+}
+</pre>
+</div>
+
+</div>
+<div class="minipage">
+<div class="org-src-container">
+<pre class="src src-tla"><span class="org-keyword">VARIABLE</span> x
+
+Init == x \in {<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">5</span>}
+
+Next ==
+  \/ /\ x = <span class="org-highlight-numbers-number">5</span>
+     /\ x' = <span class="org-highlight-numbers-number">4</span>
+  \/ /\ x &lt; <span class="org-highlight-numbers-number">3</span>
+     /\ x' = <span class="org-highlight-numbers-number">2</span>
+  \/ /\ x &lt; <span class="org-highlight-numbers-number">5</span>
+     /\ x' = x
+</pre>
+</div>
+
+</div>
+
+<ol class="org-ol">
+<li><p>
+Defina uma estrutura de Kripke para esse modelo. Todos os estados da estrutura devem ser alcançáveis.
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+<p>
+(S, -&gt;, I) tal que:
+</p>
+
+<p>
+S = {1, 2, 4, 5}
+</p>
+
+<p>
+-&gt; = {1 -&gt; 1, 1 -&gt; 2, 2 -&gt; 2, 4 -&gt; 4, 5 -&gt; 4}
+</p>
+
+<p>
+I = {1, 5}
+</p>
+</details></li>
+<li><p>
+Essa estrutura de Kripke é determinística ou não-determinística? <b>Justifique</b> sua resposta para cada estado/regra.
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+<p>
+Não-determinística, pois \(Post(1) = \{1, 2\}\) e \(|I| = 2\)
+</p>
+</details></li>
+<li><p>
+Essa estrutura de Kripke é finita? <b>Justifique</b> sua resposta.
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+<p>
+Finita, porque o número de estados é finito.
+</p>
+</details></li>
+<li><p>
+Quais são os estados terminais dessa estrutura de Kripke?
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+<p>
+2 e 4
+</p>
+</details></li>
+<li><p>
+Qual a pré-condição da ação de próximo estado (<code>step</code> em Quint ou <code>Next</code> em TLA+)?
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+<p>
+<code class="src src-quint">x &lt;= 5</code>
+</p>
+</details></li>
+<li><p>
+Modifique o modelo (Quint ou TLA+) para que haja transições do estado onde <code>x</code> é <code>2</code> para todos os estados da estrutura de Kripke.
+</p>
+<details>
+<summary><b>[Resposta]</b></summary>
+<p>
+Quint:
+</p>
+<div class="org-src-container">
+<pre class="src src-quint">   <span class="org-builtin">action</span> step = <span class="org-keyword">any</span> {
+     ...,
+     <span class="org-keyword">all</span> {
+       x == 2,
+       <span class="org-builtin">nondet</span> v = <span class="org-type">Set</span>(1, 2, 4, 5).oneOf()
+       x' = v
+     }
+   }
+</pre>
+</div>
+
+<p>
+TLA+:
+</p>
+<div class="org-src-container">
+<pre class="src src-tla">   Next ==
+     \/ ...
+     \/ /\ x == <span class="org-highlight-numbers-number">2</span>
+        /\ \E v \in {<span class="org-highlight-numbers-number">1</span>, <span class="org-highlight-numbers-number">2</span>, <span class="org-highlight-numbers-number">4</span>, <span class="org-highlight-numbers-number">5</span>} : x' = v
+</pre>
+</div>
+</details></li>
+</ol>
 </div>
 </div>
 </div>

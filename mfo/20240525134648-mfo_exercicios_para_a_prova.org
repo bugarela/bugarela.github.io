@@ -1,3 +1,4 @@
+
 :PROPERTIES:
 :ID:       d6853f9e-c807-42ea-bfa7-a8488540d545
 :END:
@@ -386,7 +387,7 @@ TLA+:
    a) "Não é possível estar na aula e no shopping ao mesmo tempo". Considere que existam duas variáveis de estado do tipo =bool=: =na_aula= e =no_shopping=.
    b) "Sempre uso óculos para dirigir". Considere que existam duas variáveis de estado do tipo =bool=: =estou_dirigindo= e =estou_de_oculos=.
    c) "Em algum momento vou terminar de pagar as parcelas do meu apartamento". Considere que exista uma variável de estado do tipo =int= para o número restante de parcelas: =parcelas_restantes=.
-   d) "Todos os códigos em C++ serão migrados para Rust". Considere que exista uma variável =codigos= do tipo =int -> { codigo: str, linguagem: str }= sendo a chave (domínio) um identificador único daquele código e o campo =linguagem= pode conter ="c++"=, ="haskell"= ou ="rust"=.
+   d) [desafio] "Todos os códigos em C++ serão migrados para Rust". Considere que exista uma variável =codigos= do tipo =int -> { codigo: str, linguagem: str }= sendo a chave (domínio) um identificador único daquele código e o campo =linguagem= pode conter ="c++"=, ="haskell"= ou ="rust"=.
 
 #+begin_details
 #+html:<summary><b>[Resposta]</b></summary>
@@ -398,3 +399,197 @@ TLA+:
 
 # - Dada uma definição/especificação, onde há não-determinismo?
 # - Fill blanks
+
+** Questão 13
+Considere um simples jogo de maior dado com dois jogadores, em que cada um rola um dado de 6 faces. Se o dado do jogador 1 for maior do que o do jogador 2, o jogador 1 vence e o jogador 2 perde - e vice versa. Se os dados são iguais, eles jogam novamente até desempatar. Responda às seguintes questões:
+
+#+begin_minipage
+#+begin_src quint
+type Status =
+  Pendente | Venceu(int)
+
+var dado1: int
+var dado2: int
+var status: Status
+
+action init = {
+  nondet d1 = 1.to(6).oneOf()
+  nondet d2 = 1.to(6).oneOf()
+  all {
+    dado1' = d1,
+    dado2' = d2,
+    status' = (???)
+  }
+}
+
+action step = {
+  if (status == Pendente) {
+    init
+  } else {
+    all {
+      dado1' = dado1,
+      dado2' = dado2,
+      status' = status,
+    }
+  }
+}
+#+end_src
+#+end_minipage
+#+begin_minipage
+#+begin_src tla
+EXTENDS Integers, FiniteSets
+VARIABLES dado1, dado2, status
+
+Init ==
+  \E d1 \in 1..6:
+     \E d2 \in 1..6:
+       /\ dado1 = d1
+       /\ dado2 = d2
+       /\ status = (???)
+
+Next ==
+  IF (status = "pendente") THEN
+    \E d1 \in 1..6:
+       \E d2 \in 1..6:
+         /\ dado1' = d1
+         /\ dado2' = d2
+         /\ status' = (???)
+  ELSE
+    /\ dado1' = dado1
+    /\ dado2' = dado2
+    /\ status' = status
+#+end_src
+#+end_minipage
+
+a) Escreva a expressão que deveria estar em =(???)=. PS: Em TLA+, ele aparece duas vezes, mas a expressão em ambos os casos é a mesma.
+   #+begin_details
+   #+html:<summary><b>[Resposta]</b></summary>
+   Quint: =if (d1 > d2) Venceu(1) else if (d2 > d1) Venceu(2) else Pendente=
+   ou
+   TLA+: =IF d1 > d1 THEN "1 venceu" ELSE IF d2 > d1 THEN "2 venceu" ELSE "pendente"=
+   #+end_details
+
+b) Escreva uma invariante para "O jogador 1 não perde". Essa invariante é satisfeita nesse modelo? *Justifique*.
+   #+begin_details
+   #+html:<summary><b>[Resposta]</b></summary>
+
+   src_quint[:exports code]{dado1 >= dado2}
+   ou
+   src_quint[:exports code]{status != Venceu(2)} (Quint) / =status # "2 venceu"= (TLA+)
+   #+end_details
+c) Escreva outras duas invariantes quaisquer sobre as variáveis desse modelo. Uma delas deve ser satisfeita nesse modelo, e outra não. Indique qual é satisfeita e qual não é.
+   #+begin_details
+   #+html:<summary><b>[Resposta]</b></summary>
+   Satisfeita: src_quint[:exports code]{dado1 + dado2 < 20}
+   Insatisfeita: src_quint[:exports code]{dado1 > 2}
+   #+end_details
+
+d) Escreva uma propriedade temporal de vivacidade para esse jogo. Ela deve ser satisfeita. Considere que razoabilidade já foi devidamente assumida.
+   #+begin_details
+   #+html:<summary><b>[Resposta]</b></summary>
+   src_quint[:exports code]{eventually(dado1 != dado2)} / =<>(dado1 # dado2)=
+   #+end_details
+e) Esse modelo se classifica como uma estrutura de Kripke? *Justifique*.
+   #+begin_details
+   #+html:<summary><b>[Resposta]</b></summary>
+   Sim. Só há um estado inicial, e cada estado só tem uma possível transição.
+   #+end_details
+
+** Questão 14
+Observe as epecificações a seguir e responda às perguntas.
+
+#+begin_minipage
+#+begin_src quint
+var x: int
+
+action init = {
+  nondet v = Set(1, 5).oneOf()
+  x' = v
+}
+
+action step = any {
+  all {
+    x == 5,
+    x' = 4,
+  },
+  all {
+    x < 3,
+    x' = 2,
+  },
+  all {
+    x < 5,
+    x' = x,
+  }
+}
+#+end_src
+#+end_minipage
+#+begin_minipage
+#+begin_src tla
+VARIABLE x
+
+Init == x \in {1, 5}
+
+Next ==
+  \/ /\ x = 5
+     /\ x' = 4
+  \/ /\ x < 3
+     /\ x' = 2
+  \/ /\ x < 5
+     /\ x' = x
+#+end_src
+#+end_minipage
+
+a) Defina uma estrutura de Kripke para esse modelo. Todos os estados da estrutura devem ser alcançáveis.
+   #+begin_details
+   #+html:<summary><b>[Resposta]</b></summary>
+   (S, ->, I) tal que:
+
+   S = {1, 2, 4, 5}
+
+   -> = {1 -> 1, 1 -> 2, 2 -> 2, 4 -> 4, 5 -> 4}
+
+   I = {1, 5}
+   #+end_details
+b) Essa estrutura de Kripke é determinística ou não-determinística? *Justifique* sua resposta para cada estado/regra.
+   #+begin_details
+   #+html:<summary><b>[Resposta]</b></summary>
+   Não-determinística, pois $Post(1) = \{1, 2\}$ e $|I| = 2$
+   #+end_details
+c) Essa estrutura de Kripke é finita? *Justifique* sua resposta.
+   #+begin_details
+   #+html:<summary><b>[Resposta]</b></summary>
+   Finita, porque o número de estados é finito.
+   #+end_details
+d) Quais são os estados terminais dessa estrutura de Kripke?
+   #+begin_details
+   #+html:<summary><b>[Resposta]</b></summary>
+   2 e 4
+   #+end_details
+e) Qual a pré-condição da ação de próximo estado (=step= em Quint ou =Next= em TLA+)?
+   #+begin_details
+   #+html:<summary><b>[Resposta]</b></summary>
+   src_quint[:exports code]{x <= 5}
+   #+end_details
+f) Modifique o modelo (Quint ou TLA+) para que haja transições do estado onde =x= é =2= para todos os estados da estrutura de Kripke.
+   #+begin_details
+   #+html:<summary><b>[Resposta]</b></summary>
+   Quint:
+   #+begin_src quint
+   action step = any {
+     ...,
+     all {
+       x == 2,
+       nondet v = Set(1, 2, 4, 5).oneOf()
+       x' = v
+     }
+   }
+   #+end_src
+
+   TLA+:
+   #+begin_src tla
+   Next ==
+     \/ ...
+     \/ /\ x == 2
+        /\ \E v \in {1, 2, 4, 5} : x' = v
+   #+end_src
+   #+end_details
