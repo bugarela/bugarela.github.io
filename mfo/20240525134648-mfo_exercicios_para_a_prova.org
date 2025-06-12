@@ -1,4 +1,3 @@
-
 :PROPERTIES:
 :ID:       d6853f9e-c807-42ea-bfa7-a8488540d545
 :END:
@@ -492,7 +491,7 @@ d) Escreva uma propriedade temporal de vivacidade para esse jogo. Ela deve ser s
 e) Esse modelo se classifica como uma estrutura de Kripke? *Justifique*.
    #+begin_details
    #+html:<summary><b>[Resposta]</b></summary>
-   Sim. Só há um estado inicial, e cada estado só tem uma possível transição.
+   Sim, pois cada estado tem ao menos uma possível transição (a relação de transição é total).
    #+end_details
 
 ** Questão 14
