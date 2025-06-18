@@ -48,6 +48,6 @@
   - [[file:20240423183852-mfo_trabalho_1.org][Trabalho 1]]
   - [[file:20240517155753-mfo_faq_trabalho_1.org][FAQ Trabalho 1]]
   - [[file:20240424144115-mfo_dicas_trabalho_1.org][Dicas Trabalho 1]]
-# * Trabalho 2
-#   - [[file:20240520131408-mfo_testando_um_problema_da_maratona.org][Testes]]
+* Trabalho 2
+  - [[file:20240520131408-mfo_testando_um_problema_da_maratona.org][Testes]]
 #   - [[file:20240609214243-mfo_trabalho_2.org][Trabalho 2]]
