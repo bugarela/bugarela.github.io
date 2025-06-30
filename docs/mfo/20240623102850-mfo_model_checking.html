@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage exported with org-thtml">
+
+  <title>Model Checking</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <meta property="og:url" content="https://bugarela.com/mfo/20240623102850-mfo_model_checking.html" />
+  <meta property="og:title" content="Model Checking" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Personal homepage exported with org-thtml" />
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@bugarela">
+    <meta name="twitter:title" content="Model Checking">
+    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
+  
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.stemmer.support.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.pt.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
+<link rel="stylesheet" href="../css/layouts/style.css">
+
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-5" style="text-align: center">
+    <div class="header">
+        <h2 class="brand-title">
+            <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
+        </h2>
+    </div>
+    <div class="centered">
+        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+        <h1 class="huge"><a href="./">MFO</a></h1>
+        <h2 class="brand-title">Métodos Formais</h2>
+        <h2 class="brand-tagline">Materiais da disciplina</h2>
+    </div>
+    <div class="footer">
+    <div>
+        Created using Emacs and
+        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
+        >.<br />
+        Style from
+        <a href="https://owickstrom.github.io/the-monospace-web/"
+            >The Monospace Web</a
+        >.
+    </div>
+</div>
+
+</div>
+
+            <div class="content pure-u-1 pure-u-md-2-3">
+                
+                <h1>Model Checking</h1>
+                 <a href="https://bugarela.com/mfo/slides/20240623102850-mfo_model_checking.pdf">Slides</a><br />
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#model-checking-1">1. <i>Model Checking</i></a>
+<ul>
+<li><a href="#tlc-cite-specifying-systems-2">1.1. TLC (<a href="#citeproc_bib_item_3">LAMPORT, 2002</a>)</a></li>
+<li><a href="#apalache-cite-apalache-2">1.2. Apalache (<a href="#citeproc_bib_item_2">KONNOV; KUKOVEC; TRAN, 2019</a>)</a></li>
+<li><a href="#smt-2">1.3. SMT</a></li>
+<li><a href="#resolvendo-smt-com-z3-2">1.4. Resolvendo SMT com Z3</a></li>
+<li><a href="#resolvendo-smt-com-inteiros-2">1.5. Resolvendo SMT com inteiros</a></li>
+<li><a href="#simula-o-simb-lica-2">1.6. Simulação simbólica</a></li>
+<li><a href="#invari-ncia-indutivas-2">1.7. Invariância indutivas</a></li>
+<li><a href="#refer-ncias-2">1.8. Referências</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-model-checking-1" class="outline-2">
+<h2 id="model-checking-1"><span class="section-number-2">1.</span> <i>Model Checking</i></h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-tlc-cite-specifying-systems-2" class="outline-3">
+<h3 id="tlc-cite-specifying-systems-2"><span class="section-number-3">1.1.</span> TLC (<a href="#citeproc_bib_item_3">LAMPORT, 2002</a>)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+<i>Explicit-State model checker</i><br />
+</p>
+<ul class="org-ul">
+<li>Enumera todos os estados<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Usa um grafo direcionado com estados e transições (<i>reachability graph</i>) e uma fila de estados para checar<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Provavelmente, o tipo de <i>model checker</i> que um de nós escreveria se fôssemos tentar (sem pesquisar um monte antes)<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-apalache-cite-apalache-2" class="outline-3">
+<h3 id="apalache-cite-apalache-2"><span class="section-number-3">1.2.</span> Apalache (<a href="#citeproc_bib_item_2">KONNOV; KUKOVEC; TRAN, 2019</a>)</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+<i>Model checker</i> simbólico<br />
+</p>
+<ul class="org-ul">
+<li>Traduz a especificação para um conjunto de restrições (sem quantificação)<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Usa um SMT <i>solver</i> para verificar a satisfabilidade das restrições<br /></li>
+</ul>
+
+<p>
+<i>Bounded model checking</i><br />
+</p>
+<ul class="org-ul">
+<li>Necessário definir um número máximo de passos (<i>bound</i>) para o qual gerar restrições. A verificação se dá dentro desse limite, podendo haver estados atingíveis fora desse limite que não satisfazem a propriedade.<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-smt-2" class="outline-3">
+<h3 id="smt-2"><span class="section-number-3">1.3.</span> SMT</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><p>
+Generalização de problemas SAT<br />
+</p>
+<ul class="org-ul">
+<li>SAT: Problema da satisfabilidade Booleana<br /></li>
+</ul>
+<ul class="org-ul">
+<li><p>
+SMT: Satisfabilidade &ldquo;<i>modulo</i>&rdquo; teorias<br />
+</p>
+<ul class="org-ul">
+<li>&ldquo;<i>modulo</i>&rdquo; no sentido de &ldquo;dentro de&rdquo;<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Permite mais elementos: inteiros, reais, arrays, etc<br /></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>
+Z3 (<a href="#citeproc_bib_item_1">DE MOURA; BJØRNER, 2008</a>):<br />
+</p>
+<ul class="org-ul">
+<li>Leonardo de Moura e Nikolaj Bjørner<br />
+<ul class="org-ul">
+<li>Podcast: <a href="https://www.typetheoryforall.com/episodes/z3-and-lean-the-spiritual-journey">Type Theory Forall #33 Z3 and Lean, the Spiritual Journey</a><br /></li>
+</ul></li>
+</ul>
+<ul class="org-ul">
+<li>Versão em WebAssembly<br />
+<ul class="org-ul">
+<li><a href="https://people.csail.mit.edu/cpitcla/z3.wasm/z3.html">https://people.csail.mit.edu/cpitcla/z3.wasm/z3.html</a><br /></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-resolvendo-smt-com-z3-2" class="outline-3">
+<h3 id="resolvendo-smt-com-z3-2"><span class="section-number-3">1.4.</span> Resolvendo SMT com Z3</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+<pre class="src src-smt">(declare-fun p () Bool)
+(declare-fun q () Bool)
+(assert (implies p q))
+(assert p)
+(assert (not q))
+(check-sat)
+</pre>
+</div>
+
+<p>
+Resultado: <code>unsat</code><br />
+</p>
+<div class="org-src-container">
+<pre class="src src-smt">(declare-fun p () Bool)
+(declare-fun q () Bool)
+(assert (implies p q))
+(assert p)
+(assert q)
+(check-sat)
+</pre>
+</div>
+
+<p>
+Resultado: <code>sat</code><br />
+</p>
+</div>
+</div>
+<div id="outline-container-resolvendo-smt-com-inteiros-2" class="outline-3">
+<h3 id="resolvendo-smt-com-inteiros-2"><span class="section-number-3">1.5.</span> Resolvendo SMT com inteiros</h3>
+<div class="outline-text-3" id="text-1-5">
+<div class="org-src-container">
+<pre class="src src-smt">(declare-const a Int)
+(declare-const b Int)
+(assert (= (+ a b) 20))
+(assert (= (+ a (* 2 b)) 10))
+(check-sat)
+(get-model)
+</pre>
+</div>
+
+<p>
+Resultado: <code>sat</code><br />
+</p>
+</div>
+</div>
+<div id="outline-container-simula-o-simb-lica-2" class="outline-3">
+<h3 id="simula-o-simb-lica-2"><span class="section-number-3">1.6.</span> Simulação simbólica</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Podemos classificar não-determinismo em dois tipos:<br />
+</p>
+<ul class="org-ul">
+<li>Não-determinismo de dados (<i>data non-determinism</i>)<br />
+<ul class="org-ul">
+<li><code>1.to(10).oneOf()</code><br /></li>
+</ul></li>
+</ul>
+<ul class="org-ul">
+<li>Não-determinismo de controle (<i>control-flow non-determinism</i>)<br />
+<ul class="org-ul">
+<li><code>any { A, B }</code><br /></li>
+</ul></li>
+</ul>
+
+<p>
+Simulação simbólica:<br />
+</p>
+<ul class="org-ul">
+<li><i>Model Checkers</i>: exaustivamente checam todos os dados e fluxos possíveis<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Simuladores aleatórios: aleatoriamente checam alguns dados e fluxos<br /></li>
+</ul>
+<ul class="org-ul">
+<li>Simulador simbólico: aleatóriamente checa alguns fluxos, mas considerando todos os dados possíveis<br /></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-invari-ncia-indutivas-2" class="outline-3">
+<h3 id="invari-ncia-indutivas-2"><span class="section-number-3">1.7.</span> Invariância indutivas</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+Às vezes, podemos provar uma invariante qualquer \(I\) (também conhecida como invariante ordinária) mostrando que uma invariante indutiva \(Inv\) implica nela (\(Inv => I\)). Para isso, verificamos três coisas:<br />
+</p>
+
+<ol class="org-ol">
+<li>\(Init => Inv\), ou seja, verificar a propriedade \(Inv\) com <code>--max-steps=0</code> e garantir que \(Inv\) é verdade em todos os estados iniciais<br /></li>
+<li>\(Inv \land Next => Inv'\), ou seja, verificar a propriedade \(Inv\) a partir de um estado inicial que satisfaça \(Inv\), fazendo um passo (<code>--max-steps=1</code>)<br /></li>
+<li>\(Inv => I\), ou seja, verificar a propriedade \(I\) em todos os estados onde \(Inv\) é verdade (<code>--max-steps=0</code>).<br /></li>
+</ol>
+
+<p>
+Invariância indutiva é muito poderosa porque conseguimos uma prova completa mesmo em model-checking limitado.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-refer-ncias-2" class="outline-3">
+<h3 id="refer-ncias-2"><span class="section-number-3">1.8.</span> Referências</h3>
+<div class="outline-text-3" id="text-1-8">
+<div class="csl-bib-body">
+  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>DE MOURA, L.; BJØRNER, N. <b>Z3: an efficient smt solver</b>Proceedings of the theory and practice of software, 14th international conference on tools and algorithms for the construction and analysis of systems. <b>Anais</b>.: Tacas’08/etaps’08.Budapest, Hungary: Springer-Verlag, 2008</div>
+  <div class="csl-entry"><a id="citeproc_bib_item_2"></a>KONNOV, I.; KUKOVEC, J.; TRAN, T.-H. <a href="https://doi.org/10.1145/3360549">Tla+ model checking made symbolic</a>. <b>Proc. acm program. lang.</b>, v. 3, n. OOPSLA, Oct. 2019. </div>
+  <div class="csl-entry"><a id="citeproc_bib_item_3"></a>LAMPORT, L. <b><a href="https://www.microsoft.com/en-us/research/publication/specifying-systems-the-tla-language-and-tools-for-hardware-and-software-engineers/">Specifying systems: The tla+ language and tools for hardware and software engineers</a></b>. Boston: Addison-Wesley, 2002. </div>
+</div>
+</div>
+</div>
+</div>
+
+            </div>
+        </div>
+    </body>
+</html>
