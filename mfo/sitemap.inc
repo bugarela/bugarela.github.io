@@ -39,7 +39,7 @@
 ** Model checking
   - [[file:20240511143312-mfo_propriedades.org][Propriedades]]
   - [[file:20240623102850-mfo_model_checking.org][Model Checking]]
-#   - [[file:20240625203536-mfo_tla_avancado.org][TLA+ Avançado]]
+  - [[file:20240625203536-mfo_tla_avancado.org][TLA+ Avançado]]
 * Seminário
   - [[file:20240531080208-mfo_seminario.org][Seminário]]
 * Trabalho 1
