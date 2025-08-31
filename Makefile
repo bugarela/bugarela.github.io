@@ -13,6 +13,7 @@ help:
 	@echo "  homepage    - Build main homepage only"
 	@echo "  mfo         - Build MFO lectures only"
 	@echo "  sblp2024    - Build SBLP2024 content only"
+	@echo "  blog        - Build blog content only"
 	@echo "  assets      - Copy assets only"
 	@echo "  quick       - Build only recently changed files"
 	@echo "  incremental - Enable incremental builds (faster)"
@@ -29,6 +30,10 @@ mfo: make-mfo.el
 # Build only SBLP2024 content
 sblp2024: make-sblp2024.el
 	emacs --batch --script make-sblp2024.el
+
+# Build only blog content
+blog: make-blog.el
+	emacs --batch --script make-blog.el
 
 # Copy assets only
 assets: make-assets.el
@@ -54,7 +59,11 @@ make-mfo.el: make.el
 
 make-sblp2024.el: make.el
 	@echo "Creating SBLP2024-only build script..."
-	@sed 's/("homepage" :components ("lectures-mfo" "homepage-mfo" "homepage-pages" "homepage-assets"))/("homepage" :components ("homepage-pages"))/' make.el > make-sblp2024.el
+	@sed 's/("homepage" :components ("lectures-mfo" "homepage-mfo" "homepage-pages" "blog-posts" "blog-homepage" "homepage-assets"))/("homepage" :components ("homepage-pages"))/' make.el > make-sblp2024.el
+
+make-blog.el: make.el
+	@echo "Creating blog-only build script..."
+	@sed 's/("homepage" :components ("lectures-mfo" "homepage-mfo" "homepage-pages" "blog-posts" "blog-homepage" "homepage-assets"))/("homepage" :components ("blog-posts" "blog-homepage" "homepage-assets"))/' make.el > make-blog.el
 
 make-assets.el: make.el
 	@echo "Creating assets-only build script..."
