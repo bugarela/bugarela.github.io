@@ -1,25 +1,22 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Personal homepage exported with org-thtml">
-
-  <title>Jogo da Velha em Quint</title>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-
-  <meta property="og:url" content="https://bugarela.com/mfo/20240330105337-mfo_jogo_da_velha_em_quint.html" />
-  <meta property="og:title" content="Jogo da Velha em Quint" />
-  <meta property="og:type" content="article" />
-  <meta property="og:description" content="Personal homepage exported with org-thtml" />
-  
-  
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@bugarela">
-    <meta name="twitter:title" content="Jogo da Velha em Quint">
-    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
-  
-
+<meta name="description" content="Personal homepage exported with
+pandoc">
+<title>Jogo da Velha em Quint</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<meta property="og:url" content="https://bugarela.com" />
+<meta property="og:title" content="Jogo da Velha em Quint" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Personal homepage exported with
+pandoc" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@bugarela">
+<meta name="twitter:title" content="Jogo da Velha em Quint">
+<meta name="twitter:description" content="Personal homepage exported
+with pandoc">
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.stemmer.support.min.js"></script>
@@ -28,356 +25,413 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
 <link rel="stylesheet" href="../css/layouts/style.css">
-
+<style>
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
     </head>
     <body>
         <div id="layout" class="pure-g">
             <div class="sidebar pure-u-1 pure-u-md-1-5" style="text-align: center">
-    <div class="header">
-        <h2 class="brand-title">
-            <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
-        </h2>
-    </div>
-    <div class="centered">
-        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
-        <h1 class="huge"><a href="./">MFO</a></h1>
-        <h2 class="brand-title">Métodos Formais</h2>
-        <h2 class="brand-tagline">Materiais da disciplina</h2>
-    </div>
-    <div class="footer">
-    <div>
-        Created using Emacs and
-        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
-        >.<br />
-        Style from
-        <a href="https://owickstrom.github.io/the-monospace-web/"
-            >The Monospace Web</a
-        >.
-    </div>
-</div>
-
-</div>
-
+                <div class="header">
+                    <h2 class="brand-title">
+                        <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
+                    </h2>
+                </div>
+                <div class="centered">
+                    <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+                    <h1 class="huge"><a href="./">MFO</a></h1>
+                    <h2 class="brand-title">Métodos Formais</h2>
+                    <h2 class="brand-tagline">Materiais da disciplina</h2>
+                </div>
+                <div class="footer">
+                    <div>Built with pandoc.</div>
+                </div>
+            </div>
             <div class="content pure-u-1 pure-u-md-2-3">
-                
                 <h1>Jogo da Velha em Quint</h1>
-                 <a href="https://bugarela.com/mfo/slides/20240330105337-mfo_jogo_da_velha_em_quint.pdf">Slides</a><br />
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
+                <div id="table-of-contents" class="toc">
 <ul>
-<li><a href="#jogando-de-qualquer-jeito-1">1. Jogando de qualquer jeito</a>
+<li><a href="#jogando-de-qualquer-jeito"
+id="toc-jogando-de-qualquer-jeito"><span
+class="toc-section-number">1</span> Jogando de qualquer jeito</a>
 <ul>
-<li><a href="#jogo-da-velha-2">1.1. Jogo da Velha</a></li>
-<li><a href="#tipos-e-vari-veis-2">1.2. Tipos e variáveis</a></li>
-<li><a href="#defini-es-sobre-coordenadas-2">1.3. Definições sobre coordenadas</a></li>
-<li><a href="#defini-es-sobre-o-tabuleiro-2">1.4. Definições sobre o tabuleiro</a></li>
-<li><a href="#definindo-ganhar-coordenadas-2">1.5. Definindo &ldquo;ganhar&rdquo; - coordenadas</a></li>
-<li><a href="#definindo-ganhar-operador-won-2">1.6. Definindo &ldquo;ganhar&rdquo; - operador won</a></li>
-<li><a href="#a-es-move-2">1.7. Ações - Move</a></li>
-<li><a href="#a-es-movetoempty-2">1.8. Ações - MoveToEmpty</a></li>
-<li><a href="#a-es-moveo-e-movex-2">1.9. Ações - MoveO e MoveX</a></li>
-<li><a href="#estado-inicial-2">1.10. Estado inicial</a></li>
-<li><a href="#transi-es-2">1.11. Transições</a></li>
-<li><a href="#rodando-jogos-aleat-rios-com-o-simulador-2">1.12. Rodando jogos aleatórios com o simulador</a></li>
-<li><a href="#usando-uma-invariante-para-procurar-jogos-que-d-o-velha-2">1.13. Usando uma invariante para procurar jogos que &ldquo;dão velha&rdquo;</a></li>
-<li><a href="#contraexemplo-2">1.14. Contraexemplo</a></li>
+<li><a href="#jogo-da-velha" id="toc-jogo-da-velha"><span
+class="toc-section-number">1.1</span> Jogo da Velha</a></li>
+<li><a href="#tipos-e-variáveis" id="toc-tipos-e-variáveis"><span
+class="toc-section-number">1.2</span> Tipos e variáveis</a></li>
+<li><a href="#definições-sobre-coordenadas"
+id="toc-definições-sobre-coordenadas"><span
+class="toc-section-number">1.3</span> Definições sobre
+coordenadas</a></li>
+<li><a href="#definições-sobre-o-tabuleiro"
+id="toc-definições-sobre-o-tabuleiro"><span
+class="toc-section-number">1.4</span> Definições sobre o
+tabuleiro</a></li>
+<li><a href="#definindo-ganhar---coordenadas"
+id="toc-definindo-ganhar---coordenadas"><span
+class="toc-section-number">1.5</span> Definindo "ganhar" -
+coordenadas</a></li>
+<li><a href="#definindo-ganhar---operador-won"
+id="toc-definindo-ganhar---operador-won"><span
+class="toc-section-number">1.6</span> Definindo "ganhar" - operador
+won</a></li>
+<li><a href="#ações---move" id="toc-ações---move"><span
+class="toc-section-number">1.7</span> Ações - Move</a></li>
+<li><a href="#ações---movetoempty" id="toc-ações---movetoempty"><span
+class="toc-section-number">1.8</span> Ações - MoveToEmpty</a></li>
+<li><a href="#ações---moveo-e-movex"
+id="toc-ações---moveo-e-movex"><span
+class="toc-section-number">1.9</span> Ações - MoveO e MoveX</a></li>
+<li><a href="#estado-inicial" id="toc-estado-inicial"><span
+class="toc-section-number">1.10</span> Estado inicial</a></li>
+<li><a href="#transições" id="toc-transições"><span
+class="toc-section-number">1.11</span> Transições</a></li>
+<li><a href="#rodando-jogos-aleatórios-com-o-simulador"
+id="toc-rodando-jogos-aleatórios-com-o-simulador"><span
+class="toc-section-number">1.12</span> Rodando jogos aleatórios com o
+simulador</a></li>
+<li><a href="#usando-uma-invariante-para-procurar-jogos-que-dão-velha"
+id="toc-usando-uma-invariante-para-procurar-jogos-que-dão-velha"><span
+class="toc-section-number">1.13</span> Usando uma invariante para
+procurar jogos que "dão velha"</a></li>
+<li><a href="#contraexemplo" id="toc-contraexemplo"><span
+class="toc-section-number">1.14</span> Contraexemplo</a></li>
+</ul></li>
+<li><a href="#jogando-pra-ganhar" id="toc-jogando-pra-ganhar"><span
+class="toc-section-number">2</span> Jogando pra ganhar</a>
+<ul>
+<li><a href="#jogando-pra-ganhar-1" id="toc-jogando-pra-ganhar-1"><span
+class="toc-section-number">2.1</span> Jogando pra ganhar</a></li>
+<li><a href="#começando-com-os-cantos"
+id="toc-começando-com-os-cantos"><span
+class="toc-section-number">2.2</span> Começando com os cantos</a></li>
+<li><a href="#condições-para-as-jogadas"
+id="toc-condições-para-as-jogadas"><span
+class="toc-section-number">2.3</span> Condições para as jogadas</a></li>
+<li><a href="#condições-para-as-jogadas---definições-auxiliares"
+id="toc-condições-para-as-jogadas---definições-auxiliares"><span
+class="toc-section-number">2.4</span> Condições para as jogadas -
+definições auxiliares</a></li>
+<li><a href="#ações---win" id="toc-ações---win"><span
+class="toc-section-number">2.5</span> Ações - Win</a></li>
+<li><a href="#ações---block" id="toc-ações---block"><span
+class="toc-section-number">2.6</span> Ações - Block</a></li>
+<li><a href="#ações---takecenter-e-setupwin"
+id="toc-ações---takecenter-e-setupwin"><span
+class="toc-section-number">2.7</span> Ações - TakeCenter e
+SetupWin</a></li>
+<li><a href="#ações---alterando-movex"
+id="toc-ações---alterando-movex"><span
+class="toc-section-number">2.8</span> Ações - alterando MoveX</a></li>
+<li><a href="#invariantes" id="toc-invariantes"><span
+class="toc-section-number">2.9</span> Invariantes</a></li>
+<li><a href="#fórmulas-temporais" id="toc-fórmulas-temporais"><span
+class="toc-section-number">2.10</span> Fórmulas temporais</a></li>
+<li><a href="#tarefa-de-casa" id="toc-tarefa-de-casa"><span
+class="toc-section-number">2.11</span> Tarefa de casa</a></li>
+<li><a href="#fim" id="toc-fim"><span
+class="toc-section-number">2.12</span> FIM</a></li>
+</ul></li>
 </ul>
+                </div>
+<a href="https://bugarela.com/mfo/slides/20240330105337-mfo_jogo_da_velha_em_quint.pdf">Slides</a><br />
+<section id="jogando-de-qualquer-jeito" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Jogando
+de qualquer jeito</h1>
+<section id="jogo-da-velha" class="level2" data-number="1.1">
+<h2 data-number="1.1"><span class="header-section-number">1.1</span>
+Jogo da Velha</h2>
+<p>Todos conhecem jogo da velha?</p>
+<p>PS: a partir de hoje, não vou mais traduzir as especificações para
+português</p>
+<ul>
+<li>Acho legal usar português no início para que fique claro o que são
+<code class="verbatim">keywords</code> (sempre em inglês) e o que
+podemos escolher o nome (nesses casos, em português)<br />
 </li>
-<li><a href="#jogando-pra-ganhar-1">2. Jogando pra ganhar</a>
-<ul>
-<li><a href="#jogando-pra-ganhar-2">2.1. Jogando pra ganhar</a></li>
-<li><a href="#come-ando-com-os-cantos-2">2.2. Começando com os cantos</a></li>
-<li><a href="#condi-es-para-as-jogadas-2">2.3. Condições para as jogadas</a></li>
-<li><a href="#condi-es-para-as-jogadas-defini-es-auxiliares-2">2.4. Condições para as jogadas - definições auxiliares</a></li>
-<li><a href="#a-es-win-2">2.5. Ações - Win</a></li>
-<li><a href="#a-es-block-2">2.6. Ações - Block</a></li>
-<li><a href="#a-es-takecenter-e-setupwin-2">2.7. Ações - TakeCenter e SetupWin</a></li>
-<li><a href="#a-es-alterando-movex-2">2.8. Ações - alterando MoveX</a></li>
-<li><a href="#invariantes-2">2.9. Invariantes</a></li>
-<li><a href="#f-rmulas-temporais-2">2.10. Fórmulas temporais</a></li>
-<li><a href="#tarefa-de-casa-2">2.11. Tarefa de casa</a></li>
-<li><a href="#fim-2">2.12. FIM</a></li>
+<li>A partir daqui, vou usar os exemplos originais, em inglês.</li>
 </ul>
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-jogando-de-qualquer-jeito-1" class="outline-2">
-<h2 id="jogando-de-qualquer-jeito-1"><span class="section-number-2">1.</span> Jogando de qualquer jeito</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-jogo-da-velha-2" class="outline-3">
-<h3 id="jogo-da-velha-2"><span class="section-number-3">1.1.</span> Jogo da Velha</h3>
-<div class="outline-text-3" id="text-1-1">
-<p>
-Todos conhecem jogo da velha?<br />
-</p>
-<p>
-PS: a partir de hoje, não vou mais traduzir as especificações para português<br />
-</p>
-<ul class="org-ul">
-<li>Acho legal usar português no início para que fique claro o que são <code>keywords</code> (sempre em inglês) e o que podemos escolher o nome (nesses casos, em português)<br /></li>
-<li>A partir daqui, vou usar os exemplos originais, em inglês.<br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-tipos-e-vari-veis-2" class="outline-3">
-<h3 id="tipos-e-vari-veis-2"><span class="section-number-3">1.2.</span> Tipos e variáveis</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-Definimos os seguintes tipos<br />
-</p>
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">type</span> Player = X | O
-<span class="org-builtin">type</span> Square = Occupied(Player) | Empty
-</pre>
-</div>
+</section>
+<section id="tipos-e-variáveis" class="level2" data-number="1.2">
+<h2 data-number="1.2"><span class="header-section-number">1.2</span>
+Tipos e variáveis</h2>
+<p>Definimos os seguintes tipos</p>
+<pre class="quint"><code>type Player = X | O
+type Square = Occupied(Player) | Empty
+</code></pre>
+<p>E as seguintes variáveis</p>
+<pre class="quint"><code>/// A 3x3 tic-tac-toe board
+var board: int -&gt; int -&gt; Square
 
-<p>
-E as seguintes variáveis<br />
-</p>
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-comment-delimiter">//</span><span class="org-comment">/ A 3x3 tic-tac-toe board</span>
-<span class="org-builtin">var</span> board: <span class="org-type">int</span> -&gt; <span class="org-type">int</span> -&gt; Square
+/// Who goes next
+var nextTurn: Player
+</code></pre>
+</section>
+<section id="definições-sobre-coordenadas" class="level2"
+data-number="1.3">
+<h2 data-number="1.3"><span class="header-section-number">1.3</span>
+Definições sobre coordenadas</h2>
+<pre class="quint"><code>pure val boardCoordinates = tuples(1.to(3), 1.to(3))
 
-<span class="org-comment-delimiter">//</span><span class="org-comment">/ Who goes next</span>
-<span class="org-builtin">var</span> nextTurn: Player
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-defini-es-sobre-coordenadas-2" class="outline-3">
-<h3 id="defini-es-sobre-coordenadas-2"><span class="section-number-3">1.3.</span> Definições sobre coordenadas</h3>
-<div class="outline-text-3" id="text-1-3">
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">val</span> boardCoordinates = tuples(1.to(3), 1.to(3))
-
-<span class="org-builtin">def</span> square(coordinate: (<span class="org-type">int</span>, <span class="org-type">int</span>)): Square =
+def square(coordinate: (int, int)): Square =
   board.get(coordinate._1).get(coordinate._2)
 
-<span class="org-builtin">def</span> hasPlayer(coordinate, player) =
+def hasPlayer(coordinate, player) =
   match square(coordinate) {
-    | Empty       =&gt; <span class="org-constant">false</span>
+    | Empty       =&gt; false
     | Occupied(p) =&gt; player == p
   }
 
-<span class="org-builtin">def</span> isEmpty(coordinate) =
+def isEmpty(coordinate) =
   match square(coordinate) {
-    | Empty  =&gt; <span class="org-constant">true</span>
-    | _      =&gt; <span class="org-constant">false</span>
+    | Empty  =&gt; true
+    | _      =&gt; false
   }
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-defini-es-sobre-o-tabuleiro-2" class="outline-3">
-<h3 id="defini-es-sobre-o-tabuleiro-2"><span class="section-number-3">1.4.</span> Definições sobre o tabuleiro</h3>
-<div class="outline-text-3" id="text-1-4">
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">val</span> boardEmpty = boardCoordinates.forall(isEmpty)
+</code></pre>
+</section>
+<section id="definições-sobre-o-tabuleiro" class="level2"
+data-number="1.4">
+<h2 data-number="1.4"><span class="header-section-number">1.4</span>
+Definições sobre o tabuleiro</h2>
+<pre class="quint"><code>val boardEmpty = boardCoordinates.forall(isEmpty)
 
-<span class="org-builtin">val</span> boardFull = <span class="org-keyword">not</span>(boardCoordinates.exists(isEmpty))
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-definindo-ganhar-coordenadas-2" class="outline-3">
-<h3 id="definindo-ganhar-coordenadas-2"><span class="section-number-3">1.5.</span> Definindo &ldquo;ganhar&rdquo; - coordenadas</h3>
-<div class="outline-text-3" id="text-1-5">
-<ul class="org-ul">
-<li>Como o tabuleiro é sempre 3x3, é mais fácil listar todas as combinações de coordenadas que levam a uma vitória do que implementar os cálculos.<br /></li>
-<li>Usamos <code>Set</code> - não precisamos de ordem nem de repetição, logo não devemos usar <code>List</code>.<br /></li>
+val boardFull = not(boardCoordinates.exists(isEmpty))
+</code></pre>
+</section>
+<section id="definindo-ganhar---coordenadas" class="level2"
+data-number="1.5">
+<h2 data-number="1.5"><span class="header-section-number">1.5</span>
+Definindo "ganhar" - coordenadas</h2>
+<ul>
+<li>Como o tabuleiro é sempre 3x3, é mais fácil listar todas as
+combinações de coordenadas que levam a uma vitória do que implementar os
+cálculos.<br />
+</li>
+<li>Usamos <code class="verbatim">Set</code> - não precisamos de ordem
+nem de repetição, logo não devemos usar <code
+class="verbatim">List</code>.<br />
+</li>
 </ul>
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">val</span> winningPatterns = <span class="org-type">Set</span>(
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Horizonal wins</span>
-  <span class="org-type">Set</span>((1,1), (1,2), (1,3)),
-  <span class="org-type">Set</span>((2,1), (2,2), (2,3)),
-  <span class="org-type">Set</span>((3,1), (3,2), (3,3)),
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Vertical wins</span>
-  <span class="org-type">Set</span>((1,1), (2,1), (3,1)),
-  <span class="org-type">Set</span>((1,2), (2,2), (3,2)),
-  <span class="org-type">Set</span>((1,3), (2,3), (3,3)),
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Diagonal wins</span>
-  <span class="org-type">Set</span>((1,1), (2,2), (3,3)),
-  <span class="org-type">Set</span>((3,1), (2,2), (1,3))
+<pre class="quint"><code>pure val winningPatterns = Set(
+  // Horizonal wins
+  Set((1,1), (1,2), (1,3)),
+  Set((2,1), (2,2), (2,3)),
+  Set((3,1), (3,2), (3,3)),
+  // Vertical wins
+  Set((1,1), (2,1), (3,1)),
+  Set((1,2), (2,2), (3,2)),
+  Set((1,3), (2,3), (3,3)),
+  // Diagonal wins
+  Set((1,1), (2,2), (3,3)),
+  Set((3,1), (2,2), (1,3))
 )
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-definindo-ganhar-operador-won-2" class="outline-3">
-<h3 id="definindo-ganhar-operador-won-2"><span class="section-number-3">1.6.</span> Definindo &ldquo;ganhar&rdquo; - operador won</h3>
-<div class="outline-text-3" id="text-1-6">
-<p>
-Usamos as definições para <code>winningPaterns</code> e <code>hasPlayer</code> para determinar se um jogador venceu.<br />
-</p>
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">def</span> won(player) = winningPatterns.exists(pattern =&gt;
+</code></pre>
+</section>
+<section id="definindo-ganhar---operador-won" class="level2"
+data-number="1.6">
+<h2 data-number="1.6"><span class="header-section-number">1.6</span>
+Definindo "ganhar" - operador won</h2>
+<p>Usamos as definições para <code
+class="verbatim">winningPaterns</code> e <code
+class="verbatim">hasPlayer</code> para determinar se um jogador
+venceu.</p>
+<pre class="quint"><code>def won(player) = winningPatterns.exists(pattern =&gt;
   pattern.forall(coordinate =&gt; hasPlayer(coordinate, player))
 )
-</pre>
-</div>
-
-<p>
-Com essa definição e <code>boardFull</code>, podemos determinar se um jogo já acabou.<br />
-</p>
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">val</span> gameOver = won(X) <span class="org-keyword">or</span> won(O) <span class="org-keyword">or</span> boardFull
-</pre>
-</div>
-<ul class="org-ul">
-<li>Reparem que o operador <code>or</code> pode ser usado na forma infixa (no meio dos argumentos)<br /></li>
+</code></pre>
+<p>Com essa definição e <code class="verbatim">boardFull</code>, podemos
+determinar se um jogo já acabou.</p>
+<pre class="quint"><code>val gameOver = won(X) or won(O) or boardFull
+</code></pre>
+<ul>
+<li>Reparem que o operador <code class="verbatim">or</code> pode ser
+usado na forma infixa (no meio dos argumentos)</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-a-es-move-2" class="outline-3">
-<h3 id="a-es-move-2"><span class="section-number-3">1.7.</span> Ações - Move</h3>
-<div class="outline-text-3" id="text-1-7">
-<p>
-Um dado jogador faz uma jogada (um <i>move</i>) em uma dada coordenada<br />
-</p>
-<ul class="org-ul">
-<li>Determinístico<br /></li>
+</section>
+<section id="ações---move" class="level2" data-number="1.7">
+<h2 data-number="1.7"><span class="header-section-number">1.7</span>
+Ações - Move</h2>
+<p>Um dado jogador faz uma jogada (um <em>move</em>) em uma dada
+coordenada</p>
+<ul>
+<li>Determinístico<br />
+</li>
 </ul>
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">action</span> Move(player, coordinate) = <span class="org-keyword">all</span> {
+<pre class="quint"><code>action Move(player, coordinate) = all {
   isEmpty(coordinate),
-  board' = board.setBy(
+  board&#39; = board.setBy(
     coordinate._1,
     row =&gt; row.set(coordinate._2, Occupied(player))
   ),
 }
-</pre>
-</div>
-<ul class="org-ul">
-<li><p>
-Qual é a pré-condição pra essa ação?<br />
-</p>
-<ul class="org-ul">
-<li>A pré-condição para essa ação é que a coordenada esteja vazia<br /></li>
+</code></pre>
+<ul>
+<li><p>Qual é a pré-condição pra essa ação?</p>
+<ul>
+<li>A pré-condição para essa ação é que a coordenada esteja vazia<br />
+</li>
 </ul></li>
 </ul>
-<ul class="org-ul">
-<li><code>setBy</code> é bem útil pra atualizar mapas aninhados (como nesse caso, <code>int -&gt; int -&gt; Square</code>)<br /></li>
+<ul>
+<li><code class="verbatim">setBy</code> é bem útil pra atualizar mapas
+aninhados (como nesse caso, <code
+class="verbatim">int -&gt; int -&gt; Square</code>)</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-a-es-movetoempty-2" class="outline-3">
-<h3 id="a-es-movetoempty-2"><span class="section-number-3">1.8.</span> Ações - MoveToEmpty</h3>
-<div class="outline-text-3" id="text-1-8">
-<p>
-Um dado jogador faz uma jogada em <b>alguma</b> coordenada<br />
-</p>
-<ul class="org-ul">
-<li>Não-determinístico<br /></li>
+</section>
+<section id="ações---movetoempty" class="level2" data-number="1.8">
+<h2 data-number="1.8"><span class="header-section-number">1.8</span>
+Ações - MoveToEmpty</h2>
+<p>Um dado jogador faz uma jogada em <strong>alguma</strong>
+coordenada</p>
+<ul>
+<li>Não-determinístico<br />
+</li>
 </ul>
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">action</span> MoveToEmpty(player) = <span class="org-keyword">all</span> {
-  <span class="org-keyword">not</span>(gameOver),
-  <span class="org-builtin">nondet</span> coordinate = boardCoordinates.filter(isEmpty).oneOf()
+<pre class="quint"><code>action MoveToEmpty(player) = all {
+  not(gameOver),
+  nondet coordinate = boardCoordinates.filter(isEmpty).oneOf()
   Move(player, coordinate)
 }
-</pre>
-</div>
-<ul class="org-ul">
-<li><p>
-Qual é a pré-condição pra essa ação?<br />
-</p>
-<ul class="org-ul">
-<li>A pré-condição para essa ação é que o jogo ainda não tenha acabado<br /></li>
+</code></pre>
+<ul>
+<li><p>Qual é a pré-condição pra essa ação?</p>
+<ul>
+<li>A pré-condição para essa ação é que o jogo ainda não tenha
+acabado</li>
 </ul></li>
 </ul>
-</div>
-</div>
-<div id="outline-container-a-es-moveo-e-movex-2" class="outline-3">
-<h3 id="a-es-moveo-e-movex-2"><span class="section-number-3">1.9.</span> Ações - MoveO e MoveX</h3>
-<div class="outline-text-3" id="text-1-9">
-<ul class="org-ul">
-<li>Por enquanto, as ações <code>MoveO</code> e <code>MoveX</code> são bem parecidas porque ambos jogam &ldquo;de qualquer jeito&rdquo;. Não vamos parametrizar elas porque depois vamos mudar somente o comportamento de <code>X</code>.<br /></li>
+</section>
+<section id="ações---moveo-e-movex" class="level2" data-number="1.9">
+<h2 data-number="1.9"><span class="header-section-number">1.9</span>
+Ações - MoveO e MoveX</h2>
+<ul>
+<li>Por enquanto, as ações <code class="verbatim">MoveO</code> e <code
+class="verbatim">MoveX</code> são bem parecidas porque ambos jogam "de
+qualquer jeito". Não vamos parametrizar elas porque depois vamos mudar
+somente o comportamento de <code class="verbatim">X</code>.</li>
 </ul>
-</div>
-<ol class="org-ol">
-<li><a id="move0-3"></a>Move0<br />
-<div class="outline-text-4" id="text-1-9-1">
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">action</span> MoveO = <span class="org-keyword">all</span> {
+<ol>
+<li><p>Move0</p>
+<pre class="quint"><code>action MoveO = all {
   nextTurn == O,
   MoveToEmpty(O),
-  nextTurn' = X,
+  nextTurn&#39; = X,
 }
-</pre>
-</div>
-</div>
-</li>
-<li><a id="movex-3"></a>MoveX<br />
-<div class="outline-text-4" id="text-1-9-2">
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">action</span> MoveX = <span class="org-keyword">all</span> {
+</code></pre></li>
+<li><p>MoveX</p>
+<pre class="quint"><code>action MoveX = all {
   nextTurn == X,
   MoveToEmpty(X),
-  nextTurn' = O,
+  nextTurn&#39; = O,
 }
-</pre>
-</div>
-</div>
-</li>
-<li><a id="-3"></a>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="B_ignoreheading">B_ignoreheading</span></span><br />
-<div class="outline-text-4" id="text-1-9-3">
-<ul class="org-ul">
-<li><p>
-Qual é a pré-condição pra essas ações?<br />
-</p>
-<ul class="org-ul">
-<li>Para ambas, a pré-condição é que seja o turno do jogador a fazer a jogada<br />
-<ul class="org-ul">
-<li>Implicitamente, também temos a pré-condição de <code>MoveToEmpty</code> empregada nessa ação<br /></li>
+</code></pre></li>
+<li><p> <span class="tag" data-tag-name="B_ignoreheading"><span
+class="smallcaps">B_ignoreheading</span></span></p>
+<ul>
+<li><p>Qual é a pré-condição pra essas ações?</p>
+<ul>
+<li>Para ambas, a pré-condição é que seja o turno do jogador a fazer a
+jogada
+<ul>
+<li>Implicitamente, também temos a pré-condição de <code
+class="verbatim">MoveToEmpty</code> empregada nessa ação</li>
 </ul></li>
 </ul></li>
-</ul>
-</div>
-</li>
+</ul></li>
 </ol>
-</div>
-<div id="outline-container-estado-inicial-2" class="outline-3">
-<h3 id="estado-inicial-2"><span class="section-number-3">1.10.</span> Estado inicial</h3>
-<div class="outline-text-3" id="text-1-10">
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">action</span> init = <span class="org-keyword">all</span> {
-  <span class="org-comment-delimiter">// </span><span class="org-comment">X always goes first</span>
-  nextTurn' = X,
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Every space in the board starts blank</span>
-  board' = 1.to(3).mapBy(_ =&gt; 1.to(3).mapBy(_ =&gt; Empty)),
+</section>
+<section id="estado-inicial" class="level2" data-number="1.10">
+<h2 data-number="1.10"><span class="header-section-number">1.10</span>
+Estado inicial</h2>
+<pre class="quint"><code>action init = all {
+  // X always goes first
+  nextTurn&#39; = X,
+  // Every space in the board starts blank
+  board&#39; = 1.to(3).mapBy(_ =&gt; 1.to(3).mapBy(_ =&gt; Empty)),
 }
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-transi-es-2" class="outline-3">
-<h3 id="transi-es-2"><span class="section-number-3">1.11.</span> Transições</h3>
-<div class="outline-text-3" id="text-1-11">
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">action</span> step = <span class="org-keyword">any</span> {
+</code></pre>
+</section>
+<section id="transições" class="level2" data-number="1.11">
+<h2 data-number="1.11"><span class="header-section-number">1.11</span>
+Transições</h2>
+<pre class="quint"><code>action step = any {
   MoveX,
   MoveO,
-  <span class="org-comment-delimiter">// </span><span class="org-comment">If the game is over, we don't need to do anything</span>
-  <span class="org-keyword">all</span> { gameOver, board' = board, nextTurn' = nextTurn },
+  // If the game is over, we don&#39;t need to do anything
+  all { gameOver, board&#39; = board, nextTurn&#39; = nextTurn },
 }
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-rodando-jogos-aleat-rios-com-o-simulador-2" class="outline-3">
-<h3 id="rodando-jogos-aleat-rios-com-o-simulador-2"><span class="section-number-3">1.12.</span> Rodando jogos aleatórios com o simulador</h3>
-<div class="outline-text-3" id="text-1-12">
-<div class="org-src-container">
-<pre class="src src-sh">quint run tictactoe.qnt --max-samples=<span class="org-highlight-numbers-number">1</span>
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-quint">...
+</code></pre>
+</section>
+<section id="rodando-jogos-aleatórios-com-o-simulador" class="level2"
+data-number="1.12">
+<h2 data-number="1.12"><span class="header-section-number">1.12</span>
+Rodando jogos aleatórios com o simulador</h2>
+<div class="sourceCode" id="cb14" data-org-language="sh"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quint</span> run tictactoe.qnt <span class="at">--max-samples</span><span class="op">=</span>1</span></code></pre></div>
+<pre class="quint"><code>...
 
 [State 20]
 {
@@ -389,45 +443,32 @@ Qual é a pré-condição pra essas ações?<br />
     ),
   nextTurn: O
 }
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-usando-uma-invariante-para-procurar-jogos-que-d-o-velha-2" class="outline-3">
-<h3 id="usando-uma-invariante-para-procurar-jogos-que-d-o-velha-2"><span class="section-number-3">1.13.</span> Usando uma invariante para procurar jogos que &ldquo;dão velha&rdquo;</h3>
-<div class="outline-text-3" id="text-1-13">
-<p>
-&ldquo;Dar velha&rdquo;, ou <i>stalemate</i>, quer dizer que o tabuleiro está cheio e ninguém ganhou. É um empate.<br />
-</p>
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">val</span> stalemate = boardFull <span class="org-keyword">and</span> <span class="org-keyword">not</span>(won(X)) <span class="org-keyword">and</span> <span class="org-keyword">not</span>(won(O))
+</code></pre>
+</section>
+<section id="usando-uma-invariante-para-procurar-jogos-que-dão-velha"
+class="level2" data-number="1.13">
+<h2 data-number="1.13"><span class="header-section-number">1.13</span>
+Usando uma invariante para procurar jogos que "dão velha"</h2>
+<p>"Dar velha", ou <em>stalemate</em>, quer dizer que o tabuleiro está
+cheio e ninguém ganhou. É um empate.</p>
+<pre class="quint"><code>val stalemate = boardFull and not(won(X)) and not(won(O))
 
-<span class="org-builtin">val</span> NotStalemate = <span class="org-keyword">not</span>(stalemate)
-</pre>
-</div>
-
-<p>
-Essa invariante é fácil de quebrar, podemos usar o simulador ao invés do <i>model checker</i> tranquilamente:<br />
-</p>
-<div class="org-src-container">
-<pre class="src src-sh">quint run tictactoe.qnt --invariant=NotStalemate
-</pre>
-</div>
-
-<p>
-Mas podemos usar o <i>model checker</i> também! Ele vai demorar mais, porque faz BFS e vai levar um tempo para chegar em jogos com 9 jogadas feitas, que são necessárias para um tabuleiro completo.<br />
-</p>
-<div class="org-src-container">
-<pre class="src src-sh">quint verify tictactoe.qnt --invariant=NotStalemate
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-contraexemplo-2" class="outline-3">
-<h3 id="contraexemplo-2"><span class="section-number-3">1.14.</span> Contraexemplo</h3>
-<div class="outline-text-3" id="text-1-14">
-<div class="org-src-container">
-<pre class="src src-quint">[State 9]
+val NotStalemate = not(stalemate)
+</code></pre>
+<p>Essa invariante é fácil de quebrar, podemos usar o simulador ao invés
+do <em>model checker</em> tranquilamente:</p>
+<div class="sourceCode" id="cb17" data-org-language="sh"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quint</span> run tictactoe.qnt <span class="at">--invariant</span><span class="op">=</span>NotStalemate</span></code></pre></div>
+<p>Mas podemos usar o <em>model checker</em> também! Ele vai demorar
+mais, porque faz BFS e vai levar um tempo para chegar em jogos com 9
+jogadas feitas, que são necessárias para um tabuleiro completo.</p>
+<div class="sourceCode" id="cb18" data-org-language="sh"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quint</span> verify tictactoe.qnt <span class="at">--invariant</span><span class="op">=</span>NotStalemate</span></code></pre></div>
+</section>
+<section id="contraexemplo" class="level2" data-number="1.14">
+<h2 data-number="1.14"><span class="header-section-number">1.14</span>
+Contraexemplo</h2>
+<pre class="quint"><code>[State 9]
 {
   board:
     Map(
@@ -437,276 +478,258 @@ Mas podemos usar o <i>model checker</i> também! Ele vai demorar mais, porque fa
     ),
   nextTurn: O
 }
-</pre>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-jogando-pra-ganhar-1" class="outline-2">
-<h2 id="jogando-pra-ganhar-1"><span class="section-number-2">2.</span> Jogando pra ganhar</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-jogando-pra-ganhar-2" class="outline-3">
-<h3 id="jogando-pra-ganhar-2"><span class="section-number-3">2.1.</span> Jogando pra ganhar</h3>
-<div class="outline-text-3" id="text-2-1">
-<ul class="org-ul">
-<li>Jogo da velha é um jogo bem simples e fácil<br /></li>
-<li>Ainda quando crianças, enjoamos do jogo, porque percebemos que &ldquo;sempre dá velha&rdquo;<br /></li>
-<li>Hipótese: Se um jogador seguir uma certa estratégia, ele nunca perde.<br />
-<ul class="org-ul">
-<li>Consequência: Se os dois jogadores seguirem essa estratégia, nenhum dos dois perde - &ldquo;sempre dá velha&rdquo;<br /></li>
+</code></pre>
+</section>
+</section>
+<section id="jogando-pra-ganhar" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Jogando
+pra ganhar</h1>
+<section id="jogando-pra-ganhar-1" class="level2" data-number="2.1">
+<h2 data-number="2.1"><span class="header-section-number">2.1</span>
+Jogando pra ganhar</h2>
+<ul>
+<li>Jogo da velha é um jogo bem simples e fácil<br />
+</li>
+<li>Ainda quando crianças, enjoamos do jogo, porque percebemos que
+"sempre dá velha"<br />
+</li>
+<li>Hipótese: Se um jogador seguir uma certa estratégia, ele nunca
+perde.
+<ul>
+<li>Consequência: Se os dois jogadores seguirem essa estratégia, nenhum
+dos dois perde - "sempre dá velha"</li>
 </ul></li>
 </ul>
-
-<p>
-<b>Estratégia</b>:<br />
-</p>
-<ul class="org-ul">
-<li>A primeira jogada é sempre nos cantos<br /></li>
-<li>As outras jogadas fazem a primeira jogada possível nessa lista de prioridade:<br />
-<ul class="org-ul">
-<li>Ganhar<br /></li>
-<li>Bloquear<br /></li>
-<li>Jogar no centro<br /></li>
-<li>Preparar uma vitória (preenchendo 2 de 3 quadrados numa fila/coluna/diagonal)<br /></li>
-<li>Jogada qualquer<br /></li>
+<p><strong>Estratégia</strong>:</p>
+<ul>
+<li>A primeira jogada é sempre nos cantos<br />
+</li>
+<li>As outras jogadas fazem a primeira jogada possível nessa lista de
+prioridade:
+<ul>
+<li>Ganhar<br />
+</li>
+<li>Bloquear<br />
+</li>
+<li>Jogar no centro<br />
+</li>
+<li>Preparar uma vitória (preenchendo 2 de 3 quadrados numa
+fila/coluna/diagonal)<br />
+</li>
+<li>Jogada qualquer</li>
 </ul></li>
 </ul>
-
-<p>
-Vamos implementar essa estratégia para o jogador X, enquanto o jogador O continua jogando &ldquo;de qualquer jeito&rdquo;.<br />
-</p>
-</div>
-</div>
-<div id="outline-container-come-ando-com-os-cantos-2" class="outline-3">
-<h3 id="come-ando-com-os-cantos-2"><span class="section-number-3">2.2.</span> Começando com os cantos</h3>
-<div class="outline-text-3" id="text-2-2">
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">pure</span> <span class="org-builtin">val</span> corners = <span class="org-type">Set</span>(
+<p>Vamos implementar essa estratégia para o jogador X, enquanto o
+jogador O continua jogando "de qualquer jeito".</p>
+</section>
+<section id="começando-com-os-cantos" class="level2" data-number="2.2">
+<h2 data-number="2.2"><span class="header-section-number">2.2</span>
+Começando com os cantos</h2>
+<pre class="quint"><code>pure val corners = Set(
   (1,1),
   (3,1),
   (1,3),
   (3,3)
 )
 
-<span class="org-builtin">action</span> StartInCorner =
-  <span class="org-builtin">nondet</span> corner = oneOf(corners)
+action StartInCorner =
+  nondet corner = oneOf(corners)
   Move(X, corner)
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-condi-es-para-as-jogadas-2" class="outline-3">
-<h3 id="condi-es-para-as-jogadas-2"><span class="section-number-3">2.3.</span> Condições para as jogadas</h3>
-<div class="outline-text-3" id="text-2-3">
-<p>
-Precisamos definir as condições que determinam se cada uma das jogadas na lista de prioridade pode ser feita.<br />
-</p>
-<ul class="org-ul">
-<li>Ganhar<br /></li>
-<li>Bloquear<br /></li>
-<li>Jogar no centro<br /></li>
-<li>Preparar uma vitória<br /></li>
+</code></pre>
+</section>
+<section id="condições-para-as-jogadas" class="level2"
+data-number="2.3">
+<h2 data-number="2.3"><span class="header-section-number">2.3</span>
+Condições para as jogadas</h2>
+<p>Precisamos definir as condições que determinam se cada uma das
+jogadas na lista de prioridade pode ser feita.</p>
+<ul>
+<li>Ganhar<br />
+</li>
+<li>Bloquear<br />
+</li>
+<li>Jogar no centro<br />
+</li>
+<li>Preparar uma vitória</li>
 </ul>
-
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">val</span> canWin = winningPatterns.exists(canWinWithPattern)
-<span class="org-builtin">val</span> canBlock = winningPatterns.exists(canBlockWithPattern)
-<span class="org-builtin">val</span> canTakeCenter = isEmpty((2,2))
-<span class="org-builtin">val</span> canSetupWin = winningPatterns.exists(canSetupWinWithPattern)
-</pre>
-</div>
-
-<p>
-(<code>canWinWithPattern</code>, <code>canBlockWithPattern</code> e <code>canSetupWintWithPattern</code> a seguir)<br />
-</p>
-</div>
-</div>
-<div id="outline-container-condi-es-para-as-jogadas-defini-es-auxiliares-2" class="outline-3">
-<h3 id="condi-es-para-as-jogadas-defini-es-auxiliares-2"><span class="section-number-3">2.4.</span> Condições para as jogadas - definições auxiliares</h3>
-<div class="outline-text-3" id="text-2-4">
-<p>
-Dado um <i>winning pattern</i>, podemos <b>ganhar</b> com aquele <i>pattern</i> sse duas das coordenadas tiverem <code>X</code> e a outra estiver vazia. Lembrando que a ordem não importa.<br />
-</p>
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">def</span> canWinWithPattern(pattern) = <span class="org-keyword">and</span> {
+<pre class="quint"><code>val canWin = winningPatterns.exists(canWinWithPattern)
+val canBlock = winningPatterns.exists(canBlockWithPattern)
+val canTakeCenter = isEmpty((2,2))
+val canSetupWin = winningPatterns.exists(canSetupWinWithPattern)
+</code></pre>
+<p>(<code class="verbatim">canWinWithPattern</code>, <code
+class="verbatim">canBlockWithPattern</code> e <code
+class="verbatim">canSetupWintWithPattern</code> a seguir)</p>
+</section>
+<section id="condições-para-as-jogadas---definições-auxiliares"
+class="level2" data-number="2.4">
+<h2 data-number="2.4"><span class="header-section-number">2.4</span>
+Condições para as jogadas - definições auxiliares</h2>
+<p>Dado um <em>winning pattern</em>, podemos <strong>ganhar</strong> com
+aquele <em>pattern</em> sse duas das coordenadas tiverem <code
+class="verbatim">X</code> e a outra estiver vazia. Lembrando que a ordem
+não importa.</p>
+<pre class="quint"><code>def canWinWithPattern(pattern) = and {
   pattern.filter(coordinate =&gt; coordinate.hasPlayer(X)).size() == 2,
   pattern.filter(coordinate =&gt; coordinate.isEmpty()).size() == 1,
 }
-</pre>
-</div>
-
-<p>
-Dado um <i>winning pattern</i>, podemos <b>bloquear</b> com aquele <i>pattern</i> sse duas das coordenadas tiverem <code>O</code> e a outra estiver vazia.<br />
-</p>
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">def</span> canBlockWithPattern(pattern) = <span class="org-keyword">and</span> {
+</code></pre>
+<p>Dado um <em>winning pattern</em>, podemos <strong>bloquear</strong>
+com aquele <em>pattern</em> sse duas das coordenadas tiverem <code
+class="verbatim">O</code> e a outra estiver vazia.</p>
+<pre class="quint"><code>def canBlockWithPattern(pattern) = and {
   pattern.filter(coordinate =&gt; coordinate.hasPlayer(O)).size() == 2,
   pattern.filter(coordinate =&gt; coordinate.isEmpty()).size() == 1,
 }
-</pre>
-</div>
-
-<p>
-Dado um <i>winning pattern</i>, podemos <b>preparar uma vitória</b> com aquele <i>pattern</i> sse uma das coordenadas tiver <code>X</code> e as outras duas estiverem vazias.<br />
-</p>
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">def</span> canSetupWinWithPattern(pattern) = <span class="org-keyword">and</span> {
+</code></pre>
+<p>Dado um <em>winning pattern</em>, podemos <strong>preparar uma
+vitória</strong> com aquele <em>pattern</em> sse uma das coordenadas
+tiver <code class="verbatim">X</code> e as outras duas estiverem
+vazias.</p>
+<pre class="quint"><code>def canSetupWinWithPattern(pattern) = and {
   pattern.filter(coordinate =&gt; coordinate.hasPlayer(X)).size() == 1,
   pattern.filter(coordinate =&gt; coordinate.isEmpty()).size() == 2,
 }
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-a-es-win-2" class="outline-3">
-<h3 id="a-es-win-2"><span class="section-number-3">2.5.</span> Ações - Win</h3>
-<div class="outline-text-3" id="text-2-5">
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">action</span> Win = <span class="org-keyword">all</span> {
+</code></pre>
+</section>
+<section id="ações---win" class="level2" data-number="2.5">
+<h2 data-number="2.5"><span class="header-section-number">2.5</span>
+Ações - Win</h2>
+<pre class="quint"><code>action Win = all {
   canWin,
-  <span class="org-builtin">nondet</span> pattern = winningPatterns.filter(canWinWithPattern).oneOf()
-  <span class="org-builtin">nondet</span> coordinate = pattern.filter(isEmpty).oneOf()
+  nondet pattern = winningPatterns.filter(canWinWithPattern).oneOf()
+  nondet coordinate = pattern.filter(isEmpty).oneOf()
   Move(X, coordinate),
 }
-</pre>
-</div>
-<ul class="org-ul">
-<li><p>
-Qual é a pré-condição pra essa ação?<br />
-</p>
-<ul class="org-ul">
-<li><code>canWin</code>, lembrando que <code>canWin</code> é definido por:<br /></li>
+</code></pre>
+<ul>
+<li><p>Qual é a pré-condição pra essa ação?</p>
+<ul>
+<li><p><code class="verbatim">canWin</code>, lembrando que <code
+class="verbatim">canWin</code> é definido por:</p>
+<pre class="quint"><code>val canWin = winningPatterns.exists(canWinWithPattern)
+</code></pre></li>
 </ul>
-<div class="org-src-container">
-<pre class="src src-quint">  <span class="org-builtin">val</span> canWin = winningPatterns.exists(canWinWithPattern)
-</pre>
-</div>
-<ul class="org-ul">
-<li>Isso é importante para garantir que nunca estamos chamando <code>oneOf</code> em um set vazio.<br /></li>
+<ul>
+<li>Isso é importante para garantir que nunca estamos chamando <code
+class="verbatim">oneOf</code> em um set vazio.</li>
 </ul></li>
 </ul>
-</div>
-</div>
-<div id="outline-container-a-es-block-2" class="outline-3">
-<h3 id="a-es-block-2"><span class="section-number-3">2.6.</span> Ações - Block</h3>
-<div class="outline-text-3" id="text-2-6">
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">action</span> Block = <span class="org-keyword">all</span> {
+</section>
+<section id="ações---block" class="level2" data-number="2.6">
+<h2 data-number="2.6"><span class="header-section-number">2.6</span>
+Ações - Block</h2>
+<pre class="quint"><code>action Block = all {
   canBlock,
-  <span class="org-builtin">nondet</span> pattern = winningPatterns.filter(canBlockWithPattern).oneOf()
-  <span class="org-builtin">nondet</span> coordinate = pattern.filter(isEmpty).oneOf()
+  nondet pattern = winningPatterns.filter(canBlockWithPattern).oneOf()
+  nondet coordinate = pattern.filter(isEmpty).oneOf()
   Move(X, coordinate),
 }
-</pre>
-</div>
-
-<p>
-Observem o uso de <code>oneOf</code> para selecionar a coordenada aqui. Nesses casos (tanto <code>Win</code> quanto <code>Block</code>), essa seleção é <b>determinística</b>, porque sabemos que sempre haverá uma única coordenada vazia nesses <i>patterns</i>. Contudo, o Quint não sabe disso.<br />
-</p>
-<ul class="org-ul">
-<li>Não existe algo como &ldquo;pegar o primeiro elemento do set&rdquo; - porque sets não são ordenados!<br /></li>
+</code></pre>
+<p>Observem o uso de <code class="verbatim">oneOf</code> para selecionar
+a coordenada aqui. Nesses casos (tanto <code class="verbatim">Win</code>
+quanto <code class="verbatim">Block</code>), essa seleção é
+<strong>determinística</strong>, porque sabemos que sempre haverá uma
+única coordenada vazia nesses <em>patterns</em>. Contudo, o Quint não
+sabe disso.</p>
+<ul>
+<li>Não existe algo como "pegar o primeiro elemento do set" - porque
+sets não são ordenados!</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-a-es-takecenter-e-setupwin-2" class="outline-3">
-<h3 id="a-es-takecenter-e-setupwin-2"><span class="section-number-3">2.7.</span> Ações - TakeCenter e SetupWin</h3>
-<div class="outline-text-3" id="text-2-7">
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">action</span> TakeCenter = Move(X, (2, 2))
+</section>
+<section id="ações---takecenter-e-setupwin" class="level2"
+data-number="2.7">
+<h2 data-number="2.7"><span class="header-section-number">2.7</span>
+Ações - TakeCenter e SetupWin</h2>
+<pre class="quint"><code>action TakeCenter = Move(X, (2, 2))
 
-<span class="org-builtin">action</span> SetupWin = <span class="org-keyword">all</span> {
-  <span class="org-builtin">nondet</span> pattern = winningPatterns.filter(canSetupWinWithPattern).oneOf()
-  <span class="org-builtin">nondet</span> coordinate = pattern.filter(isEmpty).oneOf()
+action SetupWin = all {
+  nondet pattern = winningPatterns.filter(canSetupWinWithPattern).oneOf()
+  nondet coordinate = pattern.filter(isEmpty).oneOf()
   Move(X, coordinate),
 }
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-a-es-alterando-movex-2" class="outline-3">
-<h3 id="a-es-alterando-movex-2"><span class="section-number-3">2.8.</span> Ações - alterando MoveX</h3>
-<div class="outline-text-3" id="text-2-8">
-<p>
-Temos todas as ações para a estratégia definidas, agora basta definir um novo <code>MoveX</code> que chama essas ações conforme a prioridade estabelecida.<br />
-</p>
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-builtin">action</span> MoveX = <span class="org-keyword">all</span> {
+</code></pre>
+</section>
+<section id="ações---alterando-movex" class="level2" data-number="2.8">
+<h2 data-number="2.8"><span class="header-section-number">2.8</span>
+Ações - alterando MoveX</h2>
+<p>Temos todas as ações para a estratégia definidas, agora basta definir
+um novo <code class="verbatim">MoveX</code> que chama essas ações
+conforme a prioridade estabelecida.</p>
+<pre class="quint"><code>action MoveX = all {
   nextTurn == X,
-  <span class="org-keyword">if</span> (boardEmpty) StartInCorner <span class="org-keyword">else</span>
-  <span class="org-keyword">if</span> (canWin) Win <span class="org-keyword">else</span>
-  <span class="org-keyword">if</span> (canBlock) Block <span class="org-keyword">else</span>
-  <span class="org-keyword">if</span> (canTakeCenter) TakeCenter <span class="org-keyword">else</span>
-  <span class="org-keyword">if</span> (canSetupWin) SetupWin <span class="org-keyword">else</span>
+  if (boardEmpty) StartInCorner else
+  if (canWin) Win else
+  if (canBlock) Block else
+  if (canTakeCenter) TakeCenter else
+  if (canSetupWin) SetupWin else
   MoveToEmpty(X),
-  nextTurn' = O,
+  nextTurn&#39; = O,
 }
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-invariantes-2" class="outline-3">
-<h3 id="invariantes-2"><span class="section-number-3">2.9.</span> Invariantes</h3>
-<div class="outline-text-3" id="text-2-9">
-<p>
-Com isso, temos nosso modelo. Agora, vamos definir algumas invariantes para o uso dessa estratégia.<br />
-</p>
-<div class="org-src-container">
-<pre class="src src-quint">  <span class="org-comment-delimiter">//</span><span class="org-comment">/ X has not won. This does not hold, as X wins most of the times.</span>
-  <span class="org-builtin">val</span> XHasNotWon = <span class="org-keyword">not</span>(won(X))
+</code></pre>
+</section>
+<section id="invariantes" class="level2" data-number="2.9">
+<h2 data-number="2.9"><span class="header-section-number">2.9</span>
+Invariantes</h2>
+<p>Com isso, temos nosso modelo. Agora, vamos definir algumas
+invariantes para o uso dessa estratégia.</p>
+<pre class="quint"><code>/// X has not won. This does not hold, as X wins most of the times.
+val XHasNotWon = not(won(X))
 
-  <span class="org-comment-delimiter">//</span><span class="org-comment">/ O has not won. This should hold, as O can only achieve a draw.</span>
-  <span class="org-builtin">val</span> OHasNotWon = <span class="org-keyword">not</span>(won(O))
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-f-rmulas-temporais-2" class="outline-3">
-<h3 id="f-rmulas-temporais-2"><span class="section-number-3">2.10.</span> Fórmulas temporais</h3>
-<div class="outline-text-3" id="text-2-10">
-<div class="org-src-container">
-<pre class="src src-quint"><span class="org-comment-delimiter">//</span><span class="org-comment">/ This is not always true, as if O picks the right moves, the game will</span>
-<span class="org-comment-delimiter">//</span><span class="org-comment">/ result in a stalemate.</span>
-<span class="org-builtin">temporal</span> XMustEventuallyWin = eventually(won(X))
-</pre>
-</div>
-
-<ul class="org-ul">
-<li>Infelizmente, a implementação de propriedades temporais no Apalache ainda é bem rudimentar.<br /></li>
-<li>Podemos traduzir Quint pra TLA+ e usar o TLC para checar essa propriedade<br />
-<ul class="org-ul">
-<li>Existe um script para chamar o TLC com os parâmetros apropriados, que podemos usar enquanto a integração não está pronta<br />
-<ul class="org-ul">
-<li><code>sh tlc/check_with_tlc.sh --file tictactoe.qnt --temporal XMustEventuallyWin</code><br /></li>
+/// O has not won. This should hold, as O can only achieve a draw.
+val OHasNotWon = not(won(O))
+</code></pre>
+</section>
+<section id="fórmulas-temporais" class="level2" data-number="2.10">
+<h2 data-number="2.10"><span class="header-section-number">2.10</span>
+Fórmulas temporais</h2>
+<pre class="quint"><code>/// This is not always true, as if O picks the right moves, the game will
+/// result in a stalemate.
+temporal XMustEventuallyWin = eventually(won(X))
+</code></pre>
+<ul>
+<li>Infelizmente, a implementação de propriedades temporais no Apalache
+ainda é bem rudimentar.<br />
+</li>
+<li>Podemos traduzir Quint pra TLA+ e usar o TLC para checar essa
+propriedade
+<ul>
+<li>Existe um script para chamar o TLC com os parâmetros apropriados,
+que podemos usar enquanto a integração não está pronta
+<ul>
+<li><code
+class="verbatim">sh tlc/check_with_tlc.sh --file tictactoe.qnt --temporal XMustEventuallyWin</code><br />
+</li>
 </ul></li>
 </ul></li>
-<li>O simulador não suporta fórmulas temporais<br />
-<ul class="org-ul">
-<li>Poderia suportar parcialmente com aquela implementação que fizemos em C++/Haskell na disciplina<br /></li>
+<li>O simulador não suporta fórmulas temporais
+<ul>
+<li>Poderia suportar parcialmente com aquela implementação que fizemos
+em C++/Haskell na disciplina</li>
 </ul></li>
 </ul>
-</div>
-</div>
-<div id="outline-container-tarefa-de-casa-2" class="outline-3">
-<h3 id="tarefa-de-casa-2"><span class="section-number-3">2.11.</span> Tarefa de casa</h3>
-<div class="outline-text-3" id="text-2-11">
-<p>
-Tarefa para a próxima aula: ler o blogpost <a href="https://elliotswart.github.io/pragmaticformalmodeling/">https://elliotswart.github.io/pragmaticformalmodeling/</a><br />
-</p>
-<ul class="org-ul">
-<li>Serve como uma revisão de alguns conteúdos da matéria até agora<br /></li>
-<li>Explica a modelagem do jogo da velha em TLA+, que veremos na próxima aula<br /></li>
-<li>Também conta como referência pra essa aula :)<br /></li>
+</section>
+<section id="tarefa-de-casa" class="level2" data-number="2.11">
+<h2 data-number="2.11"><span class="header-section-number">2.11</span>
+Tarefa de casa</h2>
+<p>Tarefa para a próxima aula: ler o blogpost <a
+href="https://elliotswart.github.io/pragmaticformalmodeling/">https://elliotswart.github.io/pragmaticformalmodeling/</a></p>
+<ul>
+<li>Serve como uma revisão de alguns conteúdos da matéria até
+agora<br />
+</li>
+<li>Explica a modelagem do jogo da velha em TLA+, que veremos na próxima
+aula<br />
+</li>
+<li>Também conta como referência pra essa aula :)</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-fim-2" class="outline-3">
-<h3 id="fim-2"><span class="section-number-3">2.12.</span> FIM</h3>
-<div class="outline-text-3" id="text-2-12">
-</div>
-</div>
-</div>
+</section>
+<section id="fim" class="level2" data-number="2.12">
+<h2 data-number="2.12"><span class="header-section-number">2.12</span>
+FIM</h2>
 
+</section>
+</section>
             </div>
         </div>
     </body>

@@ -1,25 +1,26 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<html lang="pt-BR">
+    <head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Personal homepage exported with org-thtml">
-
-  <title>Quint: Development and usage of a formal specification language</title>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-
-  <meta property="og:url" content="https://bugarela.com/sblp2024/index.html" />
-  <meta property="og:title" content="Quint: Development and usage of a formal specification language" />
-  <meta property="og:type" content="article" />
-  <meta property="og:description" content="Personal homepage exported with org-thtml" />
-  
-  
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@bugarela">
-    <meta name="twitter:title" content="Quint: Development and usage of a formal specification language">
-    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
-  
-
+<meta name="description" content="Personal homepage exported with
+pandoc">
+<title>Quint: Development and usage of a formal specification
+language</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<meta property="og:url" content="https://bugarela.com" />
+<meta property="og:title" content="Quint: Development and usage of a
+formal specification language" />
+    <meta property="og:image" content="https://bugarela.com/images/me.jpeg" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Personal homepage exported with
+pandoc" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@bugarela">
+<meta name="twitter:title" content="Quint: Development and usage of a
+formal specification language">
+<meta name="twitter:description" content="Personal homepage exported
+with pandoc">
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.stemmer.support.min.js"></script>
@@ -28,208 +29,227 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
 <link rel="stylesheet" href="../css/layouts/style.css">
+<style>
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-3">
+                <div class="centered">
+                    <a href="../"><img class="portrait" src="../images/me.jpeg" alt="Gabriela Moreira" /></a>
+                    <h2 class="brand-title">Gabriela Moreira</h2>
+                    <h2 class="brand-tagline">Formal methods &amp; programming languages research engineer</h2>
 
-  </head>
-  <body>
-    <div id="layout" class="pure-g">
-      <div class="sidebar pure-u-1 pure-u-md-1-3">
-    <div class="centered">
-        <a href="../"
-            ><img
-                class="portrait"
-                src="../images/me.jpeg"
-                alt="Gabriela Moreira"
-        /></a>
-        <h2 class="brand-title">Gabriela Moreira</h2>
-        <h2 class="brand-tagline">Formal methods & programming languages research engineer</h2>
-        
+                    <nav class="nav">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a class="pure-button" href="https://twitter.com/bugarela"><i class="fab fa-twitter big-icon"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="button" href="https://github.com/bugarela"><i class="fab fa-github big-icon"></i>@bugarela</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="button" href="https://www.linkedin.com/in/bugarela/"><i class="fab fa-linkedin big-icon"></i>/bugarela</a>
+                            </li>
+                        </ul>
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a class="button" href="https://bugarela.com/mfo"><i class="fas fa-folder"></i> MFO</a>
+                            </li>
+                        </ul>
+                    </nav>
 
-        <nav class="nav">
-            <ul class="nav-list">
-                 
-                <li class="nav-item">
-                    <a
-                        class="button"
-                        href="https://github.com/bugarela"
-                        ><i class="fab fa-github big-icon"></i>@bugarela</a
-                    >
-                </li>
-                 
-                <li class="nav-item">
-                    <a
-                        class="button"
-                        href="https://www.linkedin.com/in/bugarela/"
-                        ><i class="fab fa-linkedin big-icon"></i>/bugarela</a
-                    >
-                </li>
-                 
-            </ul>
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a class="button" href="https://bugarela.com/mfo"
-                        ><i class="fas fa-folder"></i> MFO</a
-                    >
-                </li>
-            </ul>
-        </nav>
-
-        <div class="footer">
-    <div>
-        Created using Emacs and
-        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
-        >.<br />
-        Style from
-        <a href="https://owickstrom.github.io/the-monospace-web/"
-            >The Monospace Web</a
-        >.
-    </div>
-</div>
-
-    </div>
-</div>
-
-      <div class="content pure-u-1 pure-u-md-2-3">
-        <h1>Quint: Development and usage of a formal specification language</h1>
-        <div id="outline-container-links-1" class="outline-2">
-<h2 id="links-1">Links</h2>
-<div class="outline-text-2" id="text-links-1">
-<ul class="org-ul">
-<li>Quint website: <a href="https://quint-lang.org/">quint-lang.org</a></li>
-<li>Quint GitHub repository: <a href="https://github.com/informalsystems/quint">informalsystems/quint</a>
-<ul class="org-ul">
+                    <div class="footer">
+                        <div>Built with pandoc.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="content pure-u-1 pure-u-md-2-3">
+                <h1>Quint: Development and usage of a formal
+specification language</h1>
+<section id="links" class="level1">
+<h1>Links</h1>
+<ul>
+<li>Quint website: <a
+href="https://quint-lang.org/">quint-lang.org</a></li>
+<li>Quint GitHub repository: <a
+href="https://github.com/informalsystems/quint">informalsystems/quint</a>
+<ul>
 <li>Consider giving the repo a star</li>
 </ul></li>
-<li>Slides: <a href="https://docs.google.com/presentation/d/1K4bqseM7D5WhiQWOtplIgDodEMf2itLwScypHySG1OQ/edit?usp=sharing">on Google Drive</a></li>
+<li>Slides: <a
+href="https://docs.google.com/presentation/d/1K4bqseM7D5WhiQWOtplIgDodEMf2itLwScypHySG1OQ/edit?usp=sharing">on
+Google Drive</a></li>
 </ul>
-</div>
-</div>
-<div id="outline-container-activities-1" class="outline-2">
-<h2 id="activities-1">Activities</h2>
-<div class="outline-text-2" id="text-activities-1">
-</div>
-<div id="outline-container-getting-started-2" class="outline-3">
-<h3 id="getting-started-2">Getting Started</h3>
-<div class="outline-text-3" id="text-getting-started-2">
-<ul class="org-ul">
-<li>Follow Quint's <a href="https://quint-lang.org/docs/getting-started">Getting Started</a> tutorial to install and test things on your machine.</li>
+</section>
+<section id="activities" class="level1">
+<h1>Activities</h1>
+<section id="getting-started" class="level2">
+<h2>Getting Started</h2>
+<ul>
+<li>Follow Quint's <a
+href="https://quint-lang.org/docs/getting-started">Getting Started</a>
+tutorial to install and test things on your machine.</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-pokemon-battle-2" class="outline-3">
-<h3 id="pokemon-battle-2">Pokemon battle</h3>
-<div class="outline-text-3" id="text-pokemon-battle-2">
-<ul class="org-ul">
-<li>Download this <a href="https://bugarela.com/sblp2024/pokemon_activity.zip">Zip file</a> with the base spec (and its dependencies)</li>
+</section>
+<section id="pokemon-battle" class="level2">
+<h2>Pokemon battle</h2>
+<ul>
+<li>Download this <a
+href="https://bugarela.com/sblp2024/pokemon_activity.zip">Zip file</a>
+with the base spec (and its dependencies)</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-adding-a-new-operator-2" class="outline-3">
-<h3 id="adding-a-new-operator-2">Adding a new operator</h3>
-<div class="outline-text-3" id="text-adding-a-new-operator-2">
-<ul class="org-ul">
-<li>Uninstall the binary from npm to avoid conflicts: <code>npm uninstall @informalsystems/quint -g</code></li>
-<li>Clone Quint: <code>git clone git@github.com:informalsystems/quint.git</code></li>
-<li>Install with: <code>make</code></li>
-<li><code>cd</code> into the <code>quint</code> folder and make your changes
-<ul class="org-ul">
-<li>To recompile, run: <code>npm run compile</code></li>
-<li>To run unit tests: <code>npm test</code></li>
-<li>To run integration tests: <code>npm run integration</code></li>
+</section>
+<section id="adding-a-new-operator" class="level2">
+<h2>Adding a new operator</h2>
+<ul>
+<li>Uninstall the binary from npm to avoid conflicts: <code
+class="verbatim">npm uninstall @informalsystems/quint -g</code></li>
+<li>Clone Quint: <code
+class="verbatim">git clone git@github.com:informalsystems/quint.git</code></li>
+<li>Install with: <code class="verbatim">make</code></li>
+<li><code class="verbatim">cd</code> into the <code
+class="verbatim">quint</code> folder and make your changes
+<ul>
+<li>To recompile, run: <code
+class="verbatim">npm run compile</code></li>
+<li>To run unit tests: <code class="verbatim">npm test</code></li>
+<li>To run integration tests: <code
+class="verbatim">npm run integration</code></li>
 </ul></li>
 </ul>
-</div>
-<div id="outline-container-operator-3" class="outline-4">
-<h4 id="operator-3">Operator</h4>
-<div class="outline-text-4" id="text-operator-3">
-<p>
-Name: <code>getOnlyElement</code>
-Behavior:
-</p>
-<ul class="org-ul">
+<section id="operator" class="level3">
+<h3>Operator</h3>
+<p>Name: <code class="verbatim">getOnlyElement</code> Behavior:</p>
+<ul>
 <li>Take a set of any type of elements.
-<ul class="org-ul">
-<li>If the set is a singleton (it has exactly one element), return its element.</li>
+<ul>
+<li>If the set is a singleton (it has exactly one element), return its
+element.</li>
 <li>Else, return an error message.</li>
 </ul></li>
 </ul>
-</div>
-</div>
-<div id="outline-container-files-to-change-3" class="outline-4">
-<h4 id="files-to-change-3">Files to change</h4>
-<div class="outline-text-4" id="text-files-to-change-3">
-<ul class="org-ul">
+</section>
+<section id="files-to-change" class="level3">
+<h3>Files to change</h3>
+<ul>
 <li>quint/src/names/base.ts</li>
 <li>quint/src/types/builtinSignatures.ts</li>
 <li>quint/src/effects/builtinSignatures.ts</li>
 <li>quint/src/runtime/impl/builtins.ts</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-tests-3" class="outline-4">
-<h4 id="tests-3">Tests</h4>
-<div class="outline-text-4" id="text-tests-3">
-<ul class="org-ul">
+</section>
+<section id="tests" class="level3">
+<h3>Tests</h3>
+<ul>
 <li>quint/test/runtime/compile.test.ts</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-hints-click-to-expand-3" class="outline-4">
-<h4 id="hints-click-to-expand-3">Hints (click to expand)</h4>
-<div class="outline-text-4" id="text-hints-click-to-expand-3">
-<p>
-These are the answers to this activity. Try it on your own before looking, but feel free to look if you get stuck!
-</p>
-
+</section>
+<section id="hints-click-to-expand" class="level3">
+<h3>Hints (click to expand)</h3>
+<p>These are the answers to this activity. Try it on your own before
+looking, but feel free to look if you get stuck!</p>
 <details>
 <summary><b>[General Hint]</b></summary>
-
-<p>
-Take another operator, such as <code>allListsUpTo</code>, and look for it in the files to change. You can copy whatever we do for <code>allListsUpTo</code> and only change the parts that are specific to the operator's behavior.
-</p>
+<p>Take another operator, such as <code
+class="verbatim">allListsUpTo</code>, and look for it in the files to
+change. You can copy whatever we do for <code
+class="verbatim">allListsUpTo</code> and only change the parts that are
+specific to the operator's behavior.</p>
 </details>
-
 <details>
 <summary><b>[Type signature]</b></summary>
-
-<p>
-(Set[a]) =&gt; a
-</p>
+<p>(Set[a]) =&gt; a</p>
 </details>
-
 <details>
 <summary><b>[Effect signature]</b></summary>
-
-<p>
-standardPropagation(1)
-</p>
+<p>standardPropagation(1)</p>
 </details>
-
 <details>
 <summary><b>[Evaluation]</b></summary>
-
-<div class="org-src-container">
-<pre class="src src-typescript"><span class="org-keyword">case</span> <span class="org-string">'getOnlyElement'</span>:
-  <span class="org-comment-delimiter">// </span><span class="org-comment">Get the only element of a set, or an error if the set is empty or has more than one element.</span>
-  <span class="org-keyword">return</span> <span class="org-rainbow-delimiters-depth-1">(</span><span class="org-variable-name">_</span>, <span class="org-variable-name">args</span><span class="org-rainbow-delimiters-depth-1">)</span> <span class="org-keyword">=&gt;</span> <span class="org-rainbow-delimiters-depth-1">{</span>
-    <span class="org-keyword">const</span> <span class="org-keyword">set</span> = args<span class="org-rainbow-delimiters-depth-2">[</span><span class="org-highlight-numbers-number">0</span><span class="org-rainbow-delimiters-depth-2">]</span>.<span class="org-function-call">toSet</span><span class="org-rainbow-delimiters-depth-2">()</span>
-    <span class="org-keyword">if</span> <span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">set</span>.size !== <span class="org-highlight-numbers-number">1</span><span class="org-rainbow-delimiters-depth-2">)</span> <span class="org-rainbow-delimiters-depth-2">{</span>
-      <span class="org-keyword">return</span> <span class="org-function-call">left</span><span class="org-rainbow-delimiters-depth-3">(</span><span class="org-rainbow-delimiters-depth-4">{</span>
-        code: <span class="org-string">'QNT505'</span>,
-        message: <span class="org-string">`Called 'getOnlyElement' on a set with </span><span class="org-keyword">${</span><span class="org-default">set.size</span><span class="org-keyword">}</span><span class="org-string"> elements. Make sure the set has exactly one element.`</span>,
-      <span class="org-rainbow-delimiters-depth-4">}</span><span class="org-rainbow-delimiters-depth-3">)</span>
-    <span class="org-rainbow-delimiters-depth-2">}</span>
-
-    <span class="org-keyword">return</span> <span class="org-function-call">right</span><span class="org-rainbow-delimiters-depth-2">(</span><span class="org-keyword">set</span>.<span class="org-function-call">first</span><span class="org-rainbow-delimiters-depth-3">()</span><span class="org-rainbow-delimiters-depth-2">)</span>
-  <span class="org-rainbow-delimiters-depth-1">}</span>
-</pre>
-</div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">case</span> <span class="st">&#39;getOnlyElement&#39;</span><span class="op">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Get the only element of a set, or an error if the set is empty or has more than one element.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> (_<span class="op">,</span> args) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> <span class="kw">set</span> <span class="op">=</span> args[<span class="dv">0</span>]<span class="op">.</span><span class="fu">toSet</span>()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="kw">set</span><span class="op">.</span><span class="at">size</span> <span class="op">!==</span> <span class="dv">1</span>) {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="fu">left</span>({</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        code<span class="op">:</span> <span class="st">&#39;QNT505&#39;</span><span class="op">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        message<span class="op">:</span> <span class="vs">`Called &#39;getOnlyElement&#39; on a set with </span><span class="sc">${</span><span class="kw">set</span><span class="op">.</span><span class="at">size</span><span class="sc">}</span><span class="vs"> elements. Make sure the set has exactly one element.`</span><span class="op">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      })</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">right</span>(<span class="kw">set</span><span class="op">.</span><span class="fu">first</span>())</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  }</span></code></pre></div>
 </details>
-</div>
-</div>
-</div>
-</div>
-
-      </div>
-    </div>
-  </body>
+</section>
+</section>
+</section>
+            </div>
+        </div>
+    </body>
 </html>

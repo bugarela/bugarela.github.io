@@ -1,29 +1,23 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<html lang="pt-BR">
+    <head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Personal homepage exported with org-thtml">
-
-  <title>About me</title>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-
-  <meta property="og:url" content="https://bugarela.com/index.html" />
-  <meta property="og:title" content="About me" />
-  <meta property="og:type" content="article" />
-  <meta property="og:description" content="Personal homepage exported with org-thtml" />
-  
-    <meta property="og:image" content="https://bugarela.com/images/me.jpg" />
-    <meta property="og:image:width" content="30" />
-    <meta property="og:image:height" content="30" />
-  
-  
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@bugarela">
-    <meta name="twitter:title" content="About me">
-    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
-  
-
+<meta name="description" content="Personal homepage exported with
+pandoc">
+<title>About me</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<meta property="og:url" content="https://bugarela.com" />
+<meta property="og:title" content="About me" />
+    <meta property="og:image" content="https://bugarela.com/images/me.jpeg" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Personal homepage exported with
+pandoc" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@bugarela">
+<meta name="twitter:title" content="About me">
+<meta name="twitter:description" content="Personal homepage exported
+with pandoc">
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.stemmer.support.min.js"></script>
@@ -31,117 +25,83 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
-<link rel="stylesheet" href="css/layouts/style.css">
+<link rel="stylesheet" href="./css/layouts/style.css">
+    </head>
+    <body>
+        <div id="layout" class="pure-g">
+            <div class="sidebar pure-u-1 pure-u-md-1-3">
+                <div class="centered">
+                    <a href="./"><img class="portrait" src="./images/me.jpeg" alt="Gabriela Moreira" /></a>
+                    <h2 class="brand-title">Gabriela Moreira</h2>
+                    <h2 class="brand-tagline">Formal methods &amp; programming languages research engineer</h2>
 
-  </head>
-  <body>
-    <div id="layout" class="pure-g">
-      <div class="sidebar pure-u-1 pure-u-md-1-3">
-    <div class="centered">
-        <a href=""
-            ><img
-                class="portrait"
-                src="images/me.jpeg"
-                alt="Gabriela Moreira"
-        /></a>
-        <h2 class="brand-title">Gabriela Moreira</h2>
-        <h2 class="brand-tagline">Formal methods & programming languages research engineer</h2>
-        
+                    <nav class="nav">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a class="pure-button" href="https://twitter.com/bugarela"><i class="fab fa-twitter big-icon"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="button" href="https://github.com/bugarela"><i class="fab fa-github big-icon"></i>@bugarela</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="button" href="https://www.linkedin.com/in/bugarela/"><i class="fab fa-linkedin big-icon"></i>/bugarela</a>
+                            </li>
+                        </ul>
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a class="button" href="https://bugarela.com/mfo"><i class="fas fa-folder"></i> MFO</a>
+                            </li>
+                        </ul>
+                    </nav>
 
-        <nav class="nav">
-            <ul class="nav-list">
-                 
-                <li class="nav-item">
-                    <a
-                        class="button"
-                        href="https://github.com/bugarela"
-                        ><i class="fab fa-github big-icon"></i>@bugarela</a
-                    >
-                </li>
-                 
-                <li class="nav-item">
-                    <a
-                        class="button"
-                        href="https://www.linkedin.com/in/bugarela/"
-                        ><i class="fab fa-linkedin big-icon"></i>/bugarela</a
-                    >
-                </li>
-                 
-            </ul>
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a class="button" href="https://bugarela.com/mfo"
-                        ><i class="fas fa-folder"></i> MFO</a
-                    >
-                </li>
-            </ul>
-        </nav>
-
-        <div class="footer">
-    <div>
-        Created using Emacs and
-        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
-        >.<br />
-        Style from
-        <a href="https://owickstrom.github.io/the-monospace-web/"
-            >The Monospace Web</a
-        >.
-    </div>
-</div>
-
-    </div>
-</div>
-
-      <div class="content pure-u-1 pure-u-md-2-3">
-        <h1>About me</h1>
-        <p>
-I'm Gabriela, and I work with <b>programming languages</b> and <b>formal
-methods</b>.
-</p>
-
-<p>
-My <b>main project</b> right now is <a href="https://quint-lang.org">Quint</a> ✨, a specification
-language based on TLA+, on which I get to work full-time as a research
-engineer at <a href="https://github.com/informalsystems/">Informal Systems</a> 👩‍💻.
-</p>
-
-<p>
-I'm very passionate about the tools that I use: NixOS, Emacs and XMonad. My
-config files are all <a href="https://github.com/bugarela/dotfiles">here</a>. I also like purple a lot.
-</p>
-
-<p>
-I hold a <b>master's degree</b> 🎓, and both my <a href="https://github.com/bugarela/bachelor-thesis">bachelor's thesis</a> (Portuguese) and my
-<a href="https://github.com/bugarela/masters-dissertation">master's thesis</a> (English) are about TLA+ tools, compiled in a project called <a href="https://github.com/bugarela/tla-transmutation">TLA
-Transmutation</a>, with prototypes that generate Elixir code and tests from TLA+
-specifications.
-</p>
-
-<p>
-Aside from TLA+, I have a background in <b>static analysis</b>, which
-constitutes most of my daily work right now. My very first paper was in
-<b>type systems</b>: <a href="https://dl.acm.org/doi/10.1145/3264637.3264644">Type inference for GADTs, OutsideIn and anti-unification</a>. You can check my
-Haskell implementation of some type inference algorithms:
-</p>
-<ul class="org-ul">
+                    <div class="footer">
+                        <div>Built with pandoc.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="content pure-u-1 pure-u-md-2-3">
+                <h1>About me</h1>
+<p>I'm Gabriela, and I work with <strong>programming languages</strong>
+and <strong>formal methods</strong>.</p>
+<p>My <strong>main project</strong> right now is <a
+href="https://quint-lang.org">Quint</a> ✨, a specification language
+based on TLA+, on which I get to work full-time as a research engineer
+at <a href="https://github.com/informalsystems/">Informal Systems</a>
+👩‍💻.</p>
+<p>I'm very passionate about the tools that I use: NixOS, Emacs and
+XMonad. My config files are all <a
+href="https://github.com/bugarela/dotfiles">here</a>. I also like purple
+a lot.</p>
+<p>I hold a <strong>master's degree</strong> 🎓, and both my <a
+href="https://github.com/bugarela/bachelor-thesis">bachelor's thesis</a>
+(Portuguese) and my <a
+href="https://github.com/bugarela/masters-dissertation">master's
+thesis</a> (English) are about TLA+ tools, compiled in a project called
+<a href="https://github.com/bugarela/tla-transmutation">TLA
+Transmutation</a>, with prototypes that generate Elixir code and tests
+from TLA+ specifications.</p>
+<p>Aside from TLA+, I have a background in <strong>static
+analysis</strong>, which constitutes most of my daily work right now. My
+very first paper was in <strong>type systems</strong>: <a
+href="https://dl.acm.org/doi/10.1145/3264637.3264644">Type inference for
+GADTs, OutsideIn and anti-unification</a>. You can check my Haskell
+implementation of some type inference algorithms:</p>
+<ul>
 <li><a href="https://github.com/bugarela/tipos">Hindley-Milner</a></li>
 <li><a href="https://github.com/bugarela/OutsideIn">OutsideIn</a></li>
-<li><a href="https://github.com/bugarela/GADTInference">OutsideIn with anti-unification</a></li>
+<li><a href="https://github.com/bugarela/GADTInference">OutsideIn with
+anti-unification</a></li>
 </ul>
-
-<p>
-All of these are things that I'm very interested in and I continually get to
-share them with my friends at the <b><a href="https://github.com/funcao">Função</a> Research Group</b> 💜. As of 2024, I'm also
-teaching formal methods as a temporary lecturer at UDESC.
-</p>
-
-<p>
-I'm Brazillian, I love it here, and you can find me sunbathing somewhere from
-December to February (yes, that's summer ☀️). I'm also a cat owner 🐈 and casual
-gamer 🎮 (currently playing World of Warcraft).
-</p>
-
-      </div>
-    </div>
-  </body>
+<p>All of these are things that I'm very interested in and I continually
+get to share them with my friends at the <strong><a
+href="https://github.com/funcao">Função</a> Research Group</strong> 💜.
+As of 2024, I'm also teaching formal methods as a temporary lecturer at
+UDESC.</p>
+<p>I'm Brazillian, I love it here, and you can find me sunbathing
+somewhere from December to February (yes, that's summer ☀️). I'm also a
+cat owner 🐈 and casual gamer 🎮 (currently playing World of
+Warcraft).</p>
+            </div>
+        </div>
+    </body>
 </html>

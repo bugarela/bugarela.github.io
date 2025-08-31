@@ -1,4 +1,0 @@
-#+TITLE: Blog
-#+DATE: 2025-08-31
-
-Welcome to my blog! Here I write about programming, formal methods, and other topics that interest me.

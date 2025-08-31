@@ -81,41 +81,8 @@
          ;; :recursive t
          :base-extension "org"
          :include ("sblp2024/index.org")
-         :exclude ,(regexp-opt '("mfo" "blog"))
+         :exclude ,(regexp-opt '("mfo"))
          :publishing-directory ,(expand-file-name "./docs")
-         :section-numbers nil
-         :language "pt_BR"
-         :with-toc nil
-         :with-date nil
-         :html-template ,(ox-thtml-load-template "templates/index.html")
-         :publishing-function ox-thtml-publish
-         )
-        ("blog-posts"
-         :base-directory ,(expand-file-name "./blog")
-         :root-directory ,(expand-file-name "./")
-         :recursive t
-         :base-extension "org"
-         :publishing-directory ,(expand-file-name "./docs/blog")
-         :exclude "^index.org"
-         :section-numbers nil
-         :language "pt_BR"
-         :with-toc t
-         :with-date t
-         :html-template ,(ox-thtml-load-template "templates/blog.html")
-         :publishing-function ox-thtml-publish
-         :auto-sitemap t
-         :sitemap-style list
-         :sitemap-title "Blog Posts"
-         :sitemap-filename "index.org"
-         :sitemap-sort-files anti-chronologically
-         :sitemap-date-format "%Y-%m-%d"
-         )
-        ("blog-homepage"
-         :base-directory ,(expand-file-name "./blog")
-         :root-directory ,(expand-file-name "./")
-         :base-extension "org"
-         :publishing-directory ,(expand-file-name "./docs/blog")
-         :include ("index.org")
          :section-numbers nil
          :language "pt_BR"
          :with-toc nil
@@ -132,7 +99,7 @@
          :base-extension "\\(ico\\|jpg\\|gif\\|png\\|css\\|js\\|el\\|nb\\|ipynb\\|pdf\\|xml\\|zip\\|ttf\\|woff2\\)"
          :publishing-function org-publish-attachment)
         ("homepage" :components ("lectures-mfo" "homepage-mfo" "homepage-pages"
-                                 "blog-posts" "blog-homepage" "homepage-assets"))
+                                 "homepage-assets"))
         ))
 
 (let ((enable-local-variables :all)

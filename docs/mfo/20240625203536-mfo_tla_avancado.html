@@ -1,25 +1,22 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Personal homepage exported with org-thtml">
-
-  <title>TLA+ avançado</title>
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-
-  <meta property="og:url" content="https://bugarela.com/mfo/20240625203536-mfo_tla_avancado.html" />
-  <meta property="og:title" content="TLA+ avançado" />
-  <meta property="og:type" content="article" />
-  <meta property="og:description" content="Personal homepage exported with org-thtml" />
-  
-  
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@bugarela">
-    <meta name="twitter:title" content="TLA+ avançado">
-    <meta name="twitter:description" content="Personal homepage exported with org-thtml">
-  
-
+<meta name="description" content="Personal homepage exported with
+pandoc">
+<title>TLA+ avançado</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<meta property="og:url" content="https://bugarela.com" />
+<meta property="og:title" content="TLA+ avançado" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Personal homepage exported with
+pandoc" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@bugarela">
+<meta name="twitter:title" content="TLA+ avançado">
+<meta name="twitter:description" content="Personal homepage exported
+with pandoc">
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.stemmer.support.min.js"></script>
@@ -28,192 +25,289 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
 <link rel="stylesheet" href="../css/layouts/style.css">
-
+<style>
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
     </head>
     <body>
         <div id="layout" class="pure-g">
             <div class="sidebar pure-u-1 pure-u-md-1-5" style="text-align: center">
-    <div class="header">
-        <h2 class="brand-title">
-            <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
-        </h2>
-    </div>
-    <div class="centered">
-        <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
-        <h1 class="huge"><a href="./">MFO</a></h1>
-        <h2 class="brand-title">Métodos Formais</h2>
-        <h2 class="brand-tagline">Materiais da disciplina</h2>
-    </div>
-    <div class="footer">
-    <div>
-        Created using Emacs and
-        <a href="https://github.com/juanjosegarciaripoll/org-thtml">org-mode</a
-        >.<br />
-        Style from
-        <a href="https://owickstrom.github.io/the-monospace-web/"
-            >The Monospace Web</a
-        >.
-    </div>
-</div>
-
-</div>
-
+                <div class="header">
+                    <h2 class="brand-title">
+                        <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
+                    </h2>
+                </div>
+                <div class="centered">
+                    <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
+                    <h1 class="huge"><a href="./">MFO</a></h1>
+                    <h2 class="brand-title">Métodos Formais</h2>
+                    <h2 class="brand-tagline">Materiais da disciplina</h2>
+                </div>
+                <div class="footer">
+                    <div>Built with pandoc.</div>
+                </div>
+            </div>
             <div class="content pure-u-1 pure-u-md-2-3">
-                
                 <h1>TLA+ avançado</h1>
-                 <a href="https://bugarela.com/mfo/slides/20240625203536-mfo_tla_avancado.pdf">Slides</a><br />
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
+                <div id="table-of-contents" class="toc">
 <ul>
-<li><a href="#model-values-1">1. Model Values</a>
+<li><a href="#model-values" id="toc-model-values"><span
+class="toc-section-number">1</span> Model Values</a>
 <ul>
-<li><a href="#model-values-2">1.1. Model values</a></li>
-<li><a href="#model-values-pra-que-serve-2">1.2. Model values - pra que serve?</a></li>
+<li><a href="#model-values-1" id="toc-model-values-1"><span
+class="toc-section-number">1.1</span> Model values</a></li>
+<li><a href="#model-values---pra-que-serve"
+id="toc-model-values---pra-que-serve"><span
+class="toc-section-number">1.2</span> Model values - pra que
+serve?</a></li>
+</ul></li>
+<li><a href="#conjuntos-de-simetria"
+id="toc-conjuntos-de-simetria"><span class="toc-section-number">2</span>
+Conjuntos de Simetria</a>
+<ul>
+<li><a href="#conjuntos-de-simetria-symmetry-sets"
+id="toc-conjuntos-de-simetria-symmetry-sets"><span
+class="toc-section-number">2.1</span> Conjuntos de Simetria
+(<em>symmetry sets</em>)</a></li>
+<li><a href="#conjuntos-de-simetria-para-otimização"
+id="toc-conjuntos-de-simetria-para-otimização"><span
+class="toc-section-number">2.2</span> Conjuntos de Simetria para
+otimização</a></li>
+</ul></li>
+<li><a href="#refinamento" id="toc-refinamento"><span
+class="toc-section-number">3</span> Refinamento</a>
+<ul>
+<li><a href="#refinamento-1" id="toc-refinamento-1"><span
+class="toc-section-number">3.1</span> Refinamento</a></li>
+<li><a href="#fim" id="toc-fim"><span
+class="toc-section-number">3.2</span> FIM</a></li>
+</ul></li>
 </ul>
+                </div>
+<a href="https://bugarela.com/mfo/slides/20240625203536-mfo_tla_avancado.pdf">Slides</a><br />
+<section id="model-values" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Model
+Values</h1>
+<section id="model-values-1" class="level2" data-number="1.1">
+<h2 data-number="1.1"><span class="header-section-number">1.1</span>
+Model values</h2>
+<p>Segundo a documentação em <span class="citation"
+data-cites="inria-model-values">(CENTRE, [s.d.])</span>:</p>
+<ul>
+<li>Podem ser usados quando vamos definir os valores de uma
+constante<br />
 </li>
-<li><a href="#conjuntos-de-simetria-1">2. Conjuntos de Simetria</a>
-<ul>
-<li><a href="#conjuntos-de-simetria-symmetry-sets-2">2.1. Conjuntos de Simetria (<i>symmetry sets</i>)</a></li>
-<li><a href="#conjuntos-de-simetria-para-otimiza-o-2">2.2. Conjuntos de Simetria para otimização</a></li>
 </ul>
-</li>
-<li><a href="#refinamento-1">3. Refinamento</a>
 <ul>
-<li><a href="#refinamento-2">3.1. Refinamento</a></li>
-<li><a href="#fim-2">3.2. FIM</a></li>
-</ul>
+<li>Ao invés de indentificar processos, semáforos, etc por
+identificadores com <code class="verbatim">{1, 2, 3}</code> ou <code
+class="verbatim">{"p1", "p2", "p3"}</code>, podemos model values: <code
+class="verbatim">{p1, p2, p3}</code> (sem aspas).<br />
 </li>
 </ul>
-</div>
-</div>
-<div id="outline-container-model-values-1" class="outline-2">
-<h2 id="model-values-1"><span class="section-number-2">1.</span> Model Values</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-model-values-2" class="outline-3">
-<h3 id="model-values-2"><span class="section-number-3">1.1.</span> Model values</h3>
-<div class="outline-text-3" id="text-1-1">
-<p>
-Segundo a documentação em (CENTRE, [s.d.]):<br />
-</p>
-<ul class="org-ul">
-<li>Podem ser usados quando vamos definir os valores de uma constante<br /></li>
+<p>Um <em>model value</em> e um valor não especificado que o <em>model
+checker</em> considera diferente de qualquer outro valor que possa ser
+expressado:</p>
+<ul>
+<li><code class="verbatim">p1 = p1</code><br />
+</li>
+<li><code class="verbatim">p1 # p2</code><br />
+</li>
+<li><code class="verbatim">p1 # 1</code><br />
+</li>
+<li><code class="verbatim">p1 # "p1"</code></li>
 </ul>
-<ul class="org-ul">
-<li>Ao invés de indentificar processos, semáforos, etc por identificadores com <code>{1, 2, 3}</code> ou <code>{"p1", "p2", "p3"}</code>, podemos model values: <code>{p1, p2, p3}</code> (sem aspas).<br /></li>
+</section>
+<section id="model-values---pra-que-serve" class="level2"
+data-number="1.2">
+<h2 data-number="1.2"><span class="header-section-number">1.2</span>
+Model values - pra que serve?</h2>
+<p>Evitar erros:</p>
+<ul>
+<li>operações não intencionais sobre os identificadores, i.e. <code
+class="verbatim">p + 1</code><br />
+</li>
 </ul>
-<p>
-Um <i>model value</i> e um valor não especificado que o <i>model checker</i> considera diferente de qualquer outro valor que possa ser expressado:<br />
-</p>
-<ul class="org-ul">
-<li><code>p1 = p1</code><br /></li>
-<li><code>p1 # p2</code><br /></li>
-<li><code>p1 # 1</code><br /></li>
-<li><code>p1 # "p1"</code><br /></li>
+<ul>
+<li>evitar erros de digitação em strings (assim como tipos soma em
+quint)<br />
+</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-model-values-pra-que-serve-2" class="outline-3">
-<h3 id="model-values-pra-que-serve-2"><span class="section-number-3">1.2.</span> Model values - pra que serve?</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-Evitar erros:<br />
-</p>
-<ul class="org-ul">
-<li>operações não intencionais sobre os identificadores, i.e. <code>p + 1</code><br /></li>
+<p>Mesmo no TLC, existe possibilidade de dar tipos para esses valores
+adicionando uma letra e <code class="verbatim">_</code> no começo:</p>
+<ul>
+<li><code class="verbatim">P_1</code>, <code
+class="verbatim">P_2</code>, …<br />
+</li>
+<li><code class="verbatim">a_1</code>, <code
+class="verbatim">a_2</code>, …<br />
+</li>
 </ul>
-<ul class="org-ul">
-<li>evitar erros de digitação em strings (assim como tipos soma em quint)<br /></li>
+<p>Dessa forma, o TLC reporta um erro quando comparamos <em>model
+values</em> de tipos diferentes (como se estivéssemos comparando <code
+class="verbatim">1</code> e <code class="verbatim">"a"</code>):</p>
+<ul>
+<li><code class="verbatim">P_1 = P_2</code> resulta em <code
+class="verbatim">FALSE</code><br />
+</li>
+<li><code class="verbatim">P_1 = a_1</code> resulta em erro em
+runtime</li>
 </ul>
-<p>
-Mesmo no TLC, existe possibilidade de dar tipos para esses valores adicionando uma letra e <code>_</code> no começo:<br />
-</p>
-<ul class="org-ul">
-<li><code>P_1</code>, <code>P_2</code>, &#x2026;<br /></li>
-<li><code>a_1</code>, <code>a_2</code>, &#x2026;<br /></li>
+</section>
+</section>
+<section id="conjuntos-de-simetria" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span>
+Conjuntos de Simetria</h1>
+<section id="conjuntos-de-simetria-symmetry-sets" class="level2"
+data-number="2.1">
+<h2 data-number="2.1"><span class="header-section-number">2.1</span>
+Conjuntos de Simetria (<em>symmetry sets</em>)</h2>
+<p>Explicação em <span class="citation"
+data-cites="learntla-constants">(WAYNE, 2022)</span></p>
+<p>Podemos dizer para o <em>model checker</em> que um conjunto é
+simétrico, fazendo com que ele precise considerar menos estados.</p>
+<p>Suponha que nossa especificação constrói uma sequência a partir do
+conjunto de <em>model values</em> <code
+class="verbatim">{s1, s2, s3, s4}</code>. Imagine alguns dos valores que
+podem ser construídos:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode tla"><code class="sourceCode tlaplus"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span>) &lt;&lt;s1, s2, s3&gt;&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span>) &lt;&lt;s2, s1, s3&gt;&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span>) &lt;&lt;s1, s2, s2&gt;&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>(<span class="dv">4</span>) &lt;&lt;s2, s3, s3&gt;&gt;</span></code></pre></div>
+<ul>
+<li>A única diferença do (1) pro (2) é que trocamos a ordem de <code
+class="verbatim">s1</code> e <code class="verbatim">s2</code>.<br />
+</li>
+<li>A única diferença do (3) pro (4) é que trocamos os <code
+class="verbatim">s1</code> por <code class="verbatim">s2</code> e os
+<code class="verbatim">s2</code> por <code
+class="verbatim">s3</code>.</li>
 </ul>
-<p>
-Dessa forma, o TLC reporta um erro quando comparamos <i>model values</i> de tipos diferentes (como se estivéssemos comparando <code>1</code> e <code>"a"</code>):<br />
-</p>
-<ul class="org-ul">
-<li><code>P_1 = P_2</code> resulta em <code>FALSE</code><br /></li>
-<li><code>P_1 = a_1</code> resulta em erro em runtime<br /></li>
+</section>
+<section id="conjuntos-de-simetria-para-otimização" class="level2"
+data-number="2.2">
+<h2 data-number="2.2"><span class="header-section-number">2.2</span>
+Conjuntos de Simetria para otimização</h2>
+<p>Se essas diferenças não forem relevantes para nosso modelo, podemos
+definir que <code class="verbatim">{s1, s2, s3, s4}</code> é um conjunto
+de simetria, e assim o <em>model checker</em> vai precisar verificar bem
+menos estados.</p>
+<ul>
+<li>Para isso, o TLC vai primeiro computar todas as permutações
+possíveis desse conjunto, o que pode levar um tempo para conjuntos
+grandes. Nesses casos, pode valer a pena usar um conjunto normal (sem
+simetria).</li>
 </ul>
-</div>
-</div>
-</div>
-<div id="outline-container-conjuntos-de-simetria-1" class="outline-2">
-<h2 id="conjuntos-de-simetria-1"><span class="section-number-2">2.</span> Conjuntos de Simetria</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-conjuntos-de-simetria-symmetry-sets-2" class="outline-3">
-<h3 id="conjuntos-de-simetria-symmetry-sets-2"><span class="section-number-3">2.1.</span> Conjuntos de Simetria (<i>symmetry sets</i>)</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-Explicação em (WAYNE, 2022)<br />
-</p>
-<p>
-Podemos dizer para o <i>model checker</i> que um conjunto é simétrico, fazendo com que ele precise considerar menos estados.<br />
-</p>
-<p>
-Suponha que nossa especificação constrói uma sequência a partir do conjunto de <i>model values</i> <code>{s1, s2, s3, s4}</code>. Imagine alguns dos valores que podem ser construídos:<br />
-</p>
-<div class="org-src-container">
-<pre class="src src-tla">(<span class="org-highlight-numbers-number">1</span>) &lt;&lt;s1, s2, s3&gt;&gt;
-(<span class="org-highlight-numbers-number">2</span>) &lt;&lt;s2, s1, s3&gt;&gt;
-(<span class="org-highlight-numbers-number">3</span>) &lt;&lt;s1, s2, s2&gt;&gt;
-(<span class="org-highlight-numbers-number">4</span>) &lt;&lt;s2, s3, s3&gt;&gt;
-</pre>
-</div>
-<ul class="org-ul">
-<li>A única diferença do (1) pro (2) é que trocamos a ordem de <code>s1</code> e <code>s2</code>.<br /></li>
-<li>A única diferença do (3) pro (4) é que trocamos os <code>s1</code> por <code>s2</code> e os <code>s2</code> por <code>s3</code>.<br /></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-conjuntos-de-simetria-para-otimiza-o-2" class="outline-3">
-<h3 id="conjuntos-de-simetria-para-otimiza-o-2"><span class="section-number-3">2.2.</span> Conjuntos de Simetria para otimização</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-Se essas diferenças não forem relevantes para nosso modelo, podemos definir que <code>{s1, s2, s3, s4}</code> é um conjunto de simetria, e assim o <i>model checker</i> vai precisar verificar bem menos estados.<br />
-</p>
-<ul class="org-ul">
-<li>Para isso, o TLC vai primeiro computar todas as permutações possíveis desse conjunto, o que pode levar um tempo para conjuntos grandes. Nesses casos, pode valer a pena usar um conjunto normal (sem simetria).<br /></li>
-</ul>
-
-<p>
-Exemplo no trabalho de RPG: dois monstros são simétricos<br />
-</p>
-<p>
-Exemplo no trabalho do banco: Usuários são simétricos<br />
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-refinamento-1" class="outline-2">
-<h2 id="refinamento-1"><span class="section-number-2">3.</span> Refinamento</h2>
-<div class="outline-text-2" id="text-3">
-</div>
-<div id="outline-container-refinamento-2" class="outline-3">
-<h3 id="refinamento-2"><span class="section-number-3">3.1.</span> Refinamento</h3>
-<div class="outline-text-3" id="text-3-1">
-<p>
-Vamos ver dois exemplos:<br />
-</p>
-<ol class="org-ol">
-<li>Transaction commit de Leslie Lamport (GRAY; LAMPORT, 2004)<br /></li>
-<li>Threads de Hillel Wayne (WAYNE, 2021)<br /></li>
+<p>Exemplo no trabalho de RPG: dois monstros são simétricos</p>
+<p>Exemplo no trabalho do banco: Usuários são simétricos</p>
+</section>
+</section>
+<section id="refinamento" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span>
+Refinamento</h1>
+<section id="refinamento-1" class="level2" data-number="3.1">
+<h2 data-number="3.1"><span class="header-section-number">3.1</span>
+Refinamento</h2>
+<p>Vamos ver dois exemplos:</p>
+<ol>
+<li>Transaction commit de Leslie Lamport <span class="citation"
+data-cites="gray2004consensus">(GRAY; LAMPORT, 2004)</span><br />
+</li>
+<li>Threads de Hillel Wayne <span class="citation"
+data-cites="hillel-refinement">(WAYNE, 2021)</span></li>
 </ol>
+</section>
+<section id="fim" class="level2" data-number="3.2">
+<h2 data-number="3.2"><span class="header-section-number">3.2</span>
+FIM</h2>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1"
+role="list">
+<div id="ref-inria-model-values" class="csl-entry" role="listitem">
+CENTRE, M. R.-I. J. <strong>Model values and symmetry</strong>.
+Disponível em: &lt;<a
+href="https://tla.msr-inria.inria.fr/tlatoolbox/doc/model/model-values.html">https://tla.msr-inria.inria.fr/tlatoolbox/doc/model/model-values.html</a>&gt;.
+</div>
+<div id="ref-gray2004consensus" class="csl-entry" role="listitem">
+GRAY, J.; LAMPORT, L. <strong>Consensus on transaction commit</strong>.
+[s.l.] Microsoft, 2004. Disponível em: &lt;<a
+href="https://www.microsoft.com/en-us/research/publication/consensus-on-transaction-commit/">https://www.microsoft.com/en-us/research/publication/consensus-on-transaction-commit/</a>&gt;.
+</div>
+<div id="ref-hillel-refinement" class="csl-entry" role="listitem">
+WAYNE, H. <strong>Specification refinement</strong>. Disponível em:
+&lt;<a
+href="https://www.hillelwayne.com/post/refinement/">https://www.hillelwayne.com/post/refinement/</a>&gt;.
+</div>
+<div id="ref-learntla-constants" class="csl-entry" role="listitem">
+WAYNE, H. <strong>Parameterizing specs</strong>. Disponível em: &lt;<a
+href="https://www.learntla.com/core/constants.html">https://www.learntla.com/core/constants.html</a>&gt;.
 </div>
 </div>
-<div id="outline-container-fim-2" class="outline-3">
-<h3 id="fim-2"><span class="section-number-3">3.2.</span> FIM</h3>
-<div class="outline-text-3" id="text-3-2">
-</div>
-</div>
-</div>
-
+</section>
+</section>
             </div>
         </div>
     </body>
