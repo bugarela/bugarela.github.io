@@ -119,6 +119,19 @@ FACET_TAGS = {"italic": "em", "bold": "strong", "code": "code",
               "strikethrough": "s", "underline": "u", "highlight": "mark"}
 
 
+_notes = [0]  # side-note counter, reset per post in render_blocks
+
+
+def sidenote(feat):
+    """Leaflet footnote facet -> the side-note markup of pandoc/filters/sidenotes.lua."""
+    _notes[0] += 1
+    n = _notes[0]
+    body = richtext(feat.get("contentPlaintext", ""), feat.get("contentFacets"), paragraphs=False)
+    return (f'<label for="sn-{n}" class="sn-ref">{n}</label>'
+            f'<input type="checkbox" id="sn-{n}" class="sn-toggle">'
+            f'<span class="sidenote"><span class="sn-num">{n}</span> {body}</span>')
+
+
 def richtext(text, facets, paragraphs=True):
     """Leaflet plaintext + byte-range facets -> HTML.
 
@@ -146,7 +159,10 @@ def richtext(text, facets, paragraphs=True):
             if i["byteStart"] <= a and b <= i["byteEnd"]:
                 for feat in f["features"]:
                     kind = feat["$type"].split("#")[-1]
-                    if kind == "link":
+                    if kind == "footnote":
+                        # the facet covers a "*" placeholder; the note replaces it
+                        piece = sidenote(feat)
+                    elif kind == "link":
                         piece = f'<a href="{esc(feat.get("uri", ""))}">{piece}</a>'
                     elif kind in FACET_TAGS:
                         t = FACET_TAGS[kind]
@@ -191,6 +207,7 @@ def words(s):
 
 
 def render_blocks(blocks, leaflet_url):
+    _notes[0] = 0
     out, wc, first_p, side = [], 0, True, 0
     i = 0
     while i < len(blocks):

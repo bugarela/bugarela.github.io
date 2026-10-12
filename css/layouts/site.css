@@ -39,6 +39,7 @@ body.chrome {
     -webkit-font-smoothing: antialiased;
 }
 .chrome a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.chrome u { text-decoration-color: var(--lilac-4); text-decoration-thickness: 3px; text-underline-offset: 3px; }
 
 /* ---------- nav ---------- */
 .chrome .nav {
@@ -70,6 +71,72 @@ body.chrome {
 .chrome .nav a[aria-current] { background: var(--lilac); }
 .chrome .nav a:hover { background: var(--lilac); }
 .chrome .nav a:focus-visible { outline: 3px solid var(--plum); outline-offset: 2px; }
+
+/* ---------- side notes (org footnotes via pandoc/filters/sidenotes.lua,
+   Leaflet footnotes via pandoc/leaflet.py) ----------
+   On wide screens each note is a paper slip on the lavender, outside the sheet,
+   level with the line it belongs to. Narrower than that, tap the number to
+   open it under the line. */
+.chrome .sn-ref {
+    font-size: .75em;
+    vertical-align: super;
+    line-height: 0;
+    color: var(--plum);
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0 1px;
+}
+.chrome .sn-toggle { display: none; }
+.chrome .sidenote {
+    display: none;
+    margin: 8px 0;
+    padding: 10px 12px;
+    background: var(--lilac-2);
+    border-left: 3px solid var(--plum);
+    font-size: 13px;
+    font-style: normal;
+    line-height: 1.5;
+    color: var(--ink);
+}
+.chrome .sn-toggle:checked + .sidenote { display: block; }
+.chrome .sn-num { color: var(--plum); font-weight: 700; margin-right: 4px; }
+@media (min-width: 1480px) {
+    .chrome .wrap { position: relative; }
+    .chrome .sn-ref { cursor: default; }
+    /* no top/bottom: an absolute box keeps the vertical spot of the line it's on */
+    .chrome .sidenote,
+    .chrome .sn-toggle:checked + .sidenote {
+        display: block;
+        position: absolute;
+        --w: min(260px, calc((100vw - 1040px) / 2 - 64px));
+        width: var(--w);
+        right: calc(-1 * var(--w) - 40px);
+        margin: -14px 0 0;
+        background: #fff;
+        border-left: 0;
+        outline: 2px solid var(--plum);
+        box-shadow: 0 10px 22px -12px rgba(40, 20, 80, .6);
+        transform: rotate(1.5deg);
+        transition: background .2s, box-shadow .2s;
+    }
+    /* hovering the number wiggles its note; hovering the note marks its number */
+    .chrome .sn-ref:hover + .sn-toggle + .sidenote {
+        animation: sn-wiggle .5s ease-out forwards;
+        background: var(--lilac-2);
+        box-shadow: 0 16px 28px -12px rgba(40, 20, 80, .7);
+    }
+    .chrome .sn-ref:hover,
+    .chrome .sn-ref:has(+ .sn-toggle + .sidenote:hover) { background: var(--lilac); }
+}
+@keyframes sn-wiggle {
+    0%   { transform: rotate(1.5deg); }
+    30%  { transform: rotate(-2deg) scale(1.04); }
+    60%  { transform: rotate(1deg) scale(1.04); }
+    100% { transform: rotate(0) scale(1.04); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .chrome .sn-ref:hover + .sn-toggle + .sidenote { animation: none; }
+}
 
 /* ---------- sheet ---------- */
 .chrome .site { min-height: 100vh; padding: 32px 16px 96px; }

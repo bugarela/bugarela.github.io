@@ -18,8 +18,21 @@
     display: grid;
     grid-template-columns: 280px 1fr;
     gap: 48px;
-    align-items: center;
+    align-items: start;
     margin-bottom: 72px;
+}
+@media (min-width: 761px) {
+    /* hero text sits near the top of the photo instead of centred on it */
+    .story .hero > div:last-child { padding-top: 40px; }
+    /* pull the first chapter up into the space beside the hero photo */
+    .story .hero + .chap { margin-top: -70px; }
+}
+.story .txt h1, .story .txt h2 {
+    font-size: 2rem;
+    letter-spacing: -.01em;
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 0 0 36px;
 }
 .story .hero > div > :last-child, .story .txt > :last-child { margin-bottom: 0; }
 .story .chap {
@@ -93,6 +106,9 @@
 .story .ph span { background: rgba(255, 255, 255, .75); padding: 6px 10px; }
 
 @media (max-width: 760px) {
+    /* tap the number to open the note under the line */
+    .story .sidenote { display: none; float: none; width: auto; margin: 8px 0; }
+    .story .sn-toggle:checked + .sidenote { display: block; }
     .story .hero, .story .chap, .story .chap.photo-left { grid-template-columns: 1fr; }
     .story .chap.photo-left .txt { order: 0; }
     .story .polaroid, .story .chap .polaroid { margin: 24px auto; }
