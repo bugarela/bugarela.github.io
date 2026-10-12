@@ -49,22 +49,22 @@
 When I was in high school, we had some fun activities for the students that
 included stuff like spelling competitions. One of my math teachers decided to
 host a "pi spelling" contest there, where we'd have to recite as many digits of
-pi from memory as we could. I later learned this is a common competition and
+pi from memory as we could. I later learned this is a common competition and there's
 even a federation for it! Back in high school, I memorized 384 digits (I
 remember this because the 382nd to 384th digits form the number 384) and won
 the competition.
 
 I don't have any interest in seriously competing on this or in learning the
 actual memorization techniques people use. My technique is just to break it
-down in blocks of 8 digits (like phone numbers in Brazil and birth dates which
+down into blocks of 8 digits (like phone numbers in Brazil and birth dates, which
 I always liked memorizing). I like to think about the numbers and not much
 else.
 
 I want to have easy access to the digits in this format, so I thought I might
-as well have it in my website.
+as well have it on my website.
 
 PS: This is not really a useful skill, but I find it a nice time killer to
-repeat digits on my brain when I'm waiting for something without other forms
+repeat digits in my brain when I'm waiting for something without other forms
 of entertainment, or even when I'm listening to some painful speech and want
-to turn my brain anywhere else.
+to send my brain anywhere else.
 #+end_about

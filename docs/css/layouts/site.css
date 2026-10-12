@@ -1,4 +1,4 @@
-/* Shared site chrome: nav bar, white sheet on lavender, footer.
+/* Shared site chrome: nav tabs, white sheet on lavender, footer.
    Frames are a plum line around a lilac mat; buttons are plain plum outlines.
    Loaded by the homepage (template-story.html) and MFO (template-mfo.html). */
 
@@ -42,36 +42,31 @@ body.chrome {
 .chrome u { text-decoration-color: var(--lilac-4); text-decoration-thickness: 3px; text-underline-offset: 3px; text-decoration-skip-ink: none; }
 .chrome a:has(> u) { text-decoration: none; }
 
-/* ---------- nav ---------- */
-.chrome .nav {
-    position: sticky;
-    top: env(safe-area-inset-top, 0px);
-    z-index: 10;
-    background: #fff linear-gradient(var(--lilac), var(--lilac)) bottom / 100% 3px no-repeat;
-    border-bottom: 2px solid var(--plum);
-    padding: 10px 16px;
+/* ---------- nav: folder tabs sitting on top of the sheet ---------- */
+.chrome .tabs {
+    max-width: 1040px;
+    margin: 0 auto;
     display: flex;
-    gap: 8px;
+    justify-content: center;
+    gap: 6px;
     flex-wrap: wrap;
-    align-items: center;
+    position: relative;
+    z-index: 2;
 }
-.chrome .nav .brand {
-    font-weight: 700;
-    font-size: 15px;
-    margin-right: auto;
-    padding: 6px 0;
-}
-.chrome .nav a {
+.chrome .tabs a {
     font-size: 14px;
-    background: #fff;
+    background: var(--lilac-2);
     color: var(--ink);
     border: 2px solid var(--plum);
-    padding: 6px 12px;
+    border-bottom: 0;
+    padding: 6px 16px 4px;
     text-decoration: none;
+    position: relative;
+    top: 2px; /* cover the sheet's outline */
 }
-.chrome .nav a[aria-current] { background: var(--lilac); }
-.chrome .nav a:hover { background: var(--lilac); }
-.chrome .nav a:focus-visible { outline: 3px solid var(--plum); outline-offset: 2px; }
+.chrome .tabs a[aria-current] { background: #fff; padding-bottom: 8px; }
+.chrome .tabs a:hover { background: #fff; }
+.chrome .tabs a:focus-visible { outline: 3px solid var(--plum); outline-offset: 2px; }
 
 /* ---------- side notes (org footnotes via pandoc/filters/sidenotes.lua,
    Leaflet footnotes via pandoc/leaflet.py) ----------
@@ -140,7 +135,7 @@ body.chrome {
 }
 
 /* ---------- sheet ---------- */
-.chrome .site { min-height: 100vh; padding: 32px 16px 96px; }
+.chrome .site { min-height: 100vh; padding: 24px 16px 96px; }
 .chrome .wrap {
     max-width: 1040px;
     margin: 0 auto;
@@ -155,16 +150,28 @@ body.chrome {
     background: #fff;
     border: 6px solid var(--lilac);
     outline: 2px solid var(--plum);
-    padding: 12px 24px;
+    padding: 10px 18px;
     font-size: 12px;
     color: var(--ink-2);
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     gap: 12px;
-    flex-wrap: wrap;
     align-items: center;
 }
-.chrome .foot .social { display: flex; gap: 14px; }
+.chrome .foot .mark {
+    justify-self: start;
+    width: 41px;
+    height: 41px;
+    border: 2px solid var(--plum);
+    background: #fff;
+    display: grid;
+    place-items: center;
+    box-shadow: 3px 3px 0 var(--lilac);
+}
+.chrome .foot .mark:hover { box-shadow: 3px 3px 0 var(--plum); }
+.chrome .foot .mark img { width: 33px; height: 33px; display: block; }
+.chrome .foot .colophon { text-align: center; }
+.chrome .foot .social { justify-self: end; display: flex; gap: 14px; }
 .chrome .foot .social a {
     color: var(--ink);
     font-size: 18px;
@@ -172,8 +179,11 @@ body.chrome {
     text-decoration: none;
 }
 .chrome .foot .social a:hover { color: var(--plum); }
-.chrome .foot .social a:focus-visible { outline: 3px solid var(--plum); outline-offset: 3px; }
+.chrome .foot a:focus-visible { outline: 3px solid var(--plum); outline-offset: 3px; }
 
 @media (max-width: 760px) {
     .chrome .wrap { padding: 28px 18px 36px; }
+    .chrome .tabs a { padding-left: 11px; padding-right: 11px; }
+    .chrome .foot { grid-template-columns: 1fr; justify-items: center; }
+    .chrome .foot .mark, .chrome .foot .social { justify-self: center; }
 }
