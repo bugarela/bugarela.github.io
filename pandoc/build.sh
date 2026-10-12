@@ -103,7 +103,7 @@ echo ">> assets"
 # Copy binary/static assets, preserving paths, matching make.el's extension set.
 find . -type f \( \
      -name '*.ico' -o -name '*.jpg' -o -name '*.jpeg' -o -name '*.gif' \
-  -o -name '*.png' -o -name '*.css' -o -name '*.js'  -o -name '*.pdf' \
+  -o -name '*.png' -o -name '*.svg' -o -name '*.css' -o -name '*.js'  -o -name '*.pdf' \
   -o -name '*.xml' -o -name '*.zip' -o -name '*.ttf' -o -name '*.woff2' \) \
   -not -path './docs/*' -not -path './templates/*' -not -path './pandoc/*' \
   -not -path './.git/*' -not -path './.jj/*' -print0 \
