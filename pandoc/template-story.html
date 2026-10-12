@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="$lang$">
+    <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="$description$">
+<title>$title$</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<meta property="og:url" content="$site-url$$input-url$" />
+<meta property="og:title" content="$title$" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="$description$" />
+$if(twitter)$
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@$twitter$">
+<meta name="twitter:title" content="$title$">
+<meta name="twitter:description" content="$description$">
+$endif$
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+<link rel="stylesheet" href="$root$css/layouts/story.css?v=$cssv$">
+    </head>
+    <body class="story">
+        <nav class="nav" aria-label="Site">
+            <span class="brand">Gabriela Moreira</span>
+            <a href="$root$" aria-current="page">Story</a>
+            <a href="$root$mfo/">MFO</a>
+            <a href="https://github.com/bugarela">GitHub</a>
+            <a href="https://www.linkedin.com/in/bugarela/">LinkedIn</a>
+            <a href="https://twitter.com/bugarela">Twitter</a>
+        </nav>
+        <div class="site">
+            <main class="wrap">
+$body$
+            </main>
+            <footer class="foot"><span>bugarela.com</span><span>built with pandoc · set in Iosevka</span></footer>
+        </div>
+    </body>
+</html>

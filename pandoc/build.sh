@@ -74,9 +74,9 @@ echo ">> mfo index"
 render "mfo/index.org" "$OUT/mfo/index.html" "$P/template-mfo.html" \
   -V root="../" --lua-filter "$P/filters/orglinks.lua"
 
-echo ">> homepage + sblp2024 (pages)"
-render "index.org" "$OUT/index.html" "$P/template-page.html" \
-  -V root="./" --lua-filter "$P/filters/orglinks.lua"
+echo ">> homepage (story layout) + sblp2024 (pages)"
+render "index.org" "$OUT/index.html" "$P/template-story.html" \
+  -V root="./" -V cssv="$(sha1sum css/layouts/story.css | cut -c1-8)" --lua-filter "$P/filters/orglinks.lua" --lua-filter "$P/filters/story.lua"
 render "sblp2024/index.org" "$OUT/sblp2024/index.html" "$P/template-page.html" \
   -V root="../" --lua-filter "$P/filters/details.lua" --lua-filter "$P/filters/orglinks.lua"
 

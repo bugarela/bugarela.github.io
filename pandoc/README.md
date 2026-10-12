@@ -17,13 +17,16 @@ CC BY-SA 3.0).
 ## Layout
 
 - `template-mfo.html` — lecture + MFO index pages (folder sidebar)
-- `template-page.html` — homepage + sblp2024 (portrait sidebar)
+- `template-story.html` — homepage (nav bar + white sheet + polaroids; links `css/layouts/story.css`)
+- `template-page.html` — sblp2024 (portrait sidebar)
 - `head.html` — shared `<head>` partial (pandoc `$head.html()$`)
 - `filters/`
   - `faicons.lua` — `\faTrafficLight` → `<i class="fa fa-traffic-light">`
   - `mermaid.lua` — mermaid `src` blocks → `<img>` at the committed PNG
   - `orglinks.lua` — `[[file:x.org]]` → `x.html`
   - `details.lua` — `#+begin_details` → `<details>`
+  - `story.lua` — homepage only: hero before `-----`, then one chapter per
+    captioned image (polaroid; placeholder when the file is missing)
 - `postprocess.py` — og:image injection, search index, sitemap, CNAME
 - `build.sh` — orchestration
 

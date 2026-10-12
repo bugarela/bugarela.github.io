@@ -1,107 +1,151 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
     <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="description" content="Personal homepage exported with
 pandoc">
-<title>About me</title>
+<title>Gabriela Moreira</title>
 <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 <meta property="og:url" content="https://bugarela.com" />
-<meta property="og:title" content="About me" />
+<meta property="og:title" content="Gabriela Moreira" />
     <meta property="og:image" content="https://bugarela.com/images/me.jpeg" />
-<meta property="og:type" content="article" />
+<meta property="og:type" content="website" />
 <meta property="og:description" content="Personal homepage exported with
 pandoc" />
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@bugarela">
-<meta name="twitter:title" content="About me">
+<meta name="twitter:title" content="Gabriela Moreira">
 <meta name="twitter:description" content="Personal homepage exported
 with pandoc">
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.stemmer.support.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.14.0/min/lunr.pt.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/pure-min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
-<link rel="stylesheet" href="./css/layouts/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+<link rel="stylesheet" href="./css/layouts/story.css?v=b22015ab">
     </head>
-    <body>
-        <div id="layout" class="pure-g">
-            <div class="sidebar pure-u-1 pure-u-md-1-3">
-                <div class="centered">
-                    <a href="./"><img class="portrait" src="./images/me.jpeg" alt="Gabriela Moreira" /></a>
-                    <h2 class="brand-title">Gabriela Moreira</h2>
-                    <h2 class="brand-tagline">Formal methods &amp; programming languages research engineer</h2>
-
-                    <nav class="nav">
-                        <ul class="nav-list">
-                            <li class="nav-item">
-                                <a class="pure-button" href="https://twitter.com/bugarela"><i class="fab fa-twitter big-icon"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="button" href="https://github.com/bugarela"><i class="fab fa-github big-icon"></i>@bugarela</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="button" href="https://www.linkedin.com/in/bugarela/"><i class="fab fa-linkedin big-icon"></i>/bugarela</a>
-                            </li>
-                        </ul>
-                        <ul class="nav-list">
-                            <li class="nav-item">
-                                <a class="button" href="https://bugarela.com/mfo"><i class="fas fa-folder"></i> MFO</a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                    <div class="footer">
-                        <div>Built with pandoc.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="content pure-u-1 pure-u-md-2-3">
-                <h1>About me</h1>
-<p>I'm Gabriela, and I work with <strong>programming languages</strong>
-and <strong>formal methods</strong>.</p>
-<p>My <strong>main project</strong> right now is <a
-href="https://quint-lang.org">Quint</a> ✨, a specification language
-based on TLA+, on which I get to work full-time as a research engineer
-at <a href="https://github.com/informalsystems/">Informal Systems</a>
-👩‍💻.</p>
-<p>I'm very passionate about the tools that I use: NixOS, Emacs and
-XMonad. My config files are all <a
-href="https://github.com/bugarela/dotfiles">here</a>. I also like purple
-a lot.</p>
-<p>I hold a <strong>master's degree</strong> 🎓, and both my <a
-href="https://github.com/bugarela/bachelor-thesis">bachelor's thesis</a>
-(Portuguese) and my <a
-href="https://github.com/bugarela/masters-dissertation">master's
-thesis</a> (English) are about TLA+ tools, compiled in a project called
-<a href="https://github.com/bugarela/tla-transmutation">TLA
-Transmutation</a>, with prototypes that generate Elixir code and tests
-from TLA+ specifications.</p>
-<p>Aside from TLA+, I have a background in <strong>static
-analysis</strong>, which constitutes most of my daily work right now. My
-very first paper was in <strong>type systems</strong>: <a
-href="https://dl.acm.org/doi/10.1145/3264637.3264644">Type inference for
-GADTs, OutsideIn and anti-unification</a>. You can check my Haskell
-implementation of some type inference algorithms:</p>
+    <body class="story">
+        <nav class="nav" aria-label="Site">
+            <span class="brand">Gabriela Moreira</span>
+            <a href="./" aria-current="page">Story</a>
+            <a href="./mfo/">MFO</a>
+            <a href="https://github.com/bugarela">GitHub</a>
+            <a href="https://www.linkedin.com/in/bugarela/">LinkedIn</a>
+            <a href="https://twitter.com/bugarela">Twitter</a>
+        </nav>
+        <div class="site">
+            <main class="wrap">
+<header class="hero">
+<div class="polaroid r1"><img src="images/me.jpeg" alt="Gabriela Moreira"><span class="cap">hello!</span></div>
+<div>
+<h1 class="hello">Hello!</h1>
+<p>I really like software. I co-founded a company called <a
+href="https://quint-lang.org">Quint</a> to help other developers make
+software trustworthy.</p>
+<p>Here's sort of how my career went so far.</p>
+</div></header>
+<article class="chap photo-right"><div class="txt">
+<p>I was a little girl who really liked math. Then I was a teenager who
+really liked math and computers. I finished high school and had to pick
+between math and computers. I picked Computer Science.</p>
+</div>
+<figure class="polaroid r0" style="--shift:-160px"><img src="images/story/old_computer.jpg" alt="me just vibing with the fish" loading="lazy"><figcaption class="cap">me just vibing with the fish</figcaption></figure>
+</article>
+<article class="chap photo-left"><div class="txt">
+<p>University started and two things caught my attention on the very
+first semester:</p>
+<ul>
+<li>Competitive programming (ICPC). I'm not a competitive person but the
+team work and challenges were really fun!</li>
+<li>Functional programming, because someone gave a talk about Haskell on
+some random event and I got obsessed. I was still learning how to write
+my fibonaccis in C at that time, so I learned Haskell almost as a first
+programming language and that makes it much easier! Footnote: they
+actually incorporated this in my university now and students also learn
+functional programming in the first semester per the curriculum, which
+is great.</li>
+</ul>
+</div>
+<figure class="polaroid r1"><img src="images/story/icpc.jpg" alt="probably my first competition" loading="lazy"><figcaption class="cap">probably my first competition</figcaption></figure>
+</article>
+<article class="chap photo-right"><div class="txt">
+<p>A couple of years passed with me having fun, exploring some Linux
+distros and nerding out on the corridors. I started taking the class
+that is actually when we're supposed to learn Haskell. The professor,
+Cristiano, was impressed by me (of course he was, I already knew
+Haskell). So he invited me to do research with him. First task: read
+"Propositions as Types". What a paper! I got hooked, and my work there
+can be summarized with these three projects:</p>
 <ul>
 <li><a href="https://github.com/bugarela/tipos">Hindley-Milner</a></li>
 <li><a href="https://github.com/bugarela/OutsideIn">OutsideIn</a></li>
 <li><a href="https://github.com/bugarela/GADTInference">OutsideIn with
 anti-unification</a></li>
 </ul>
-<p>All of these are things that I'm very interested in and I continually
-get to share them with my friends at the <strong><a
-href="https://github.com/funcao">Função</a> Research Group</strong> 💜.
-As of 2024, I'm also teaching formal methods as a temporary lecturer at
-UDESC.</p>
-<p>I'm Brazillian, I love it here, and you can find me sunbathing
-somewhere from December to February (yes, that's summer ☀️). I'm also a
-cat owner 🐈 and casual gamer 🎮 (currently playing World of
-Warcraft).</p>
-            </div>
+</div>
+<figure class="polaroid r2"><img src="images/story/sblp.jpg" alt="presenting my first paper" loading="lazy"><figcaption class="cap">presenting my first paper</figcaption></figure>
+</article>
+<article class="chap photo-left"><div class="txt">
+<p>While working on my research, the coolest company in the city (by my
+standards) started approaching me for an internship opportunity. I said
+no, busy with research. Then my research finished and I could either
+start a new year of it, or take the internship. I was too curious about
+the cool company, so I tried it! I started in a data science project,
+but didn't find that much fun. After a few months, I changed into a
+development role and had a really good time with great teams around
+me.</p>
+</div>
+<figure class="polaroid r0"><img src="images/story/magrathea_day1.jpg" alt="first day at Magrathea" loading="lazy"><figcaption class="cap">first day at Magrathea</figcaption></figure>
+</article>
+<article class="chap photo-right"><div class="txt">
+<p>I was still in the university, and time was approaching when I had to
+write my thesis. Then, in perfect timing, over pizza and beer at the
+office, a colleague said "I saw something that made me think of you,
+it's called TLA+, you should check it out". I googled it in my computer
+and it was love at first sight. For someone who loved learning logic and
+was struggling with queues and message orderings everyday, TLA+ felt
+like the ultimate thing developers should be using.</p>
+<p>So I wrote my thesis about generating code out of TLA+ specs, which
+made me form a really good and somewhat unique mental model of TLA+
+specs in my brain. I started a master's right after this, and continued
+my work on tooling for TLA+, this time generating tests. I thought that
+if teams could get code and tests for free out of a TLA+ spec, they
+would have a stronger case for spending time writing one in their work
+hours. I was not naive tho: I knew that what I was doing was just some
+first step attempt from a random student, not something that would
+change the world.</p>
+</div>
+<figure class="polaroid r1"><img src="images/story/defense.jpg" alt="master's thesis defense" loading="lazy"><figcaption class="cap">master's thesis defense</figcaption></figure>
+</article>
+<article class="chap chap-text"><div class="txt">
+<p>In the middle of my master's though, something unimaginable (for me!)
+happened. The TLA+ people started noticing my work. Markus Kuppe said I
+should apply to speak at the TLA+ Conference, which I did. You can
+actually check the video for this and probably mind the extra accent I
+had back then. That was when Igor Konnov met me and told me I should
+apply to work at Informal Systems, a company that I was aware of and was
+actively trying to apply TLA+ and test generation on real engineering
+teams!</p>
+</div></article>
+<article class="chap photo-left"><div class="txt">
+<p>So I joined Informal Systems and they had this idea sort of in a
+drawer: what if we had a different surface syntax for TLA+ that
+addresses all the struggles we see the engineers having, and that would
+be too hard or impossible to fix on the TLA+ tools? Igor asked if I'd
+like to work on this project, and I couldn't believe it! Formal methods
+and programming language theory as a full-time job? I'm the luckiest
+girl alive!</p>
+<p>(I still feel like that btw).</p>
+<p>So that's how Quint got started. The team changed, I stayed, and more
+and more I learned to stand up for it. Upper management learned to trust
+me. I had dreams, and they started coming true. Then we started a
+company, spinning out of Informal Systems, and my co-founders said
+"Gabriela, we think you should be the CEO if you want to." I wanted
+to.</p>
+</div>
+<figure class="polaroid r2"><img src="images/story/ceo.jpg" alt="Quint company announcement" loading="lazy"><figcaption class="cap">Quint company announcement</figcaption></figure>
+</article>
+            </main>
+            <footer class="foot"><span>bugarela.com</span><span>built with pandoc · set in Iosevka</span></footer>
         </div>
     </body>
 </html>
