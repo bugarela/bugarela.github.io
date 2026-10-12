@@ -1,4 +1,5 @@
 /* Shared site chrome: nav bar, white sheet on lavender, footer.
+   Frames are a plum line around a lilac mat; buttons are plain plum outlines.
    Loaded by the homepage (template-story.html) and MFO (template-mfo.html). */
 
 @font-face {
@@ -20,6 +21,9 @@
     --lilac-2: #e8e0f5;
     --plum: #4c2f8a;
     --bg: #c4a7e7;
+    --lilac-4: #b393de;
+    /* two-tone divider: plum line over a lilac band */
+    --rule: linear-gradient(var(--plum) 0 2px, var(--lilac) 2px 5px);
     color-scheme: light;
 }
 
@@ -41,8 +45,8 @@ body.chrome {
     position: sticky;
     top: env(safe-area-inset-top, 0px);
     z-index: 10;
-    background: #fff;
-    border-bottom: 2px solid var(--ink);
+    background: #fff linear-gradient(var(--lilac), var(--lilac)) bottom / 100% 3px no-repeat;
+    border-bottom: 2px solid var(--plum);
     padding: 10px 16px;
     display: flex;
     gap: 8px;
@@ -59,12 +63,12 @@ body.chrome {
     font-size: 14px;
     background: #fff;
     color: var(--ink);
-    border: 2px solid var(--ink);
+    border: 2px solid var(--plum);
     padding: 6px 12px;
     text-decoration: none;
 }
 .chrome .nav a[aria-current] { background: var(--lilac); }
-.chrome .nav a:hover { background: var(--lilac-2); }
+.chrome .nav a:hover { background: var(--lilac); }
 .chrome .nav a:focus-visible { outline: 3px solid var(--plum); outline-offset: 2px; }
 
 /* ---------- sheet ---------- */
@@ -73,14 +77,16 @@ body.chrome {
     max-width: 1040px;
     margin: 0 auto;
     background: #fff;
-    border: 2px solid var(--ink);
+    border: 6px solid var(--lilac);
+    outline: 2px solid var(--plum);
     padding: 48px 48px 56px;
 }
 .chrome .foot {
     max-width: 1040px;
     margin: 24px auto 0;
     background: #fff;
-    border: 2px solid var(--ink);
+    border: 6px solid var(--lilac);
+    outline: 2px solid var(--plum);
     padding: 12px 24px;
     font-size: 12px;
     color: var(--ink-2);

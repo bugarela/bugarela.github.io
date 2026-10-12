@@ -84,6 +84,9 @@ render "index.org" "$OUT/index.html" "$P/template-story.html" \
 render "sblp2024/index.org" "$OUT/sblp2024/index.html" "$P/template-page.html" \
   -V root="../" --lua-filter "$P/filters/details.lua" --lua-filter "$P/filters/orglinks.lua"
 
+echo ">> pi"
+render "pi/index.org" "$OUT/pi/index.html" "$P/template-pi.html" -V root="../" -V nav-pi=true
+
 echo ">> writing (Leaflet posts from the PDS)"
 # refresh the committed snapshot; offline builds keep the last one
 python3 "$P/leaflet.py" fetch || echo "   fetch failed, using the last snapshot in writing/posts.json"

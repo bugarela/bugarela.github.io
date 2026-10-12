@@ -1,0 +1,53 @@
+/* pi: the first 512 decimals of pi in blocks of 8 (pi/index.org).
+   Chrome (nav, sheet, footer, fonts, tokens) lives in site.css. */
+
+.pi h1 { font-size: 2.2rem; line-height: 1.15; margin: 0 0 20px; }
+.pi .whole { font-size: 2rem; font-weight: 700; color: var(--plum); margin: 0 0 12px; }
+.pi .whole .arrow { font-size: .75em; margin-left: .15em; vertical-align: -.2em; }
+.pi .digits {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    --gap: 12px;
+    /* each cell holds a pair of blocks, so there's always an even number of columns */
+    grid-template-columns: repeat(auto-fill, minmax(calc(17ch + 3 * var(--gap)), 1fr));
+    gap: 14px var(--gap);
+    font-size: 19px;
+    letter-spacing: .04em;
+    font-variant-numeric: tabular-nums;
+}
+.pi .digits li { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
+/* every block is exactly 8 digits wide and centred in its column, so "..." lines up with the digits */
+.pi .digits .b { justify-self: center; width: calc(8 * (1ch + .04em)); white-space: nowrap; }
+
+/* hover a digit: its ordinal floats above it */
+.pi .digits span { position: relative; cursor: default; }
+.pi .digits span:hover { background: var(--lilac); }
+.pi .digits span:hover::after {
+    content: attr(data-n);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    padding: 2px 8px;
+    font-size: 12px;
+    letter-spacing: 0;
+    white-space: nowrap;
+    color: var(--ink);
+    background: #fff;
+    border: 2px solid var(--ink);
+    pointer-events: none;
+}
+
+/* the story under the grid */
+.pi .about {
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 2px solid var(--lilac);
+    font-size: 16px;
+    line-height: 1.7;
+}
+.pi .about p { margin: 0 0 1em; }
+.pi .about p:last-child { margin-bottom: 0; color: var(--ink-2); }

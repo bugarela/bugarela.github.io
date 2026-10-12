@@ -322,17 +322,15 @@ def pages(outdir):
         md_file(os.path.join(outdir, slug + ".md"), meta, body)
         entries.append((d, slug, meta))
 
-    # index, grouped by year
-    groups = []
-    for d, slug, m in entries:
-        if not groups or groups[-1][0] != d.year:
-            groups.append((d.year, []))
-        groups[-1][1].append(
-            f'<li><a href="{slug}.html"><h3>{esc(m["title"])}</h3>'
-            f'<time datetime="{d.date().isoformat()}">{d.day} {MONTHS[d.month - 1]}</time>'
-            f'<p>{esc(m["dek"])}</p><span class="len">{m["read"]}</span></a></li>')
-    body = "".join(f'<div class="year"><h2>{y}</h2><ul class="entries">{"".join(li)}</ul></div>'
-                   for y, li in groups) or '<p class="intro">nothing here yet.</p>'
+    # index: one flat list, newest first (no year groups until there are more posts)
+    items = [
+        f'<li><a href="{slug}.html">'
+        f'<span class="when"><time datetime="{d.date().isoformat()}">{d.day} {MONTHS[d.month - 1]}</time>'
+        f'<span>{m["read"]}</span></span>'
+        f'<div class="txt"><h3>{esc(m["title"])}</h3><p>{esc(m["dek"])}</p></div></a></li>'
+        for d, slug, m in entries]
+    body = (f'<ul class="entries">{"".join(items)}</ul>' if items
+            else '<p class="intro">nothing here yet.</p>')
     md_file(os.path.join(outdir, "index.md"),
             {"title": "writing", "writing-index": True,
              "dek": "Lightweight posts I write on Leaflet and render here for maxxing style control."},

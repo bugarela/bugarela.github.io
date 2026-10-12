@@ -33,7 +33,7 @@ body.mfo {
 .mfo .doc h4 { font-size: 1rem; margin: 1.4rem 0 .5rem; text-transform: none; }
 
 .mfo pre, .mfo .sourceCode { background: #f6f3fb; }
-.mfo pre { padding: .8rem 1ch; border: 2px solid var(--ink); }
+.mfo pre { padding: .8rem 1ch; border: 2px solid var(--plum); }
 .mfo div.sourceCode { margin: var(--line-height) 0; }
 .mfo div.sourceCode pre { margin: 0; }
 .mfo code { color: var(--plum); }
@@ -47,8 +47,8 @@ body.mfo {
     font-size: 13px;
     color: var(--ink-2);
     margin-bottom: 1.6rem;
-    padding-bottom: .6rem;
-    border-bottom: 2px solid var(--ink);
+    padding-bottom: calc(.6rem + 5px);
+    background: var(--rule) bottom / 100% 5px no-repeat;
 }
 .mfo .crumb a { color: var(--ink); }
 
@@ -61,8 +61,7 @@ body.mfo {
 
 /* archive note (#+begin_archive in mfo/index.org) */
 .mfo .archive {
-    border: 2px solid var(--ink);
-    background: var(--lilac-2);
+    border: 2px solid var(--plum);
     padding: 1rem 2ch;
     margin: 0 0 2rem;
     font-size: 15px;
@@ -73,12 +72,17 @@ body.mfo {
 
 /* table of contents */
 .mfo .toc {
-    border: 2px solid var(--ink);
+    border: 2px solid var(--plum);
     padding: .8rem 2ch;
     margin: 0 0 2rem;
     font-size: 15px;
 }
 .mfo .toc ul { margin: 0; }
+
+/* style.css draws these in ink; match the site's plum outlines and divider */
+.mfo td, .mfo details, .mfo input, .mfo textarea { border-color: var(--plum); }
+.mfo hr { height: 5px; background: var(--rule); }
+.mfo hr::after { content: none; }
 
 /* search on the index */
 .mfo #search-bar { width: 100%; background: #fff; margin-bottom: 1rem; }
