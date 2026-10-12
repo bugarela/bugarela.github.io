@@ -14,6 +14,9 @@ CSL="${CSL:-$P/associacao-brasileira-de-normas-tecnicas.csl}"
 
 cd "$ROOT"
 
+# cache-busting stamp for the stylesheets (changes whenever any of them does)
+CSSV="$(cat css/layouts/*.css | sha1sum | cut -c1-8)"
+
 # --- render one .org -> .html --------------------------------------------
 # render <src.org> <out.html> <template> [extra pandoc args...]
 render() {
@@ -44,6 +47,7 @@ render() {
       -M description="Personal homepage exported with pandoc" \
       -M site-url="$SITE_URL" \
       -M twitter="bugarela" \
+      -V cssv="$CSSV" \
       "$@" \
       -o "$out" )
   rm -f "$tmp"
@@ -67,16 +71,16 @@ for src in mfo/*.org; do
   if ! grep -q 'toc:nil' "$src" || grep -qi '^#+TOC:' "$src"; then
     flags+=(--toc --toc-depth=3)
   fi
-  render "$src" "$OUT/mfo/$base.html" "$P/template-mfo.html" -V root="../" "${flags[@]}"
+  render "$src" "$OUT/mfo/$base.html" "$P/template-mfo.html" -V root="../" -V nav-mfo=true "${flags[@]}"
 done
 
 echo ">> mfo index"
 render "mfo/index.org" "$OUT/mfo/index.html" "$P/template-mfo.html" \
-  -V root="../" --lua-filter "$P/filters/orglinks.lua"
+  -V root="../" -V nav-mfo=true -V mfo-index=true --lua-filter "$P/filters/orglinks.lua"
 
 echo ">> homepage (story layout) + sblp2024 (pages)"
 render "index.org" "$OUT/index.html" "$P/template-story.html" \
-  -V root="./" -V cssv="$(sha1sum css/layouts/story.css | cut -c1-8)" --lua-filter "$P/filters/orglinks.lua" --lua-filter "$P/filters/story.lua"
+  -V root="./" -V nav-story=true --lua-filter "$P/filters/orglinks.lua" --lua-filter "$P/filters/story.lua"
 render "sblp2024/index.org" "$OUT/sblp2024/index.html" "$P/template-page.html" \
   -V root="../" --lua-filter "$P/filters/details.lua" --lua-filter "$P/filters/orglinks.lua"
 

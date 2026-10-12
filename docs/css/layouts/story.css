@@ -1,104 +1,10 @@
-/* Homepage ("story") layout: nav bar, white sheet on lavender, polaroids.
-   Used only by pandoc/template-story.html; lecture pages use style.css. */
+/* Homepage ("story") content: hero and polaroid chapters.
+   Chrome (nav, sheet, footer, fonts, tokens) lives in site.css. */
 
-@font-face {
-    font-family: "Iosevka Web";
-    font-display: swap;
-    font-weight: 100 900;
-    font-style: normal;
-    src:
-        url("../fonts/Iosevka/WOFF2/Iosevka-Regular.woff2") format("woff2"),
-        url("../fonts/Iosevka/TTF/Iosevka-Regular.ttf") format("truetype");
-}
-
-:root {
-    --mono: "Iosevka Web", "Iosevka", ui-monospace, Menlo, monospace;
-    --hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
-    --ink: #1d1535;
-    --ink-2: #5f5577;
-    --lilac: #c4a7e7;
-    --lilac-2: #e8e0f5;
-    --plum: #4c2f8a;
-    --bg: #c4a7e7;
-    color-scheme: light;
-}
-
-* { box-sizing: border-box; }
-
-body.story {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--mono);
-    font-size: 17px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-}
-.story a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; }
 .story img { max-width: 100%; display: block; }
 .story h1 { text-wrap: balance; margin: 0; }
 .story p, .story ul, .story ol { margin: 0 0 1em; max-width: 62ch; }
 .story ul { padding-left: 2ch; list-style: square; }
-
-/* ---------- nav ---------- */
-.story .nav {
-    position: sticky;
-    top: env(safe-area-inset-top, 0px);
-    z-index: 10;
-    background: #fff;
-    border-bottom: 2px solid var(--ink);
-    padding: 10px 16px;
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    align-items: center;
-}
-.story .nav .brand {
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    font-size: 14px;
-    margin-right: auto;
-    padding: 6px 0;
-}
-.story .nav a {
-    font-size: 14px;
-    background: #fff;
-    color: var(--ink);
-    border: 2px solid var(--ink);
-    padding: 6px 12px;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: .04em;
-}
-.story .nav a[aria-current="page"] { background: var(--lilac); }
-.story .nav a:hover { background: var(--lilac-2); }
-.story .nav a:focus-visible { outline: 3px solid var(--plum); outline-offset: 2px; }
-
-/* ---------- sheet ---------- */
-.story .site { min-height: 100vh; padding: 32px 16px 96px; }
-.story .wrap {
-    max-width: 1040px;
-    margin: 0 auto;
-    background: #fff;
-    border: 2px solid var(--ink);
-    padding: 48px 48px 56px;
-}
-.story .foot {
-    max-width: 1040px;
-    margin: 24px auto 0;
-    background: #fff;
-    border: 2px solid var(--ink);
-    padding: 12px 24px;
-    font-size: 12px;
-    color: var(--ink-2);
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-}
 
 /* ---------- hero + chapters ---------- */
 .story .hello {
@@ -191,7 +97,6 @@ body.story {
     .story .hero, .story .chap, .story .chap.photo-left { grid-template-columns: 1fr; }
     .story .chap.photo-left .txt { order: 0; }
     .story .polaroid, .story .chap .polaroid { margin: 24px auto; }
-    .story .wrap { padding: 28px 18px 36px; }
 }
 @media (prefers-reduced-motion: reduce) {
     .story * { transition: none !important; }

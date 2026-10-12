@@ -28,26 +28,23 @@ with pandoc">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.1/grids-responsive-min.css">
 <link rel="stylesheet" href="../css/layouts/style.css">
+<link rel="stylesheet" href="../css/layouts/site.css?v=1fa45432">
+<link rel="stylesheet" href="../css/layouts/mfo.css?v=1fa45432">
     </head>
-    <body>
-        <div id="layout" class="pure-g">
-            <div class="sidebar pure-u-1 pure-u-md-1-5" style="text-align: center">
-                <div class="header">
-                    <h2 class="brand-title">
-                        <a href="../"><i class="fas fa-home"></i> Gabriela Moreira</a>
-                    </h2>
-                </div>
-                <div class="centered">
-                    <h1 class="huge"><i class="fas fa-folder-open"></i></h1>
-                    <h1 class="huge"><a href="./">MFO</a></h1>
-                    <h2 class="brand-title">Métodos Formais</h2>
-                    <h2 class="brand-tagline">Materiais da disciplina</h2>
-                </div>
-                <div class="footer">
-                    <div>Built with pandoc.</div>
-                </div>
-            </div>
-            <div class="content pure-u-1 pure-u-md-2-3">
+    <body class="chrome mfo">
+<nav class="nav" aria-label="Site">
+    <span class="brand">Gabriela Moreira</span>
+    <a href="../">Story</a>
+    <a href="../mfo/" aria-current="true">Teaching</a>
+    <a href="https://github.com/bugarela">GitHub</a>
+    <a href="https://www.linkedin.com/in/bugarela/">LinkedIn</a>
+    <a href="https://twitter.com/bugarela">Twitter</a>
+</nav>        <div class="site">
+            <main class="wrap">
+                <div class="doc">
+                <nav class="crumb" aria-label="Breadcrumb">
+                    <a href="./">Métodos Formais</a><span>/</span><span>arquivo da disciplina · UDESC</span>
+                </nav>
                 <h1>Programação e matemática não são a mesma coisa</h1>
                 <div id="table-of-contents" class="toc">
 <ul>
@@ -659,7 +656,9 @@ types</a>. <strong>Commun. ACM</strong>, v. 58, n. 12, p. 75–84, Nov.
 </div>
 </section>
 </section>
-            </div>
+                </div>
+            </main>
+            <footer class="foot"><span>bugarela.com</span><span>built with pandoc · set in Iosevka</span></footer>
         </div>
     </body>
 </html>

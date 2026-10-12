@@ -19,17 +19,11 @@ $endif$
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+<link rel="stylesheet" href="$root$css/layouts/site.css?v=$cssv$">
 <link rel="stylesheet" href="$root$css/layouts/story.css?v=$cssv$">
     </head>
-    <body class="story">
-        <nav class="nav" aria-label="Site">
-            <span class="brand">Gabriela Moreira</span>
-            <a href="$root$" aria-current="page">Story</a>
-            <a href="$root$mfo/">MFO</a>
-            <a href="https://github.com/bugarela">GitHub</a>
-            <a href="https://www.linkedin.com/in/bugarela/">LinkedIn</a>
-            <a href="https://twitter.com/bugarela">Twitter</a>
-        </nav>
+    <body class="chrome story">
+$nav.html()$
         <div class="site">
             <main class="wrap">
 $body$

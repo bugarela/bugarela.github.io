@@ -41,7 +41,7 @@ class Extractor(HTMLParser):
     def handle_starttag(self, tag, attrs):
         if tag == "title":
             self._in_title = True
-        elif tag in ("script", "style"):
+        elif tag in ("script", "style", "nav", "footer"):
             self._skip += 1
         elif tag == "img" and self.first_img is None:
             self.first_img = dict(attrs).get("src")
@@ -49,7 +49,7 @@ class Extractor(HTMLParser):
     def handle_endtag(self, tag):
         if tag == "title":
             self._in_title = False
-        elif tag in ("script", "style") and self._skip:
+        elif tag in ("script", "style", "nav", "footer") and self._skip:
             self._skip -= 1
 
     def handle_data(self, data):

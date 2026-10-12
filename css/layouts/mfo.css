@@ -1,0 +1,92 @@
+/* MFO course archive: lecture + index pages inside the shared site chrome.
+   Loaded after style.css (which still styles code, tables, details, math)
+   and site.css; this file only re-sizes and re-lays-out style.css for the sheet. */
+
+:root {
+    font-size: 16px;
+    --line-height: 1.6rem;
+    --text-color: var(--ink);
+    --text-color-alt: var(--ink-2);
+    --background-color: #fff;
+    --background-color-alt: var(--lilac-2);
+}
+html {
+    display: block;
+    background: var(--bg);
+}
+body.mfo {
+    max-width: none;
+    padding: 0;
+    overflow-x: visible;
+    line-height: var(--line-height);
+}
+.mfo .wrap { max-width: 1040px; }
+.mfo .doc { max-width: none; }
+.mfo .doc p, .mfo .doc li, .mfo .archive { max-width: 88ch; }
+.mfo .doc img { width: auto; max-width: 100%; }
+
+/* headings: keep the monospace-web voice, at sheet scale */
+.mfo .doc h1 { font-size: 1.9rem; line-height: 1.15; margin: 0 0 1.2rem; text-wrap: balance; }
+.mfo .doc h2 { font-size: 1.15rem; margin: 2.4rem 0 .8rem; }
+.mfo .doc h3 { font-size: 1rem; margin: 1.8rem 0 .6rem; }
+.mfo .doc h4 { font-size: 1rem; margin: 1.4rem 0 .5rem; text-transform: none; }
+
+.mfo pre, .mfo .sourceCode { background: #f6f3fb; }
+.mfo pre { padding: .8rem 1ch; border: 2px solid var(--ink); }
+.mfo div.sourceCode { margin: var(--line-height) 0; }
+.mfo div.sourceCode pre { margin: 0; }
+.mfo code { color: var(--plum); }
+
+/* breadcrumb back to the course index, on lecture pages */
+.mfo .crumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    align-items: baseline;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--ink-2);
+    margin-bottom: 1.6rem;
+    padding-bottom: .6rem;
+    border-bottom: 2px solid var(--ink);
+}
+.mfo .crumb a { color: var(--ink); }
+
+/* eyebrow above the index title */
+.mfo .eyebrow {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--plum);
+    margin: 0 0 .4rem;
+}
+
+/* archive note (#+begin_archive in mfo/index.org) */
+.mfo .archive {
+    border: 2px solid var(--ink);
+    background: var(--lilac-2);
+    padding: 1rem 2ch;
+    margin: 0 0 2rem;
+    font-size: 15px;
+}
+.mfo .archive p { margin: 0 0 .7rem; }
+.mfo .archive p:last-child { margin-bottom: 0; }
+.mfo .archive [lang="pt-BR"] { color: var(--ink-2); }
+
+/* table of contents */
+.mfo .toc {
+    border: 2px solid var(--ink);
+    padding: .8rem 2ch;
+    margin: 0 0 2rem;
+    font-size: 15px;
+}
+.mfo .toc ul { margin: 0; }
+
+/* search on the index */
+.mfo #search-bar { width: 100%; background: #fff; margin-bottom: 1rem; }
+.mfo #search-results h3 { margin: 1.2rem 0 .3rem; text-transform: none; }
+
+@media (max-width: 760px) {
+    .mfo .doc h1 { font-size: 1.5rem; }
+}

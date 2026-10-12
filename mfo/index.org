@@ -2,6 +2,19 @@
 #+date: <2024-02-25 Sun>
 #+OPTIONS:  num:nil toc:nil
 
+#+begin_archive
+These are the materials for *Métodos Formais* (Formal Methods), a course I taught at
+UDESC as a temporary lecturer. It covers temporal logic, Quint and TLA+. Everything
+here is in Portuguese. I keep it online for my former students, and for anyone
+learning formal methods. It is no longer updated.
+
+#+begin_export html
+<p lang="pt-BR">Materiais da disciplina de Métodos Formais que ministrei na UDESC.
+Mantidos aqui como arquivo para quem cursou a disciplina; não são mais atualizados.</p>
+#+end_export
+#+end_archive
+
+
 #+begin_export html
 <input type="text" id="search-bar" placeholder="Search..." />
 <div id="search-results"></div>

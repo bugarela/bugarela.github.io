@@ -1,0 +1,101 @@
+/* Shared site chrome: nav bar, white sheet on lavender, footer.
+   Loaded by the homepage (template-story.html) and MFO (template-mfo.html). */
+
+@font-face {
+    font-family: "Iosevka Web";
+    font-display: swap;
+    font-weight: 100 900;
+    font-style: normal;
+    src:
+        url("../fonts/Iosevka/WOFF2/Iosevka-Regular.woff2") format("woff2"),
+        url("../fonts/Iosevka/TTF/Iosevka-Regular.ttf") format("truetype");
+}
+
+:root {
+    --mono: "Iosevka Web", "Iosevka", ui-monospace, Menlo, monospace;
+    --hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+    --ink: #1d1535;
+    --ink-2: #5f5577;
+    --lilac: #c4a7e7;
+    --lilac-2: #e8e0f5;
+    --plum: #4c2f8a;
+    --bg: #c4a7e7;
+    color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+body.chrome {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+.chrome a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+/* ---------- nav ---------- */
+.chrome .nav {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 10;
+    background: #fff;
+    border-bottom: 2px solid var(--ink);
+    padding: 10px 16px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.chrome .nav .brand {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-size: 14px;
+    margin-right: auto;
+    padding: 6px 0;
+}
+.chrome .nav a {
+    font-size: 14px;
+    background: #fff;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    padding: 6px 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+.chrome .nav a[aria-current] { background: var(--lilac); }
+.chrome .nav a:hover { background: var(--lilac-2); }
+.chrome .nav a:focus-visible { outline: 3px solid var(--plum); outline-offset: 2px; }
+
+/* ---------- sheet ---------- */
+.chrome .site { min-height: 100vh; padding: 32px 16px 96px; }
+.chrome .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    background: #fff;
+    border: 2px solid var(--ink);
+    padding: 48px 48px 56px;
+}
+.chrome .foot {
+    max-width: 1040px;
+    margin: 24px auto 0;
+    background: #fff;
+    border: 2px solid var(--ink);
+    padding: 12px 24px;
+    font-size: 12px;
+    color: var(--ink-2);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 760px) {
+    .chrome .wrap { padding: 28px 18px 36px; }
+}
