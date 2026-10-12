@@ -5,3 +5,4 @@ tmp/
 
 flycheck_make.el
 __pycache__/
+.cache/

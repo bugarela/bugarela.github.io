@@ -39,7 +39,8 @@ body.chrome {
     -webkit-font-smoothing: antialiased;
 }
 .chrome a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; }
-.chrome u { text-decoration-color: var(--lilac-4); text-decoration-thickness: 3px; text-underline-offset: 3px; }
+.chrome u { text-decoration-color: var(--lilac-4); text-decoration-thickness: 3px; text-underline-offset: 3px; text-decoration-skip-ink: none; }
+.chrome a:has(> u) { text-decoration: none; }
 
 /* ---------- nav ---------- */
 .chrome .nav {
