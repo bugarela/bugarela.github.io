@@ -54,7 +54,7 @@ render() {
 }
 
 # crude language pick: pt-BR unless the file declares english
-file_lang() { grep -qiE '^#\+LANGUAGE:\s*en' "$1" && echo "en" || echo "pt-BR"; }
+file_lang() { grep -qiE '^(#\+LANGUAGE:|lang:)\s*en' "$1" && echo "en" || echo "pt-BR"; }
 
 echo ">> lectures (mfo/*.org)"
 for src in mfo/*.org; do
@@ -83,6 +83,18 @@ render "index.org" "$OUT/index.html" "$P/template-story.html" \
   -V root="./" -V nav-story=true --lua-filter "$P/filters/orglinks.lua" --lua-filter "$P/filters/story.lua"
 render "sblp2024/index.org" "$OUT/sblp2024/index.html" "$P/template-page.html" \
   -V root="../" --lua-filter "$P/filters/details.lua" --lua-filter "$P/filters/orglinks.lua"
+
+echo ">> writing (Leaflet posts from the PDS)"
+# refresh the committed snapshot; offline builds keep the last one
+python3 "$P/leaflet.py" fetch || echo "   fetch failed, using the last snapshot in writing/posts.json"
+WTMP="$(mktemp -d)"
+python3 "$P/leaflet.py" pages "$WTMP"
+rm -rf "$OUT/writing"
+for md in "$WTMP"/*.md; do
+  render "$md" "$OUT/writing/$(basename "$md" .md).html" "$P/template-writing.html" \
+    -f markdown -V root="../" -V nav-writing=true
+done
+rm -rf "$WTMP"
 
 echo ">> assets"
 # Copy binary/static assets, preserving paths, matching make.el's extension set.

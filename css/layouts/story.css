@@ -9,8 +9,7 @@
 /* ---------- hero + chapters ---------- */
 .story .hello {
     font-size: 2.6rem;
-    text-transform: uppercase;
-    letter-spacing: .02em;
+    letter-spacing: -.01em;
     line-height: 1.1;
     margin-bottom: 16px;
     font-weight: 700;

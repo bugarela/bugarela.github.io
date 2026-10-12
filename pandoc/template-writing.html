@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="$lang$">
+    <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="$dek$">
+<title>$title$ · Gabriela Moreira</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+$if(leaflet-url)$
+<link rel="canonical" href="$leaflet-url$">
+$endif$
+$if(at-uri)$
+<link rel="site.standard.document" href="$at-uri$">
+$endif$
+<meta property="og:url" content="$site-url$$input-url$" />
+<meta property="og:title" content="$title$" />
+<meta property="og:type" content="$if(writing-index)$website$else$article$endif$" />
+<meta property="og:description" content="$dek$" />
+$if(twitter)$
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@$twitter$">
+<meta name="twitter:title" content="$title$">
+<meta name="twitter:description" content="$dek$">
+$endif$
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="$root$css/layouts/site.css?v=$cssv$">
+<link rel="stylesheet" href="$root$css/layouts/writing.css?v=$cssv$">
+    </head>
+    <body class="chrome writing">
+$nav.html()$
+        <div class="site">
+            <main class="wrap">
+$if(writing-index)$
+                <section class="idx">
+                    <h1>$title$</h1>
+                    <p class="intro">$dek$</p>
+                    <div class="subs">
+                        <a class="btn pri ext" href="https://leaflet.pub/p/did:plc:7dv3qlilrrooaptgmonjux32">subscribe on leaflet</a>
+                        <a class="btn ext" href="https://bsky.app/profile/bugarela.com">follow on bluesky</a>
+                    </div>
+$body$
+                </section>
+$else$
+                <article class="post">
+                    <nav class="crumb" aria-label="Breadcrumb"><a href="./">writing</a><span>/</span><span>$year$</span></nav>
+                    <h1>$title$</h1>
+$if(dek)$
+                    <p class="dek">$dek$</p>
+$endif$
+                    <div class="meta"><span>$date-human$</span><span>$read$</span><a class="ext" href="$leaflet-url$">via leaflet</a></div>
+                    <div class="body">
+$body$
+                    </div>
+                    <footer class="end">
+                        <div class="discuss">
+                            <a class="btn pri ext" href="$leaflet-url$">comment on leaflet</a>
+$if(bsky-url)$
+                            <a class="btn ext" href="$bsky-url$">discuss on bluesky</a>
+$endif$
+                        </div>
+                        <p class="src">powered by <a href="https://atproto.com/guides/glossary#pds-personal-data-server">PDS</a> and the <a href="https://atproto.com">ATmosphere</a></p>
+                    </footer>
+                </article>
+$endif$
+            </main>
+$footer.html()$
+        </div>
+    </body>
+</html>

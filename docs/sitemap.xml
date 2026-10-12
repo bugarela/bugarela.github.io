@@ -220,4 +220,16 @@
   <loc>https://bugarela.com/sblp2024/index.html</loc>
   <priority>0.5</priority>
  </url>
+ <url>
+  <loc>https://bugarela.com/writing/index.html</loc>
+  <priority>0.5</priority>
+ </url>
+ <url>
+  <loc>https://bugarela.com/writing/initial-thoughts-on-jev.html</loc>
+  <priority>0.5</priority>
+ </url>
+ <url>
+  <loc>https://bugarela.com/writing/thoughts-on-first-months-as-ceo.html</loc>
+  <priority>0.5</priority>
+ </url>
 </urlset>

@@ -44,3 +44,20 @@ through for MathJax), `#+OPTIONS: num:/toc:`.
 - The old `docs/` had stray artifacts (`mfo/Aulas/…`, `mfo/trabalho_1/…`,
   `mfo/sitemap.html`, `README.html`); this build produces a clean 30-page set.
 - Source files use CRLF line endings — handled in `build.sh`.
+
+## Writing (Leaflet mirror)
+
+`leaflet.py` mirrors the Leaflet posts stored in my AT Protocol repo
+(`site.standard.document` records) to `docs/writing/`.
+
+- `build.sh` runs `leaflet.py fetch` first. It refreshes `writing/posts.json`
+  and downloads images to `images/writing/` (resized, metadata stripped).
+  Both are committed, so an offline build reuses the last snapshot.
+- `leaflet.py pages <dir>` turns each post's blocks into HTML inside a
+  markdown file, rendered with `template-writing.html` + `css/layouts/writing.css`.
+- Each post page links back to Leaflet (canonical URL) and to its Bluesky post.
+- Leaflet blocks without a site equivalent render as a link to the post on Leaflet.
+- To publish a new post here: post on Leaflet, run `bash pandoc/build.sh`, commit, push.
+
+Shared partials: `nav.html` (site nav, lowercase labels) and `footer.html`.
+

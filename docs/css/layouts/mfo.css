@@ -25,7 +25,8 @@ body.mfo {
 .mfo .doc p, .mfo .doc li, .mfo .archive { max-width: 88ch; }
 .mfo .doc img { width: auto; max-width: 100%; }
 
-/* headings: keep the monospace-web voice, at sheet scale */
+/* headings: sentence case as written (style.css uppercases them) */
+.mfo .doc h1, .mfo .doc h2, .mfo .doc h3, .mfo .doc h4, .mfo .doc h5, .mfo .doc h6 { text-transform: none; }
 .mfo .doc h1 { font-size: 1.9rem; line-height: 1.15; margin: 0 0 1.2rem; text-wrap: balance; }
 .mfo .doc h2 { font-size: 1.15rem; margin: 2.4rem 0 .8rem; }
 .mfo .doc h3 { font-size: 1rem; margin: 1.8rem 0 .6rem; }
@@ -44,8 +45,6 @@ body.mfo {
     gap: 6px 12px;
     align-items: baseline;
     font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: .06em;
     color: var(--ink-2);
     margin-bottom: 1.6rem;
     padding-bottom: .6rem;
@@ -56,8 +55,6 @@ body.mfo {
 /* eyebrow above the index title */
 .mfo .eyebrow {
     font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: .1em;
     color: var(--plum);
     margin: 0 0 .4rem;
 }

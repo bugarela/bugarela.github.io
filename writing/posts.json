@@ -1,0 +1,302 @@
+[
+ {
+  "uri": "at://did:plc:7dv3qlilrrooaptgmonjux32/site.standard.document/3mvzowngf3c2v",
+  "cid": "bafyreiakvwmnr3g64zsffrnci4f7vgedp35njnh5xrbngpnlztzna2bl3i",
+  "value": {
+   "path": "/3mvzowngf3c2v",
+   "site": "https://leaflet.pub/p/did:plc:7dv3qlilrrooaptgmonjux32",
+   "tags": [],
+   "$type": "site.standard.document",
+   "theme": {
+    "$type": "pub.leaflet.publication#theme",
+    "pageBackground": {
+     "a": 100,
+     "b": 237,
+     "g": 204,
+     "r": 219,
+     "$type": "pub.leaflet.theme.color#rgba"
+    },
+    "backgroundColor": {
+     "a": 100,
+     "b": 153,
+     "g": 63,
+     "r": 115,
+     "$type": "pub.leaflet.theme.color#rgba"
+    },
+    "accentBackground": {
+     "b": 168,
+     "g": 45,
+     "r": 113,
+     "$type": "pub.leaflet.theme.color#rgb"
+    },
+    "showPageBackground": true
+   },
+   "title": "Initial thoughts on Jev",
+   "content": {
+    "$type": "pub.leaflet.content",
+    "pages": [
+     {
+      "id": "01a0c3e3-bedb-7ccc-9e18-19c07f5f1824",
+      "$type": "pub.leaflet.pages.linearDocument",
+      "blocks": [
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "Here are some thoughts on Jev after trying it over the weekend."
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "It's a classifier with a ton of training. But what excites me the most is that it brings more control to the frontier, we don't have to simply use an LLM for every AI task because those are the only intelligent enough option!"
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "How many of us already finished a prompt with \"reply with only a YES or a NO\" to then have some code read the result?"
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "We saw how good symbolic AI is when we got the harnesses that could call tools. The launch of a frontier classifier like Jev means we are one step further into the symbolic aspect, at least in my understanding."
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "Here's an example: imagine Alice and Bob both have their own AI assistants and they want to schedule a meeting with each other"
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "Today, with LLMs:"
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "  • Alice's assistant messages Bob's assistant, they exchange some available slots in some arbitrary format, and schedule it."
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "  • Maybe more realistically: Alice's assistant opens Bob's calendar link and clicks around on a web interface comparing slots with Alice's."
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "Some engineer could look at this and think \"that's very inefficient, we should have a tool to help the process!\". But I think there's a reason why we don't select slots deterministically yet - there's too much nuance, we normally don't just want something that takes the first available slot."
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "Adding a (good) classifier to the mixture, you can have the best of all worlds:"
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "  1. LLMs communicate to find a list of slots for each person on a given format"
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "  2. Code matches the slots to find the intersection"
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "  3. The classifier picks the slot"
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "If Alice is not a morning person and want that to be taken into account, a classifier can do it. If the classifier confidence is lower than Bob's requirements, it can escalate options to Bob for him to confirm."
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "It adds more structure and control, compared to LLMs, while not going all the way to the limits of determinism where we don't want it."
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "I'm not saying this is it's killer use-case. I'm particularly more interested in using it in safety classifiers, as using Anthropic's auto-mode doesn't feel like the best choice (specially in light of recent hacks); and in using it for sensors and controllers/gates on the software factory setting."
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "plaintext": "LLMs have been the hammer for every single nail for too long already, finally something is changing."
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "bskyPostRef": {
+    "cid": "bafyreih5w7jpn3etrlxmumrx7zwyrlcnj4prqvenigk5cbof2swb3prtmy",
+    "uri": "at://did:plc:7dv3qlilrrooaptgmonjux32/app.bsky.feed.post/3mvzowr5nic2v",
+    "commit": {
+     "cid": "bafyreibusjud75nm5m66hj75cgyobreyujnv6k46tprfiltn74tkcu2n6y",
+     "rev": "3mvzowrbcvz2d"
+    },
+    "validationStatus": "valid"
+   },
+   "description": "I'm very excited with TypeSafe AI launch of Jev and wrote a bit about why",
+   "publishedAt": "2026-09-21T12:16:41.804Z"
+  }
+ },
+ {
+  "uri": "at://did:plc:7dv3qlilrrooaptgmonjux32/site.standard.document/3mudiw3s2ck23",
+  "cid": "bafyreigfi3y3edswynntz3qq4x343l756q4mzikic2q3syqjfzlmcdkwnm",
+  "value": {
+   "path": "/3mudiw3s2ck23",
+   "site": "https://leaflet.pub/p/did:plc:7dv3qlilrrooaptgmonjux32",
+   "tags": [],
+   "$type": "site.standard.document",
+   "theme": {
+    "$type": "pub.leaflet.publication#theme",
+    "pageWidth": 768,
+    "pageBackground": {
+     "a": 100,
+     "b": 237,
+     "g": 204,
+     "r": 219,
+     "$type": "pub.leaflet.theme.color#rgba"
+    },
+    "backgroundColor": {
+     "a": 100,
+     "b": 153,
+     "g": 63,
+     "r": 115,
+     "$type": "pub.leaflet.theme.color#rgba"
+    },
+    "accentBackground": {
+     "b": 168,
+     "g": 45,
+     "r": 113,
+     "$type": "pub.leaflet.theme.color#rgb"
+    },
+    "showPageBackground": true
+   },
+   "title": "Thoughts on first months as CEO",
+   "content": {
+    "$type": "pub.leaflet.content",
+    "pages": [
+     {
+      "id": "01a054c6-07f0-7bb8-a02f-eba24ebb6064",
+      "$type": "pub.leaflet.pages.linearDocument",
+      "blocks": [
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.blockquote",
+         "facets": [
+          {
+           "index": {
+            "byteEnd": 218,
+            "byteStart": 0
+           },
+           "features": [
+            {
+             "$type": "pub.leaflet.richtext.facet#italic"
+            }
+           ]
+          }
+         ],
+         "plaintext": "I realize I like linkedin-sized posts while writing blogs is too overwhelming. I've been mostly posting on linkedin lately and I don't like that all my writing is locked up there, so I'll try to migrate some of it here"
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.image",
+         "image": {
+          "ref": {
+           "$link": "bafkreigbgka6cvo4bpdkpqr6ygccd5xdg52oadsr2hw4zyma4w5jp4xqvy"
+          },
+          "size": 3588018,
+          "$type": "blob",
+          "mimeType": "image/webp"
+         },
+         "aspectRatio": {
+          "width": 6000,
+          "height": 4000
+         }
+        }
+       },
+       {
+        "$type": "pub.leaflet.pages.linearDocument#block",
+        "block": {
+         "$type": "pub.leaflet.blocks.text",
+         "facets": [
+          {
+           "index": {
+            "byteEnd": 1462,
+            "byteStart": 1387
+           },
+           "features": [
+            {
+             "$type": "pub.leaflet.richtext.facet#italic"
+            }
+           ]
+          }
+         ],
+         "plaintext": "I'm five months into the CEO role. I wrote down some reflections:\n\nThe days seem to have 4 hours in total. Time flies!! It has never been so important that I'm disciplined with my focus. I play many roles, and sometimes marketing needs more attention than dev, or management stuff has been neglected, because I was worried about the technical details of something or how we would explain some concept in the comms. I can easily be the bottleneck not only of my agents, but of the team, the marketing plan, and, realistically, the whole company.\n\nSo my brain is full. Which I think is causing my subconscious to play a much larger role than usual. My intuition on things is shining. I make a choice based on intuition only to read a few days later a quote on a book that confirms I made the correct call (or at least the one recommended by the author). I realize the rationale was there with me, just buried under the surface, and every time this happens, I feel a tiny bit more confident.\n\nI've never been so excited thinking about what the future of Quint could be as I am right now. Everyday, I think about the vision and it makes my heart race. And I think about who are users are going to be, what pains they have, and that makes me want to launch something tomorrow! But then I think about all the things we could do, and we'll likely never do all of them. Which makes me reflect:\n\nThe hardest part of these last few months was to choose what we'd do first.\n\nI want the product we are working on (Quint Studio!) to empower people right now, as we navigate all these changes to our roles, day-to-day, and overall structure that AI has brought in. I fear we could be losing the fun parts of programming and I really think we can rescue it without slowing down. More automation should always mean more opportunity to exercise our precious human judgment.\n\nMy months have been all about time discipline, intuition, and lots of hard choices. I'm learning what to learn.\n\nI'm tired and happy, and mostly so excited about what we are going to be sharing next."
+        }
+       }
+      ]
+     }
+    ]
+   },
+   "coverImage": {
+    "ref": {
+     "$link": "bafkreigbgka6cvo4bpdkpqr6ygccd5xdg52oadsr2hw4zyma4w5jp4xqvy"
+    },
+    "size": 3588018,
+    "$type": "blob",
+    "mimeType": "image/webp"
+   },
+   "bskyPostRef": {
+    "cid": "bafyreifamljo3ekuzidkvbx3vclc4nt2xxgp7ussm4ur4ryujb6o7mv67q",
+    "uri": "at://did:plc:7dv3qlilrrooaptgmonjux32/app.bsky.feed.post/3mudiwcv7tk2b",
+    "commit": {
+     "cid": "bafyreicgribqlsmz4wskvwjn5gkbza3pcl3ngeyttwceqblloxpgm6gtoy",
+     "rev": "3mudiwd2lfl2s"
+    },
+    "validationStatus": "valid"
+   },
+   "description": "First leaflet post, trying to expand my writing from just linkedin posts :)",
+   "publishedAt": "2026-08-30T23:05:17.163Z"
+  }
+ }
+]

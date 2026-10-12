@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+    <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="I’m very excited with TypeSafe AI
+launch of Jev and wrote a bit about why">
+<title>Initial thoughts on Jev · Gabriela Moreira</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="canonical" href="https://leaflet.pub/p/did:plc:7dv3qlilrrooaptgmonjux32/3mvzowngf3c2v">
+<link rel="site.standard.document" href="at://did:plc:7dv3qlilrrooaptgmonjux32/site.standard.document/3mvzowngf3c2v">
+<meta property="og:url" content="https://bugarela.com" />
+<meta property="og:title" content="Initial thoughts on Jev" />
+<meta property="og:type" content="article" />
+<meta property="og:description" content="I’m very excited with TypeSafe
+AI launch of Jev and wrote a bit about why" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@bugarela">
+<meta name="twitter:title" content="Initial thoughts on Jev">
+<meta name="twitter:description" content="I’m very excited with TypeSafe
+AI launch of Jev and wrote a bit about why">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="../css/layouts/site.css?v=745c9bba">
+<link rel="stylesheet" href="../css/layouts/writing.css?v=745c9bba">
+    </head>
+    <body class="chrome writing">
+<nav class="nav" aria-label="Site">
+    <span class="brand">gabriela moreira</span>
+    <a href="../">story</a>
+    <a href="../writing/" aria-current="true">writing</a>
+    <a href="../mfo/">teaching</a>
+</nav>        <div class="site">
+            <main class="wrap">
+                <article class="post">
+                    <nav class="crumb" aria-label="Breadcrumb"><a href="./">writing</a><span>/</span><span>2026</span></nav>
+                    <h1>Initial thoughts on Jev</h1>
+                    <p class="dek">I’m very excited with TypeSafe AI
+launch of Jev and wrote a bit about why</p>
+                    <div class="meta"><span>21 sep 2026</span><span>3
+min
+read</span><a class="ext" href="https://leaflet.pub/p/did:plc:7dv3qlilrrooaptgmonjux32/3mvzowngf3c2v">via leaflet</a></div>
+                    <div class="body">
+<p class="lead">Here are some thoughts on Jev after trying it over the weekend.</p>
+<p>It&#x27;s a classifier with a ton of training. But what excites me the most is that it brings more control to the frontier, we don&#x27;t have to simply use an LLM for every AI task because those are the only intelligent enough option!</p>
+<p>How many of us already finished a prompt with &quot;reply with only a YES or a NO&quot; to then have some code read the result?</p>
+<p>We saw how good symbolic AI is when we got the harnesses that could call tools. The launch of a frontier classifier like Jev means we are one step further into the symbolic aspect, at least in my understanding.</p>
+<p>Here&#x27;s an example: imagine Alice and Bob both have their own AI assistants and they want to schedule a meeting with each other</p>
+<p>Today, with LLMs:</p>
+<ul><li>Alice&#x27;s assistant messages Bob&#x27;s assistant, they exchange some available slots in some arbitrary format, and schedule it.</li><li>Maybe more realistically: Alice&#x27;s assistant opens Bob&#x27;s calendar link and clicks around on a web interface comparing slots with Alice&#x27;s.</li></ul>
+<p>Some engineer could look at this and think &quot;that&#x27;s very inefficient, we should have a tool to help the process!&quot;. But I think there&#x27;s a reason why we don&#x27;t select slots deterministically yet - there&#x27;s too much nuance, we normally don&#x27;t just want something that takes the first available slot.</p>
+<p>Adding a (good) classifier to the mixture, you can have the best of all worlds:</p>
+<ol><li>LLMs communicate to find a list of slots for each person on a given format</li><li>Code matches the slots to find the intersection</li><li>The classifier picks the slot</li></ol>
+<p>If Alice is not a morning person and want that to be taken into account, a classifier can do it. If the classifier confidence is lower than Bob&#x27;s requirements, it can escalate options to Bob for him to confirm.</p>
+<p>It adds more structure and control, compared to LLMs, while not going all the way to the limits of determinism where we don&#x27;t want it.</p>
+<p>I&#x27;m not saying this is it&#x27;s killer use-case. I&#x27;m particularly more interested in using it in safety classifiers, as using Anthropic&#x27;s auto-mode doesn&#x27;t feel like the best choice (specially in light of recent hacks); and in using it for sensors and controllers/gates on the software factory setting.</p>
+<p>LLMs have been the hammer for every single nail for too long already, finally something is changing.</p>
+                    </div>
+                    <footer class="end">
+                        <div class="discuss">
+                            <a class="btn pri ext" href="https://leaflet.pub/p/did:plc:7dv3qlilrrooaptgmonjux32/3mvzowngf3c2v">comment on leaflet</a>
+                            <a class="btn ext" href="https://bsky.app/profile/bugarela.com/post/3mvzowr5nic2v">discuss on bluesky</a>
+                        </div>
+                        <p class="src">powered by <a href="https://atproto.com/guides/glossary#pds-personal-data-server">PDS</a> and the <a href="https://atproto.com">ATmosphere</a></p>
+                    </footer>
+                </article>
+            </main>
+<footer class="foot"><span>bugarela.com</span><span class="social"><a href="https://github.com/bugarela" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/bugarela/" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a><a href="https://bsky.app/profile/bugarela.com" aria-label="Bluesky" title="Bluesky"><i class="fa-brands fa-bluesky" aria-hidden="true"></i></a><a rel="me" href="https://types.pl/@bugarela" aria-label="Mastodon" title="Mastodon"><i class="fa-brands fa-mastodon" aria-hidden="true"></i></a><a href="https://twitter.com/bugarela" aria-label="Twitter" title="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></span></footer>        </div>
+    </body>
+</html>
