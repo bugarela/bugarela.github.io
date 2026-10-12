@@ -40,8 +40,10 @@ $if(writing-index)$
                     <h1>$title$</h1>
                     <p class="intro">$dek$</p>
                     <div class="subs">
-                        <a class="btn pri ext" href="https://leaflet.pub/p/did:plc:7dv3qlilrrooaptgmonjux32">subscribe on leaflet</a>
-                        <a class="btn ext" href="https://bsky.app/profile/bugarela.com">follow on bluesky</a>
+$if(subscribe-url)$
+                        <a class="btn pri ext" href="$subscribe-url$">subscribe on leaflet</a>
+$endif$
+                        <a class="btn$if(subscribe-url)$$else$ pri$endif$ ext" href="https://bsky.app/profile/bugarela.com">follow on bluesky</a>
                     </div>
 $body$
                 </section>

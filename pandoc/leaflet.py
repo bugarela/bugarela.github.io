@@ -4,8 +4,8 @@
   leaflet.py fetch           pull posts + images from the PDS into the repo
   leaflet.py pages <dir>     write one pandoc-ready .md per post (+ index.md)
 
-`fetch` stores a snapshot in writing/posts.json and images/writing/, both
-committed, so a build without network still renders the last known posts.
+`fetch` stores a snapshot in writing/posts.json, writing/publications.json
+and images/writing/, all committed, so a build without network still renders the last known posts.
 `pages` turns Leaflet blocks into HTML and wraps it in a markdown file whose
 YAML header feeds pandoc/template-writing.html.
 """
@@ -24,8 +24,10 @@ from datetime import datetime
 
 HANDLE_DID = "did:plc:7dv3qlilrrooaptgmonjux32"  # bugarela.com
 COLLECTION = "site.standard.document"
+PUB_COLLECTION = "site.standard.publication"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SNAPSHOT = os.path.join(ROOT, "writing", "posts.json")
+PUBS = os.path.join(ROOT, "writing", "publications.json")
 IMG_DIR = os.path.join(ROOT, "images", "writing")
 IMG_URL = "../images/writing/"  # relative to docs/writing/*.html
 MONTHS = "jan feb mar apr may jun jul aug sep oct nov dec".split()
@@ -46,10 +48,10 @@ def pds_for(did):
     raise RuntimeError("no PDS in DID document")
 
 
-def list_records(pds, did):
+def list_records(pds, did, collection=COLLECTION):
     out, cursor = [], None
     while True:
-        q = {"repo": did, "collection": COLLECTION, "limit": "100"}
+        q = {"repo": did, "collection": collection, "limit": "100"}
         if cursor:
             q["cursor"] = cursor
         page = get_json(f"{pds}/xrpc/com.atproto.repo.listRecords?" + urllib.parse.urlencode(q))
@@ -107,7 +109,12 @@ def fetch():
     os.makedirs(os.path.dirname(SNAPSHOT), exist_ok=True)
     with open(SNAPSHOT, "w", encoding="utf-8") as f:
         json.dump(recs, f, ensure_ascii=False, indent=1)
-    print(f"   {len(recs)} posts from {pds}")
+    # publication records map a post's at:// `site` to the publication's web URL
+    pubs = {p["uri"]: {"name": p["value"].get("name", ""), "url": p["value"].get("url", "")}
+            for p in list_records(pds, HANDLE_DID, PUB_COLLECTION)}
+    with open(PUBS, "w", encoding="utf-8") as f:
+        json.dump(pubs, f, ensure_ascii=False, indent=1)
+    print(f"   {len(recs)} posts, {len(pubs)} publications from {pds}")
 
 
 # --------------------------------------------------------------- render ----
@@ -315,11 +322,22 @@ def pages(outdir):
         recs = json.load(open(SNAPSHOT, encoding="utf-8"))
     except FileNotFoundError:
         recs = []
+    try:
+        pubs = json.load(open(PUBS, encoding="utf-8"))
+    except FileNotFoundError:
+        pubs = {}
     seen, entries = set(), []
     for r in recs:
         v = r["value"]
         pages_ = (v.get("content") or {}).get("pages") or [{}]
-        leaflet_url = v.get("site", "").rstrip("/") + v.get("path", "")
+        # looseleafs have an https `site`; publication posts point at the
+        # publication record and live under its URL
+        site = v.get("site", "")
+        if site.startswith("at://"):
+            site = pubs.get(site, {}).get("url", "")
+            if not site:
+                print(f"   warning: unknown publication for {r['uri']}, run with --fetch")
+        leaflet_url = site.rstrip("/") + v.get("path", "") if site else ""
         body, wc = render_blocks(pages_[0].get("blocks", []), leaflet_url)
         slug = slugify(v.get("title", ""))
         if slug in seen:
@@ -350,7 +368,9 @@ def pages(outdir):
             else '<p class="intro">nothing here yet.</p>')
     md_file(os.path.join(outdir, "index.md"),
             {"title": "writing", "writing-index": True,
-             "dek": "Lightweight posts I write on Leaflet and render here for maxxing style control."},
+             "dek": "Lightweight posts I write on Leaflet and render here for maxxing style control.",
+             # only one publication for now; no button until it exists
+             "subscribe-url": next((p["url"] for p in pubs.values() if p["url"]), "")},
             body)
     print(f"   {len(entries)} posts rendered")
 
