@@ -348,6 +348,7 @@ def pages(outdir):
             "title": v.get("title", ""),
             "dek": v.get("description", ""),
             "date-human": when,
+            "date-iso": v["publishedAt"],
             "year": str(d.year),
             "read": f"{max(1, math.ceil(wc / 200))} min read",
             "leaflet-url": leaflet_url,
@@ -360,7 +361,7 @@ def pages(outdir):
     # index: one flat list, newest first (no year groups until there are more posts)
     items = [
         f'<li><a href="{slug}.html">'
-        f'<span class="when"><time datetime="{d.date().isoformat()}">{d.day} {MONTHS[d.month - 1]}</time>'
+        f'<span class="when"><time datetime="{esc(m["date-iso"])}" data-local-date="short">{d.day} {MONTHS[d.month - 1]}</time>'
         f'<span>{m["read"]}</span></span>'
         f'<div class="txt"><h3>{esc(m["title"])}</h3><p>{esc(m["dek"])}</p></div></a></li>'
         for d, slug, m in entries]

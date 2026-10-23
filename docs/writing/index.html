@@ -43,9 +43,25 @@ Leaflet and render here for maxxing style control.</p>
                         <a class="btn pri ext" href="https://bugarela.leaflet.pub">subscribe on leaflet</a>
                         <a class="btn ext" href="https://bsky.app/profile/bugarela.com">follow on bluesky</a>
                     </div>
-<ul class="entries"><li><a href="human-skills-for-software-jobs-2026-edition.html"><span class="when"><time datetime="2026-10-23">23 oct</time><span>3 min read</span></span><div class="txt"><h3>(Human) skills for software jobs 2026 edition</h3><p>What should beginners learn to be good developers now? No one knows</p></div></a></li><li><a href="initial-thoughts-on-jev.html"><span class="when"><time datetime="2026-09-21">21 sep</time><span>3 min read</span></span><div class="txt"><h3>Initial thoughts on Jev</h3><p>I&#x27;m very excited with TypeSafe AI launch of Jev and wrote a bit about why</p></div></a></li><li><a href="thoughts-on-first-months-as-ceo.html"><span class="when"><time datetime="2026-08-30">30 aug</time><span>3 min read</span></span><div class="txt"><h3>Thoughts on first months as CEO</h3><p>First leaflet post, trying to expand my writing from just linkedin posts :)</p></div></a></li></ul>
+<ul class="entries"><li><a href="human-skills-for-software-jobs-2026-edition.html"><span class="when"><time datetime="2026-10-23T00:32:11.458Z" data-local-date="short">23 oct</time><span>3 min read</span></span><div class="txt"><h3>(Human) skills for software jobs 2026 edition</h3><p>What should beginners learn to be good developers now? No one knows</p></div></a></li><li><a href="initial-thoughts-on-jev.html"><span class="when"><time datetime="2026-09-21T12:16:41.804Z" data-local-date="short">21 sep</time><span>3 min read</span></span><div class="txt"><h3>Initial thoughts on Jev</h3><p>I&#x27;m very excited with TypeSafe AI launch of Jev and wrote a bit about why</p></div></a></li><li><a href="thoughts-on-first-months-as-ceo.html"><span class="when"><time datetime="2026-08-30T23:05:17.163Z" data-local-date="short">30 aug</time><span>3 min read</span></span><div class="txt"><h3>Thoughts on first months as CEO</h3><p>First leaflet post, trying to expand my writing from just linkedin posts :)</p></div></a></li></ul>
                 </section>
             </main>
 <footer class="foot"><a class="mark" href="../" aria-label="Home" title="Home"><img src="../images/favicon.svg" alt="" width="33" height="33"></a><span class="colophon">built with <a href="https://orgmode.org">org-mode</a> and <a href="https://pandoc.org">pandoc</a></span><span class="social"><a href="https://github.com/bugarela" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/bugarela/" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a><a href="https://bsky.app/profile/bugarela.com" aria-label="Bluesky" title="Bluesky"><i class="fa-brands fa-bluesky" aria-hidden="true"></i></a><a rel="me" href="https://types.pl/@bugarela" aria-label="Mastodon" title="Mastodon"><i class="fa-brands fa-mastodon" aria-hidden="true"></i></a><a href="https://twitter.com/bugarela" aria-label="Twitter" title="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></span></footer>        </div>
+        <script>
+        // No explicit timeZone: use each visitor's browser timezone.
+        document.querySelectorAll('time[data-local-date]').forEach(function (element) {
+            var date = new Date(element.getAttribute('datetime'));
+            if (!Number.isFinite(date.getTime())) return;
+            var full = element.dataset.localDate === 'full';
+            var options = { day: 'numeric', month: 'short' };
+            if (full) options.year = 'numeric';
+            element.textContent = new Intl.DateTimeFormat('en-GB', options).format(date).toLowerCase();
+            if (full) {
+                var article = element.closest('article');
+                var year = article && article.querySelector('[data-publication-year]');
+                if (year) year.textContent = new Intl.DateTimeFormat('en-GB', { year: 'numeric' }).format(date);
+            }
+        });
+        </script>
     </body>
 </html>

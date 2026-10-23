@@ -38,12 +38,12 @@ AI launch of Jev and wrote a bit about why">
     <a href="../pi/">pi</a>
 </nav>            <main class="wrap">
                 <article class="post">
-                    <nav class="crumb" aria-label="Breadcrumb"><a href="./">writing</a><span>/</span><span>2026</span></nav>
+                    <nav class="crumb" aria-label="Breadcrumb"><a href="./">writing</a><span>/</span><span data-publication-year>2026</span></nav>
                     <h1>Initial thoughts on Jev</h1>
                     <p class="dek">I’m very excited with TypeSafe AI
 launch of Jev and wrote a bit about why</p>
-                    <div class="meta"><span>21 sep 2026</span><span>3
-min
+                    <div class="meta"><span><time datetime="2026-09-21T12:16:41.804Z" data-local-date="full">21
+sep 2026</time></span><span>3 min
 read</span><a class="ext" href="https://leaflet.pub/p/did:plc:7dv3qlilrrooaptgmonjux32/3mvzowngf3c2v">via leaflet</a></div>
                     <div class="body">
 <p class="lead">Here are some thoughts on Jev after trying it over the weekend.</p>
@@ -71,5 +71,21 @@ read</span><a class="ext" href="https://leaflet.pub/p/did:plc:7dv3qlilrrooaptgmo
                 </article>
             </main>
 <footer class="foot"><a class="mark" href="../" aria-label="Home" title="Home"><img src="../images/favicon.svg" alt="" width="33" height="33"></a><span class="colophon">built with <a href="https://orgmode.org">org-mode</a> and <a href="https://pandoc.org">pandoc</a></span><span class="social"><a href="https://github.com/bugarela" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/bugarela/" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a><a href="https://bsky.app/profile/bugarela.com" aria-label="Bluesky" title="Bluesky"><i class="fa-brands fa-bluesky" aria-hidden="true"></i></a><a rel="me" href="https://types.pl/@bugarela" aria-label="Mastodon" title="Mastodon"><i class="fa-brands fa-mastodon" aria-hidden="true"></i></a><a href="https://twitter.com/bugarela" aria-label="Twitter" title="Twitter"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></span></footer>        </div>
+        <script>
+        // No explicit timeZone: use each visitor's browser timezone.
+        document.querySelectorAll('time[data-local-date]').forEach(function (element) {
+            var date = new Date(element.getAttribute('datetime'));
+            if (!Number.isFinite(date.getTime())) return;
+            var full = element.dataset.localDate === 'full';
+            var options = { day: 'numeric', month: 'short' };
+            if (full) options.year = 'numeric';
+            element.textContent = new Intl.DateTimeFormat('en-GB', options).format(date).toLowerCase();
+            if (full) {
+                var article = element.closest('article');
+                var year = article && article.querySelector('[data-publication-year]');
+                if (year) year.textContent = new Intl.DateTimeFormat('en-GB', { year: 'numeric' }).format(date);
+            }
+        });
+        </script>
     </body>
 </html>

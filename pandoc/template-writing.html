@@ -49,12 +49,12 @@ $body$
                 </section>
 $else$
                 <article class="post">
-                    <nav class="crumb" aria-label="Breadcrumb"><a href="./">writing</a><span>/</span><span>$year$</span></nav>
+                    <nav class="crumb" aria-label="Breadcrumb"><a href="./">writing</a><span>/</span><span data-publication-year>$year$</span></nav>
                     <h1>$title$</h1>
 $if(dek)$
                     <p class="dek">$dek$</p>
 $endif$
-                    <div class="meta"><span>$date-human$</span><span>$read$</span><a class="ext" href="$leaflet-url$">via leaflet</a></div>
+                    <div class="meta"><span>$if(date-iso)$<time datetime="$date-iso$" data-local-date="full">$date-human$</time>$else$$date-human$$endif$</span><span>$read$</span><a class="ext" href="$leaflet-url$">via leaflet</a></div>
                     <div class="body">
 $body$
                     </div>
@@ -72,5 +72,21 @@ $endif$
             </main>
 $footer.html()$
         </div>
+        <script>
+        // No explicit timeZone: use each visitor's browser timezone.
+        document.querySelectorAll('time[data-local-date]').forEach(function (element) {
+            var date = new Date(element.getAttribute('datetime'));
+            if (!Number.isFinite(date.getTime())) return;
+            var full = element.dataset.localDate === 'full';
+            var options = { day: 'numeric', month: 'short' };
+            if (full) options.year = 'numeric';
+            element.textContent = new Intl.DateTimeFormat('en-GB', options).format(date).toLowerCase();
+            if (full) {
+                var article = element.closest('article');
+                var year = article && article.querySelector('[data-publication-year]');
+                if (year) year.textContent = new Intl.DateTimeFormat('en-GB', { year: 'numeric' }).format(date);
+            }
+        });
+        </script>
     </body>
 </html>
