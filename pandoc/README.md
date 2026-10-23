@@ -68,5 +68,35 @@ through for MathJax), `#+OPTIONS: num:/toc:`.
 - Leaflet blocks without a site equivalent render as a link to the post on Leaflet.
 - To publish a new post here: post on Leaflet, run `bash pandoc/build.sh --fetch`, commit, push.
 
+### Preview an unpublished draft
+
+```sh
+nix run .#preview-leaflet -- 'https://leaflet.pub/<draft-id>' --serve
+# Open http://127.0.0.1:8765/writing/draft.html; Ctrl-C stops the server.
+```
+
+The flake supplies Python and pandoc with pinned dependencies. `nix develop`
+(or direnv via `.envrc`) also makes `preview-leaflet` available on PATH.
+Until new flake/script files are tracked by Git, use `nix run path:.#preview-leaflet`
+instead. The packaged app includes a snapshot of the current templates and assets;
+rerun `nix run` after editing them.
+
+Without Nix: `python3 pandoc/preview-leaflet.py '<url>' --serve`.
+Requires Python 3, pandoc and network access. Uses the current renderer, template
+and CSS, downloading draft images into a temporary directory without changing
+site files. Use `--out /tmp/my-preview` to choose the directory, or `--port 8766`
+if the default port is occupied. Without `--serve`, it only generates files.
+
+This is a best-effort extraction of Leaflet's public draft HTML, not an end-to-end
+check of the published AT Protocol record. Basic text formatting and images are
+supported; complex embeds and other editor features may not be reproduced.
+Footnote bodies aren't present in the visible HTML: missing bodies show a warning
+and placeholder. To include them, use `--footnotes /tmp/notes.json`, where the file
+maps the footnote IDs printed by the script to plain-text bodies:
+
+```json
+{"<footnote-id>": "The text of the note."}
+```
+
 Shared partials: `nav.html` (site nav, lowercase labels) and `footer.html`.
 
